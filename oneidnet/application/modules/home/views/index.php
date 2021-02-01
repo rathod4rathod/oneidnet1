@@ -60,6 +60,11 @@ if ($gender == "MALE") {
                     <img src="<?php echo base_url(); ?>assets/Images/oneidlogo.png" class="oneidLogo_topheader">   
                 </div>
 
+                <div class=" mar1pstg">
+                    <!-- <p class="uparrow_div fullIframe flr"><a href="#" > <img src="assets/Images/uparrow.png">   </a></p> -->                    
+                    <p class="myuparrow_div minimizeIframe fll" ><a href="#"> <img src="assets/Images/minicollapse.png"> <span>Return to system</span> </a></p> 
+                </div>   
+             
                 <div class="moduleProfileInfoWrap">
                     <span class="moduleProfileInfoPicWrap">
                         <a href="#">
@@ -76,12 +81,6 @@ if ($gender == "MALE") {
                         </a>
                     </span>     
                 </div>
-
-                <div class="overflow mar1pstg">
-                    <p class="uparrow_div fullIframe flr"><a href="#" > <img src="assets/Images/uparrow.png">   </a></p>
-                    <p class="uparrow_div minimizeIframe flr"><a href="#"> <img src="assets/Images/minicollapse.png">  </a></p> 
-
-                </div>   
 
             </div>
 
@@ -102,15 +101,19 @@ if ($gender == "MALE") {
                 <div class="systemTopOuterWrapper">
                     <div class="globalInfoWrapper">
                         <div class="globalInfoContent">
-
-                            <div class="btns expandIframe themeIcon_expand fll sprite-029-minimise sprite sprite-OD073_fullscreen " id="expanddiv" title="Full Screen">
-                        <!--<img src="<?php echo base_url() . 'assets/' ?>Images/minimise.png" title ="Expand" class="themeIcon_expand" id="expanddiv">-->
+                              <div class="myfullscreen">
+                                <div class="btns expandIframe themeIcon_expand fll sprite-029-minimise sprite sprite-OD073_fullscreen " id="expanddiv" title="Full Screen">
+                            <!--<img src="<?php echo base_url() . 'assets/' ?>Images/minimise.png" title ="Expand" class="themeIcon_expand" id="expanddiv">-->
+                                </div>
                             </div>
 
-                            <div class="logoutBtn" title="Logout">
+                            <div class="logoutBtn mylogoutBtn " title="Logout">
+                                <a  href="<?php echo base_url() . 'index.php/login/doLogout'?>" class="MyLogout"> 
+                                <i class="sprite sprite-OD075_logout"></i><span>Logout</span>                                    
+                                </a>
                                 <!--<a href="<?php echo base_url() . 'index.php/login/doLogout' ?>" style="color: white;" class="oneidnetlogout" ></a>-->
-
-                                <a href="<?php echo base_url() . 'index.php/login/doLogout'?>" style="color: white;width: 25px;height: 25px;display:inline-block;" > <i class="sprite sprite-OD075_logout"></i></a>
+                                 <!-- <span class="mybutton"></span></a> -->
+                                <!-- <a href="<?php //echo base_url() . 'index.php/login/doLogout'?>" style="color: white;width: 25px;height: 25px;display:inline-block;" > <i class="sprite sprite-OD075_logout"></i></a> -->
 
                             </div>
 
@@ -118,12 +121,11 @@ if ($gender == "MALE") {
 
                             <span class="globalProfileInfoWrapper">
                                 <span class="profilePic">
-
                                     <img src="<?php if ($img_path) {
-    echo base_url() . 'data/' . $img_path;
-} else {
-    echo $img;
-} ?>" id="profile_image_tag" title="User Profile Picture">
+                                    echo base_url() . 'data/' . $img_path;
+                                } else {
+                                    echo $img;
+                                } ?>" id="profile_image_tag" title="User Profile Picture">
                                 </span>
                                 <h1 id="userFullName_home"><?php echo $first_name . " " . $last_name; ?></h1>
                                 <h4 id="email_homepg"><?php echo $email; ?></h4>

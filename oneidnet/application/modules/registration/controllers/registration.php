@@ -274,7 +274,7 @@ class Registration extends CI_Controller {
       $emailerror = $this->db_api->custom( "select profile_id,existing_email_id  from iws_profiles where existing_email_id='".$s_existing_email."'");
 
       if($emailerror!=0){
-          echo "Existing Mail Already Exist";
+          echo "Alternate E-mail Already Exists";
           die();
       }
 
@@ -297,7 +297,6 @@ class Registration extends CI_Controller {
                      "360mail_key"=>$mail360_pass_hash
           );
       
-
      $a_data=$this->test_input($a_data);
                         $s_tbl ="iws_profiles";
                         $insert_result = $this->db_api->insert($a_data, $s_tbl); 

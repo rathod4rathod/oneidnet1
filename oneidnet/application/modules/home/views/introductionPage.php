@@ -38,7 +38,7 @@
         <div class="introdes_text">
         	<span class="introdes_Activation">
                     <p style=''>We have sent you an activation link to your existing e-mail.</p>
-            <p style="margin-bottom:0px;">In case you did not receive an e-mail, <a href="" id="resend_activation" style="color:#2084b9; text-decoration:none; font-weight:bold;">Click here</a> to request new Activation link.<br></p>
+            <p style="margin-bottom:0px;">In case you did not receive an e-mail, <a href="" id="resend_activation" style="color:#2084b9; text-decoration:none; font-weight:bold;">click here</a> to request a new activation link.<br></p>
             <!--<span id="oneidnet_verfimsg" style="display: none;  margin: 5px 0 0 0; font-size:20px;  color: hsla(60,43%,50%,1);"></span>--> <!-- Don't delete this status label-->
             <h3 id="oneidnet_verfimsg" style="display:none;">
             </h3>
