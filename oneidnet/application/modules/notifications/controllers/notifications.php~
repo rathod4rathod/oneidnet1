@@ -1,0 +1,39 @@
+<?php
+if(!$_SESSION){
+  session_start();
+}
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+class Notifications extends CI_Controller {
+  function __construct() {
+    parent::__construct();
+    $this->load->module('db_api');        
+  }
+  function index() {}
+  // buzzin main view for display the notifications by Pavani on 19-08-2015
+  function buzzin_notify_main(){
+    $this->load->view("notifications/buzzin_notify_view");
+  }
+  // buzzin notifications template by Pavani on 19-08-2015
+  function buzzin_notify_tpl(){
+    $dbapi=$this->load->module("db_api");
+    $result=$dbapi->select("count(*) as cnt,notification_type","buzzin_notifications","is_read=0 and to_userid=".$_SESSION["user_id"]." group by notification_type");      
+    $data["notifications"]=$result;
+    //print_r($data);
+    $this->load->view("notifications/buzzin_notify_tpl",$data);
+  }
+  // click main view for display the notifications by Pavani on 19-08-2015
+  function click_notify_main(){
+    $this->load->view("notifications/click_notify_view");
+  }
+  // click notifications template by Pavani on 19-08-2015
+  function click_notify_tpl(){
+    $dbapi=$this->load->module("db_api");
+    $result=$dbapi->select("count(*) as cnt,type","click_notifications","is_read=0 and user_id=".$_SESSION["user_id"]." and type IN ('INVITATION_FOR_EVENT','LIKED_YOUR_POST','SHARED_YOUR_POST','INVITATION_RCVD_TO_LIKE_PAGE','POST_IN_YOUR_PAGE','COMMENTED_ON_EVENT_POST','POST_FOR_YOUR_EVENT','NEW_REQUEST_RCVD_TO_JOIN_GROUP','FRIENDS_BIRTHDAY','COMMENTED_ON_GROUP_POST','COMMENTED_ON_PAGE_POST','COMMENTED_ON_YOUR_POST','LIKED_PAGE_POST','LIKED_GROUP_POST') group by type");
+    $fresult=$dbapi->select("count(*) as cnt","click_friends_requests","user_id_fk=".$_SESSION["user_id"]);
+    //$notify_result=  array_merge($result,$fresult);
+    $data["notifications"]=$result;
+    $data["friends_requests"]=$fresult;
+    //var_dump($data);
+    $this->load->view("notifications/click_notify_tpl",$data);
+  }
+}

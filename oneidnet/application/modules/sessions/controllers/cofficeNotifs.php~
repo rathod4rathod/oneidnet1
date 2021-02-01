@@ -1,0 +1,55 @@
+<?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class CofficeNotifs extends CI_Controller {
+function __construct() {
+        session_start();
+        parent::__construct();
+        $this->load->module('db_api');        
+    }
+    function index() {
+        echo 'ddd';
+    }
+    function cofficeNotifs(){
+        if (isset($_SESSION['logged_company']["company_id"])) {
+            $onedev_dbnoti_object = $this->load->module('db_api');
+            $onedev_s_viwapnotiQ = 'select prof.username,apl.rec_aid,jbs.role from co_jobs_applicant as apl,co_jobs as jbs,iws_profiles as prof '
+                    . 'where apl.notif="0" and apl.candidate_id_fk=prof.profile_id and jbs.job_id=apl.job_id_fk and jbs.company_id_fk="' . $_SESSION['logged_company']['company_id'] . '"';
+            $usrsresult['jobappl_result'] = $onedev_dbnoti_object->custom($onedev_s_viwapnotiQ); // get job applicants notifs which are not seen
+print_R($onedev_s_viwapnotiQ);die();
+            $onedev_s_UTC = new DateTimeZone("UTC");
+            $onedev_dateqg = new DateTime(date('Y-m-d H:i:s'), $onedev_s_UTC);
+            $onedev_datecurntd = $onedev_dateqg->format('Y-m-d H:i:s'); //current date and time
+            $onedev_s_viwapnotiQ = 'select c.call_id,c.subject,c.call_time_from,c.remind_me_before from co_calls as c'
+                    . ' where c.notif_status="0" and c.call_time_from>"' . $onedev_datecurntd . '" and c.is_set_reminder="Yes" and c.created_by_fk="' . $_SESSION['logged_company']['user_id'] . '"';
+            $calls_result = $onedev_dbnoti_object->custom($onedev_s_viwapnotiQ); // get calls which are not seen
+            foreach ($calls_result as $calls) {
+              $remind_me_before = $calls['remind_me_before'];
+              $onedev_f = strtotime("-" . $remind_me_before, strtotime($calls['call_time_from']));
+              $onedev_dateh = new DateTime(date('Y-m-d H:i:s', $onedev_f), $onedev_s_UTC);
+              $onedev_datecheck = $onedev_dateh->format('Y-m-d H:i:s'); // last remind_me_before date's date and time
+              if ($onedev_datecurntd >= $onedev_datecheck) {
+                $fcalls[] = $calls;
+              }
+            }
+            $usrsresult['calls_results'] = $fcalls;
+
+            $onedev_s_viwapnotiQ = 'select m.meeting_aid,m.subject,m.from_time,m.remind_me_before from co_meetings as m'
+                    . ' where m.notif_status="0" and m.from_time>"' . $onedev_datecurntd . '" and m.is_set_reminder="Yes" and m.meeting_set_by="' . $_SESSION['logged_company']['user_id'] . '"';
+            $meetings_result = $onedev_dbnoti_object->custom($onedev_s_viwapnotiQ); // get meetings which are not seen
+            foreach ($meetings_result as $meetings) {
+              $remind_me_before = $meetings['remind_me_before'];
+              $onedev_f = strtotime("-" . $remind_me_before, strtotime($meetings['from_time']));
+              $onedev_dateh = new DateTime(date('Y-m-d H:i:s', $onedev_f), $onedev_s_UTC);
+              $onedev_datecheck = $onedev_dateh->format('Y-m-d H:i:s'); // last remind_me_before date's date and time
+              if ($onedev_datecurntd >= $onedev_datecheck) {
+                //echo 'd';
+                $fmeetings[] = $meetings;
+              }
+            }
+            $usrsresult['meetings_results'] = $fmeetings;
+            $this->load->view('co_notifs', $usrsresult);
+        }
+    }
+}

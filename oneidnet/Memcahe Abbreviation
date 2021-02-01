@@ -1,0 +1,5 @@
+
+MEMCACHING_CODE                 DESCRIPTION
+===========================================
+USRDTA_[USER_ID]                User Full Detail while Login.
+UWEATHERDT_[USER_ID]            User's belonging Temperature, Sky status and date.

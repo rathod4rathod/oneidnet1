@@ -1,0 +1,725 @@
+<?php
+  $this->load->module('templates');
+  $this->templates->index_header(  );
+  $this->session->userdata('user_id');
+  
+?>
+<body>
+<div class="oneidsystemPopup trashPopup">
+	<span class="oneidsystemPopupCloseBtn">X</span>
+    <div class="trashpopUpWrapper">
+    	<ul></ul>
+        <div class="trashPopUpFooter">
+        	<span class="trashFooterOptions">
+            <button class="selectAll">Select All</button>
+            <button>Cancel</button>
+            <button>Restore</button>
+            <button class="restoreAll">Restore All</button>
+          </span>
+        </div>
+    </div>
+</div>
+
+<div class="oneidsystemPopup settingsPopup">
+	<span class="oneidsystemPopupCloseBtn">X</span>
+    <div class="trashpopUpWrapper">
+    	<ul></ul>
+        <div class="trashPopUpFooter">
+        	<span class="trashFooterOptions">
+            <button>Cancel</button>
+            <button>Save</button>
+          </span>
+        </div>
+    </div>
+</div>
+
+<div class="oneidsystemPopup paybookPopup">
+	<span class="oneidsystemPopupCloseBtn">X</span>
+    <div class="trashpopUpWrapper">
+    	<ul></ul>
+        <div class="trashPopUpFooter">
+        	<span class="trashFooterOptions">
+            <button>Cancel</button>
+            <button>Save</button>
+          </span>
+        </div>
+	</div>
+</div>
+
+<div class="oneidsystemPopup aboutMePopup">
+	<span class="oneidsystemPopupCloseBtn">X</span>
+    <div class="trashpopUpWrapper">
+    	<ul></ul>
+    </div>
+</div>
+
+
+<div class="mainWrapper">
+
+	<img src="<?php  echo base_url().'assets/'?>Images/giphy (1).gif" class="bgWall">
+  <div class="bg_trans"></div>
+
+  <!--System Top Section Ends Here Vinod (18-08-2015)-->
+  <div class="systemWrapper">
+    <div class="systemTopWrapper">
+      <div class="topLeftWrapper">
+        <img src="<?php  echo base_url().'assets/'?>Images/oneidlogo.png" class="oneidLogo">
+      </div>
+
+      <div class="systemTopOuterWrapper">
+        <div class="globalInfoWrapper">
+        	<div class="globalInfoContent">
+            <span class="globalProfileInfoWrapper">
+              <span class="profilePic">
+                  <?php if($loginuserdata[0]['img_path']==''){
+                      
+                    if($loginuserdata[0]['gender']=='MALE'){  ?>
+                  <img src="<?php  echo base_url().'assets/'?>Images/contentImages/person.png">
+                    <?php }else{ ?>
+                     <img src="<?php  echo base_url().'assets/'?>Images/contentImages/female.png">
+                    <?php }
+                       }else{?>
+                  <img src="">
+                 <?php } ?>
+              </span>
+                <h1><?php  echo ucfirst($loginuserdata[0]['first_name']). $loginuserdata[0]['middle_name'] .ucfirst($loginuserdata[0]['last_name']) ?></h1>
+                <h4><?php  echo $loginuserdata[0]['email'] ?></h4>
+            </span>
+            <span class="globalWeather">
+              <img src="<?php  echo base_url().'assets/'?>Images/weather1.png" class="weatherIcon">
+                <span class="weather"><h1><?php echo $temperature; ?>&deg C</h1></span>
+                <span class="location"><h4><?php echo ucfirst($countryname[0]['country_name']) ?></h4></span>
+            </span>
+            <span class="globalDate">
+                	<img src="<?php  echo base_url().'assets/'?>Images/oneidCalendar1.png"><h1>31</h1><h2>Fri</br>Sep</h2>
+            </span>
+            <span class="globalTime"><img src="<?php  echo base_url().'assets/'?>Images/clock.png"><h1><?php echo $time ?></h1></span>
+          </div>
+        </div>
+
+					<!--System Top Module Container Starts Here vinod(18-08-2015)-->
+					<div class="topModulesContainer">
+							<div class="topMicroModuleWrapper mmw" id="mail">
+									<div class="mmHeader mail" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="Images/delete.png"></li>
+															<li class="mmhoRestore"><p>2</p></li>
+													</ul>
+											</span>
+									</div>
+									<div class="mmContainer" id="mailContainer">
+											<div class="microMailContentWrapper mail">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper"><img src="Images/contentImages/mail.png"></span>
+																					<span class="mmcTextWrapper">
+																					<h2>12</h2>
+																					<p>New Mails Received from Vinod Kumar</p>
+																					</span>
+																					<div class="mmcMarqueWrapper">
+																							<marquee class="mmcmarqueClass">Hi vinod you got 12 new mails in your inbox</marquee>
+																					</div>
+																			</div>
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="Images/contentImages/mail.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>12 New events</h2>
+																					</span>
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+
+							<div class="topMicroModuleWrapper mmw" id="netpro">
+									<div class="mmHeader netpro" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="Images/delete.png"></li>
+															<li class="mmhoRestore"><p><?php  echo $netpronotifications[0]['totalnotifications']?></p></li>
+													</ul>
+											</span>
+									</div>
+
+									<div class="mmContainer" id="netproContainer">
+											<div class="microNetproContentWrapper netpro">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+                                                                                                                                          
+                                                                                                                                                                        
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php echo base_url().'assets/Images/contentImages/persons.png'?>"></span>
+																					
+                                                                                                                                                                            <span class="mmcTextWrapper3">
+                                                                                                                                                                                        <?php if($netpronotifications[0]['connectionnotifications']>0){ ?>
+																							<h2><?php  echo $netpronotifications[0]['connectionnotifications'] ?>  Connection Request</h2>
+                                                                                                                                                                                        <?php }else{ ?>
+                                                                                                                                                                                        <h2><?php  echo "0" ?>  Connection Request</h2>
+                                                                                                                                                                                       
+                                                                                                                                                                                         <?php } ?>
+																					</span>
+                                                                                                                                                                        
+                                                                                                                                                                        
+																			</div>
+                                                                                                                                            
+                                                                                                                                          
+                                                                                                                                             
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php echo base_url().'assets/Images/contentImages/comment.png'?>"></span>
+																					<span class="mmcTextWrapper3">
+                                                                                                                                                                            <?php  if($netpronotifications[0]['commentnotifications']>0){ ?>
+																							<h2><?php  echo $netpronotifications[0]['commentnotifications'] ?> Comments </h2>
+                                                                                                                                                                               <?php }else{ ?>
+                                                                                                                                                                                        <h2><?php  echo "0" ?>  Comments </h2>
+                                                                                                                                                                                       
+                                                                                                                                                                                         <?php } ?>       
+																					</span>
+																			</div>
+                                                                                                                                               
+                                                                                                                                             
+                                                                                                                                                             <div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php echo base_url().'assets/Images/contentImages/post.jpg'?>"></span>
+																					<span class="mmcTextWrapper3">
+                                                                                                                                                                             <?php if($netpronotifications[0]['postnotifications']>0){ ?>
+                                                                                                                                           
+																							<h2><?php  echo $netpronotifications[0]['postnotifications'] ?>New Posts </h2>
+																					                <?php }else{ ?>
+                                                                                                                                                                                        <h2><?php  echo "0" ?>  Posts </h2>
+                                                                                                                                                                                       
+                                                                                                                                                                                         <?php } ?>  
+                                                                                                                                                                        </span>
+																			</div>
+                                                                                                                                              
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+
+							<div class="topMicroModuleWrapper mmw" id="cvbank">
+									<div class="mmHeader cvbank" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="Images/delete.png"></li>
+															<li class="mmhoRestore"><p>2</p></li>
+													</ul>
+											</span>
+									</div>
+
+									<div class="mmContainer" id="cvbankContainer">
+											<div class="microCvbankContentWrapper cvbank">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="Images/contentImages/view.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>2 document views</h2>
+																					</span>
+																			</div>
+
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper"><img src="Images/contentImages/cv.png"></span>
+																					<span class="mmcTextWrapper">
+																							<h2>12</h2>
+																							<p>companies downloaded cv</p>
+																					</span>
+																					<div class="mmcMarqueWrapper">
+																							<marquee class="mmcmarqueClass">12 companies downloaded your CV's</marquee>
+																					</div>
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+
+							<div class="topMicroModuleWrapper mmw" id="findit">
+									<div class="mmHeader findit" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+															<li class="mmhoRestore"><p>2</p></li>
+													</ul>
+											</span>
+									</div>
+
+									<div class="mmContainer" id="finditContainer">
+											<div class="microFinditContentWrapper findit">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/find.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>Index your page with us</h2>
+																					</span>
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+
+							<div class="topMicroModuleWrapper mmw" id="oneshop">
+									<div class="mmHeader oneshop" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+															<li class="mmhoRestore"><p>2</p></li>
+													</ul>
+											</span>
+									</div>
+
+									<div class="mmContainer" id="oneshopContainer">
+											<div class="microOneshopContentWrapper oneshop">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/cart.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>31 New Products views</h2>
+																					</span>
+																			</div>
+
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/store.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>5 New Stores</h2>
+																					</span>
+																			</div>
+																	</div>
+															</div>
+													</div>
+											</div>
+									</div>
+							</div>
+
+							<div class="topMicroModuleWrapper mmw" id="cooffice">
+									<div class="mmHeader cooffice" onDblClick="mmRestore(this)">
+											<span class="mmhoptions">
+													<ul>
+															<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+															<li class="mmhoRestore"><p>2</p></li>
+													</ul>
+											</span>
+									</div>
+
+									<div class="mmContainer" id="coofficeContainer">
+											<div class="microCoofficeContentWrapper cooffice">
+													<div class="mmContentWrapperType1">
+															<div class="mmcMainWrapper">
+																	<div class="mmcMainSlideWrapper">
+																			<div class="mmcMainInnerWrapper">
+																					<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/ofc.png"></span>
+																					<span class="mmcTextWrapper3">
+																							<h2>2 New companies joined</h2>
+																					</span>
+																			</div><div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/view.png"></span>
+                        <span class="mmcTextWrapper3">
+                        	<h2>5 New Stores</h2>
+                        </span>
+                    </div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+
+</div>
+
+
+
+</div>
+<!--System Top Module Container Ends Here vinod(18-08-2015)-->
+
+
+	</div>
+
+
+        <div class="topRighttWrapper">
+        	<span class="logoutBtn">
+                    <a href="<?php echo base_url().'index.php/login/doLogout'?>"><img src="<?php  echo base_url().'assets/'?>Images/logOutBtn.png" class="logoutIcon">Logout</a></span>
+            <span class="btns aboutUs">
+            	<img src="<?php  echo base_url().'assets/'?>Images/aboutus.png" class="systemIcons"><p>About us</p></span>
+            <span class="btns settings">
+            	<img src="<?php  echo base_url().'assets/'?>Images/settings.png" class="systemIcons"><p>Settings</p></span>
+            <span class="btns paybook">
+            	<img src="<?php  echo base_url().'assets/'?>Images/paybook.png" class="systemIcons"><p>Pay Book</p></span>
+            <span class="btns themes">
+            	<img src="<?php  echo base_url().'assets/'?>Images/themes.png" class="systemIcons"><p>Themes</p></span>
+        </div>
+    </div>
+
+
+<!--System Top Section Ends Here Vinod (18-08-2015)-->
+
+    <div class="systemBottomWrapper">
+
+    <div class="bottomLeftWrapper">
+    <div class="leftSideOptionsWrapper">
+    	    <ul>
+               <!-- <li class="expandSelected">Expand Selected</li>
+                <li class="collapseSelected">Collapse Selected</li>
+                <li class="reset">Reset</li>
+                <li class="delete">Delete</li>-->
+            </ul>
+    	<!--<div class="leftSideOptions"></div>-->
+    	<span class="systemTrash"><img src="<?php  echo base_url().'assets/'?>Images/Trash.png"></span>
+    </div>
+
+        <div class="leftModulesContainer">
+
+
+            <div class="leftMicroModuleWrapper mmw" id="isnews">
+            	<div class="mmHeader isnews" onDblClick="mmRestore(this)">
+                <span class="mmhoptions">
+                    	<ul>
+                        	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                            <li class="mmhoRestore"><p>2</p></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="mmContainer">
+                <div class="microIsnewsContentWrapper">
+                <div class="mmContentWrapperType1"></div>
+                </div>
+                </div>
+            </div>
+
+            <div class="leftMicroModuleWrapper mmw" id="vcom">
+            	<div class="mmHeader vcom" onDblClick="mmRestore(this)">
+                <span class="mmhoptions">
+                    	<ul>
+                        	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                            <li class="mmhoRestore"><p>2</p></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="mmContainer">
+                <div class="microVcomContentWrapper">
+                <div class="mmContentWrapperType1"></div>
+                </div>
+                </div>
+            </div>
+
+            <div class="leftMicroModuleWrapper mmw" id="traveltime">
+            	<div class="mmHeader traveltime" onDblClick="mmRestore(this)">
+                <span class="mmhoptions">
+                    	<ul>
+                        	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                            <li class="mmhoRestore"><p>2</p></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="mmContainer">
+                <div class="microTraveltimeContentWrapper">
+                <div class="mmContentWrapperType1"></div>
+                </div>
+                </div>
+            </div>
+           <div class="leftMicroModuleWrapper mmw" id="onevision">
+            	<div class="mmHeader onevision" onDblClick="mmRestore(this)">
+                <span class="mmhoptions">
+                    	<ul>
+                        	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                            <li class="mmhoRestore"><p>2</p></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="mmContainer">
+                <div class="microOnevisionContentWrapper">
+                <div class="mmContentWrapperType1"></div>
+                </div>
+                </div>
+            </div>
+
+            <div class="leftMicroModuleWrapper mmw" id="oneidship">
+            	<div class="mmHeader oneidship" onDblClick="mmRestore(this)">
+                <span class="mmhoptions">
+                    	<ul>
+                        	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                            <li class="mmhoRestore"><p>2</p></li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="mmContainer">
+                <div class="microOneidshipContentWrapper"></div>
+                </div>
+            </div>
+            </ul>
+
+        </div>
+	</div>
+
+  <div class="systemContainerWrapper" id="moduleSectionContainer">
+         <iframe id='main_iframe' width="920px" height="100%" style="border: solid 0px;" src='http://localhost/tunnel/'></iframe>
+  </div>
+
+  <div class="bottomRightWrapper">
+  <div class="rightModulesContainer">
+
+
+<div class="rightMicroModuleWrapper mmw" id="click">
+
+
+	<div class="mmHeader click" onDblClick="mmRestore(this)">
+		<span class="mmhoptions">
+			<ul>
+            	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                <li class="mmhoRestore"><p>2</p></li>
+			</ul>
+		</span>
+	</div>
+
+	<div class="mmContainer" id="clickContainer">
+	<div class="microClickContentWrapper click">
+		<div class="mmContentWrapperType1">
+			<div class="mmcMainWrapper">
+
+                <div class="mmcMainSlideWrapper">
+
+                	<div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/persons.png"></span>
+                        <span class="mmcTextWrapper3">
+                        	<h2>12 New friends</h2>
+                        </span>
+                        
+                    </div>
+
+                    <div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/post.jpg"></span>
+                        <span class="mmcTextWrapper">
+                        	<h2>3</h2>
+                            <p>New posts</p>
+                        </span>
+					<div class="mmcMarqueWrapper">
+                    <marquee class="mmcmarqueClass">Hi vinod you got 12 new mails in your inbox</marquee>
+                </div>
+                    </div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</div>
+
+
+
+<div class="rightMicroModuleWrapper mmw" id="buzzin">
+
+
+	<div class="mmHeader buzzin" onDblClick="mmRestore(this)">
+		<span class="mmhoptions">
+			<ul>
+            	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                <li class="mmhoRestore"><p>2</p></li>
+			</ul>
+		</span>
+	</div>
+
+	<div class="mmContainer" id="buzzinContainer">
+	<div class="microBuzzinContentWrapper buzzin">
+		<div class="mmContentWrapperType1">
+			<div class="mmcMainWrapper">
+
+                <div class="mmcMainSlideWrapper">
+
+                	<div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/buzz.png"></span>
+                        <span class="mmcTextWrapper3">
+                        	<h2>12 New buzzes</h2>
+                        </span>
+                    </div>
+
+                    <div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/buzz.jpg"></span>
+                        <span class="mmcTextWrapper">
+                        	<h2>12</h2>
+                            <p>New celebrities joined</p>
+                        </span>
+					<div class="mmcMarqueWrapper">
+                    <marquee class="mmcmarqueClass">Hi vinod you got 12 new mails in your inbox</marquee>
+                </div>
+                    </div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</div>
+
+
+
+<div class="rightMicroModuleWrapper mmw" id="tunnel">
+
+
+	<div class="mmHeader tunnel" onDblClick="mmRestore(this)">
+		<span class="mmhoptions">
+			<ul>
+				<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+				<li class="mmhoRestore"><p>2</p></li>
+			</ul>
+		</span>
+	</div>
+
+
+	<div class="mmContainer" id="tunnelContainer">
+	<div class="microTunnelContentWrapper tunnel">
+		<div class="mmContentWrapperType1">
+			<div class="mmcMainWrapper">
+
+                <div class="mmcMainSlideWrapper">
+
+                	<div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/film.png"></span>
+                        <span class="mmcTextWrapper">
+                        	<h2>12</h2>
+                            <p>New Mails Received from Vinod Kumar</p>
+                        </span>
+					<div class="mmcMarqueWrapper">
+                    <marquee class="mmcmarqueClass">Hi vinod you got 12 new mails in your inbox</marquee>
+                </div>
+                    </div>
+
+                    <div class="mmcMainInnerWrapper">
+                     <div class="mmContentWrapperType2">
+                        <video width="134px" height="72px">
+                            <source type="video/mp4" src="videos/Platinum Evara telugu.mp4">
+                        </video>
+               		</div>
+                    </div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+    </div>
+
+</div>
+
+<div class="rightMicroModuleWrapper mmw" id="dealerx">
+
+
+	<div class="mmHeader dealerx" onDblClick="mmRestore(this)">
+        <span class="mmhoptions">
+            <ul>
+                <li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                <li class="mmhoRestore"><p><?php echo $dealerxnotifications[0]['notificationscount'];?></p></li>
+            </ul>
+        </span>
+	</div>
+
+	<div class="mmContainer" id="dealerxContainer">
+	<div class="microDealerxContentWrapper dealerx">
+		<div class="mmContentWrapperType1">
+			<div class="mmcMainWrapper">
+
+                <div class="mmcMainSlideWrapper">
+
+                	<div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/view2.png"></span>
+                        <span class="mmcTextWrapper3">
+                            <?php if($dealerxnotifications[0]['notificationscount'] > 0) { ?>
+                        	<h2>New Auction</h2>
+                            <?php } else { ?>
+                                <h2>No Auctions</h2>
+                            <?php } ?>
+
+                        </span>
+                    </div>
+                    
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</div>
+
+
+
+<div class="rightMicroModuleWrapper mmw" id="onenetwork">
+	<div class="mmHeader onenetwork" onDblClick="mmRestore(this)">
+    	<span class="mmhoptions">
+        	<ul>
+            	<li class="mmhoDelete"><img src="<?php  echo base_url().'assets/'?>Images/delete.png"></li>
+                <li class="mmhoRestore"><p>23+</p></li>
+			</ul>
+		</span>
+	</div>
+
+	<div class="mmContainer" id="onenetworkContainer">
+	<div class="microOnenetworkContentWrapper onenetwork">
+		<div class="mmContentWrapperType1">
+			<div class="mmcMainWrapper">
+
+                <div class="mmcMainSlideWrapper">
+
+                	<div class="mmcMainInnerWrapper">
+                    	<span class="mmciconWrapper3"><img src="<?php  echo base_url().'assets/'?>Images/contentImages/buzz.png"></span>
+                        <span class="mmcTextWrapper3">
+                        	<h2>New Auction</h2>
+                        </span>
+                    </div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</div>
+
+
+        </div>
+
+        <div class="rightSideOptionsWrapper">
+
+            <div class="themeOptionsWrapper themesOptions">
+                <span class="btns expandAll">
+                    <img src="<?php  echo base_url().'assets/'?>Images/expand.png" class="themeIcons"></span>
+                <span class="btns collapseAll">
+                    <img src="<?php  echo base_url().'assets/'?>Images/collapse.png" class="themeIcons"></span>
+                <span class="btns edbtn enable">
+                    <img src="<?php  echo base_url().'assets/'?>Images/enable.png" class="themeIcons"></span>
+                <span class="btns changeBg">
+                	<input type="file" name="bgChangeField">
+                    <!--<img src="Images/changeBg.png" class="themeIcons">-->
+                    </span>
+            </div>
+
+        </div>
+	</div>
+
+    </div>
+</div>
+
+</div>
+</body>
+</html>

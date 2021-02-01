@@ -1,0 +1,7 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$route['default_controller'] = "home";
+$route['404_override'] = 'errors/error_general';
+
+
+/* End of file routes.php */
+/* Location: ./application/config/routes.php */

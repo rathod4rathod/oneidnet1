@@ -1,0 +1,700 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;}
+body{
+	background-color: #03C;}
+a{
+	color: none;
+	text-decoration: none;}	
+
+.mainWrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../Images/BG01.jpg)}
+		
+.bgWall{
+	float: left;
+	display: block;
+	position: absolute;
+	width:1355px ;
+	height: 100%;
+	z-index: 0;}
+.bg_trans{
+	position: fixed;
+	height: 100%;
+	width:1355px ;
+	background-color: rgba(0, 0, 150, 0.3);
+	z-index: 1;}	
+	
+	
+	
+.systemWrapper{
+	position: relative;
+	display: block;
+	margin: 0px auto;
+	width: 1355px;
+	height: 100%;
+	z-index: 1;}
+/*---TopWrapper Style Starts Here---*/
+.systemTopWrapper{
+	float: left;
+	margin: 2px 0 2px 0;
+	width: 100%;}
+.topLeftWrapper, .topRighttWrapper{
+	float: left;
+	text-align: center;
+	width: 200px;
+	height: 125px;
+	margin: 0 2px 0 0;}
+.topRighttWrapper{
+width: 230px;}
+.oneidLogo{
+	float: left;
+	background-color: #00F;
+	width: 50px;
+	height: 50px;
+	margin: 20px 0px 0 80px;}	
+.topRighttWrapper{
+	float: right;
+	margin: 0 0 0 0;}
+	
+.systemTopOuterWrapper{
+	float: left;
+margin: 0 0 0 10px;}
+.globalInfoWrapper{
+	float: left;
+	width: 900px;
+	height: 125px;}
+.globalInfoContent{
+	float: left;
+	width: 900px;
+	height: 75px;
+	margin: 10px 0 0 0;
+	background-color: rgba(255, 255, 255, 00);}
+.globalTime{
+	margin: 20px 0 0 35px;
+	float: left;
+	color: white;
+	font: 45px Arial;
+	text-shadow: 1px 1px 5px #111;}
+.globalTime img{
+	float: left;
+	margin: 5px 0 0 0;
+	width: 30px;}	
+.globalTime h1{
+	float: left;
+	margin: 5px;
+	font: 28px Arial;
+	opacity: 0.8;}
+.globalTime p{
+	margin: 10px 0 0 0px;
+	float: left;
+	font: 20px Arial;
+	opacity: 0.8;}
+.globalDate{
+	float: left;
+	margin: 20px 0 0 0px;
+	text-shadow: 1px 1px 5px #111;}
+.globalDate img{
+	float: left;
+	margin: 5px 0 0 0;
+	width: 30px;}	
+.globalDate h1{
+	float: left;
+	margin: 4px 0 0 0;
+	text-align: center;
+	font: 30px Arial;
+	color: white;
+	opacity: 0.8;}
+.globalDate h2{
+	margin: 6px 0 0 0;
+	float: left;
+	width: 30px;
+	font: 12px Arial;
+	color: white;
+	opacity: 0.8;}
+.globalProfileInfoWrapper{
+	float: left;
+	width: 300px;
+	height: 75px;}	
+.profilePic{
+	float: left;
+	margin: 5px;
+	width: 65px;
+	height: 65px;
+	border-radius: 40px;
+	overflow: hidden;}
+.profilePic img{
+	float: left;
+	width: 65px;}
+.globalProfileInfoWrapper h1{
+	float: left;
+	padding: 15px 0 0 5px;
+	text-shadow: 1px 1px 5px #111;
+	width: 210px;
+	height: 30px;
+	overflow: hidden;
+	font: 24px Arial;
+	line-height: 30px;
+	color: white;
+	opacity: 0.7;}	
+.globalProfileInfoWrapper h4{
+	float: left;
+	padding: 0 0 0 5px;
+	width: 210px;
+	overflow: hidden;
+	font: 12px Arial;
+	color: white;
+	opacity: 0.6;}
+.globalWeather{
+	width: 150px;
+	margin: 22px 0 0 0px;
+	float: left;}	
+.weather{
+	float: left;
+	width: 100px;}	
+.weather h1{
+	float: left;
+	font: 14px Arial;
+	color: white;
+	opacity: 0.8;
+	text-shadow: 1px 1px 3px #222;}
+.location{
+	float: left;
+	width: 100px;
+	text-align: left;
+	opacity: 0.8;}
+.weatherIcon{
+	margin: 5px 0 0 0;
+	float: left;
+	width: 30px;}	
+.location h4{
+	font: 11px Arial;
+	text-shadow: 1px 1px 3px #111;
+	color: white;}			
+	
+				
+.topModulesContainer{
+	position: absolute;
+	float: left;
+	width: 900px;
+	height: 125px;}
+	
+.topMicroModuleWrapper{
+	float: left;
+	box-shadow: 2px 2px 0 1px rgba(0, 0, 0, 0.3);
+	margin: 95px 0 0 8px;
+	width: 140px;
+	height: 25px;
+	background-color: #eee;
+	overflow: hidden;}
+.mmHeader{
+	cursor: pointer;
+	float: left;
+	width: 100%;
+	height: 25px;}
+/*---TopWrapper Style Ends Here---*/	
+	
+	
+.systemBottomWrapper{
+	float: left;
+	width: 100%;
+	height: 80%;}
+.bottomLeftWrapper, .bottomRightWrapper{
+	float: left;
+	margin: 0 2px 0 0;
+	width: 200px;
+	height: 100%;}
+.bottomRightWrapper{
+width: 230px;
+	float: right;
+	margin: 0 0 0 0;}	
+.leftModulesContainer, .rightModulesContainer{
+	display: block;
+	float: right;
+	margin: 0 0 0 0;
+	width: 150px;
+	height: 100%;}
+.rightModulesContainer{
+	float: left;
+	margin: 0 0 0 0;}
+	
+
+.leftSideOptionsWrapper{
+	float: left;
+	width: 40px;
+	height: 100%;}
+.leftSideOptionsWrapper ul{
+	float: left;
+	width: 70px;
+	list-style: none;}
+.leftSideOptionsWrapper ul li{
+	cursor: pointer;
+	width: 50px;
+	border-radius: 5px;
+	padding: 8px 5px 8px 5px;
+	margin: 5px;
+	font: 12px Arial;
+	color: #555;
+	text-align: center;
+	text-decoration: none;
+	background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));}
+.leftSideOptionsWrapper ul li:hover{
+	background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.8));
+	color: white;}
+.leftSideOptionsWrapper ul li a{
+	color: none;
+	text-decoration: none;}		
+.leftSideOptions{
+	float: left;
+	width: 70px;
+	height: 80%;}
+.systemTrash{
+	display: none;
+	overflow: hidden;
+	float: left;
+	height: 80px;
+	width: 70px;}	
+.systemTrash img{
+	cursor: pointer;
+	float: left;
+	margin: 15px;
+	width: 40px;}
+	
+	
+	
+.rightSideOptionsWrapper{
+	float: right;
+	overflow: hidden;
+	width: 70px;
+	height: 100%;}
+.rightSideOptionsWrapper ul{
+	float: left;
+	width: 70px;
+	list-style: none;}
+.rightSideOptionsWrapper ul li{
+	cursor: pointer;
+	width: 50px;
+	border-radius: 5px;
+	padding: 8px 5px 8px 5px;
+	margin: 5px;
+	font: 12px Arial;
+	color: #555;
+	text-align: center;
+	text-decoration: none;
+	background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.7));}
+.rightSideOptionsWrapper ul li:hover{
+	background: linear-gradient(rgba(200, 200, 200, 0.4), rgba(200, 200, 200, 0.8));
+	color: white;}
+.rightSideOptionsWrapper ul li a{
+	color: none;
+	text-decoration: none;}	
+.logoutBtn{
+	float: right;
+padding-top: 35px;
+	width: 100px;
+	height: 75px;
+	opacity: 0.5;
+	margin: 5px 5px 0 0;
+	text-align: center;
+	cursor: pointer;
+	font: 12px Arial;
+	color: white;
+	text-shadow: 1px 1px 5px #222;
+	line-height: 5px;}	
+.logoutBtn img{
+	vertical-align: middle;
+	width: 35px;
+	height: 35px;}
+.logoutBtn:hover{
+	opacity: 0.8;}
+
+.btns{
+	line-height: 5px;
+	cursor: pointer;
+	float: left;
+	font: 11px Arial;
+	color: white;
+	text-shadow: 1px 1px 5px #111;
+	margin: 5px 0 0 5px;
+	width: 52px;
+	height: 52px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.2);
+	opacity: 0.7;}
+.btns:hover{
+	opacity: 0.9;
+	background-color: rgba(255, 255, 255, 0.4);}
+.systemIcons{width: 35px; height: 35px; margin: 8px 0 0 0;}		
+.themeIcons{margin: 8px 0 0 0; width: 35px; height: 35px;}	
+.logoutIcon{margin: 0px 0 0 0; width: 30px; height: 30px;}
+.btns p{
+	display: none;
+	font: 11px Arial;
+	color: white;
+	text-shadow: 1px 1px 5px #111;}	
+.themeOptionsWrapper{
+	display: block;
+	width: 70px;
+	margin: 0 -75px 0 0;
+	float: right;
+	height: 80%;
+	padding: 20px 0 0 0;
+	/*background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));*/}
+.changeBg input[name="bgChangeField"]{
+	cursor: pointer;
+	height: 52px;
+	width: 52px;
+	opacity: 0;}
+.changeBg{
+	background: url(../Images/changeBg01.png);}	
+	
+	
+	
+.leftMicroModuleWrapper{
+	overflow: hidden;
+	box-shadow: -2px 2px 0 1px rgba(0, 0, 0, 0.3);
+	float: right;
+	margin: 50px 0 0 0;
+	width: 140px;
+	height: 25px;
+	background-color: #eee;}		
+	
+	
+	
+.rightMicroModuleWrapper{
+	overflow: hidden;
+	float: left;
+	box-shadow: 2px 2px 0 1px rgba(0, 0, 0, 0.3);
+	margin: 50px 0 0 0;
+	width: 140px;
+	height: 25px;
+	background-color: #eee;}	
+	
+
+.mmhoptions{
+	float: right;
+	width: 50px;
+	height: 25px;}
+.mmhoptions ul{
+	float: right;
+	list-style: none;}
+.mmhoptions ul li{
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	width: 22px;
+	height: 22px;
+	margin: 2px 1px 3px 0;}
+.mmhoptions ul li p{
+	margin: 5px 0 0 0;
+	font: 11px Arial;
+	color: white;
+	text-shadow: 1px 1px 1px #222;}
+.mmhoDelete{
+	display: none;}
+.mmhoDelete img{
+	margin: 3px 0 0 0;
+	float: right;
+	width: 12px;}		
+.mmhoRestore{
+	border-radius: 15px;
+	background-color: rgba(255, 0, 0, 0.7);}	
+.mmContainer{
+	float: left;
+	width: 100%;
+	height: 75px;
+	background-color: #f5f5f5;}	
+	
+	
+	
+	
+	
+			
+					
+.systemContainerWrapper{
+	float: left;
+	margin: 0 0 0 0;
+	width: 920px;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.2);}	
+	
+	
+		
+	
+	
+.mail{background: url(../Images/headers/mail.png);}
+.click{background: url(../Images/headers/click.png);}
+.tunnel{background: url(../Images/headers/tunnel.png);}
+.buzzin{background: url(../Images/headers/buzzin.png);}
+.findit{background: url(../Images/headers/findit.png);}
+.oneshop{background: url(../Images/headers/oneshop.png);}
+.isnews{background: url(../Images/headers/isnews.png);}
+.dealerx{background: url(../Images/headers/dealerx.png);}
+.traveltime{background: url(../Images/headers/traveltime.png);}
+.onevision{background: url(../Images/headers/onevision.png);}
+.oneidship{background: url(../Images/headers/oneidship.png);}
+.netpro{background: url(../Images/headers/netpro.png);}
+.cooffice{background: url(../Images/headers/cooffice.png);}
+.cvbank{background: url(../Images/headers/cvbank.png);}
+.vcom{background: url(../Images/headers/vcom.png);}
+.onenetwork{background: url(../Images/headers/onenetwork.png);}
+
+
+
+.selectModule{box-shadow: 0 0 3px 5px #09F;}
+.place{box-shadow: 0 0 5px #FFF;}
+
+
+
+
+.oneidsystemPopup{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 20;}
+.oneidsystemPopupCloseBtn{
+	cursor: pointer;
+	float: right;
+	width: 25px;
+	height: 40px;
+	font: 20px Arial;
+	color: #aaa;
+	padding: 10px 0 0 25px;
+	border-bottom-left-radius: 40px;
+	background-color: rgba(100, 100, 100, 0.5);}
+.oneidsystemPopupCloseBtn:hover{
+	color: #fff;
+	background-color: rgba(50, 50, 50, 0.7);}
+	
+.trashpopUpWrapper{
+	margin: 70px auto;
+	width: 800px;
+	height: 500px;
+	border-radius: 10px;
+	background-color: #f5f5f5;
+	box-shadow: 0 0 25px #000;}	
+	
+.trashpopUpWrapper ul{
+	float: left;
+	width: 800px;
+	height: 460px;
+	overflow-X: hidden;
+	overflow-Y: Auto;
+	list-style: none;}
+.trashpopUpWrapper ul li{
+	cursor: pointer;
+	float: left;
+	width: 140px;
+	height: 100px;
+	box-shadow: 0 0 5px #888;
+	margin: 13px 0 0 17px;}	
+.trashModuleHeader{
+	float: left;
+	width: 140px;
+	height: 25px;}	
+	
+.trashPopUpFooter{
+	float: left;
+	width: 800px;
+	background-color: #e5e5e5;
+	border-top: solid 1px #ccc;
+	height: 39px;}
+.trashFooterOptions{
+	float: right;
+	margin: 4px 5px 0 0;}
+.trashFooterOptions button{
+	cursor: pointer;
+	float: left;
+	padding: 0 15px 0 15px;
+	border: solid 1px #aaa;
+	background: linear-gradient(#eee, #ccc);
+	font: 12px Arial;
+	color: #555;
+	margin: 0 0 0 5px;
+	height: 30px;}	
+.trashFooterOptions button:hover{
+	border: solid 1px #06F;
+	color: white;
+	background: linear-gradient(#09F, #06F);}
+	
+	
+	
+	
+.microTunnelContentWrapper, .microIsnewsContentWrapper, .microVcomContentWrapper, .microTraveltimeContentWrapper, .microOnevisionContentWrapper, .microOneidshipContentWrapper, .microClickContentWrapper, .microBuzzinContentWrapper, .microDealerxContentWrapper, .microOnenetworkContentWrapper, .microMailContentWrapper, .microNetproContentWrapper, .microCvbankContentWrapper, .microFinditContentWrapper, .microOneshopContentWrapper, .microCoofficeContentWrapper{
+	float: left;
+	width: 134px;
+	height: 72px;}
+.microTunnelContentWrapper{
+	border: solid 3px #d20000;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(255, 0, 0, 0.7);}
+.microIsnewsContentWrapper{
+	border: solid 3px #4e0607;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(78, 6, 7, 0.8);}
+.microVcomContentWrapper{
+	border: solid 3px #cf6c00;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(207, 108, 0, 0.8);}
+.microTraveltimeContentWrapper{
+	border: solid 3px #0c6504;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(12, 101, 4, 0.8);}
+.microOnevisionContentWrapper{
+	border: solid 3px #460d38;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(70, 13, 56, 0.8);}
+.microOneidshipContentWrapper{
+	border: solid 3px #6105b5;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(97, 5, 181, 0.8);}
+.microClickContentWrapper{
+	border: solid 3px #202578;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(32, 37, 120, 0.8);}
+.microBuzzinContentWrapper{
+	border: solid 3px #1d93d3;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(29, 147, 211, 0.8);}
+.microDealerxContentWrapper{
+	border: solid 3px #000000;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(0, 0, 0, 0.8);}
+.microOnenetworkContentWrapper{
+	border: solid 3px #96290c;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(150, 41, 12, 0.8);}
+.microMailContentWrapper{
+	border: solid 3px #009759;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(0, 151, 89, 0.8);}
+.microNetproContentWrapper{
+	border: solid 3px #006665;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(0, 102, 101, 0.8);}
+.microCvbankContentWrapper{
+	border: solid 3px #848484;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(132, 132, 132, 0.8);}
+.microFinditContentWrapper{
+	border: solid 3px #818bbc;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(129, 139, 188, 0.8);}
+.microOneshopContentWrapper{
+	border: solid 3px #c5b000;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(197, 176, 0, 0.8);}
+.microCoofficeContentWrapper{
+	border: solid 3px #565656;
+	border-top: solid 0px;
+	border-left: solid 3px rgba(86, 86, 86, 0.5);}
+	
+	
+	
+	
+	
+/*---Micro Modules Content Style Vinod (18-08-2015) Starts Here---*/
+.mmcMainWrapper{
+	float: left;
+	width: 134px;
+	height: 72px;
+	overflow: hidden;}
+.mmcMainSlideWrapper{
+	float: left;
+	width: 134px;
+	height: 144px;}	
+.mmcMainInnerWrapper{
+	margin: 0px auto;
+	width: 134px;
+	height: 72px;}
+.mmciconWrapper{
+	float: left;
+	width: 50px;
+	height: 50px;}
+.mmciconWrapper img{
+	float: left;
+	margin: 2px;
+	width: 46px;
+	height: 46px;}
+.mmciconWrapper2{
+	float: left;
+	margin: 0 0 0 35px;
+	width: 70px;
+	height: 50px;}	
+.mmciconWrapper2 img{
+	float: left;
+	width: 46px;
+	height: 46px;
+	margin: 2px 0 0 12px;}
+.mmcTextWrapper2{
+	float: left;
+	width: 134px;
+	height: 18px;
+	overflow: hidden;
+	text-align: center;}
+.mmcTextWrapper2 h2{
+	font: 14px Arial;
+	color: #555;}
+.mmciconWrapper3{
+	float: left;
+	margin: 0 0 0 35px;
+	width: 70px;
+	height: 40px;}	
+.mmciconWrapper3 img{
+	float: left;
+	width: 36px;
+	height: 36px;
+	margin: 2px 0 0 17px;}
+.mmcTextWrapper3{
+	float: left;
+	margin: 0 0 0 12px;
+	width: 110px;
+	height: 30px;
+	overflow: hidden;
+	text-align: center;}
+.mmcTextWrapper3 h2{
+	font: 13px Arial;
+	color: #555;}				
+.mmcTextWrapper{
+	float: left;
+	width: 80px;
+	height: 50px;
+	margin: 0 0 0 4px;}
+.mmcTextWrapper h2{
+	float: left;
+	font: bold 22px Arial;
+	color: #F60;
+	width: 80px;
+	height: 25px;
+	overflow: hidden;
+	text-align: left;}
+.mmcTextWrapper p{
+	float: left;
+	overflow: hidden;
+	width: 80px;
+	height: 25px;
+	font: 11px Arial;
+	color: #555;}
+.mmcMarqueWrapper{
+	float: left;
+	margin: 0px auto;
+	width: 134px;
+	padding: 3px 0 0 0;
+	border-top: solid 1px #ccc;
+	height: 18px;
+	background-color: #eee;
+	font: 12px Arial;
+	color: #555;}
+.mmcmarqueClass{
+	marquee-speed: fast;}
+	
+.mmContentWrapperType1{display: block; background-color: #f5f5f5; float: left;}
+.mmContentWrapperType2{display: block;}				
+/*---Micro Modules Content Style Vinod (18-08-2015) Ends Here---*/

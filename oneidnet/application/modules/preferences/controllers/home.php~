@@ -1,0 +1,239 @@
+<?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class Home extends CI_Controller {
+
+    function __construct() {
+        session_start();
+        parent::__construct(  );
+        $modulesArray = array( 'db_api', 'memcaching', 'cookies','sessions' );
+        $this->wrapperinit->loadModules( $modulesArray );   
+    }
+    
+       
+    function getUserDetails(  ) {
+        
+        // Generate the Memcahe Object key for the User.
+        $keyName = "USRDTA_".$this->cookies->getUserID();
+        
+        $result = $this->memcaching->getKey( $keyName );  
+        
+        if($result) {               
+            $this->processUserDetail( $result );
+        } else {            
+            $userdetailsquery = "SELECT username,first_name,middle_name,last_name, profile_id,gender,user_id,password_hash,is_verified,img_path,role, time_zone,gender,country_id FROM `iws_profiles` where profile_id = " . $this->cookies->getUserID();
+            $result = $this->db_api->custom($userdetailsquery);
+            
+            $this->memcaching->setKey( $keyName , $result[0] );
+            $this->processUserDetail( $result[0] ); 
+        }        
+    }
+    function getUserDetails1(  ) {
+        
+        // Generate the Memcahe Object key for the User.
+        $keyName = "USRDTA_".$this->cookies->getUserID();
+        
+        $result = $this->memcaching->getKey( $keyName );  
+//        print_R($result);die();
+        if($result) {               
+           return $result;
+        } else {            
+            $userdetailsquery = "SELECT username,first_name,middle_name,last_name, profile_id,gender,user_id,password_hash,is_verified,img_path,role, time_zone,gender,country_id FROM `iws_profiles` where profile_id = " . $this->cookies->getUserID();
+            $result = $this->db_api->custom($userdetailsquery);
+            $this->memcaching->setKey( $keyName , $result[0] );
+            return $result;
+        }        
+    }
+    
+    // User Details to send to client to display in the homepage.
+    function processUserDetail( $result ) {    
+        
+        if( $result['img_path'] == ''){ 
+            if( $result['gender']=='MALE' ) {
+                $userProfileImgPath = base_url().'assets/Images/contentImages/person.png';
+            } else if( $result['gender']=='FEMALE' ) {
+                $userProfileImgPath = base_url().'assets/Images/contentImages/female.png';
+            }             
+        } else {
+            $userProfileImgPath = base_url().'data/'.$result['img_path'];           
+        }
+        
+        $email = $result['username'].'@oneidnet.com';
+        $userFullName = ucfirst($result['first_name']).' '.$result['middle_name'].' '.$result['last_name'];        
+        $response = array( $userProfileImgPath, $userFullName, $email );        
+        echo json_encode($response);
+    }
+    
+    
+    
+    function getWeatherReport(  ) {  
+        $keyName = 'UWEATHERDT_'.$this->cookies->getUserID(); 
+        $result = $this->memcaching->getKey( $keyName );  
+        
+        if( $result ) {
+            echo $result;             
+        } else {            
+            $dump = $this->weather->getWeatherDetail( $this->cookies->getUserTimezone(  ) );  
+            if( $dump !='OIN9') {
+                $this->memcaching->setKey( $keyName, $dump,time() + 6*60*60);    
+		//$this->memcaching->setKey( $keyName, $dump );   
+            }
+            
+            echo $dump;            
+        }
+    }
+    
+    function resetSessionCookie() {
+        $this->cookies->destroyCookie( 'oud', null );
+        $this->sessions->destroySession();      
+        $url = base_url();
+        header("Location: $url");         
+    }
+    
+    function prepareSessionFromCookie(){
+        $profile_id = $this->cookies->getUserID();
+        $user_id = $this->cookies->getUserIDHash();
+        $passwordHash = $this->cookies->getUserPasswordHash();
+
+        $where = "profile_id='$profile_id' && user_id='$user_id' && password_hash='$passwordHash'";  
+        $result = $this->db_api->select( 'first_name,middle_name,last_name, profile_id,user_id,password_hash', $mytable='iws_profiles', $where );    
+        if( $result!=0 ) {                     
+            $s_user_full_name  = $result[0]['first_name']." ".$result[0]['middle_name']." ".$result[0]['last_name']; 
+             $this->sessions->createSession( $s_user_full_name , $profile_id );              
+        }         
+    }
+    
+
+    function index() {          
+       if( $this->cookies->checkCookie( ) ) {            
+           if( !isset($_SESSION['user_full_name']) && empty($_SESSION['user_full_name']) ) {            
+               $this->prepareSessionFromCookie( );                  
+           }                            
+
+           $is_varified=$this->db_api->custom("select is_verified from iws_profiles where profile_id=".$this->cookies->getUserID());
+           if($is_varified[0]["is_verified"]==1){
+               $data['time'] =$this->get_Time( );
+           $this->load->view('home/index',$data);    
+           }else{
+            $this->introductionPage();  
+           }
+           
+                   
+      } else {          
+        $data['countrydata'] = $this->global_countries_info() ;
+        $this->load->view('home_v',$data);
+      }
+    }
+    
+//29-01-2016 by venkatesh
+    function introductionPage(){
+         $data["act_dtl"]=$this->db_api->custom("SELECT right(mobile_no,3) as mobile_no,aams_code FROM `iws_profiles` WHERE profile_id=".$this->cookies->getUserID());
+        $this->load->view('home/introductionPage',$data);    
+    }
+    
+    function global_countries_info()
+    {
+       $country_query = "SELECT country_code, isd_code, country_name,country_id FROM `iws_countries_info` ";
+       $result = $this->db_api->custom($country_query);
+       return $result;
+    }
+    
+    function get_Time(){
+        date_default_timezone_set($this->cookies->getUserTimezone()); 
+        $time = date('H:i a', time());
+        return $time;
+    }
+    
+    function getCountry_name(){
+        $country_query = "SELECT country_name FROM `iws_countries_info` where country_id =85";
+       $result = $this->db_api->custom($country_query);
+       return $result;
+    }
+
+    function getUser_details() {
+        $userdetailsquery = "SELECT profile_id ,img_path,user_id,username,email,first_name,middle_name,last_name,gender,country_id FROM `iws_profiles` where profile_id = " . $this->cookies->getUserID();
+        $result = $this->db_api->custom($userdetailsquery);
+        return $result;
+    }
+    
+    function getUser_name()
+            {
+            $uname = $this->input->post('username');
+            $tunnel_query = "SELECT username FROM `iws_profiles` where username = '".$uname."'";
+            $result = $this->db_api->custom($tunnel_query);
+            $username = $result[0]['username'];
+            
+            preg_match("/([a-zA-Z]+)(\\d+)/", $username, $matches);
+            
+            if($username != ""){
+                
+                $tundev_a_sugg = array();//random numbers
+                $tundev_a_suggnames = array();//available usernames
+                for($i=0;$i<4;$i++){
+                     $randnum = rand ( 1 , 1000 );
+                if($matches[1] != ""){
+                    $avluname = $matches[1].$randnum;
+                }else{
+                    $avluname = $username.$randnum;
+                }
+                  array_push($tundev_a_sugg, $avluname);
+                  $tunnel_query = "SELECT username FROM `iws_profiles` where username = '".$tundev_a_sugg[$i]."'";
+                  $result = $this->db_api->custom($tunnel_query);
+                  $username1 = $result[0]['username']; 
+                 if($tundev_a_sugg[$i] != $username1){
+                    array_push($tundev_a_suggnames, $tundev_a_sugg[$i]);
+                    }
+                }
+                echo json_encode($tundev_a_suggnames);
+                 
+            }else{
+                $tundev_a_suggnames = array();
+                echo json_encode($tundev_a_suggnames);
+            //echo "<span id='successmsg'>"."This User Name is Available!"."</span>";
+           }
+            }
+            
+ //19-08-2015 by sravani for get dealerx auction notifications
+            function get_dx_aution_notifications()
+            {
+                $user_id = $this->cookies->getUserID();
+                $sql="select count(*) as notificationscount from dx_notification where user_id_fk in(SELECT dealer_id_fk from  dx_dealer_followers where user_id_fk=$user_id) and type='Auction' and status=0";
+                $result = $this->db_api->custom($sql);
+                return $result;
+
+            }
+ 
+//for oneidnet profile image update
+    function profile_image_update() {
+        $bean=  $this->load->module('cookies');
+        $user_id = $bean->getUserID();
+        $d_date = new DateTime();
+        $s_time = $d_date->format('Y-m-d-H-i-s');
+        $s_uploaddir = "data/";
+        $s_name = basename($_FILES['bgChangeField']['name']);
+        list($txt, $ext) = explode(".", $s_name);
+        $s_ppic_image_name = $s_uploaddir . 'profile_photo_' . $user_id . $s_time . "." . $ext;
+        shell_exec('chmod -R 777 /var/www/html/oneidnet');
+        echo 'data/profile_photo_'.$user_id.$s_time. "." . $ext;
+        if (move_uploaded_file($_FILES['bgChangeField']['tmp_name'], $s_ppic_image_name)) {
+            shell_exec('chmod -R 777 ' . $s_ppic_image_name);
+            $s_ppic_image_name = 'profile_photo_' . $user_id . $s_time . "." . $ext;
+            $a_data = array("img_path" => $s_ppic_image_name);
+            $mytable = " iws_profiles";
+            $where = "profile_id='" . $user_id . "'";
+            $rlt = $this->db_api->update($a_data, $mytable, $where);
+        } else {
+            echo "fie not uploaded";
+        }
+    }
+    //15-12-2015 by venkatesh
+ function notification_count()
+        {
+            $db_obj=$this->load->module("db_api");
+            $data['notificationscount'] = $db_obj->custom("select count(*) as count from netpro_notification where status=0  and  user_id_fk= " .$_SESSION['user_id']);                        
+            echo $data['notificationscount'][0]["count"];
+        }
+
+            
+}

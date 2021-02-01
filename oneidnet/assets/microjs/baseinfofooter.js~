@@ -1,0 +1,60 @@
+$(document).on("click", "#basicinfo_page", function () {
+    window.location = oneidnet_url + 'basic_info';
+
+});
+$(document).on("click", "#preferences", function () {
+
+    window.location = oneidnet_url + 'preferences';
+
+});
+
+$(document).on("click", "#people_page", function () {
+    window.location = oneidnet_url + 'people';
+
+});
+$(document).on("click", "#deactive_page", function () {
+    window.location = oneidnet_url + 'people';
+
+});
+$(document).on("click", "#statistics", function () {
+    window.location = oneidnet_url + 'statistics';
+
+});
+$(document).on("click", "#invitefriends", function () {
+    window.location = oneidnet_url + 'invite';
+
+});
+$(document).on("click", "#setting_icon", function () {
+
+    window.location = oneidnet_url;
+
+});
+$(document).on("click", "#settings", function () {
+    window.location = oneidnet_url;
+
+});
+$(document).on("click", "#requests", function () {
+    window.location = oneidnet_url + 'login/doLogout';
+
+});
+
+
+//15-feb-2016 by venkatesh
+$("#oneidet_user_search").keyup(function () {
+
+    if ($.trim($(this).val()) != "") {
+        $("#searchsugbox").show();
+    } else {
+        $("#searchsugbox").hide();
+    }
+
+});
+
+$(".suggession-close").click(function () {
+    $(this).parent().hide();
+});
+
+
+$(document).on("blur", "#oneidet_user_search", function () {
+    $("#searchsugbox").hide();
+});

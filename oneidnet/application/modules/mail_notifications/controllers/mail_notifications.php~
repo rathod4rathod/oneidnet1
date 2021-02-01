@@ -1,0 +1,56 @@
+<?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class Mail_notifications extends CI_Controller {
+function __construct() {session_start();
+        parent::__construct();
+        $this->load->module('db_api');        
+    }
+    function index() {         
+    }
+    function emNotifsGet(){         
+        $onedev_dbnoti_object = $this->load->module('db_api');
+        $userid =   $_SESSION['user_id'];
+         $meetings = $onedev_dbnoti_object->select("meeting_subject","tsz_meetings","created_by=$userid AND (DATE_FORMAT(meeting_time, '%Y-%m-%d') = CURDATE()) ORDER BY meeting_time desc limit 3");
+	foreach($meetings as $res){
+		$arr[] = $res[0];
+	}       
+	$newmeetings=implode(", ", $arr);
+	if($meetings == 0){
+	$newmeetings = "No Meetings";
+	}else{
+	$new_meetings = $newmeetings;
+	}
+	$events = $onedev_dbnoti_object->select("event_type","tsz_events","created_by=$userid AND event_date = CURDATE() ORDER BY event_date desc limit 3");
+
+	foreach($events as $res){
+		$eventsarr[] = $res[0];
+	}       
+	$newevents=implode(", ", $eventsarr);
+	if($events==0){
+		$new_events = "No events";
+	}else{
+		$new_events = $newevents;	
+	}
+        echo "Latest Meetings: ".$new_meetings." ----- Latest Events: ".$new_events;
+           }
+	function getNewMails(){
+		$hostname = '{imap.gmail.com:993/imap/ssl/novalidate-cert}';
+		$username = "weldoneindia123@gmail.com";
+		$password = "weldone123";
+		$inbox = $hostname.'INBOX';
+		$mbox = imap_open($inbox, $username, $password)or die('Cannot connect to Gmail: ' . imap_last_error());
+		$recent_emails = imap_search($mbox, 'UNSEEN');
+
+		if ($recent_emails)
+		{
+		   echo count($recent_emails);
+		}
+		else
+		{
+		   echo "0";
+		}
+		imap_close($inbox); 
+	}
+}

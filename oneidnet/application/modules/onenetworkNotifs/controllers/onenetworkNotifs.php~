@@ -1,0 +1,67 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class OnenetworkNotifs extends CI_Controller {
+
+    function __construct() {
+        session_start();
+        parent::__construct();
+        $this->load->module('db_api');
+    }
+
+    function index() {
+        
+    }
+
+    function getNotifcount() {
+        $one_netdb = $this->load->module('db_api');
+        $userid = $_SESSION['user_id'];
+        $date = Date('Y-m-d ');
+        $active_staus = 1;
+       $campaign = "select campaign_id,campaign_name from on_campaigns where created_by=$userid and is_active =$active_staus and is_payment_done=$active_staus and created_on like '%$date%'";
+        $camdetails = $one_netdb->custom($campaign);
+        if ($camdetails == 0) {
+            echo '0';
+        } else {
+            echo count($camdetails);
+        }
+    }
+
+    function getOnenetworkNotifs() {
+        $one_netdb = $this->load->module('db_api');
+        $userid = $_SESSION['user_id'];
+        $date = Date('Y-m-d ');
+        $active_staus = 0;
+        $campaign = "select campaign_id,campaign_name from on_campaigns where created_by=$userid and is_active =$active_staus and is_payment_done=$active_staus and created_on like '%$date%'";
+        $camdetails = $one_netdb->custom($campaign);
+        $count_cam = count($camdetails);
+        if ($count_cam > 1) {
+            $section = array_rand($camdetails, $count_cam);
+            foreach ($section as $k => $v) {
+                $arry[] = $camdetails[$v]['campaign_name'];
+            }
+            echo $cam = implode(",", $arry);
+        } elseif ($count_cam == 1) {
+            echo $camdetails[0]['campaign_name'];
+        } else {
+            echo "No events";
+        }
+    }
+
+    function getNotifNocount() {
+        $one_netdb = $this->load->module('db_api');
+        $userid = $_SESSION['user_id'];
+        $date = Date('Y-m-d ');
+        $active_staus = 0;
+        $campaign = "select campaign_id,campaign_name from on_campaigns where created_by=$userid and is_active =$active_staus and is_payment_done=$active_staus and created_on like '%$date%'";
+        $camdetails = $one_netdb->custom($campaign);
+        if ($camdetails == 0) {
+            echo 'no';
+        } else {
+            echo count($camdetails);
+        }
+    }
+
+}

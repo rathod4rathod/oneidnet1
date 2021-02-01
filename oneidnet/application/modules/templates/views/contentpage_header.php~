@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+           <meta charset="utf-8">
+	<title>ONEIDNET: The World's Unique Internet Web Operating System</title>
+	<meta name="keywords" content="Click, Buzzin, VCom, Oneidship, 360 Mail, Find It, Tunnel, Corporate Office, DealerX, Paybook, Oneshop, One Vision, Travel Time, I.S News, Cvbank, One Network">
+	<meta name="description" content="Sign Up Today to the Most Unique ONEIDNET Internet Web Operating System. Get your world in ONE Tab with ONE Username & Password and access more than hundred lines of services all in one is ONEIDNET">  
+	<meta name="author" content="ONEIDNET">
+<meta http-Equiv="Cache-Control" Content="no-cache" />
+    <meta http-Equiv="Pragma" Content="no-cache" />
+    <meta http-Equiv="Expires" Content="0" />
+        <link href="<?php echo base_url() . 'assets/css/steps.css' ?>" rel="stylesheet" type="text/css">
+        <link rel="icon" href="<?php echo base_url() . 'assets/images/favicon.png' ?>" type="image/png">
+        <script src="<?php echo base_url(); ?>assets/js/path.js"></script>
+        <script src="<?php echo base_url() . 'assets/js/jquery-1.11.2.min.js' ?>"></script>
+
+        <style>
+
+            .steps-footer{
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                margin: auto;
+
+            }
+            .footer-block{
+                width: 90%;
+                height: 40px;
+                margin: auto;
+                background: rgba(0, 0, 0, 0.75);
+            }
+            .footer-text{
+
+                color: #fff;
+                text-decoration: blink;
+                padding: 5px;
+                margin: 10px;
+                margin-top: 10px;
+            }
+            .header{
+                color: #fff;
+                font-weight: 100;
+                float: left;
+                margin-top: 50px;
+            }
+            .transactions {
+                width: 80%;
+                margin: auto;
+            }
+
+            span.trcard{
+                float: left;
+            }
+            span.trlastused{
+                float: right;
+            }
+            .steps{
+                height: 230px;
+            }
+            .trtop{
+                border-bottom: 1px dotted #fff;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+
+
+
+        <div class="overlay-wrapper">
+
+            <div class="systemTopWrapper">
+                <div class="topLeftWrapper">
+                    <a href="<?php echo base_url(); ?>"> <img src="<?php echo base_url() . 'assets/Images/oneidlogo2.png' ?>" class="oneidLogo">
+                        <!--<div class="logo_text"> One ID Net</div>--></a>
+                </div>
+<?php
+if($uid){
+    ?>
+                                    <span class="logoutBtn flr">
+<a href="<?php echo base_url() . 'index.php/login/doLogout' ?>" style="color: white;"><img src="<?php echo base_url() . 'assets/Images/logOutBtn.png' ?>" class="logoutIcon"></a>
+</span>
+<div class="systemTopOuterWrapper">
+<div class="globalInfoWrapper">
+<div class="globalInfoContent">
+
+<span class="globalProfileInfoWrapper">
+<span class="profilePic">
+<img src="<?php echo base_url() . 'assets/Images/contentImages/person.png' ?>" id="profile_image_tag" title="User Profile Picture">
+</span>
+<h1 id="userFullName_home"></h1>
+<h4 id="email_homepg"></h4>
+</span>
+<span class="globalWeather">
+<img src="<?php echo base_url() . 'assets/Images/weather1.png' ?>" class="weatherIcon">
+<span class="weather"><h1 id="tempDeg_home"></h1></span>
+<span class="location"><h4 id="city_home"></h4></span>
+</span>
+<span class="globalDate">
+<img src="<?php echo base_url() . 'assets/Images/oneidCalendar1.png' ?>"><h1><?php echo date("d"); ?></h1><h2><?php echo date("D"); ?></br><?php echo date("M"); ?></h2>
+</span>
+</div>
+</div>
+
+</div>
+        <?php
+}
+?>
+
+            </div>
+            <script src="<?php echo base_url() . 'assets/microjs/prototype.js' ?>"></script>
+            <script src="<?php echo base_url() . 'assets/microjs/homepage.js' ?>"></script>
+

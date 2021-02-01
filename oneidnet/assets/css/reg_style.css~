@@ -1,0 +1,951 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;}
+body{}	
+/*#regdes_signUpForm{
+	top: 50px;}	
+input{
+	width: 90%;
+	height: 23px;
+	margin-top: 0px;
+	margin-bottom: 3px;
+	padding-left: 10px;
+	border: 0px;
+	background-color: rgba(225, 225, 225, 0.8);}
+button{
+	width: 100px;
+	height: 23px;
+	border: 0px;
+	background-color: rgba(225, 225, 225, 0.9);}*/
+.regdes_errorMsg{
+	color: red;
+	outline: none;
+    border-color: red;
+    box-shadow: 0 0 10px red;
+	-webkit-animation: focus 0.1s 2;
+	-ms-animation: focus 0.1s 2;
+	-moz-animation: focus 0.1s 2;
+	animation: focus 0.1s 2;}	
+@-webkit-keyframes focus{
+	0% {transform: translate(2px, 0px);}
+	100% {transform: translate(-2px, 0px);}}	
+@-ms-keyframes focus{
+	0% {transform: translate(2px, 0px);}
+	100% {transform: translate(-2px, 0px);}}	
+@-moz-keyframes focus{
+	0% {transform: translate(2px, 0px);}
+	100% {transform: translate(-2px, 0px);}}	
+
+
+
+/*------Sign In form------*/
+/*#regdes_signin_form{
+	position: absolute;
+	display: block;
+	top: 180px;
+	margin-left: 525px;
+	height: 140px;
+	width: 300px;
+	z-index: 100;}
+#regdes_signin_bg{
+	opacity: 1;
+	width: 100%;
+	height: 100%;}*/
+#regdes_signin_form h2{
+	position: absolute;
+	top: 10px;
+	left: 140px;
+	font: 14px swatch it;
+	color: white;}		
+#regdes_icon{
+	position: absolute;
+	top: 0px;
+	margin-left: 15%;
+	width: 170px;
+	height: 45px;}
+#regdes_icon img{
+	height: 100%;}		
+#regdes_signin_form h3{
+	position: relative;
+	width: 100px;
+	font: 11px Arial;
+	color: white;
+	margin-bottom: 5px;
+	cursor: pointer;
+	margin-left: 2px;}	
+.regdes_loginBtn {
+	position: absolute;
+	top: 75%;
+	left: 74%;
+	width: 60px;
+	background:#22265c;
+	color:#fff;
+	border:1px #fff solid;
+	font-size:11px;
+	cursor:pointer;	}
+.regdes_loginBtn:hover{background: #414ac5;}
+/*------Sign In form------*/
+
+/*------Forget Password form------*/
+#regdes_fp_form{
+	position: absolute;
+	top: 480px;
+	margin-left: 1000px;
+	height: 140px;
+	width: 300px;
+	opacity: 0;
+	filter: Alpha(opacity = 0);
+	z-index: 110;}
+#regdes_fp_bg{
+	width: 100%;
+	height: 100%;}
+#regdes_me{
+	position: absolute;
+	top: 10px;
+	margin-left: 30px;
+	width: 140px;
+	height: 50px;}							
+#regdes_fp_form h2{
+	position: relative;
+	font: 13px Arial;
+	color: white;}
+#regdes_fpf{
+	position: absolute;
+	top: 0px;
+	margin-left: 20px;
+	width: 170px;
+	height: 60px;}	
+#regdes_mobile{
+	position: absolute;
+	background-color: #fff transparent;
+	top: 0px;
+	left: 45px;
+	height: 12px;
+	width: 12px;
+	z-index: 55;}
+#regdes_email{
+	position: absolute;
+	background-color: #fff;
+	top: 0px;
+	left: 125px;
+	height: 12px;
+	width: 12px;
+	z-index: 55;}			
+/*input.ok_btn {
+	position: absolute;
+	top: 55px;
+	left: 130px;
+	width: 60px;
+	padding-left: 20px;
+	background:#22265c;
+	color:#fff;
+	border:1px #fff solid;
+	font-size:11px;
+	opacity: 1;
+	filter: Alpha(opacity = 100);
+	cursor:pointer;}				
+input.ok_btn:hover {background: #414ac5;}
+#regdes_mobile_icon, #regdes_mail_icon{
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	width: 50px;
+	height: 45px;
+	z-index: 50;}
+#regdes_mail_icon{
+	left: 90px;}	
+#regdes_fp_form h1{
+	font: 14px Arial;
+	color: white;
+	position: absolute;
+	top: 10px;
+	left: 60px;}
+#regdes_fp_form h2{
+	font: 12px Arial;
+	color: white;
+	position: absolute;
+	top: 65px;
+	left: 140px;}
+#regdes_fp_form h3{
+	font: 10px Arial;
+	color: white;
+	position: absolute;
+	top: 95px;
+	left: 90px;}*/						
+/*------Forget Password form------*/
+
+
+/*------Sign up form------*/
+#regdes_signup_form{
+	overflow: hidden;
+	position: absolute;
+	text-align: center;
+	margin-left: 185px;
+	margin-top: 330px;
+	height: 120px;
+	width: 300px;
+	cursor: pointer;
+	z-index: 30;}
+#regdes_signup_form .regdes_sign_logo{
+	position: absolute;
+	top: 20px;
+	left: 40px;
+	width: 220px;
+	height: 45px;}
+#regdes_signup_form .regdes_signup_bg{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;}			
+#regdes_signup_form h1, h2{
+	position: relative;
+	top: 70px;
+	left: 0px;
+	font: 14px Arial;
+	color: white;}	
+#regdes_signup_form h2{
+	font: 20px Arial;}
+.regdes_fn{
+	float:left;
+	display: block;}
+.regdes_mobileNumberCuntryCode{
+    width: 50px;
+    float:  left;}
+.regdes_mobileNumber{
+    margin-left: 1px;
+    width: 189px;
+    float: left;}
+.regdes_userName{width: 155px;}
+#regdes_oneidBtn{
+        font: 13px Arial;
+	display: none;
+	margin-left:-16px;
+overflow:  hidden;}
+.regdes_date{
+	background-color: rgba(200, 200, 200, 0.4);
+	display: none;
+	margin-bottom: 3px;
+	float: left;
+	height: 25px;
+	width: 270px;}	
+
+select{
+	position: relative;
+	float: left;
+	height: 25px;
+	background-color: rgba(225, 225, 225, 0.5);
+	border: solid 0px;}	
+#regdes_date{
+	width: 25%;
+	margin-left: 1%;}	
+#regdes_month{
+	width: 43%;
+	margin-left: 0;}
+#regdes_year{
+	width: 30%;
+	margin-left: 1%;}	
+.regdes_nation{
+	float: left;
+	width: 90%;
+        margin-bottom: 3px;
+	display: none;}	
+.regdes_gender{
+	background-color: rgba(225, 225, 225, 0.3);
+	float: left;
+	margin-top: 0px;
+	margin-bottom: 3px;
+	display: none;
+	width: 270px;
+	height: 25px;}
+#regdes_male, #regdes_female{
+	position: relative;
+	margin-top: 5px;
+	margin-left: 20px;
+	top: 0px;
+	float: left;
+	height: 15px;
+	width: 15px;}
+#regdes_female{margin-left: 80px;}	
+.regdes_gender h3{
+	position: relative;
+	float: left;
+	top: 5px;
+	left: 5px;
+	color: black;
+	font: 12px arial;}		
+#regdes_cont_btn{
+	cursor: pointer;
+	display: none;
+	margin-left: 20px;
+	margin-top: 0px;
+	float: left;
+	width: 80%;
+	height: 25px;
+	color: white;
+	font: 14px Arial;
+	border: solid 1px white;
+	background-color: #22265c;}
+#regdes_cont_btn:hover{background-color: #414ac5;}	
+/*------Sign up form------*/
+
+
+	
+
+
+.redfoucusclass{
+	color: red;
+	outline: none;
+    border-color: red;
+    box-shadow: 0 0 10px red;
+	-webkit-animation: focus 0.1s 2;
+	-ms-animation: focus 0.1s 2;
+	-moz-animation: focus 0.1s 2;
+	animation: focus 0.1s 2;
+}
+.bluefoucusclass{
+	color: blue;
+	outline: none;
+    border-color: blue;
+    box-shadow: 0 0 10px blue;
+	-webkit-animation: focus 0.1s 2;
+	-ms-animation: focus 0.1s 2;
+	-moz-animation: focus 0.1s 2;
+	animation: focus 0.1s 2;}	
+
+.login_error{
+    color: red;
+    cursor: pointer;
+    font: 11px Arial;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    position: relative;
+    width: 250px;
+}
+.forgot_error{
+    color: red;
+    cursor: pointer;
+    font: 11px Arial;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    position: relative;
+    width: 250px;
+}
+.otp_sucess{
+    color: white;
+    cursor: pointer;
+    font: 11px Arial;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    position: relative;
+    width: 250px;
+}
+
+	.vinod_selectBox{
+				width: 65px;
+				height: 30px;
+				background-color: #ccc;
+				cursor : pointer;
+			}
+			.selectArea{
+                                text-align: left;
+                                padding-left: 10px;
+				width: 250px;
+                                color: #fff;
+				height: 23px;
+				float: left;
+                                font: 17px Arial;
+				background-color: rgba(225, 225, 225, 0.3);
+			}
+			.selectArea img{
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin: 1px 3px 0 0;
+			}
+			
+			.selectArea1{
+				width: 250px;
+				float: left;
+				border-right: solid 1px #ddd;
+				background-color: #ccc;
+			}
+			.selectArea1 img{
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin: 5px 0px 0px 10px;
+			}
+			
+			.cuntryName{
+				font: 16px Arial;
+				color: #333;
+				margin: 5px 0px 0px 5px;
+				float: left;
+			}
+			.dropDown{
+				width: 23px;
+				height: 23px;
+				float: right;
+				background-color: #ccc;
+			}
+			.dropDownIcon{
+				width: 10px;
+				height: 10px;
+				float: left;
+				margin: 7px 0px 0px 7px;
+			}
+			li {
+				list-style:none;
+			}
+			
+			.showlistdata {
+				display:none; 
+                                background-color: #ddd;
+                                position: absolute;
+                                margin: 117px 0px 0px 0px;
+				width:85%; 
+				height:100px; 
+				overflow-Y: scroll; 
+				overflow-X: hidden;
+                                z-index: 1000;
+			}
+			
+			.showlistdata a {
+				cursor: pointer;
+			}
+                        .suggestionForUserID{
+                            display: none;
+                            width: 93%;
+                           
+                            
+                            margin: 3px 0px 2px 1px;
+                           
+                            background-color: #ddd;
+                            min-height:40px;
+                            z-index: 1000;
+                            color: green;
+                            font: 14px Arial;
+                        }
+                        .cuntryFlag{
+                            margin: -5px 0px 5px 0px;
+                        }
+			 .search
+                    {
+                        
+                        background-position:right;
+                        
+                       background-color: rgba(225, 225, 225, 0.8);
+                       width: 155px;
+                        float:left;
+                    }
+
+
+
+
+
+
+
+
+
+/*-----Last Registration Changes (22-08-2015) By Vinod Starts Here-----*/	
+#reg_mainWrapper{
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+	
+.reg_bgImages{
+	position: fixed;
+	float: left;
+	background-color: rgba(250, 250, 250, 0.5);
+	width: 100%;
+	height: 100%;
+}
+#bg_img{
+	float: left;
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+	
+	
+/*------module header--------*/
+.reg_moduleCap{
+	display: none;
+	float: left;
+	position: absolute;
+	margin: 450px 0 0 50px;
+	text-align: left;
+	width: 280px;
+	height: 180px;}	
+.title{
+	float: left;
+	width: 110px;
+	height: 110px;}	
+.reg_moduleCapText{
+	float: left;
+	width: 250px;
+	margin: 10px 0 0 0;
+	font: bold 14px arial;
+	color: white;}	
+.oneidnet{
+	float: left;
+	margin: 40px 0 0 20px;
+	height: 50px;
+	width: 100px;}
+/*------module header--------*/	
+	
+	
+	
+	
+	
+	
+.reg_frontWrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);}	
+/*------Slogan Change Bar Styles------*/	
+.reg_leftSectionWrapper{
+	float: left;
+	margin-top: 30px;
+	width: 23%;
+	height: 150px;}
+
+.slogans{
+	
+	width: 100%;
+	padding-top: 10px;
+	height: 140px;
+	overflow: hidden;
+	
+	text-align: center;
+	}	
+@-webkit-keyframes slider{
+	0% {margin-top: -150px;}
+	50% {margin-top: 0px;}
+	100% {margin-top: -150px;}
+	}
+@-ms-keyframes slider{
+	0% {margin-top: -150px;}
+	50% {margin-top: 0px;}
+	100% {margin-top: -150px;}
+	}	
+@-moz-keyframes slider{
+	0% {margin-top: -150px;}
+	50% {margin-top: 0px;}
+	100% {margin-top: -150px;}
+	}	
+
+
+
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+}
+
+.slogans span{
+	font: 30px Arial;
+	color: white;
+	width: 100%;
+        /*animation: 3s ease 2s alternate none infinite running fadeIn;*/
+	text-align: center;
+	float: left;}
+/*------Slogan Change Bar Styles------*/
+
+
+
+.reg_circleAnimationWrapper{
+	float: left;
+	margin: 1% 0 0 0%;
+	width: 50%;
+	height: 95%;
+	display: block;}
+#wis_modules_circle{
+	margin: 0px auto;
+	display: block;
+	width: 680px;
+	height: 630px;}
+	
+/*------header------*/
+#header{
+	float: left;
+	margin: 380px 0 0 0;
+	height: 130px;
+	width: 150px;}
+#header img{
+	float: left;
+	}
+/*------header------*/	
+.module{cursor: pointer;}
+#mail, #oneshop, #cooffice, #isnews, #click, #vcom, #netpro, #traveltime, #tunnel, #onevision, #oneidship, #dealerx, #findit, #cvbank, #buzzin, #onenetwork{
+	position: absolute;
+	margin: 300px 0 0 0px;
+	width: 75px;
+	height: 70px;
+	
+	display: none;}
+#click{margin-top: 265px;margin-left: 10px;}
+#buzzin{margin-top: 180px;margin-left: 20px;}
+
+
+
+#tunnel{margin-top: 90px;margin-left: 70px;}
+
+#vcom{margin-top:30px;margin-left: 150px;}
+#oneshop{margin-top: 0px;margin-left: 240px;}
+#netpro{margin-top: 0px;margin-left: 340px;}
+
+#cooffice{margin-top: 30px;margin-left: 440px;}
+#cvbank{margin-top: 90px;margin-left: 520px;}
+#isnews{margin-top: 440px;margin-left: 520px;}
+
+
+
+#traveltime{margin-top: 180px;margin-left: 570px;}
+#onevision{margin-top: 500px;margin-left: 440px;}
+
+#oneidship{margin-top: 265px;margin-left: 580px;}
+#dealerx{margin-top: 540px;margin-left: 340px;}
+#findit{margin-top: 350px;margin-left: 570px;}
+
+
+#onenetwork{margin-top: 540px;margin-left: 240px;}
+
+.mail, .oneshop, .cooffice, .isnews, .click, .vcom, .netpro, .traveltime, .tunnel, .onevision, .oneidship, .dealerx, .findit, .cvbank, .buzzin, .onenetwork{
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 60px;}	
+.mailh, .oneshoph, .coofficeh, .isnewsh, .clickh, .vcomh, .netproh, .traveltimeh, .tunnelh, .onevisionh, .oneidshiph, .dealerxh, .findith, .cvbankh, .buzzinh, .onenetworkh{
+	display: none;
+	position: absolute;
+	width: 75px;
+	height: 70px;}			
+
+
+
+
+
+
+.reg_rightSectionWrapper{
+	float: right;
+	margin: 1%;
+	width: 13%;}
+.reg_rightSectionOptions{
+	float: left;
+	width: 100%;
+	height: 200px;}
+.reg_rightSectionOptions ul{
+	float: left;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 5px;
+	border-left: solid 3px rgba(250, 250, 250, 0.5);
+	list-style: none;}
+.reg_rightSectionOptions ul li{
+	float: left;
+	width: 99%;
+	height: 20px;
+	margin: 5px 0 0 0;}
+.reg_rightSectionOptions ul li img{
+	cursor: pointer;
+	float: left;
+	margin: 0 0 0 8px;
+	width: 22px;
+	height: 20px;
+	background-color: rgba(255, 255, 255, 0.3);
+	opacity: 0.6;}
+.reg_rightSectionOptions ul li img:hover{
+	background-color: rgba(255, 255, 255, 0.5);
+	opacity: 0.9;}
+.reg_rightSectionOptions ul li span{
+	cursor: pointer;
+	display: block;
+	float: left;
+	width: 0;
+	height: 17px;
+	font: 12px Arial;
+	color: white;
+	margin: 0 0 0 3px;
+	overflow: hidden;
+	background-color: rgba(250, 250, 250, 0.4);}
+	
+	
+	
+	
+	
+.reg_signUpForm, .reg_signInForm, .reg_recoveryForm, .reg_OTPForm{
+	cursor: pointer;
+	float: left;
+	position: absolute;
+	margin: 320px 0 0 185px;
+	width: 300px;
+	height: 125px;}
+.reg_recoveryForm, .reg_OTPForm{
+	display: none;}	
+.reg_OTPForm{margin: 230px 0 0 185px; height: 140px;}
+.reg_signUpFormHeader{
+	cursor: pointer;
+	float: left;
+	position: absolute;
+	margin: 10px 0 0 50px;
+	border-radius: 10px;
+	width: 200px;
+	height: 40px;}
+.reg_signUpFormHeader img{
+	float: left;
+	width: 200px;
+	height: 40px;}
+.reg_signUpText{
+	position: absolute;
+	margin: 60px 0 0 5px;
+	float: left;
+	text-align: center;
+	width: 290px;
+	height: 40px;}
+.reg_signUpTextPType{
+	float: left;
+	text-align: center;
+	width: 290px;
+	font: 12px Arial;
+	color: White;}
+.reg_signUpTextHType{
+	float: left;
+	text-align: center;
+	width: 290px;
+	font: 20px Arial;
+	color: white;}		
+.reg_signInForm, .reg_recoveryForm{
+	height: 150px;
+	margin: 150px 0 0 185px;}
+.reg_signUpFormWrapper{
+	display: none;
+	float: left;
+	position: absolute;
+	width: 290px;
+	margin: 60px 5px 5px 5px;
+	background-color: rgba(250, 250, 250, 0);}
+.reg_signUpFormField{
+	float: left;
+	width: 290px;
+	height: 25px;
+	margin-bottom: 2px;}
+.reg_signUpFormField h3{
+	float: left;
+	margin: 0 0 0 2px;
+	font: 14px Arial;
+	color: #ccc;}
+input, select{
+	float: left;
+	padding: 0 10px 0 5px;
+	height: 25px;
+	width: 255px;
+	border: 0px;
+        font-weight:bold;
+        color:#fff;
+	background-color: rgba(250, 250, 250, 0.3);}
+select{
+	width: 270px;}	
+input:focus, select:focus{
+	outline: none;}
+.userName{
+	width: 170px;}
+.mobile{
+	width: 195px;}	
+.host, .code{
+	float: left;
+	width: 84px;
+	height: 20px;
+	padding: 5px 0 0 0;
+	margin: 0 0 0 1px;
+	text-align: center;
+	background-color: rgba(250, 250, 250, 0.8);
+	font: 11px Arial;
+	color: #555;}
+.code{width: 59px; margin: 0 1px 0 0;}
+.date{width: 65px;}
+.month{width: 120px; margin-left: 5px;}
+.year{width: 75px;  margin-left: 5px;}
+.reg_genderField{
+	float: left;
+	padding: 5px 0 0 20px;
+	width: 115px;
+	height: 20px;
+	background-color: rgba(250, 250, 250, 0.8);}
+.reg_genderField h4{
+	float: left;
+	font: 12px Arial;
+	margin: 0 0 0 5px;
+	color: #555;}	
+.gender{
+	float: left;
+	width: auto;
+	height: auto;}	
+.continueBtnWrapper{
+	text-align: center;}
+.continueBtn{
+	cursor: pointer;
+	width: 200px;
+	height: 25px;
+	border: solid 1px white;
+	background-color: #03F;
+	font: 14px Arial;
+	color: #fff;}
+.continueBtn:hover{
+	background-color: #00C;}
+	
+	
+	
+.reg_signInFormHeader{
+	cursor: pointer;
+	position: absolute;
+	margin: 0 auto;
+	border-radius: 10px;
+	text-align: center;
+	width: 70%;
+	height: 50px;}	
+.reg_signInFormHeader img{
+	width: 160px;
+	height: 50px;}	
+.reg_signInFormWrapper, .reg_recoveryFormWrapper{
+	float: left;
+	position: absolute;
+	width: 97%;
+	margin: 50px 5px 5px 5px;
+	background-color: rgba(250, 250, 250, 0);}
+.reg_recoveryFormWrapper{
+    margin: 5px 5px 5px 5px;
+}
+.reg_signInFormField{
+	float: left;
+	width: 98%;
+	min-height: 25px;
+	margin-bottom: 2px;}
+.signInField{
+	float: left;
+	width: 95%;}
+.recoveryBtnWrapper{
+	float: left;
+	width: 100%;}	
+.LoginBtn, .CancelBtn{
+	float: right;
+	cursor: pointer;
+	width: 70px;
+	height: 25px;
+	border: solid 1px white;
+	background-color: #22265c;
+	font: 12px Arial;
+	color: #fff;}
+.CancelBtn{
+	float: left;}	
+.LoginBtn:hover{
+	background-color: #00C;}
+.reg_signInText{
+	float: left;
+	margin: 0 0 0 5px;
+	float: left;
+	width: 120px;}
+.reg_signInText p{
+	margin: 0 0 2px 0;
+	width: 120px;
+	float: left;
+	font: 12px Arial;
+	color: White;}	
+.loginWaiting,.forgotWaiting,.otpWaiting{
+	float: left;
+	width: 90%;
+        font: 10px Arial;
+        color: white;
+	height: 10px;}						
+	
+	
+	
+.reg_background{
+	float: left;
+	width: 100%;
+	height: 100%;}	
+
+.login_error{
+    color: red;
+    cursor: pointer;
+    font: 11px Arial;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    position: relative;
+    width: 250px;
+}
+
+.signUpFormWrapper{
+	float: left;
+	position: absolute;
+	margin: 50px 0 0 0;
+	width: 300px;
+	height: 00px;
+	overflow: hidden;
+	z-index: 1000;
+	background-color: rgba(255, 255, 255, 0);}	
+@font-face {
+    font-family: SWATRG;
+    src: url(SWATRG.TTF);
+}	
+.logo_text {
+    color: white;
+    float: left;
+    font-family: SWATRG;
+    font-size: 26px;
+    margin-left: 5px;
+    margin-top: 6px;
+    opacity: 0.7;
+    text-align: left;
+    text-shadow: 1px 1px 5px #111;
+}
+
+
+
+.regbtn {
+  background: #3465d9;
+  background-image: -webkit-linear-gradient(top, #3465d9, #0072c4);
+  background-image: -moz-linear-gradient(top, #3465d9, #0072c4);
+  background-image: -ms-linear-gradient(top, #3465d9, #0072c4);
+  background-image: -o-linear-gradient(top, #3465d9, #0072c4);
+  background-image: linear-gradient(to bottom, #3465d9, #0072c4);
+  border-radius: 1px;
+  margin:0 0 0 -20px;
+  border:0px #fff solid;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  width:270px;
+  padding: 4px 20px 4px 20px;
+  text-decoration: none;
+}
+
+.regbtn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.mainidbox {
+    float: left;
+    font-family: arial;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    width: 100px;
+    color:#fff;
+    font-weight:bold;
+    background-color: rgba(255, 255, 255, 0.3);}	
+    }
+
+	
+/*-----Last Registration Changes (22-08-2015) By Vinod Ends Here-----*/	

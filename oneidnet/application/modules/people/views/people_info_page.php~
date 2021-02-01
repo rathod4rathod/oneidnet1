@@ -1,0 +1,1059 @@
+<?php
+$this->load->module("templates");
+$this->templates->basic_info_header();
+?>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.click_hoverFriendSuggessions ul li').hover(
+                function () {
+                    $(this).find('h4').fadeIn(50);
+                },
+                function () {
+                    $(this).find('h4').fadeOut(50);
+                });
+
+        $('.click_searchField').focus(function () {
+            $('.click_suggesionsList').css({display: 'block'});
+        });
+        $('.click_searchField').blur(function () {
+            $('.click_suggesionsList').css({display: 'none'});
+        });
+
+        $('.click_album').hover(
+                function () {
+                    $(this).find('.click_photoOptionsTop').fadeIn(300);
+                },
+                function () {
+                    $(this).find('.click_photoOptionsTop').fadeOut(20);
+                }
+        );
+        $('.click_album').hover(
+                function () {
+                    $(this).find('.click_photoOptionsBottom').fadeIn(300);
+                },
+                function () {
+                    $(this).find('.click_photoOptionsBottom').fadeOut(20);
+                }
+        );
+        $('.click_interests').click(function () {
+            $('.click_interestsList').slideToggle(300);
+        });
+
+    });
+    function showFriendList(id) {
+        var list = document.getElementById(id);
+        list.style.display = 'block';
+    }
+    function hideFriendList(id) {
+        var list = document.getElementById(id);
+        list.style.display = 'none';
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.click_photoWrapper').click(function () {
+            $('#click_photosPopUp').fadeIn(300);
+        });
+
+        $('.click_createAlbumBtn').click(function () {
+            $('#click_createAlbumPopUp').fadeIn(300);
+        });
+        $('.notify').click(function () {
+            $(this).parent().find('.click_NotificationListWrapper').fadeToggle(300);
+        });
+
+    });
+
+    function toggle_popUpVisibility(id) {
+        var myPopUp = document.getElementById(id);
+        myPopUp.style.display = 'none';
+    }
+
+    function showFriendList(id) {
+        var list = document.getElementById(id);
+        list.style.display = 'block';
+    }
+    function hideFriendList(id) {
+        var list = document.getElementById(id);
+        list.style.display = 'none';
+    }
+</script>
+
+
+
+
+<div class="np_des_module_container_wrap np_des_mat130"> <!--module_container start here-->
+
+
+    <div class="hotel_pachagesummary_box fll">
+
+
+        <div id="documenter_sidebar">
+
+            <ul id="documenter_nav">
+                <div class="overflow"> <span class="fll np_des_mar5"><img src="<?php echo BASEINFO_PATH; ?>images/Yes.png"> </span> <h2 class="fs18 normal np_des_mab40 np_des_mat10"> PREFERENCES </h2> </div>
+
+                <li><a href="#documenter_cover" class="current"> Module Privacy Matrix </a></li>
+                <li><a title="Ajax Contact Form" href="#ajax_contact_form" > Login Symantics </a></li>
+                <li><a title="Google Map" href="#google_map"> Control Login Activities</a></li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div class="right_container_rightnew_wrapper">
+
+        <div id="documenter_content">
+            <section id="documenter_cover">
+
+                <h1 class="wi100pstg os_des_borderbottom os_des_pab5 normal np_des_mab10"> Module Privacy Matrix </h1>
+
+
+                <div class="statistics_total_wqrap np_des_mat25">
+
+                    <div class="preference_top_heading_wrap">
+                        <div class="statistics_preference_box1"> MODULES </div>
+                        <div class="statistics_preference_box2"> Public </div>
+                        <div class="statistics_preference_box2"> Friends </div>
+                        <div class="statistics_preference_box2"> Private </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/mail.png"> </span> <span class="fll">360 mail</span> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="360mail" id="radio1" class="css-checkbox" />
+                                <label for="radio1" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="360mail" id="radio2" class="css-checkbox" />
+                                <label for="radio2" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="360mail" id="radio3" class="css-checkbox" />
+                                <label for="radio3" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/netpro.png"> </span> <span class="fll">Netpro</span> </div>
+
+
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"><input type="radio" name="netpro" id="radio4" class="css-checkbox netpro" value="Public"<?php if ($netpro[0]['profile_privacy'] == 'Public'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio4" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="netpro" id="radio5" class="css-checkbox netpro" value="Friends"<?php if ($netpro[0]['profile_privacy'] == 'Friends'): ?>checked = "checked"<?php endif; ?> />
+                                <label for="radio5" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="netpro" id="radio6" class="css-checkbox netpro" value="Private"<?php if ($netpro[0]['profile_privacy'] == 'Private'): ?>checked = "checked"<?php endif; ?> />
+                                <label for="radio6" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" id="netpro_save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/buzzin.png"> </span> <span class="fll">Buzzin</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="buzzin" id="radio7" class="css-checkbox buzzin" value="Public"<?php if ($buzzin[0]['privacy'] == 'Public'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio7" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="buzzin" id="radio8" class="css-checkbox buzzin" value="Friends"<?php if ($buzzin[0]['privacy'] == 'Friends'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio8" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="buzzin" id="radio9" class="css-checkbox buzzin" value="Private"<?php if ($buzzin[0]['privacy'] == 'Private'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio9" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" id="buzzin_save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/click.png"> </span> <span class="fll">Click</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="uclick" id="radio10" class="css-checkbox uclick" value="Public"<?php if ($click[0]['profile_privacy'] == 'Public'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio10" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="uclick" id="radio11" class="css-checkbox uclick" value="Friend"<?php if ($click[0]['profile_privacy'] == 'Friend'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio11" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="uclick" id="radio12" class="css-checkbox uclick" value="Private"<?php if ($click[0]['profile_privacy'] == 'Private'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio12" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" id="click_save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/cooffice.png"> </span> <span class="fll">Co - Office</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="sravani" id="radio13" class="css-checkbox" />
+                                <label for="radio13" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="sravani" id="radio14" class="css-checkbox" />
+                                <label for="radio14" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="sravani" id="radio15" class="css-checkbox" />
+                                <label for="radio15" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/cvbank.png"> </span> <span class="fll">CVBank</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="cooffice" id="radio16" class="css-checkbox" />
+                                <label for="radio16" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="cooffice" id="radio17" class="css-checkbox" />
+                                <label for="radio17" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="cooffice" id="radio18" class="css-checkbox" />
+                                <label for="radio18" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/dealerx.png"> </span> <span class="fll">Dealerx</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="dealerx" id="radio19" class="css-checkbox" />
+                                <label for="radio19" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="dealerx" id="radio20" class="css-checkbox" />
+                                <label for="radio20" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="dealerx" id="radio21" class="css-checkbox" />
+                                <label for="radio21" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/findit.png"> </span> <span class="fll">Findit</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="findit" id="radio22" class="css-checkbox" />
+                                <label for="radio22" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="findit" id="radio23" class="css-checkbox" />
+                                <label for="radio23" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="findit" id="radio24" class="css-checkbox" />
+                                <label for="radio24" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/isnews.png"> </span> <span class="fll">Isnews</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="isnews" id="radio25" class="css-checkbox" />
+                                <label for="radio25" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="isnews" id="radio26" class="css-checkbox" />
+                                <label for="radio26" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="isnews" id="radio27" class="css-checkbox" />
+                                <label for="radio27" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/oneidship.png"> </span> <span class="fll">Oneidship</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneidship" id="radio28" class="css-checkbox" />
+                                <label for="radio28" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneidship" id="radio29" class="css-checkbox" />
+                                <label for="radio29" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneidship" id="radio30" class="css-checkbox" />
+                                <label for="radio30" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/onenetwork.png"> </span> <span class="fll">OneNetWork</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onenetwork" id="radio31" class="css-checkbox" />
+                                <label for="radio31" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onenetwork" id="radio32" class="css-checkbox" />
+                                <label for="radio32" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onenetwork" id="radio33" class="css-checkbox" />
+                                <label for="radio33" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/oneshop.png"> </span> <span class="fll">OneShop</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneshop" id="radio34" class="css-checkbox" />
+                                <label for="radio34" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneshop" id="radio35" class="css-checkbox" />
+                                <label for="radio35" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="oneshop" id="radio36" class="css-checkbox" />
+                                <label for="radio36" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/onevision.png"> </span> <span class="fll">OneVision</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onevision" id="radio37" class="css-checkbox" />
+                                <label for="radio37" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onevision" id="radio38" class="css-checkbox" />
+                                <label for="radio38" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="onevision" id="radio39" class="css-checkbox" />
+                                <label for="radio39" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/traveltime.png"> </span> <span class="fll">Traveltime</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="traveltime" id="radio40" class="css-checkbox" />
+                                <label for="radio40" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="traveltime" id="radio41" class="css-checkbox" />
+                                <label for="radio41" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="traveltime" id="radio42" class="css-checkbox" />
+                                <label for="radio42" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/tunnel.png"> </span> <span class="fll">Tunnel</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="tunnel" id="radio46" class="css-checkbox tunnel" value="Public"<?php if ($tunnel[0]['profile_privacy'] == 'Public'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio46" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="tunnel" id="radio47" class="css-checkbox tunnel" value="Friends"<?php if ($tunnel[0]['profile_privacy'] == 'Friends'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio47" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="tunnel" id="radio48" class="css-checkbox tunnel" value="Private"<?php if ($tunnel[0]['profile_privacy'] == 'Private'): ?>checked="checked"<?php endif; ?>/>
+                                <label for="radio48" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" id="tunnel_save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                    <div class="preference_bottom_content_wrap">
+                        <div class="preference_module_names"><span style="margin-left:-10px;" class="fll"><img width="50" height="40" alt="icon" class="fll os_des_margin_auto" src="<?php echo BASEINFO_PATH; ?>images/logos/vcom.png"> </span> <span class="fll">Vcom</span> </div>
+
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="vcom" id="radio49" class="css-checkbox" />
+                                <label for="radio49" class="css-label radGroup1"></label> </p> </div>
+
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="vcom" id="radio50" class="css-checkbox" />
+                                <label for="radio50" class="css-label radGroup1"></label> </p> </div>
+
+                        <div class="statistics_preference_box_content">
+                            <p class="fll checkbox_margins"> <input type="radio" name="vcom" id="radio51" class="css-checkbox" />
+                                <label for="radio51" class="css-label radGroup1"></label> </p>
+                            <p class="flr np_des_mat5"> <input type="button" class="button_new" value="Save" style="display: none;"> </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section id="ajax_contact_form" class="minheight600">
+
+                <div class="fll overflow wi100pstg os_des_borderbottom">
+
+                    <h1 class="fll normal np_des_mab10"> Login Symantics  </h1>
+
+                    <div class="flr mat5">
+                        <input type="button" class="button_new os_des_mal10 click_headerIcon notify" value="+ Edit Rules">
+
+                        <div class="click_NotificationListWrapper">
+                            <img src="assets/basic_info/images/notifyBubble.png" class="click_NotifyBubble">
+                            <div class="click_NotifyWrapper">
+
+                                <form>
+                                    <div class="fll np_des_wi420 os_des_mal20">
+
+
+                                        <div class="group np_des_wi420 fll np_des_mat10">
+                                            <p class="fs14 np_des_mab2 np_des_mab10"> Location Access </p>
+                                            <select class="oneshop_select_newfield_with_border" id="location_access" name="location_access">
+                                                <option value="ANY"<?php if ($symanticsdata[0]['location_access'] === 'ANY') echo ' selected="selected"' ?>> Any </option>
+                                                <option value="PARTICULAR"<?php if ($symanticsdata[0]['location_access'] === 'PARTICULAR') echo ' selected="selected"' ?>>Particular </option>
+                                            </select>
+                                        </div>
+                                        <?php if ($symanticsdata[0]['location_access'] != "ANY") { ?>
+                                            <div class="group np_des_wi420 fll"  id="countries_list">
+
+                                                <?php $country_values = explode(",", $symanticsdata[0]['country_str']); ?>
+
+                                                <p class="fs14 np_des_mab2 np_des_mab10"> Choose City / Country </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_countries">
+                                                    <?php foreach ($countrydata as $cdatalist) { ?>
+                                                        <?php $cid = $cdatalist['country_id']; ?>
+                                                        <option value="<?php echo $cdatalist['country_id']; ?>"<?php
+                                                        if (in_array($cid, $country_values)) {
+                                                            echo 'selected';
+                                                        }
+                                                        ?>><?php echo $cdatalist['country_name']; ?> </option>
+                                            <?php } ?>
+                                                </select>
+                                            </div>
+<?php } else { ?>
+                                            <div class="group np_des_wi420 fll"  id="countries_list" style="display: none;">
+                                                <p class="fs14 np_des_mab2 np_des_mab10"> Choose City / Country </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_countries">
+                                                    <?php foreach ($countrydata as $cdatalist) { ?>
+                                                        <option value="<?php echo $cdatalist['country_id']; ?>"> <?php echo $cdatalist['country_name']; ?> </option>
+                                            <?php } ?>
+                                                </select>
+                                            </div>
+<?php } ?>
+
+                                        <div class="group np_des_wi420 fll">
+                                            <p class="fs14 np_des_mab2 np_des_mab10"> Device Type </p>
+                                            <select class="oneshop_select_newfield_with_border" id="device_access" name="device_access">
+                                                <option value="ANY"<?php if ($symanticsdata[0]['device_type'] === 'ANY') echo ' selected="selected"' ?>> Any </option>
+                                                <option value="PARTICULAR"<?php if ($symanticsdata[0]['device_type'] === 'PARTICULAR') echo ' selected="selected"' ?>>Particular </option>
+                                            </select>
+                                        </div>
+                                            <?php if ($symanticsdata[0]['device_type'] != "ANY") { ?>
+
+                                            <div class="group np_des_wi420 fll" id="device_list"  >
+    <?php $device_values = explode(",", $symanticsdata[0]['device_str']); ?>
+                                                <p class="fs14 np_des_mab2 np_des_mab10">Choose Device Type </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_devices">
+                                                    <option value="TABLET"<?php
+    if (in_array('TABLET', $device_values)) {
+        echo 'selected';
+    }
+    ?>>Tablet </option>
+                                                    <option value="COMPUTER"<?php
+                                                            if (in_array('COMPUTER', $device_values)) {
+                                                                echo 'selected';
+                                                            }
+                                                            ?>>Computer </option>
+                                                    <option value="MOBILE"<?php
+                                                            if (in_array('MOBILE', $device_values)) {
+                                                                echo 'selected';
+                                                            }
+                                                            ?>>Mobile </option>
+                                                </select>
+                                            </div>
+<?php } else { ?>
+                                            <div class="group np_des_wi420 fll" id="device_list" style="display: none;" >
+                                                <p class="fs14 np_des_mab2 np_des_mab10">Choose Device Type </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_devices">
+                                                    <option value="TABLET">Tablet </option>
+                                                    <option value="COMPUTER">Computer</option>
+                                                    <option value="MOBILE">Mobile</option>
+
+                                                </select>
+                                            </div>
+<?php } ?>
+
+                                        <div class="group np_des_wi420 fll">
+                                            <p class="fs14 np_des_mab2 np_des_mab10"> Browser Type </p>
+                                            <select class="oneshop_select_newfield_with_border" id="browser_access" name="browser_access">
+                                                <option value="ANY"<?php if ($symanticsdata[0]['browsers'] === 'ANY') echo ' selected="selected"' ?>> Any </option>
+                                                <option value="PARTICULAR"<?php if ($symanticsdata[0]['browsers'] === 'PARTICULAR') echo ' selected="selected"' ?>>Particular </option>
+
+                                            </select>
+                                        </div>
+                                                        <?php if ($symanticsdata[0]['browsers'] != "ANY") { ?>
+
+                                            <div class="group np_des_wi420 fll" id="browser_list" >
+                                                            <?php $browser_values = explode(",", $symanticsdata[0]['browser_str']); ?>
+                                                <p class="fs14 np_des_mab2 np_des_mab10">Choose Browser Type </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_browsers" >
+                                                    <option value="CHROME"<?php
+                                                        if (in_array('CHROME', $browser_values)) {
+                                                            echo 'selected';
+                                                        }
+                                                            ?>>Chrome </option>
+                                                    <option value="FIREFOX"<?php
+                                                            if (in_array('FIREFOX', $browser_values)) {
+                                                                echo 'selected';
+                                                            }
+                                                            ?>>Firefox</option>
+                                                    <option value="OPERA"<?php
+                                                if (in_array('OPERA', $browser_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Opera</option>
+                                                    <option value="IE"<?php
+                                                if (in_array('IE', $browser_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>IE</option>
+                                                    <option value="NETSCAPE"<?php
+                                                if (in_array('NETSCAPE', $browser_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Netscape</option>
+                                                    <option value="SAFARI"<?php
+                                                if (in_array('SAFARI', $browser_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Safari</option>
+                                                </select>
+                                            </div>
+<?php } else { ?>
+                                            <div class="group np_des_wi420 fll" id="browser_list" style="display: none;">
+                                                <p class="fs14 np_des_mab2 np_des_mab10"> Choose Browser Type </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_browsers" >
+
+                                                    <option value="CHROME">Chrome </option>
+                                                    <option value="FIREFOX">Firefox</option>
+                                                    <option value="OPERA">Opera</option>
+                                                    <option value="IE">Ie</option>
+                                                    <option value="NETSCAPE">Netscape</option>
+                                                    <option value="SAFARI">Safari</option>
+                                                </select>
+                                            </div>
+                                                <?php } ?>
+                                        <div class="group np_des_wi420 fll">
+                                            <p class="fs14 np_des_mab2 np_des_mab10"> Operating System Based </p>
+                                            <select class="oneshop_select_newfield_with_border" id="os_access" name="os_access">
+                                                <option value="ANY"<?php if ($symanticsdata[0]['operating_system'] === 'ANY') echo ' selected="selected"' ?>> Any </option>
+                                                <option value="PARTICULAR"<?php if ($symanticsdata[0]['operating_system'] === 'PARTICULAR') echo ' selected="selected"' ?>>Particular </option>
+
+
+                                            </select>
+                                        </div>
+                                                <?php if ($symanticsdata[0]['operating_system'] != "ANY") { ?>
+
+                                            <div class="group np_des_wi420 fll" id="os_list" >
+                                                    <?php $os_values = explode(",", $symanticsdata[0]['operatingsystem_str']); ?>
+
+                                                <p class="fs14 np_des_mab2 np_des_mab10"> choose Operating System  </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_operatingsystems" >
+                                                    <option value="BLACKBERRY"<?php
+                                                if (in_array('BLACKBERRY', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                    ?>>Blackberry </option>
+                                                    <option value="WINDOWS"<?php
+                                                            if (in_array('WINDOWS', $os_values)) {
+                                                                echo 'selected';
+                                                            }
+                                                            ?>>Windows </option>
+                                                    <option value="SYMBIAN"<?php
+                                                if (in_array('SYMBIAN', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Symbian </option>
+                                                    <option value="BADA"<?php
+                                                if (in_array('BADA', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Bada </option>
+                                                    <option value="IOS"<?php
+                                                if (in_array('IOS', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Ios </option>
+                                                    <option value="PLMOS"<?php
+                                                if (in_array('PLMOS', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Plmos </option>
+                                                    <option value="LINUX"<?php
+                                                if (in_array('LINUX', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Linux </option>
+                                                    <option value="UNIX"<?php
+                                                if (in_array('UNIX', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Unix </option>
+                                                    <option value="DOS"<?php
+                                                if (in_array('DOS', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Dos </option>
+                                                    <option value="ANDROID"<?php
+                                                if (in_array('ANDROID', $os_values)) {
+                                                    echo 'selected';
+                                                }
+                                                ?>>Android </option>
+                                                </select>
+                                            </div>
+<?php } else { ?>
+                                            <div class="group np_des_wi420 fll" id="os_list" style="display: none;"  >
+                                                <p class="fs14 np_des_mab2 np_des_mab10"> choose Operating System  </p>
+                                                <select class="oneshop_select_newfield_with_border1" multiple="multiple" id="multi_operatingsystems" >
+
+
+                                                    <option value="BLACKBERRY">Blackberry </option>
+                                                    <option value="WINDOWS">Windows</option>
+                                                    <option value="SYMBIAN">Symbian</option>
+                                                    <option value="BADA">Bada</option>
+                                                    <option value="IOS">Ios</option>
+                                                    <option value="PLMOS">Plmos</option>
+                                                    <option value="LINUX">Linux</option>
+                                                    <option value="UNIX">Unix</option>
+                                                    <option value="DOS">Dos</option>
+                                                    <option value="ANDROID">Android</option>
+                                                </select>
+                                            </div>
+<?php } ?>
+                                    </div>
+
+                                    <div class="flr">
+                                        <input type="button" class="button_new os_des_mal10" value="Save" id="symantics_save">
+                                        <input type="button" class="button_new os_des_mal10" value="Cancel" id="symantics_cancel">
+                                    </div>
+
+                            </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="clearfix">&nbsp;</div>
+
+
+
+                <div class="fll wi100pstg">
+
+
+
+
+
+                    <div class="clearfix">&nbsp;</div>
+
+                    <div class="fll overflow">
+
+                        <div class="ttdes_flightsearch_topheadings_box fll">
+                            <div class="ttdes_flight_departure_box"> Restricition </div>
+                            <div class="ttdes_flight_arrival_box"> Any/Particular</div>
+                            <div class="ttdes_flight_duration_box"> Details </div>
+                        </div>
+
+                        <div class="ttdes_flightsearch_history_content fll">
+                            <div class="ttdes_stores_orderid pat5 os_des_pab5"> Device Type Restriction </div>
+                            <div class="ttdes_stores_date pat5 os_des_pab5">
+<?php echo $symanticsdata[0]['device_type']; ?>
+
+                            </div>
+                            <div class="ttdes_flight_duration_box pat5 os_des_pab5">
+<?php
+if ($symanticsdata[0]['device_type'] != "ANY")
+    echo $symanticsdata[0]['device_str'];
+else
+    echo "No Restricitions";
+?>  </div>
+                        </div>
+
+                        <div class="ttdes_flightsearch_history_content fll">
+                            <div class="ttdes_stores_orderid pat5 os_des_pab5"> Browser Based Restriction </div>
+                            <div class="ttdes_stores_date pat5 os_des_pab5">
+<?php echo $symanticsdata[0]['browsers']; ?>
+                            </div>
+                            <div class="ttdes_flight_duration_box pat5 os_des_pab5">
+<?php
+if ($symanticsdata[0]['browsers'] != "ANY")
+    echo $symanticsdata[0]['browser_str'];
+else
+    echo "No Restricitions";
+?> </div>
+                        </div>
+
+
+                        <div class="ttdes_flightsearch_history_content fll">
+                            <div class="ttdes_stores_orderid pat5 os_des_pab5"> Location Based Restriction </div>
+                            <div class="ttdes_stores_date pat5 os_des_pab5">
+<?php echo $symanticsdata[0]['location_access']; ?>
+
+                            </div>
+                            <div class="ttdes_flight_duration_box pat5 os_des_pab5"> <?php
+if ($symanticsdata[0]['location_access'] != "ANY"){
+    foreach($countrynames as $cnames)
+    {
+        $cunnames =  strtoupper($cnames['country_name']).",";
+        echo $cunnames;
+
+
+    }
+}else{
+    echo "No Restricitions";
+}?> </div>
+                        </div>
+                        <div class="ttdes_flightsearch_history_content fll">
+                            <div class="ttdes_stores_orderid pat5 os_des_pab5"> Operating System Restriction </div>
+                            <div class="ttdes_stores_date pat5 os_des_pab5">
+<?php echo $symanticsdata[0]['operating_system']; ?>
+
+                            </div>
+                            <div class="ttdes_flight_duration_box pat5 os_des_pab5">
+<?php
+if ($symanticsdata[0]['operating_system'] != "ANY")
+    echo $symanticsdata[0]['operatingsystem_str'];
+else
+    echo "No Restricitions";
+?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+            </section>
+            <section id="google_map" class="minheight600">
+                <h1 class="wi100pstg os_des_borderbottom os_des_pab5 normal np_des_mab10"> Control Login Activities  </h1>
+
+                <div class="right_cont_newwrapper np_des_mat25">
+
+
+                    <div class="fll np_des_mab10">
+                        <p class="fll np_des_mar10 np_des_mat10"> Filter : </p>
+                        <select class="flight_selectbox_one fll">
+                            <option value="">Select</option>
+                            <option value="1">Subject 1</option>;
+                            <option value="2">Subject 2</option>
+                            <option value="3">Subject 3</option>
+                            <option value="4">Subject 4</option>
+                        </select>
+                        <select class="flight_selectbox_one fll">
+                            <option value="">Select</option>
+                            <option value="1">Subject 1</option>;
+                            <option value="2">Subject 2</option>
+                            <option value="3">Subject 3</option>
+                            <option value="4">Subject 4</option>
+                        </select>
+                        <input type="button" value="GO" class="button_go flr">
+                    </div>
+
+                    <div class="fll overflow">
+
+                        <div class="ttdes_login_control fll">
+                            <div class="ttdes_flight_departure_box"> Device </div>
+                            <div class="ttdes_flight_browser"> Browser </div>
+                            <div class="ttdes_flight_ipaddress">  Login Time </div>
+                            <div class="ttdes_flight_browser"> IP Address </div>
+                            <div class="ttdes_flight_browser"> Status </div>
+                            <div class="ttdes_flight_reset"> Action </div>
+                        </div>
+
+                       
+                       
+
+                        <?php foreach($activitydata as $activdata ){
+$useragent = explode('/',$activdata['user_agent'] );
+$countrydata = json_decode($activdata['loc_dump']); 
+?>
+        <div class="ttdes_login_control_content fll">
+        <div class="ttdes_stores_orderid pat5 os_des_pab5"> <?php  echo ucfirst(strtolower($activdata['device_type'])); ?> </div>
+        <div class="ttdes_flight_browser pat5 os_des_pab5"> <?php  echo $useragent[0] ?>  </div>
+<div class="ttdes_flight_browser pat5 os_des_pab5"> <?php if (preg_match("/Windows/i", $useragent[1])) {
+    echo "Windows";
+} else if(preg_match("/Linux; Android/i", $useragent[1])){
+echo"Android";
+}else if(preg_match("/Linux/i",$useragent[1])) {
+    echo "Linux";
+} ?>  </div>
+        
+        <div class="ttdes_flight_ipaddress pat5 os_des_pab5"> <?php  echo date('D ,M ,Y', strtotime($activdata['login_time'])) ?>  </div>
+        <div class="ttdes_flight_browser os_des_pab5 pat5"> <?php  echo $activdata['ip_address'] ?> </div>
+<div class="ttdes_flight_browser os_des_pab5 pat5"> <?php  echo $countrydata->country_name?> </div>
+        
+        <div class="ttdes_flight_browser pat5 os_des_pab5"> <?php  echo 'Logged'//$activdata['device_type'] ?>  </div>
+        <div class="ttdes_flight_reset os_des_pab5 pat5"> <a href="">Reset</a> </div>
+        </div>
+<?php } ?>
+
+
+
+
+
+                    </div>
+
+
+
+
+                </div>
+
+            </section>
+        </div>
+
+    </div>
+
+
+
+
+</div> <!--module container end here-->
+
+<div class="clearfix"></div>
+
+<?php $this->templates->basic_info_footer(); ?>
+
+
+<script>
+    $('.netpro').click(function () {
+        var s_value = $(this).val();
+        $('#netpro_save').css('display', 'block');
+        $('#netpro_save').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "preferences/netpro_update_preferences",
+                data: {value: s_value},
+                success: function (data)
+                {
+                    if (data)
+                    {
+                        $('#netpro_save').css('display', 'none');
+                    }
+                }
+            });
+        });
+
+    });
+    $('.buzzin').click(function () {
+        var s_value = $(this).val();
+        $('#buzzin_save').css('display', 'block');
+        $('#buzzin_save').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "preferences/buzzin_update_preferences",
+                data: {value: s_value},
+                success: function (data)
+                {
+                    if (data)
+                    {
+                        $('#buzzin_save').css('display', 'none');
+                    }
+                }
+            });
+        });
+
+    });
+    $('.uclick').click(function () {
+        var s_value = $(this).val();
+        $('#click_save').css('display', 'block');
+        $('#click_save').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "preferences/click_update_preferences",
+                data: {value: s_value},
+                success: function (data)
+                {
+                    if (data)
+                    {
+                        $('#click_save').css('display', 'none');
+                    }
+                }
+            });
+        });
+
+    });
+    $('.tunnel').click(function () {
+        var s_value = $(this).val();
+        $('#tunnel_save').css('display', 'block');
+        $('#tunnel_save').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "preferences/tunnel_update_preferences",
+                data: {value: s_value},
+                success: function (data)
+                {
+                    if (data)
+                    {
+                        $('#tunnel_save').css('display', 'none');
+                    }
+                }
+            });
+        });
+
+    });
+    $('#location_access').on("change", function () {
+        if ($('#location_access').val() == 'PARTICULAR') {
+            $('#countries_list').css('display', 'block');
+
+        }
+        else if ($('#location_access').val() == 'ANY') {
+            $('#countries_list').css('display', 'none');
+
+        }
+    });
+    $('#device_access').on("change", function () {
+        if ($('#device_access').val() == 'PARTICULAR') {
+            $('#device_list').css('display', 'block');
+
+        }
+        else if ($('#device_access').val() == 'ANY') {
+            $('#device_list').css('display', 'none');
+
+        }
+    });
+    $('#browser_access').on("change", function () {
+        if ($('#browser_access').val() == 'PARTICULAR') {
+            $('#browser_list').css('display', 'block');
+
+        }
+        else if ($('#browser_access').val() == 'ANY') {
+            $('#browser_list').css('display', 'none');
+
+        }
+    });
+    $('#os_access').on("change", function () {
+        if ($('#os_access').val() == 'PARTICULAR') {
+            $('#os_list').css('display', 'block');
+
+        }
+        else if ($('#os_access').val() == 'ANY') {
+            $('#os_list').css('display', 'none');
+        }
+    });
+    $('#symantics_save').click(function () {
+        var location_access = $('#location_access').val();
+        var device_access = $('#device_access').val();
+        var browser_access = $('#browser_access').val();
+        var os_access = $('#os_access').val();
+        var countries = $('#multi_countries').val();
+        var devices = $('#multi_devices').val();
+        var browsers = $('#multi_browsers').val();
+        var operatingsystems = $('#multi_operatingsystems').val();
+        $.ajax({
+            type: "POST",
+            url: "preferences/save_symantics",
+            data: {location_access: location_access, device_access: device_access, browser_access: browser_access, os_access: os_access,
+                countries: countries, devices: devices, browsers: browsers, operatingsystems: operatingsystems},
+            success: function (data) {
+                window.location.reload();
+            }
+        });
+    });
+    $('#symantics_cancel').click(function () {
+        $('.click_NotificationListWrapper').css('display', 'none');
+    });
+</script>

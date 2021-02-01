@@ -1,0 +1,307 @@
+// JavaScript Document
+$(document).ready(function(){
+	$('.reg_rightSectionOptions ul li img').hover(
+		function(){
+			$(this).next().animate({width: '75%', paddingTop: '3px', paddingLeft: '5px'}, 150);}, 
+		function(){
+			$(this).next().animate({width: '0', padding: '0'}, 150);
+	});
+			
+			
+	$('.module').hover(
+		function(){
+			var moduleName = $(this).attr('id');
+			$('.' + moduleName).fadeOut(200);
+			$('.' + moduleName + 'h').fadeIn(200);
+			$('.' + moduleName + 'bg').css({display: 'block'});
+			$('#' + moduleName + 'head').css({display: 'block'});},
+		function(){
+			var moduleName = $(this).attr('id');
+			$('.' + moduleName).fadeIn(200);
+			$('.' + moduleName + 'h').fadeOut(200);
+			$('.' + moduleName + 'bg').css({display: 'none'});
+			$('#' + moduleName + 'head').css({display: 'none'});
+		});
+});
+
+
+
+$(document).ready(function(){
+    $('.reg_signUpForm').click(function(){
+       if($('.reg_signUpForm').css('height') == '125px'){
+         $(this).animate({height: '400px', marginTop: '110px'});
+         $('.reg_background').animate({opacity: 0});
+         $('.reg_signInForm').animate({width: '230px', marginTop: '0px', marginLeft: '600px'});
+		 $('.reg_signUpText').hide();
+		 setTimeout(function(){
+			$('.signUpFormWrapper').animate({height: '325px'});
+			$('.regdes_firstName').show();
+			$('.regdes_lastName').show();
+			$('.regdes_middleName').show();
+			$('.regdes_userName').show();
+			$('.regdes_pwd').show();
+			$('.regdes_cPwd').show();
+			$('.regdes_date').show();
+			$('.regdes_nation').show();
+			$('.regdes_gender').show();
+            $('.regdes_altEmail').show();
+            $('.regdes_mobileNumberCuntryCode').show();
+			$('.regdes_mobileNumber').show();
+			$('.regdes_oneIdNet').show();
+			$('#regdes_cont_btn').show();
+		}, 500); 
+      }
+	});
+
+
+
+	$('.reg_signUpFormHeader').click(function(){
+	if($('.reg_signUpForm').css('height') == '400px'){
+		$('.reg_signUpForm').animate({height: '125px', marginTop: '320px'});
+		$('.reg_background').animate({opacity: 1});
+		$('.reg_signInForm').animate({width: '300px', marginTop: '150px', marginLeft: '185px'});
+		}
+	});
+	
+	
+});
+        
+        
+	
+	
+
+
+setTimeout(function(){$("#mail").css({display: 'block'}).animate({marginTop: '265px', marginLeft: '10px'})}, 300);
+setTimeout(function(){$("#oneshop").css({display: 'block'}).animate({marginTop: '180px', marginLeft: '20px'})}, 600);
+setTimeout(function(){$("#cooffice").css({display: 'block'}).animate({marginTop: '90px', marginLeft: '70px'})}, 900);
+setTimeout(function(){$("#isnews").css({display: 'block'}).animate({marginTop: '30px', marginLeft: '150px'})}, 1200);
+setTimeout(function(){$("#click").css({display: 'block'}).animate({marginTop: '0px', marginLeft: '240px'})}, 1500);
+setTimeout(function(){$("#vcom").css({display: 'block'}).animate({marginTop: '0px', marginLeft: '340px'})}, 1800);
+setTimeout(function(){$("#netpro").css({display: 'block'}).animate({marginTop: '30px', marginLeft: '440px'})}, 2100);
+setTimeout(function(){$("#traveltime").css({display: 'block'}).animate({marginTop: '90px', marginLeft: '520px'})}, 2400);
+setTimeout(function(){$("#tunnel").css({display: 'block'}).animate({marginTop: '180px', marginLeft: '570px'})}, 2700);
+setTimeout(function(){$("#onevision").css({display: 'block'}).animate({marginTop: '265px', marginLeft: '580px'})}, 3000);
+setTimeout(function(){$("#oneidship").css({display: 'block'}).animate({marginTop: '350px', marginLeft: '570px'})}, 3300);
+setTimeout(function(){$("#dealerx").css({display: 'block'}).animate({marginTop: '440px', marginLeft: '520px'})}, 3600);
+setTimeout(function(){$("#findit").css({display: 'block'}).animate({marginTop: '500px', marginLeft: '440px'})}, 3900);
+setTimeout(function(){$("#cvbank").css({display: 'block'}).animate({marginTop: '540px', marginLeft: '340px'})}, 4200);
+setTimeout(function(){$("#buzzin").css({display: 'block'}).animate({marginTop: '540px', marginLeft: '240px'})}, 4500);
+setTimeout(function(){$("#onenetwork").css({display: 'block'}).animate({marginTop: '500px', marginLeft: '150px'})}, 4800);
+
+
+
+var slogans=["World as One","One World Net","World Id net","One ID World",];
+var i=1;
+
+function change(){
+	setTimeout(function() {
+		document.getElementById("slogan").innerHTML = slogans[i];
+		i++;
+		if(i<(slogans.length)){
+			change();
+		}
+		else{
+			i=0;
+			change();}
+	}, 8000);
+}	
+
+
+    
+    
+    
+    /*$('.regdes_sign_logo').click(function(){
+		$('.reg_signInForm').animate({width: '300px', marginTop: '150px', marginLeft: '185px'});
+		$('#regdes_signin_bg').animate({opacity: '1'});
+		setTimeout(function(){
+			$('#regdes_signup_form').animate({height: '120px', marginTop: '330px'});
+			$('.regdes_sign_logo').animate({height: '45px', width: '220px', left: '40px', top: '20px'});
+			$('.regdes_signup_bg').animate({opacity: '1'});
+			$('#regdes_sh').show();
+			$('#regdes_aio').show();
+			$('.regdes_firstName').hide();
+			$('.regdes_lastName').hide();
+			$('.regdes_middleName').hide();
+			$('.regdes_userName').hide();
+                         $('.regdes_altEmail').hide();
+			$('.regdes_pwd').hide();
+			$('.regdes_cPwd').hide();
+			$('.regdes_date').hide();
+			$('.regdes_nation').hide();
+			$('.regdes_gender').hide();
+                        $('.regdes_mobileNumberCuntryCode').hide();
+			$('.regdes_mobileNumber').hide();
+			$('.regdes_oneIdNet').hide();
+			$('#regdes_cont_btn').hide();
+		});
+	});*/
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//$(document).ready(function(){
+		
+
+	
+/*
+	$('#regdes_signup_form').click(function(){
+		if($('#regdes_signin_form').css('top') == '180px'){
+		$('#regdes_signin_form').animate({top: '30px', marginLeft: '950px', width: '200px'});
+		$('.regdes_loginBtn').animate({left: '66%'});
+		$('#regdes_signin_bg').animate({opacity: '0'});
+		setTimeout(function(){
+			$('#regdes_signup_form').animate({height: '400px', marginTop: '110px'});
+			$('.regdes_sign_logo').animate({height: '30px', width: '150px', left: '70px', top: '5px'});
+			$('.regdes_signup_bg').animate({opacity: '0'});
+			$('#regdes_sh').hide();
+			$('#regdes_aio').hide();
+			$('.regdes_firstName').show();
+			$('.regdes_lastName').show();
+			$('.regdes_middleName').show();
+			$('.regdes_userName').show();
+			$('.regdes_pwd').show();
+			$('.regdes_cPwd').show();
+			$('.regdes_date').show();
+			$('.regdes_nation').show();
+			$('.regdes_gender').show();
+                        $('.regdes_altEmail').show();
+                        $('.regdes_mobileNumberCuntryCode').show();
+			$('.regdes_mobileNumber').show();
+			$('.regdes_oneIdNet').show();
+			$('#regdes_cont_btn').show();
+		}, 500);
+		}
+	});
+
+//
+	$('.regdes_sign_logo').click(function(){
+		$('#regdes_signin_form').animate({top: '180px', marginLeft: '525px', width: '300px'});
+		$('.regdes_loginBtn').animate({left: '74%'});
+		$('#regdes_signin_bg').animate({opacity: '1'});
+		setTimeout(function(){
+			$('#regdes_signup_form').animate({height: '120px', marginTop: '330px'});
+			$('.regdes_sign_logo').animate({height: '45px', width: '220px', left: '40px', top: '20px'});
+			$('.regdes_signup_bg').animate({opacity: '1'});
+			$('#regdes_sh').show();
+			$('#regdes_aio').show();
+			$('.regdes_firstName').hide();
+			$('.regdes_lastName').hide();
+			$('.regdes_middleName').hide();
+			$('.regdes_userName').hide();
+                         $('.regdes_altEmail').hide();
+			$('.regdes_pwd').hide();
+			$('.regdes_cPwd').hide();
+			$('.regdes_date').hide();
+			$('.regdes_nation').hide();
+			$('.regdes_gender').hide();
+                        $('.regdes_mobileNumberCuntryCode').hide();
+			$('.regdes_mobileNumber').hide();
+			$('.regdes_oneIdNet').hide();
+			$('#regdes_cont_btn').hide();
+		});
+	});	
+
+//
+		$("#regdes_aboutUs").click(function(){
+			$("#regdes_reg_page").animate({marginLeft: '-50px', opacity: '0'});
+			setTimeout(function(){
+				$("#regdes_reg_page").css('display', 'none');
+			}, 500);
+			setTimeout(function(){
+				$("#regdes_aboutUsPage").css('display', 'block');
+			},500);
+			});
+		$(".regdes_home").click(function(){
+			$("#regdes_aboutUsPage").css('display', 'none');
+			setTimeout(function(){
+				$("#regdes_reg_page").animate({marginLeft: '0px', opacity: '1'});
+			}, 500);
+				setTimeout(function(){
+					$("#regdes_reg_page").css('display', 'block');
+					}, 500);
+			});
+		//
+
+		
+
+	*/
+       // });	
+$(document).ready(function(){
+	$('.reg_loaderWrapper').animate({transform :'rotate(360deg)'});
+	
+	
+	$('.recoveryPasswordBtn').click(function(){
+		$('.reg_signInForm').fadeOut();
+		$('.reg_signUpForm').fadeOut();
+                $('#regdes_signup_form').fadeOut();
+		$('.reg_recoveryForm').fadeIn();
+		$('.reg_background').animate({opacity: 1});
+		});
+		
+	/*$('.otpShowBtn').click(function(){
+		$('.reg_OTPForm').fadeIn();
+		$('.reg_background').animate({opacity: 1});
+		});*/
+	
+	$('.CancelBtn').click(function(){
+		$('.reg_recoveryForm').fadeOut();
+		$('.reg_OTPForm').fadeOut();
+		$('.reg_signInForm').fadeIn();
+		//$('.reg_signUpForm').fadeIn();
+                $('#regdes_signup_form').fadeIn();
+		});
+	
+	
+});
+		
+		
+		
+	
+
+

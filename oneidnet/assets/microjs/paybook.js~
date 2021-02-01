@@ -1,0 +1,217 @@
+
+var oneid_url =  document.location.origin + "/oneidnet/";
+function removeerror(id){
+	
+	$("#" + id).removeClass("oneidnet_redfocusclass");
+	}
+
+function error_data(data) {
+    var obj = jQuery.parseJSON(data);
+    $.each(obj, function (index, value) {
+        $("#" + index).addClass("oneidnet_redfocusclass");
+    });
+}
+
+
+function isJson(item) {
+    item = typeof item !== "string"
+            ? JSON.stringify(item)
+            : item;
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+
+    return false;
+}
+ function deletecards(cardid){
+var a = confirm('Are you sure want to delete?');
+        if (a == true)
+        {
+            $.ajax({
+                type: "POST",
+                url: oneid_url+"myaccount/cardsdelete" ,
+                data: {cardid: cardid},
+                success: function (data)
+                {
+                   $('#oneidnet_carddata').html(data);
+	  
+                }
+            });
+        }
+	}
+	$(function(){
+$(document).ready(function(){
+$(document).on("click", "#basicinfo_page", function () {
+    window.location = oneidnet_url + 'basic_info';
+
+});
+$(document).on("click", "#preferences", function () {
+
+    window.location = oneidnet_url + 'preferences';
+
+});
+	
+	$(document).on('click','#oneidnet_addcard' ,function(){
+		$('.oneshop_addcardpopup').fadeIn(300);
+	});
+	$(document).on('click','.oneshop_addcardclose' ,function(){
+		$('.oneshop_addcardpopup').fadeOut(100);
+	});
+	$(document).on('click','#oneid_addcardcancel' ,function(){
+	$('.oneshop_addcardpopup').fadeOut(100);
+	});
+	$(document).on('click','#oneid_addcardsave' ,function(){
+		var flag =true;
+		 var name_oncard = $('#name_oncardadd').val();
+      var card_number = $('#card_numberadd').val();
+      var card_name = $('#card_nameadd').val();
+      var card_cvv = $('#card_cvvadd').val();
+      var card_expirymonth = $('#card_expirymonthadd').val();
+      var card_expiryyear = $('#card_expiryyearadd').val();
+      var card_use = $('#card_useadd').val();
+      var card_type = $('#card_typeadd').val();
+      var card_usage = $('#card_usageadd').val();
+      
+     if (card_number.length == 0 || card_number == ''){
+		$('#card_numberadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_cvv.length == 0 || card_cvv == ''){
+		$('#card_cvvadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_expirymonth.length == 0 || card_expirymonth== ''){
+		$('#card_expirymonthadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_expiryyear.length == 0 || card_expiryyear== ''){
+		$('#card_expiryyearadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_use.length == 0 || card_use== ''){
+		$('#card_useadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if ( card_type.length == 0 ||  card_type== ''){
+		$('#card_typeadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if ( card_usage.length == 0 ||  card_usage== ''){
+		$('#card_usageadd').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if(flag==true){
+     $.get(oneid_url+"myaccount/newcardsadd",{name_oncard:name_oncard,card_number:card_number,card_name:card_name,card_cvv:card_cvv,card_expirymonth:card_expirymonth, card_expiryyear: card_expiryyear,card_use :card_use ,card_type:card_type,card_usage:card_usage
+     },function(data){
+		 
+		 if (isJson(data) == true) {
+            error_data(data);
+        } else {
+		 $("#sucess_msg1").css("display","block");
+		$('.oneshop_addcardpopup').fadeOut(100);
+		
+	    $('#oneidnet_carddata').html(data);
+}
+		});
+	}else{
+		return false; 
+		}
+		
+		});
+	$('.oneshop_productDetailedViewImageViews ul li').click(function(){
+		var tumbnail =$(this).find('.oneshop_productTumbnail').attr('src');
+		$('#window-zoom img').attr("src", tumbnail);
+		$('#demo').attr("data-image", tumbnail);
+		$('.oneshop_productMainImage').attr("src", tumbnail);
+	});
+	
+	$(document).on('click','.oneshop_curencyConvertor' ,function(){
+	
+		$('.oneshop_currencyConvertorPopup').fadeIn(300);
+		var oneid_url =  document.location.origin + "/oneidnet/";
+		var cardid = $(this).attr('cardid');
+		$.get(oneid_url+"myaccount/cardsdetail",{cardid:cardid},function(data){
+		//	alert(data);
+			$('.oneshop_currencyConvertorPopup').html(data);
+		});
+		
+		});
+	
+});
+//my cards tab js
+$.get(oneid_url+"myaccount/cardsdata" ,{cardsdata:"cardsdata"},function(data){
+		 $('#oneidnet_carddata').html(data);
+	 });
+	
+});
+$(document).on('click','.oneshop_currencyConvertorCloseBtn_two' ,function(){
+		$('.oneshop_currencyConvertorPopup').fadeOut(100);
+		});
+	$(document).on('click','#oneid_cardcancel' ,function(){
+	$('.oneshop_currencyConvertorPopup').fadeOut(100);
+	});
+	$(document).on('click','#oneid_updatecardsave' ,function(){
+		var flag=true;
+      var name_oncard = $('#name_oncard').val();
+      var card_number = $('#card_number').val();
+      var card_name = $('#card_name').val();
+      var card_cvv = $('#card_cvv').val();
+      var card_expirymonth = $('#card_expirymonth').val();
+      var card_expiryyear = $('#card_expiryyear').val();
+      var card_use = $('#card_use').val();
+      var card_type = $('#card_type').val();
+      var card_usage = $('#card_usage').val();
+      var cardid = $(this).attr('cardid');
+		
+     if (card_number.length == 0 || card_number == ''){
+		$('#card_number').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_cvv.length == 0 || card_cvv == ''){
+		$('#card_cvv').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_expirymonth.length == 0 || card_expirymonth== ''){
+		$('#card_expirymonth').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_expiryyear.length == 0 || card_expiryyear== ''){
+		$('#card_expiryyear').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if (card_use.length == 0 || card_use== ''){
+		$('#card_use').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if ( card_type.length == 0 ||  card_type== ''){
+		$('#card_type').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if ( card_usage.length == 0 ||  card_usage== ''){
+		$('#card_usage').addClass('oneidnet_redfocusclass');
+          flag =false;
+	 }
+	 if(flag==true){ 
+        
+	$.get(oneid_url+"myaccount/cardssave",{cardid:cardid,name_oncard:name_oncard,card_number:card_number,card_name:card_name,card_cvv:card_cvv,card_expirymonth:card_expirymonth, card_expiryyear: card_expiryyear,card_use :card_use ,card_type:card_type,card_usage:card_usage
+     },function(data){
+		 if (isJson(data) == true) {
+            error_data(data);
+        } else {
+		$("#sucess_msg").css("display","block");
+		 $('.oneshop_currencyConvertorPopup').fadeOut(100);
+		
+		
+		$('#oneidnet_carddata').html(data);
+	}
+		});
+	}else{
+		return false; 
+		} 
+	 });
