@@ -1,0 +1,5 @@
+cron job expression
+* * * * * dbconnect1.pl
+01 0 * * * dbconnect.pl
+* * * * * sendmail.php
+01 0 * * * expires_fcreate.pl

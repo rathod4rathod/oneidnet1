@@ -1,0 +1,2778 @@
+var oneshop_url="http://" + window.location.hostname + "/oneshop/";
+$(function () {    
+    //27-05-2015 by venkatesh : this function send country id to state_info function    
+    $("#osdev_Country").change(function(){
+        var country_id = "country_id=" + $("#osdev_Country").val();
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/home/state_info",
+            data: country_id,
+	    beforesend : function() {
+		$("#osdev_State").prop('disabled', 'disabled');
+		$("#osdev_City").prop('disabled', 'disabled');
+	    },
+            success: function (data) {
+                $("#osdev_State").html(data);
+            }
+        });
+    });   
+    
+    $("#osdev_State").change(function () {
+        var state_id = "state_id=" + $("#osdev_State").val();
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/city_info",
+            data: state_id,
+	    beforesend : function() {
+		$("#osdev_City").prop('disabled', 'disabled');
+	    },
+            success: function (data) {
+
+                $("#osdev_City").html(data);
+            }
+        });
+    });
+    $("#dev_billing_os_country").change(function(){
+        var country_id=$(this).val();
+        //alert(country_id);
+        $.ajax({
+            type:"post",
+            url:"http://"+window.location.hostname+"/oneshop/home/state_info",
+            data:{country_id:country_id},
+            success:function(data){
+                $("#dev_billing_os_state_list").html(data);
+            }
+        });
+    });
+    // display the data as per the order status by Pavani
+    $("#filter_by_status").change(function(){
+        var status_val=$(this).val();
+        //alert(status_val);
+        $.ajax({
+           type:"post",
+           url:"http://"+window.location.hostname+"/oneshop/home/purchaseHistory/",
+           data:{filter_val:status_val},
+           success:function(data){
+               //alert(data);
+               $("#purchase_history_div").html(data);
+           }
+        });
+    });
+    // display the data by Pavani
+    $("#activity_filter_by").change(function(){
+        var status_val=$(this).val();
+        //alert(status_val);
+        $.ajax({
+            type:"post",
+            data:{filter_val:status_val},
+            url:"http://"+window.location.hostname+"/oneshop/home/Useractivity",
+            success:function(data){
+                $("#user_activity_div").html(data);
+                //alert(data);
+            }
+        });
+    });
+   /* $("#store_reg_form").submit(function () {
+		alert();
+        var error = 0;
+        var osdev_store_name = $("#osdev_store_name").val();
+        var osdev_Country = $("#osdev_Country").val();
+        var osdev_State = $("#osdev_State").val();
+        var osdev_City = $("#osdev_City").val();
+        var osdev_Zipcode = $("#osdev_Zipcode").val();
+        var osdev_HelplineNumber = $("#osdev_HelplineNumber").val();
+        var osdev_Enquirymobilenumber = $("#osdev_Enquirymobilenumber").val();
+        // var osdev_CustomerCareNumber = $("#osdev_CustomerCareNumber").val();
+        var osdev_ServiceEmail = $("#osdev_ServiceEmail").val();
+        var osdev_ProblemReportingEmail = $("#osdev_ProblemReportingEmail").val();
+        var osdev_Store_Logo = $("#osdev_Store_Logo").val();
+        var osdev_Store_Logoval = osdev_Store_Logo.split(".").pop();
+        var osdev_StoreCoverPicture = $("#osdev_StoreCoverPicture").val();
+        var osdev_StoreCoverPictureval = osdev_StoreCoverPicture.split(".").pop();
+        var osdev_PackageType = $("#osdev_PackageType").val();
+        var osdev_packageperiod=$("#osdev_PackagePeriod").val();
+        var osdev_delivery_mode=$("#osdev_Delivery_Mode").val();
+        if (is_Empty(osdev_store_name) != true) {
+            $("#osdev_store_name").addClass("redfoucusclass");
+            $("#store_name_div #osdev_store_name_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_store_name").removeClass("redfoucusclass");
+            $("#store_name_div #osdev_store_name_error").css("display","none");
+        }
+        if (is_Empty(osdev_Country) != true) {
+            $("#osdev_Country").addClass("redfoucusclass");
+            $("#osdev_Country_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_Country").removeClass("redfoucusclass");
+            $("#osdev_Country_error").css("display","none");
+        }
+        if (is_Empty(osdev_State) != true) {
+            $("#osdev_State").addClass("redfoucusclass");
+            $("#osdev_State_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_State").removeClass("redfoucusclass");
+            $("#osdev_State_error").css("display","none");
+        }
+        if (is_Empty(osdev_City) != true) {
+            $("#osdev_City").addClass("redfoucusclass");
+            $("#osdev_City_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_City").removeClass("redfoucusclass");
+            $("#osdev_City_error").css("display","none");
+        }
+        if (is_Empty(osdev_Zipcode) != true || osdev_Zipcode % 1 != 0 || osdev_Zipcode.length < 6) {
+            $("#osdev_Zipcode").addClass("redfoucusclass");
+            var zip_msg="";
+            if(osdev_Zipcode.length<6){
+                $("#osdev_Zipcode_error").html("Zipcode value should not be less than 6 characters").css("display","block");
+            }
+            if(osdev_Zipcode % 1 != 0){
+                $("#osdev_Zipcode_error").html("Zipcode value should be numeric").css("display","block");
+            }
+            if(is_Empty(osdev_Zipcode) != true){
+                $("#osdev_Zipcode_error").html("Please enter Zipcode").css("display","block");
+            }
+            error = 10;
+        } else {
+            $("#osdev_Zipcode").removeClass("redfoucusclass");
+            $("#osdev_Zipcode_error").css("display","none");
+        }
+        if (is_Empty(osdev_HelplineNumber) != true || osdev_HelplineNumber % 1 != 0 || osdev_HelplineNumber.length < 8) {
+            $("#osdev_HelplineNumber").addClass("redfoucusclass");
+            if(is_Empty(osdev_HelplineNumber) != true){
+                $("#osdev_HelplineNumber_error").css("display","block");
+            }else if(osdev_HelplineNumber % 1 != 0){
+                $("#osdev_HelplineNumber_error").html("Helpline number should be numeric").css("display","block");
+            }else if(osdev_HelplineNumber.length < 8){
+                $("#osdev_HelplineNumber_error").html("Helpline number should not be less than 8 characters").css("display","block");
+            }
+            error = 10;
+        } else {
+            $("#osdev_HelplineNumber").removeClass("redfoucusclass");
+            $("#osdev_HelplineNumber_error").css("display","none");
+        }
+        if (is_Empty(osdev_Enquirymobilenumber) != true || osdev_Enquirymobilenumber % 1 != 0 || osdev_Enquirymobilenumber.length < 8) {
+            $("#osdev_Enquirymobilenumber").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#osdev_Enquirymobilenumber").removeClass("redfoucusclass");
+            $("#osdev_Enquirymobilenumber_error").css("display","none");
+        }
+//        if (is_Empty(osdev_CustomerCareNumber) != true || osdev_CustomerCareNumber % 1 != 0 || osdev_CustomerCareNumber.length < 8) {
+//            $("#osdev_CustomerCareNumber").addClass("redfoucusclass");
+//            error = 10;
+//        } else {
+//            $("#osdev_CustomerCareNumber").removeClass("redfoucusclass");
+//        }
+        if (is_Empty(osdev_ServiceEmail) != true || isValid_Email(osdev_ServiceEmail) != true) {
+            $("#osdev_ServiceEmail").addClass("redfoucusclass");
+            if(is_Empty(osdev_ServiceEmail) != true){
+                $("#osdev_ServiceEmail_error").css("display","block");
+            }
+            else if(isValid_Email(osdev_ServiceEmail) != true){
+                $("#osdev_ServiceEmail_error").html("Please enter valid email address").css("display","block");
+            }
+            error = 10;
+        } else {
+            $("#osdev_ServiceEmail").removeClass("redfoucusclass");
+            $("#osdev_ServiceEmail_error").css("display","none");
+        }
+        if (is_Empty(osdev_ProblemReportingEmail) != true || isValid_Email(osdev_ProblemReportingEmail) != true) {
+            $("#osdev_ProblemReportingEmail").addClass("redfoucusclass");
+            if(is_Empty(osdev_ProblemReportingEmail) != true){
+                $("#osdev_ProblemReportingEmail_error").css("display","block");
+            }else if(isValid_Email(osdev_ProblemReportingEmail)!=true){
+                $("#osdev_ProblemReportingEmail_error").html("Please enter valid email address").css("display","block");
+            }
+            error = 10;
+        } else {
+            $("#osdev_ProblemReportingEmail").removeClass("redfoucusclass");
+            $("#osdev_ProblemReportingEmail_error").css("display","none");
+        }
+        if (osdev_Store_Logoval.length != 0) {
+            if (osdev_Store_Logoval == 'gif' || osdev_Store_Logoval == 'jpg' || osdev_Store_Logoval == 'png' || osdev_Store_Logoval == 'jpeg') {
+                $("#osdev_Store_Logo").removeClass("redfoucusclass");
+            } else {
+                $("#osdev_Store_Logo").addClass("redfoucusclass");
+                $("#osdev_Store_Logo").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+                error = 10;
+            }
+        }
+        else {
+            $("#osdev_Store_Logo").addClass("redfoucusclass");
+            error = 10;
+        }
+        if (osdev_StoreCoverPictureval.length != 0)
+        {
+            if (osdev_StoreCoverPictureval == 'gif' || osdev_StoreCoverPictureval == 'jpg' || osdev_StoreCoverPictureval == 'png' || osdev_StoreCoverPictureval == 'jpeg') {
+                $("#osdev_StoreCoverPicture").removeClass("redfoucusclass");
+            } else {
+                $("#osdev_StoreCoverPicture").addClass("redfoucusclass");
+                $("#osdev_StoreCoverPicture").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+                error = 10;
+            }
+        } else {
+            $("#osdev_StoreCoverPicture").addClass("redfoucusclass");
+            error = 10;
+        }
+       
+        if (is_Empty(osdev_PackageType) != true) {
+            $("#osdev_PackageType").addClass("redfoucusclass");
+            $("#osdev_PackageType_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_PackageType").removeClass("redfoucusclass");
+            $("#osdev_PackageType_error").css("display","none");
+        }
+        if(is_Empty(osdev_packageperiod)!=true){
+            $("#osdev_PackagePeriod").addClass("redfoucusclass");
+            $("#osdev_PackagePeriod_error").css("display","block");
+        }else{
+            $("#osdev_PackagePeriod").removeClass("redfoucusclass");
+            $("#osdev_PackagePeriod_error").css("display","none");
+        }
+        if(is_Empty(osdev_delivery_mode)!=true){
+            $("#osdev_Delivery_Mode").addClass("redfoucusclass");
+            $("#osdev_Delivery_Mode_error").css("display","block");
+        }else{
+            $("#osdev_Delivery_Mode").removeClass("redfoucusclass");
+            $("#osdev_Delivery_Mode_error").css("display","none");
+        }
+        if (error == 10) {
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/stores/stores_insertion",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data);
+                var result=data.trim();
+                //location.replace("http://" + window.location.hostname + "/oneshop/home/mystore_Profile_Page/" + data);
+                window.open("http://"+window.location.hostname+"/oneshop/stores/quotation/"+result,"_blank");
+            }
+        });
+        return false;
+    });*/
+
+    function isValid_Email(s_data) {
+        var regx_emails = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z-]+(\.[a-z-]+)*(\.[a-z]{2,4})$/;
+        var flag = false;
+        if (s_data.match(regx_emails)) {
+            flag = true;
+        }
+        return flag;
+    }
+    //Callback function to check for empty data
+    function is_Empty(s_data) {
+        if (s_data.length < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    //27-05-2015 by venkatesh
+    $("#add_product").submit(function () {
+        var error = 0;
+        var osdev_Product_Name = $("#osdev_Product_Name").val();
+        var osdev_Product_Market_Price = $("#osdev_Product_Market_Price").val();
+        var osdev_Group = $("#osdev_Group").val();
+        var osdev_Category = $("#osdev_Category").val();
+        var osdev_SubCategory = $("#osdev_SubCategory").val();
+        var osdev_warrenty = $("#osdev_warrenty").val();
+        var osdev_Discount = $("#osdev_Discount").val();
+        var osdev_CostPrice = $("#osdev_CostPrice").val();
+        var osdev_SellPrice = $("#osdev_SellPrice").val();
+        var osdev_Quantity = $("#osdev_Quantity").val();
+        var osdev_Description = $("#osdev_Description").val();
+        //var osdev_productImg=$("#osdev_productImg").val();
+        //var elem = document.getElementById("osdev_productImg");
+        
+        if (is_Empty(osdev_Product_Name) != true) {
+            $("#osdev_Product_Name").addClass("redfoucusclass");
+            $("#osdev_Product_NameError").removeClass("jsError");
+            error = 10;
+        } else {
+            var first_letter=osdev_Product_Name.charAt(0);
+            if(checkFirstLetterAlphaOnly(first_letter)==false){
+                //alert("else of if block");
+                $("#osdev_Product_Name").addClass("redfoucusclass");
+                $("#osdev_Product_NameError").removeClass("jsError").text("First letter should not contain number");	
+                error=10;
+            }
+            else if(isAlphaNumWithHyphenUS(osdev_Product_Name)==false){
+                //alert("else of else if block"+isAlphaNumWithHyphenUS(osdev_Product_Name));
+                $("#osdev_Product_Name").addClass("redfoucusclass");
+                $("#osdev_Product_NameError").removeClass("jsError").text("Please enter valid product name");	
+                error=10;
+            }else{
+                //alert("else of else block");
+                $("#osdev_Product_Name").removeClass("redfoucusclass");
+                $("#osdev_Product_NameError").addClass("jsError");	
+            }
+        }
+        if (is_Empty(osdev_Product_Market_Price) != true) {
+            $("#osdev_Product_Market_Price").addClass("redfoucusclass");
+            $("#osdev_Product_Market_PriceError").removeClass("jsError");
+            error = 10;
+        } 
+        else {
+            $("#osdev_Product_Market_PriceError").addClass("jsError");                        
+            if( $.isNumeric(osdev_Product_Market_Price) ) {
+                $("#osdev_Product_Market_Price").removeClass("redfoucusclass");
+                $("#osdev_Product_Market_ValidPrice").addClass("jsError");
+                var numeric_marked_price=parseInt(osdev_Product_Market_Price);            
+                if(numeric_marked_price<0){
+                    $("#osdev_Product_Market_Price").addClass("redfoucusclass");
+                    $("#osdev_Product_Market_ValidPrice").removeClass("jsError").text("Please enter price without negative value");
+                    error=10;
+                }                
+            } else {
+                $("#osdev_Product_Market_Price").addClass("redfoucusclass");
+                $("#osdev_Product_Market_ValidPrice").removeClass("jsError");
+                error = 10;
+            }            
+        }
+        if (is_Empty(osdev_Group) != true) {
+            $("#osdev_Group").addClass("redfoucusclass");
+            $("#osdev_GroupError").removeClass("jsError");
+            error = 10;
+        } else {
+            $("#osdev_Group").removeClass("redfoucusclass");
+            $("#osdev_GroupError").addClass("jsError");
+        }
+        if (is_Empty(osdev_Category) != true) {
+            $("#osdev_Category").addClass("redfoucusclass");
+            $("#osdev_CategoryError").removeClass("jsError");
+            error = 10;
+        } else {
+            $("#osdev_Category").removeClass("redfoucusclass");
+            $("#osdev_CategoryError").addClass("jsError");
+        }
+        if (is_Empty(osdev_SubCategory) != true) {
+            $("#osdev_SubCategory").addClass("redfoucusclass");
+            $("#osdev_SubCategoryError").removeClass("jsError");
+            error = 10;
+        } else {
+            $("#osdev_SubCategory").removeClass("redfoucusclass");
+            $("#osdev_SubCategoryError").addClass("jsError");
+        }
+        if (is_Empty(osdev_warrenty) == true) {
+           
+            if( $.isNumeric(osdev_warrenty)  ) {
+                $("#osdev_warrenty").removeClass("redfoucusclass");
+                $("#osdev_warrentyError").addClass("jsError");
+                var numeric_warranty=parseInt(osdev_warrenty);            
+                if(numeric_warranty<0){
+                    $("#osdev_warrenty").addClass("redfoucusclass");
+                    $("#osdev_warrentyError").removeClass("jsError").text("Please enter non-negative value");
+                    error=10;
+                }
+            } else {
+                $("#osdev_warrenty").addClass("redfoucusclass");
+                $("#osdev_warrentyError").removeClass("jsError");
+                error = 10;
+            }
+        }
+        if( osdev_Discount == '' || $.isNumeric(osdev_Discount)  ) {
+            $("#osdev_Discount").removeClass("redfoucusclass");
+            $("#osdev_DiscountError").addClass("jsError");
+            if( $.isNumeric(osdev_Discount)  ) {
+                var numeric_discount=parseInt(osdev_Discount);            
+                if(numeric_discount<0){
+                    $("#osdev_Discount").addClass("redfoucusclass");
+                    $("#osdev_DiscountError").removeClass("jsError").text("Please enter non-negative value");
+                    error=10;
+                }
+            }
+        } else {
+            $("#osdev_Discount").addClass("redfoucusclass");
+            $("#osdev_DiscountError").removeClass("jsError");
+            error = 10;
+        }
+        
+        if (is_Empty(osdev_CostPrice) != true || osdev_CostPrice % 1 != 0) {
+            $("#osdev_CostPrice").addClass("redfoucusclass");
+            $("#osdev_CostPriceError").removeClass("jsError");
+            error = 10;
+        } else {
+            if( $.isNumeric(osdev_CostPrice)  ) {				
+			var numeric_cost=parseInt(osdev_CostPrice);            
+                if(numeric_cost<0){
+                    $("#osdev_CostPrice").addClass("redfoucusclass");
+                    $("#osdev_validCostPriceError").removeClass("jsError").text("Please enter non-negative value");
+                    error=10;
+                }else{
+                    $("#osdev_CostPrice").removeClass("redfoucusclass");
+                    $("#osdev_validCostPriceError").addClass("jsError");
+                }
+			} else {
+				$("#osdev_CostPrice").addClass("redfoucusclass");
+				$("#osdev_validCostPriceError").removeClass("jsError");
+				error = 10;
+			}
+        }
+        //if (is_Empty(osdev_SellPrice) != true || osdev_SellPrice % 1 != 0) {
+          //  $("#osdev_SellPrice").addClass("redfoucusclass");
+            //error = 10;
+        //} else {
+       //     $("#osdev_SellPrice").removeClass("redfoucusclass");
+        //}
+        if (is_Empty(osdev_Quantity) != true) {
+            $("#osdev_Quantity").addClass("redfoucusclass");
+            $("#osdev_QuantityError").removeClass("jsError");
+            error = 10;
+        } else {
+            if( $.isNumeric(osdev_Quantity)  ) {
+                var numeric_quantity=parseInt(osdev_Quantity);
+                if(numeric_quantity<0){
+                    $("#osdev_Quantity").addClass("redfoucusclass");
+                    $("#osdev_QuantityError").removeClass("jsError").text("Please enter non numeric value"); 
+                }else{
+                    $("#osdev_Quantity").removeClass("redfoucusclass");
+                    $("#osdev_QuantityError").addClass("jsError"); 
+                }
+            } else {
+                $("#osdev_Quantity").addClass("redfoucusclass");
+                $("#osdev_QuantityError").removeClass("jsError");
+                error = 10;
+            }
+        }
+        if (is_Empty(osdev_Description) != true) {
+            $("#osdev_Description").addClass("redfoucusclass");
+            $("#osdev_DescriptionError").removeClass("jsError");
+            error = 10;
+        } else {
+            $("#osdev_Description").removeClass("redfoucusclass");
+            $("#osdev_DescriptionError").addClass("jsError");
+        }        
+        if(!$('#uploadFile1').val()) {
+            $("#uploadFile1").addClass("redfoucusclass");
+            $("#osdev_imageError").removeClass("jsError"); 
+            error = 10;
+		} else {
+			$("#uploadFile1").removeClass("redfoucusclass");
+            $("#osdev_imageError").addClass("jsError"); 
+		}
+        if(error==10){
+            return false;
+        }else{
+            $.ajax({
+                type: 'POST',
+                url: "http://" + window.location.hostname + "/oneshop/products/product_insertion",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                  alert(data) 
+               if (isJson(data) == true) {
+                 error_data(data);
+               }
+                else{ 
+                    if (data) {
+                        $('#product_add_suc').show().delay(5000).fadeOut();
+                        document.getElementById("add_product").reset();
+                        location.replace(data);
+                    }else{
+                        location.replace("http://" + window.location.hostname + "/oneshop/");
+                    }
+				}
+                }
+            });
+        }
+        /*
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/products/product_insertion",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data);
+                if (data) {
+                    $('#product_add_suc').show().delay(5000).fadeOut();
+                    document.getElementById("add_product").reset();
+                    location.replace(data);
+                }else{
+                    location.replace("http://" + window.location.hostname + "/oneshop/");
+                }
+            }
+        });*/
+        return false;
+    });
+	
+	
+	//27-05-2015 by RaviTeja : this function append the group data
+    $("#osdev_Group").change(function () {
+        var Group_id = "Group_id=" + $("#osdev_Group").val();
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/products/catagory_ids",
+            data: Group_id,
+            success: function (data) {
+                $("#osdev_Category").html(data);
+            }
+        });
+    });
+    
+    $("#osdev_Product_Market_Price").change(function () {
+        var mPrice   = $("#osdev_Product_Market_Price").val();
+        mPrice = parseFloat(mPrice);
+        var discount = $("#osdev_Discount").val();
+        vardiscount = parseFloat(discount);
+        if (discount != 0) {
+			var saleprice = mPrice - ((mPrice * discount)/100);
+		} else {
+			var saleprice = mPrice;
+		}
+        $("#osdev_SellPrice").val(saleprice);
+    });
+    $("#osdev_Discount").change(function () {
+        var mPrice   = $("#osdev_Product_Market_Price").val();
+        mPrice = parseFloat(mPrice);
+        var discount = $("#osdev_Discount").val();
+        vardiscount = parseFloat(discount);
+        if (discount != 0) {
+			var saleprice = mPrice - ((mPrice * discount)/100);
+		} else {
+			var saleprice = mPrice;
+		}
+        $("#osdev_SellPrice").val(saleprice);
+    });
+    
+    //onchange event for Country,City selection
+$(document).on("change", "#store_categ", function () {
+    
+        var countries_val = $(this).val();
+        if (countries_val == "Country") {  
+ $("#city_div").css("display","none");
+                      
+            $.ajax({
+                type: "post",
+                url: "http://" + window.location.hostname + "/oneshop/stores/getCountries/",
+                success: function (data) {
+                    var result = data.trim();
+                    //alert(result);
+                    //var options = "<option>Select Country</option>";
+                    var options = "";
+                    var options_arry=result.split("~");
+                    for(var i=0;i<options_arry.length;i++){
+                        var country_arry=options_arry[i].split(":");                  
+                        options+="<option value='"+country_arry[0]+"'>"+country_arry[1]+"</option>";
+                    }
+                    var fitler_option="<option value=''>Select Country</option>"+options;
+                    $("#sub_filter").html("<select id='sub_select' class='oneshop_mystoreField oneshop_friendStoreFields'>"+fitler_option+"</select>");
+                }
+            });
+        }
+        else if (countries_val == "City") {
+            /*$.ajax({
+                type: "post",
+                url: "http://" + window.location.hostname + "/oneshop/stores/getCities/",
+                success: function (data) {
+                    var result = data.trim();
+                    var options = "";
+                    var options_arry=result.split("~");
+                    for(var i=0;i<options_arry.length;i++){
+                        var country_arry=options_arry[i].split(":");                  
+                        options+="<option value='"+country_arry[0]+"'>"+country_arry[1]+"</option>";
+                    }
+                    var fitler_option="<option value=''>Select City</option>"+options;
+                    $("#sub_select").html(fitler_option);
+                }
+            });*/
+            //$("#sub_filter").html("<input type='text' id='city_text' name='city_text' value='' class='oneshop_mystoreField oneshop_friendStoreFields'/>");
+            $("#sub_filter").css("display","none");
+            $("#city_div").css("display","");
+             
+                 }
+                 else{
+$("#city_div").css("display","none");
+ 
+                     var services_options=['NONE','MOBILE REPAIRING','LAPTOP REPAIRING','CAMERA REPAIRING','AUTOMOBILE REPAIRING','BUILDING MATERIAL SUPPLIERS','CONSTRUCTION CONTRACTS','HOSTAL RENTALS','PROPERTY DEALERSHIP','IT PROJECTS','MECHANICAL WORKS','HEAVY MACHINE CONTRACTS'];
+                     var services_opts="";
+                     for(var s=0;s<services_options.length;s++){
+                         services_opts+="<option value='"+services_options[s]+"'>"+services_options[s]+"</option>";
+                     }
+                    $("#sub_filter").html("<select id='sub_select' class='oneshop_mystoreField oneshop_friendStoreFields'>"+services_opts+"</select>"); 
+                 }
+    });
+    // find store drop down functionality
+	});$(function() {
+		$("#uploadFile1").on("change", function()
+		{
+			var files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+				
+				reader.onloadend = function(){ // set image data as background of div
+					$("#imagePreview1").css("background-image", "url("+this.result+")");
+				}
+			}
+		});
+	});
+	$(function() {
+		$("#uploadFile2").on("change", function()
+		{
+			var files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+				
+				reader.onloadend = function(){ // set image data as background of div
+					$("#imagePreview2").css("background-image", "url("+this.result+")");
+				}
+			}
+		});
+	});
+	$(function() {
+		$("#uploadFile3").on("change", function()
+		{
+			var files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+				
+				reader.onloadend = function(){ // set image data as background of div
+					$("#imagePreview3").css("background-image", "url("+this.result+")");
+				}
+			}
+		});
+	});
+	$(function() {
+		$("#uploadFile4").on("change", function()
+		{
+			var files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+			
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+				
+				reader.onloadend = function(){ // set image data as background of div
+					$("#imagePreview4").css("background-image", "url("+this.result+")");
+				}
+			}
+		});
+    //27-05-2015 by RaviTeja : this function append the group data -END
+    
+    
+	//27-05-2015 by venkatesh : this function append the subcategory data
+	//25-12-2015 Changed by Raviteja 
+    $("#osdev_Category").change(function () {
+        var Category_id = "Group_id=" + $("#osdev_Group").val() + "&Category_id=" + $("#osdev_Category").val();
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/products/subcatagory_ids",
+            data: Category_id,
+            success: function (data) {
+				if(data.indexOf("osv_brand") > -1 || data.indexOf("osv_features") > -1) {
+					$("#osdev_Brands").html(data);
+					$("#osdev_SubCategory").html("<option>--Select Category</option><option value='others'>Others</option>");
+				} else {
+					$("#osdev_SubCategory").html(data+"<option value='others'>Others</option>");
+				}
+            }
+        });
+    });
+    
+    $("#osdev_SubCategory").change(function () {
+        var Category_id = "Group_id=" + $("#osdev_Group").val() + "&Category_id=" + $("#osdev_Category").val() + "&subCat_id=" + $("#osdev_SubCategory").val();
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/products/getspecifications",
+            data: Category_id,
+            success: function (data) {
+                $("#osdev_Brands").html(data);
+            }
+        });
+    });
+    //27-05-2015 by ramadevi
+    var cnt = '';
+    $(window).scroll(function () {
+
+        if ((($(window).scrollTop() + $(window).height()) >= $(document).height())) {
+            var os_store_aid = $("#os_store_aind").val();
+            var load_product_count = $("#load_product_count").val();
+            
+            if (cnt != load_product_count) {
+                $.ajax({
+                    type: 'POST',
+                    url: "http://" + window.location.hostname + "/oneshop/products/load_product_list",
+                    data: {load_product_count: load_product_count, os_store_aid: os_store_aid},
+                    success: function (data) {
+alert(data);
+                        $('#load_product_count').val(parseInt(load_product_count) + 8);
+                        $("#product_append").append(data);
+                    }
+                });
+                cnt = load_product_count;
+            }
+        }
+    });
+//01-06-2015 by venkatesh : this function redirect to product redirect page
+    $(document).on("click", ".product_view", function () {
+        location.replace("http://" + window.location.hostname + "/oneshop/home/product_Detail_View?product_id=" + $(this).attr("id"));
+        return false;
+    });
+    //Pavani on 29-05-2015
+    $("#addcart").click(function () {
+        var productId = $("#dev_os_p_id").val();
+        var store_code=$("#hstore_code").val();
+        var store_cnt=$("#hstore_cnt").val();
+        //  alert(productId);
+        if(store_cnt>=5){
+            alert("You have exceeded the maximum cart list store.Please delete store from your cart items list");
+        }else{
+            $.ajax({
+                type: 'post',
+                url: 'http://'+window.location.hostname+'/oneshop/products/addItemsToCart',
+                data: {product_id: productId,store_code:store_code},
+                success: function (data) {
+                    var res = data.trim();
+                    var msg="";
+                    if(res=="NO"){
+                        msg="Already added this product in your cart";
+                    }else{
+						var cartcount = parseInt($('#oneshop_mycartcount').html());
+						callAJAX("http://"+window.location.hostname+"/oneshop/mycart/myCartList",{store_code:store_code},function(data){
+		            cartcount =cartcount+1;
+		            $('#oneshop_mycartcount').html(cartcount);
+					$("#cartdata").html(data);
+					},"","")
+                        msg="The selected product is added in your cart";
+                        
+                    }
+                    alert(msg);
+                },
+                error: function (request, status, xhr) {
+                    alert("error function" + request.responseText);
+                    //alert(status);
+                }
+            });
+        }
+    });
+    
+    //02-06-2015 by venkatesh global function to chage the image src
+    $(document).on("click", "img", function () {
+        var product_image_id = $(this).attr("id");
+        var imgpath = $(this).attr("src");
+        var res = imgpath.split("/");
+        res[res.length - 2] = "li";
+        var change_path = res.join("/");
+        $("#mainimg" + product_image_id).attr("src", change_path);
+    });
+    
+    
+//03-june-2015 by venkatesh : this function load the category wise product details   
+    var product_view_count = '';
+    $(window).scroll(function () {
+        if ((($(window).scrollTop() + $(window).height()) >= $(document).height())) {
+            // var current_url=$("#CURRENT_URL").val();
+            if (document.getElementById("category_productappend") !== null)
+            {
+                var product_limit_count = $("#product_limit_count").val();
+                var CATEGORY_NAME = $("#CATEGORY_NAME").val();
+                if (product_view_count != product_limit_count) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "http://" + window.location.hostname + "/oneshop/products/load_category_product_list",
+                        data: {product_limit_count: product_limit_count, CATEGORY_NAME: CATEGORY_NAME},
+                        success: function (data) {
+                            $('#product_limit_count').val(parseInt(product_limit_count) + 8);
+                            $("#category_productappend").append(data);
+                        }
+                    });
+                    product_view_count = product_limit_count;
+                }
+            }
+
+        }
+    });
+
+    //03-june-2015 by venaktesh : this function load the subcategory details in #category_productappend div
+    $(document).on("click", ".os_subcat_id", function () {
+        var subcategory_id = $(this).attr("id");
+        $("#product_subcategory_id").val(subcategory_id);
+        $("#product_subcategory_limit_count").val(8);
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/products/load_subcategory_product_list",
+            data: {subcategory_id: subcategory_id},
+            success: function (data) {
+                $("#category_productappend").attr("id", "subcategory_productappend");
+                $("#subcategory_productappend").html(data);
+            }
+        });
+        return false;
+    });
+    //03-june-2015 by venaktesh : this function load the subcategory details in #category_productappend div
+    $(document).on("click", "#prd_name", function () {
+        var category_name = $("#CATEGORY_NAME").val();
+        $("#product_limit_count").val(8);
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/products/product_view_tpl",
+            data: {category_name: category_name},
+            success: function (data) {
+                $("#subcategory_productappend").attr("id", "category_productappend");
+                $("#category_productappend").html(data);
+            }
+        });
+        return false;
+    });
+    //03-june-2015 by venkatesh : this function load the sub category wise product details        
+    var subcategory_product_view_count = '';
+    $(window).scroll(function () {
+        if ((($(window).scrollTop() + $(window).height()) >= $(document).height())) {
+            if (document.getElementById("subcategory_productappend") !== null)
+            {
+                var product_subcategory_limit_count = $("#product_subcategory_limit_count").val();
+                var product_subcategory_id = $("#product_subcategory_id").val();
+                if (product_view_count != product_limit_count) {
+                    $.ajax({
+                        type: 'POST',
+                        url: "http://" + window.location.hostname + "/oneshop/products/load_subcategory_loadproduct_list",
+                        data: {product_subcategory_limit_count: product_subcategory_limit_count, product_subcategory_id: product_subcategory_id},
+                        success: function (data) {
+                            $('#product_subcategory_limit_count').val(parseInt(product_subcategory_limit_count) + 8);
+                            $("#subcategory_productappend").append(data);
+                        }
+                    });
+                    subcategory_product_view_count = product_subcategory_limit_count;
+                }
+            }
+
+        }
+    });
+
+    //04-june-2015 by venaktesh : this function triggered when input file value will be change
+    $('input[type="file"]#osdev_profile_pic_update').bind('change', function (e) {
+        var file_type = this.files[0].type;
+        if (file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg') {
+            $("#osdev_profile_pic_update_form").submit();
+        }
+        else {
+            alert("Allow file type should be jpg|png|gif|jpeg");
+        }
+    });
+    //04-june-2015 by venkatesh: this function submit the form to update_profile_pic function in orders controller
+    $("#osdev_profile_pic_update_form").submit(function () {
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/stores/update_profile_pic",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                var dataa = $.trim(data);
+                var src = "http://" + window.location.hostname + "/oneshop/data/profile/mi/" + dataa;
+                $("#current_profilepic").val(dataa);
+                $("#osdev_user_pp").attr("src", src);
+            }
+        });
+        return false;
+    });
+
+    //04-june-2015 by venaktesh : this function trigger when intue file value will be change
+    $('input[type="file"]#profile_cover_update').bind('change', function (e) {
+        var file_type = this.files[0].type;
+        if (file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg') {
+            $("#profile_cover_update_form").submit();
+        }
+        else {
+            alert("Allow file type should be jpg|png|gif|jpeg");
+        }
+    });
+    //04-june-2015 by venkatesh: this function submit the form to update_cover_pic function in orders controller
+    $("#profile_cover_update_form").submit(function () {
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/stores/update_cover_pic",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+
+               var dataa = $.trim(data);
+                var src = "http://" + window.location.hostname + "/oneshop/data/cover/orig/" + dataa;
+                $("#osdev_user_coverpic").val(dataa);
+                $("#osdev_display_cover_pic").attr("src", src);
+            }
+        });
+        return false;
+    });
+    //04-june-2015 by venaktesh : this function trigger when intue file value will be change
+    $('input[type="file"]#osdev_store_banner').bind('change', function (e) {
+        var file_type = this.files[0].type;
+        if (file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg') {
+            $("#osdev_store_banner_update_form").submit();
+        }
+        else {
+            alert("Allow file type should be jpg|png|gif|jpeg");
+        }
+    });
+    //04-june-2015 by venkatesh: this function submit the form to update_store_banner function in orders controller
+    $("#osdev_store_banner_update_form").submit(function () {
+        var STORE_ID = $("#STORE_ID").val();
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/orders/update_store_banner",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                var dataa = $.trim(data);
+                var src = "http://" + window.location.hostname + "/oneshop/stores/" + STORE_ID + "/cover/li/" + dataa;
+                $("#current_store_banner").val(dataa);
+                $("#osdev_storecove_pic").attr("src", src);
+            }
+        });
+        return false;
+    });
+    //04-june-2015 by venaktesh : this function trigger when intue file value will be change
+    $('input[type="file"]#store_logo_update').bind('change', function (e) {
+        var file_type = this.files[0].type;
+        if (file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg') {
+            $("#store_logo_update_form").submit();
+        }
+        else {
+            alert("Allow file type should be jpg|png|gif|jpeg");
+        }
+    });
+    //04-june-2015 by venkatesh: this function submit the form to update_store_logo function in orders controller
+    $("#store_logo_update_form").submit(function () {
+        var STORE_ID = $("#STORE_ID").val();
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/orders/update_store_logo",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                var dataa = $.trim(data);
+                var src = "http://" + window.location.hostname + "/oneshop/stores/" + STORE_ID + "/logo/li/" + dataa;
+                $("#current_store_logo").val(dataa);
+                $("#osdev_store_logo_display").attr("src", src);
+            }
+        });
+        return false;
+    });
+    //05-june-2015 by venkatesh
+    $("#osdev_mystore_settings").click(function () {
+        var STORE_ID = $("#STORE_ID").val();
+        location.replace("http://" + window.location.hostname + "/oneshop/home/mystore_settings/");
+    });
+    $("#store_info_update").submit(function () {
+        var error = "";
+        var STORE_ID = $("#STORE_ID").val();
+        var Store_Name = $("#Store_Name").val();
+        var Time_Zone = $("#Time_Zone").val();
+        var country_id = $("#country_id").val();
+        var state_id = $("#dev_os_state_list").val();
+        var city_id = $("#dev_os_cities_list").val();
+        var Is_Official = $("#Is_Official").val();
+        //require validataion fileds
+        var Zip_code = $("#Zip_code").val();
+        var Helpline_Number = $("#Helpline_Number").val();
+        var Enquiry_mobile_number = $("#Enquiry_mobile_number").val();
+        var Service_Email = $("#Service_Email").val();
+        var Problem_Reporting_Email = $("#Problem_Reporting_Email").val();
+        var send_data = "STORE_ID=" + STORE_ID + "&country_id=" + country_id + "&state_id=" + state_id + "&city_id=" + city_id + "&Time_Zone=" + Time_Zone + "&Is_Official=" + Is_Official + "&Zip_code=" + Zip_code + "&Helpline_Number=" + Helpline_Number + "&Enquiry_mobile_number=" + Enquiry_mobile_number + "&Service_Email=" + Service_Email + "&Problem_Reporting_Email=" + Problem_Reporting_Email;
+
+        if (is_Empty(Zip_code) != true || Zip_code % 1 != 0 || Zip_code.length < 6) {
+            $("#Zip_code").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Zip_code").removeClass("redfoucusclass");
+        }
+
+        if (is_Empty(Helpline_Number) != true || Helpline_Number % 1 != 0 || Helpline_Number.length < 8) {
+            $("#Helpline_Number").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Helpline_Number").removeClass("redfoucusclass");
+        }
+
+        if (is_Empty(Enquiry_mobile_number) != true || Enquiry_mobile_number % 1 != 0 || Enquiry_mobile_number.length < 8) {
+            $("#Enquiry_mobile_number").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Enquiry_mobile_number").removeClass("redfoucusclass");
+        }
+        if (is_Empty(Service_Email) != true || isValid_Email(Service_Email) != true) {
+            $("#Service_Email").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Service_Email").removeClass("redfoucusclass");
+        }
+        if (is_Empty(Problem_Reporting_Email) != true || isValid_Email(Problem_Reporting_Email) != true) {
+            $("#Problem_Reporting_Email").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Problem_Reporting_Email").removeClass("redfoucusclass");
+        }
+        if (error == 10)
+        {
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/stores/store_info_update",
+            data: send_data,
+            success: function (data) {
+                if (data == 1) {
+                    $('#store_update_success_message').fadeIn().delay(5000).fadeOut();
+                }
+                //  $("#osdev_State").html(data);
+            }
+        });
+        return false;
+    });
+    $("#Manage_staff").click(function () {
+        $("#Store_Basic_info_div").slideUp();
+        $("#notification_div").slideUp();
+        $("#manage_staff_div").slideDown();
+    });
+    $("#My_Store_Setting").click(function () {
+        $("#Store_Basic_info_div").slideDown();
+        $("#notification_div").slideUp();
+        $("#manage_staff_div").slideUp();
+    });
+    $("#os_notify").click(function () {
+        $("#Store_Basic_info_div").slideUp();
+        $("#notification_div").slideDown();
+        $("#manage_staff_div").slideUp();
+    });
+
+    //05-june-2015 by venkatesh: this function using for  clone the form fields in manage staff form
+    var counter = 2;
+    $("#add_staff").click(function () {
+        if (counter < 3)
+        {
+            var data = ' <div id="manage_staff_main' + counter + '"><div class="oneshop_mystoreSettinsField">' +
+                    '<span class="onshop_formsFieldLables"><h5>Order Manager :</h5></span>' +
+                    '<input type="text" class="oneshop_mystoreField" placeholder="Order Manager Email" name="order_manager" id="order_manager_id' + counter + '">' +
+                    '<span class="order_Manager" id="order_Manager_error' + counter + '" style="">Email not Exist</span>' +
+                    '</div>' +
+                    '<div class="oneshop_mystoreSettinsField">' +
+                    '<span class="onshop_formsFieldLables"><h5>Stock Manager :</h5></span>' +
+                    '<input type="text" class="oneshop_mystoreField" placeholder="Stock Manager Email" name="stock_manager"id="stock_manager_id' + counter + '">' +
+                    ' <span class="order_Manager" id="stock_Manager_error' + counter + '" style="">Email not Exist</span>' +
+                    '</div></div>';
+            $("#manage_staff_main_append").append(data);
+            counter++;
+        }
+
+
+
+        if (counter == 3 || counter == 2)
+        {
+            $("#manage_staff_remove").show();
+        }
+
+    });
+    //05-june-2015 by venkatesh
+    $("#manage_staff_remove").click(function () {
+        counter--;
+        //   alert(counter);
+        if (counter >= 2)
+        {
+            $("#manage_staff_main" + counter + "").remove();
+        }
+        if (counter == 2)
+        {
+            $("#manage_staff_remove").hide();
+        }
+
+    });
+    //05-june-2015 by venkatesh : this function send mystaff form data to staff_insertion on store controller
+    $("#mystaff_add_save").click(function () {
+        var error = 0;
+        for (i = 1; i < counter; i++) {
+            var email_val = ajaxcallback($("#order_manager_id" + i + "").val());
+
+            if (email_val == 2) {
+                $("#order_manager_id" + i + "").addClass("redfoucusclass");
+                $("#order_Manager_error" + i + "").show();
+                error = 10;
+            } else {
+                $("#order_manager_id" + i + "").removeClass("redfoucusclass");
+                $("#order_Manager_error" + i + "").hide();
+            }
+        }
+        for (i = 1; i < counter; i++) {
+            var email_val = ajaxcallback($("#stock_manager_id" + i + "").val());
+
+            if (email_val == 2) {
+                $("#stock_manager_id" + i + "").addClass("redfoucusclass");
+                $("#stock_Manager_error" + i + "").show();
+                error = 10;
+            } else {
+                $("#stock_manager_id" + i + "").removeClass("redfoucusclass");
+                $("#stock_Manager_error" + i + "").hide();
+            }
+        }
+        if (error == 10) {
+            return false;
+        }
+        var send_data = "";
+        for (var i = 1; i <= counter; i++) {
+            var j = i - 1;
+            if (i == 1) {
+                send_data = "STORE_ID=" + $("#STORE_ID").val();
+                +"&order_manager_id" + j + "=" + $("#order_manager_id" + j + "").val() + "&stock_manager_id" + j + "=" + $("#stock_manager_id" + j + "").val();
+            } else {
+                send_data += "&order_manager_id" + j + "=" + $("#order_manager_id" + j + "").val() + "&stock_manager_id" + j + "=" + $("#stock_manager_id" + j + "").val();
+            }
+        }
+        
+       $.ajax({
+            async: false,
+            type: 'POST',
+            data: send_data,
+            url: " http://" + window.location.hostname + "/oneshop/stores/staff_insertion",
+            success: function (data) {
+                
+                if (data == 1)
+                {
+                    location.reload();
+                }
+            }});
+    });
+    var value;
+
+    function ajaxcallback(val) {
+        $.ajax({
+            async: false,
+            type: 'POST',
+            data: {email: val},
+            url: " http://" + window.location.hostname + "/oneshop/stores/email_check",
+            success: function (data) {
+                value = data;
+            }});
+        return value;
+    }
+
+//08-06-2015 by venkatesh
+    $("#osdev_notify_submit").click(function () {
+        var osdev_order_recived = '';
+        var osdev_outof_stock = '';
+        var osdev_reported_onstore = '';
+        var osdev_cancle_order = '';
+        if ($("#osdev_order_recived").prop("checked") == true) {
+            osdev_order_recived = "Y";
+        } else {
+            osdev_order_recived = "N";
+        }
+        if ($("#osdev_outof_stock").prop("checked") == true) {
+            osdev_outof_stock = "Y";
+        } else {
+            osdev_outof_stock = "N";
+        }
+        if ($("#osdev_reported_onstore").prop("checked") == true) {
+            osdev_reported_onstore = "Y";
+        } else {
+            osdev_reported_onstore = "N";
+        }
+        if ($("#osdev_cancle_order").prop("checked") == true) {
+            osdev_cancle_order = "Y";
+        } else {
+            osdev_cancle_order = "N";
+        }
+        var data = "STORE_ID=" + $("#STORE_ID").val() + "&osdev_order_recived=" + osdev_order_recived + "&osdev_outof_stock=" + osdev_outof_stock + "&osdev_reported_onstore=" + osdev_reported_onstore + "&osdev_cancle_order=" + osdev_cancle_order;
+        $.ajax({
+            async: false,
+            type: 'POST',
+            data: data,
+            url: " http://" + window.location.hostname + "/oneshop/stores/notification_update",
+            success: function (data) {
+                if (data == 1)
+                {
+                    $('#notification_success_msg').fadeIn().delay(5000).fadeOut();
+                }
+            }});
+    });
+
+
+    //5-june-2015 to report problem insertion by ramadevi.
+    //$("#reportproblem").submit(function () {
+    $(document).on("submit","#reportproblem",function (e) {
+        e.preventDefault();
+        var error = 0;
+        var dev_oneshop_problem_name = $("#report_problem_name").val();
+        var dev_oneshop_problrm_description = $("#report_problem_description").val();
+        var dev_oneshop_problem_sanpshot = $("#report_problem_screenshot").val();         
+        if (is_Empty(dev_oneshop_problem_name) != true) {
+
+            $("#report_problem_name").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#report_problem_name").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_problrm_description) != true) {
+            $("#report_problem_description").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#report_problem_description").removeClass("redfoucusclass");
+        }
+        if (dev_oneshop_problem_sanpshot != 0 || dev_oneshop_problem_sanpshot != '') {
+            var dev_os_report_fileInput = document.getElementById("report_problem_screenshot").files[0];
+            var dev_os_allowed_types = ["jpeg", "png", "jpg", "gif"];
+            var dev_os_found = false;
+            dev_os_allowed_types.forEach(function (extension) {
+                if (dev_os_report_fileInput.type.match('image/' + extension)) {
+                    dev_os_found = true;
+                }
+            })
+
+            if (dev_os_found) {
+                //alert("correct format");
+            }
+            else {
+                alert("Snapshot should be an image type");
+                error = 10;
+            }
+        }
+        if (error == 10)
+        {
+            return false;
+        }
+        else{
+            $.ajax({
+                type: 'POST',
+                url: " http://" + window.location.hostname +"/oneshop/reportproblem/report_problem_insertion",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    //alert(data);
+                    if (data.trim() == 1)
+                    {
+                        $("#report_problem_name").val('');
+                        $("#report_problem_description").val('');
+                        $("#report_problem_description").val('');
+                        $("#report_problem_screenshot").val('');
+                        $("#country_id").val('');
+                        $("#response").show().html("Thanks.Your report is submitted sucessfully...").fadeIn('slow');
+                        $("#oneshop_reportProblemPopupBg").delay(5000).hide(1);
+                    }
+                }
+            });
+        }
+        return false;
+    });
+
+
+
+//01-06-2015 update the product information by ramadevi.
+    $("#edit_product").submit(function () {
+        var error = 0;
+        var dev_oneshop_category = $("#os_category").val();
+        var dev_oneshop_sub_category = $("#os_sub_category").val();
+        var dev_oneshop_Product_mdate = $("#os_product_mDate").val();
+        var dev_oneshop_Product_costprice = $("#os_product_costprice").val();
+        var dev_oneshop_Product_sellprice = $("#os_product_sellprice").val();
+        var dev_oneshop_Product_discount = $("#os_product_discount").val();
+        var dev_oneshop_Product_quantity = $("#os_product_quantity").val();
+        var dev_oneshop_Product_specification = $("#os_product_specification").val();
+        var dev_oneshop_Product_description = $("#os_product_description").val();
+        if (is_Empty(dev_oneshop_category) != true) {
+
+            $("#os_category").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_category").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_sub_category) != true) {
+            $("#os_sub_category").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_sub_category").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_Product_mdate) != true) {
+            $("#os_product_mDate").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_mDate").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_Product_costprice) != true || dev_oneshop_Product_costprice % 1 != 0) {
+            $("#os_product_costprice").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_costprice").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_Product_sellprice) != true || dev_oneshop_Product_sellprice % 1 != 0) {
+            $("#os_product_sellprice").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_sellprice").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_Product_discount) != true || dev_oneshop_Product_discount % 1 != 0) {
+            $("#os_product_discount").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_discount").removeClass("redfoucusclass");
+        }
+        if (is_Empty(dev_oneshop_Product_quantity) != true || dev_oneshop_Product_quantity % 1 != 0 || dev_oneshop_Product_quantity == 0) {
+
+            $("#os_product_quantity").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_quantity").removeClass("redfoucusclass");
+        }
+
+        if (is_Empty(dev_oneshop_Product_specification) != true) {
+
+            $("#os_product_specification").addClass("redfoucusclass");
+            error = 10;
+        } else {
+
+            $("#os_product_specification").removeClass("redfoucusclass");
+        }
+
+        if (is_Empty(dev_oneshop_Product_description) != true) {
+
+            $("#os_product_description").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#os_product_description").removeClass("redfoucusclass");
+        }
+
+        if (error == 10)
+        {
+            return false;
+        }
+
+
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/update_product_info",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if (data == 1)
+                {
+                    $('#product_update_suc').show().delay(5000).fadeOut();
+                }else{
+                    location.replace("http://" + window.location.hostname +"/oneshop/");
+                }
+            }
+        });
+        return false;
+
+    });
+    
+    //11-june-2015 by venkatesh this function load custom order recieve report
+    $("#orc_submit").click(function () {
+
+        var error = 0;
+        var fit_start_time = $("#orc_datepicker").val();
+        var fit_end_time = $("#orc_datepicker1").val();
+
+
+        if (fit_start_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker").removeClass("redfoucusclass");
+        }
+        if (fit_end_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker1").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker1").removeClass("redfoucusclass");
+        }
+        var date1 = new Date(fit_start_time);
+        var date2 = new Date(fit_end_time);
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (diffDays > 30)
+        {
+            alert("Please Select the dates differance in between below 30 days ");
+            error = 10;
+        }
+        if (error == 10) {
+            return false;
+        }
+        
+        if (new Date(fit_start_time) >= new Date(fit_end_time)) {
+            $("#orc_datepicker").val("");
+            $("#orc_datepicker1").val("");
+            $("#orc_datepicker").addClass("redfoucusclass");
+            $("#orc_datepicker1").addClass("redfoucusclass");
+        } else {
+            var store_code=$("#hstore_code").val();
+            $("#orc_datepicker").removeClass("redfoucusclass");
+            $("#orc_datepicker1").removeClass("redfoucusclass");
+            $.ajax({
+                type: 'POST',
+                url: "http://" + window.location.hostname + "/oneshop/store_reports/order_recieved_chart1/"+store_code,
+                data: {fit_start_time: fit_start_time, fit_end_time: fit_end_time},
+                success: function (data) {
+                    $("#osdev_orc_chart_append").html(data);
+                },
+                error: function () {
+
+                }
+            });
+        }
+    });
+
+    //11-june-2015 by venkatesh this function load custom order cacellation report
+    $("#orc_cancel_submit").click(function () {
+        var error = 0;
+        var fit_start_time = $("#orc_datepicker2").val();
+        var fit_end_time = $("#orc_datepicker3").val();
+        if (fit_start_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker2").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker2").removeClass("redfoucusclass");
+        }
+        if (fit_end_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker3").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker3").removeClass("redfoucusclass");
+        }
+        var date1 = new Date(fit_start_time);
+        var date2 = new Date(fit_end_time);
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (diffDays > 30)
+        {
+            alert("Please Select the dates differance in between below 30 days ");
+            error = 10;
+        }
+        if (error == 10)
+        {
+            return false;
+        }
+        if (new Date(fit_start_time) >= new Date(fit_end_time)) {
+            $("#orc_datepicker2").val("");
+            $("#orc_datepicker3").val("");
+            $("#orc_datepicker2").addClass("redfoucusclass");
+            $("#orc_datepicker3").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker2").removeClass("redfoucusclass");
+            $("#orc_datepicker3").removeClass("redfoucusclass");
+            var store_code=$("#hstore_code").val();            
+            $.ajax({
+                type: 'POST',
+                url: "http://" + window.location.hostname + "/oneshop/store_reports/order_cancelation_chart1",
+                data: {fit_start_time: fit_start_time, fit_end_time: fit_end_time,store_code:store_code},
+                success: function (data) {
+
+                    $("#osdev_cancel_chart_append").html(data);
+                },
+                error: function () {
+
+                }
+            });
+        }
+    });
+    //09-june-2015 by venkatesh 
+    $("#osdev_Category_id_forsale").change(function () {
+        $("#orc_datepicker4").val("");
+        $("#orc_datepicker5").val("");
+        var category_id = $("#osdev_Category_id_forsale").val();
+        $.ajax({
+            type: 'POST',
+            data: {category_id: category_id},
+            url: " http://" + window.location.hostname + "/oneshop/store_reports/category_wise_sale",
+            success: function (data) {
+                $("#osdev_chart_append").html(data, function () {
+                });
+            }
+        });
+    });
+
+
+    //11-june-2015 by venkatesh this function load custom category wise sale Chart report
+    $("#cat_wise_sub").click(function () {
+        var error = 0;
+        var fit_start_time = $("#orc_datepicker4").val();
+        var fit_end_time = $("#orc_datepicker5").val();
+        if (fit_start_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker4").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker4").removeClass("redfoucusclass");
+        }
+        if (fit_end_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker5").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker5").removeClass("redfoucusclass");
+        }
+        var date1 = new Date(fit_start_time);
+        var date2 = new Date(fit_end_time);
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        if (diffDays > 30)
+        {
+            alert("Please Select the dates differance in between below 30 days ");
+            error = 10;
+        }
+        if (error == 10)
+        {
+            return false;
+        }
+        if (new Date(fit_start_time) >= new Date(fit_end_time)) {
+            $("#orc_datepicker4").val("");
+            $("#orc_datepicker5").val("");
+            $("#orc_datepicker4").addClass("redfoucusclass");
+            $("#orc_datepicker5").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker4").removeClass("redfoucusclass");
+            $("#orc_datepicker5").removeClass("redfoucusclass");
+            var category_id = $("#osdev_Category_id_forsale").val();
+            $.ajax({
+                type: 'POST',
+                url: "http://" + window.location.hostname + "/oneshop/store_reports/category_wise_sale",
+                data: {fit_start_time: fit_start_time, fit_end_time: fit_end_time, category_id: category_id},
+                success: function (data) {
+
+                    $("#osdev_chart_append").html(data);
+                },
+                error: function () {
+
+                }
+            });
+        }
+    });
+
+    
+
+
+    //11-june-2015 by venkatesh this function load custom category wise sale Chart report
+    $("#product_w_s").click(function () {
+        var error = 0;
+        var fit_start_time = $("#orc_datepicker6").val();
+        var fit_end_time = $("#orc_datepicker7").val();
+        if (fit_start_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker6").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker6").removeClass("redfoucusclass");
+        }
+        if (fit_end_time.length == 0) {
+            error = 10;
+            $("#orc_datepicker7").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker7").removeClass("redfoucusclass");
+        }
+
+        var date1 = new Date(fit_start_time);
+        var date2 = new Date(fit_end_time);
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        var store_code=$("#hstore_code").val(); 
+        if (diffDays > 30)
+        {
+            alert("Please Select the dates differance in between below 30 days ");
+            error = 10;
+        }
+        if (error == 10)
+        {
+            return false;
+        }
+        if (new Date(fit_start_time) >= new Date(fit_end_time)) {
+            $("#orc_datepicker6").val("");
+            $("#orc_datepicker7").val("");
+            $("#orc_datepicker6").addClass("redfoucusclass");
+            $("#orc_datepicker7").addClass("redfoucusclass");
+        } else {
+            $("#orc_datepicker6").removeClass("redfoucusclass");
+            $("#orc_datepicker7").removeClass("redfoucusclass");
+            var product_id_forsale = $("#osdev_product_id_forsale").val();
+            $.ajax({
+                type: 'POST',
+                url: "http://" + window.location.hostname + "/oneshop/store_reports/product_wise_sale/"+store_code,
+                data: {fit_start_time: fit_start_time, fit_end_time: fit_end_time, product_id_forsale: product_id_forsale},
+                success: function (data) {
+
+                    $("#osdev_productsale_chart_append").html(data);
+                },
+                error: function () {
+
+                }
+            });
+        }
+    });
+    
+    
+      
+  //12-06-2015 by venkatesh
+  $("#orc_dwnld_excel").click(function () {
+      var fit_start_time = $("#orc_datepicker").val();
+      var fit_end_time = $("#orc_datepicker1").val();
+      //alert($("#hstore_code").val());
+      var store_code=$("#hstore_code").val();
+      var error = 0;
+      if (fit_start_time.length != 0 || fit_end_time.length != 0)
+      {
+          if (fit_start_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker").removeClass("redfoucusclass");
+          }
+          if (fit_end_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker1").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker1").removeClass("redfoucusclass");
+          }
+          var date1 = new Date(fit_start_time);
+          var date2 = new Date(fit_end_time);
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          
+          if (diffDays > 30)
+          {
+              alert("Please Select the dates differance in between below 30 days ");
+              error = 10;
+          }
+      }
+      if (error == 10) {
+          return false;
+      }
+      location.replace("http://" + window.location.hostname + "/oneshop/store_reports/order_recieved_report_download?fit_start_time="+fit_start_time+"&fit_end_time="+fit_end_time+"&store_code="+store_code);
+  });
+
+    //12-06-2015 by venkatesh
+  $("#ocnl_dwnld_excel").click(function () {
+      var fit_start_time = $("#orc_datepicker2").val();
+      var fit_end_time = $("#orc_datepicker3").val();
+      var store_code=$("#hstore_code").val();
+      var error = 0;
+      if (fit_start_time.length != 0 || fit_end_time.length != 0)
+      {
+          if (fit_start_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker2").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker2").removeClass("redfoucusclass");
+          }
+          if (fit_end_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker3").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker3").removeClass("redfoucusclass");
+          }
+          var date1 = new Date(fit_start_time);
+          var date2 = new Date(fit_end_time);
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          if (diffDays > 30)
+          {
+              alert("Please Select the dates differance in between below 30 days ");
+              error = 10;
+          }
+      }
+      if (error == 10) {
+          return false;
+      }
+      location.replace("http://" + window.location.hostname + "/oneshop/store_reports/order_cancel_report_download?fit_start_time="+fit_start_time+"&fit_end_time="+fit_end_time+"&store_code="+store_code);
+
+  });
+  
+  //12-06-2015 by venkatesh
+  $("#ctws_dwnld_excel").click(function () {
+      var fit_start_time = $("#orc_datepicker4").val();
+      var fit_end_time = $("#orc_datepicker5").val();
+      var error = 0;
+      if (fit_start_time.length != 0 || fit_end_time.length != 0)
+      {
+          if (fit_start_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker4").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker4").removeClass("redfoucusclass");
+          }
+          if (fit_end_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker5").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker5").removeClass("redfoucusclass");
+          }
+          var date1 = new Date(fit_start_time);
+          var date2 = new Date(fit_end_time);
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          if (diffDays > 30)
+          {
+              alert("Please Select the dates differance in between below 30 days ");
+              error = 10;
+          }
+      }
+      if (error == 10) {
+          return false;
+      }
+      var cattegory_id=$("#osdev_Category_id_forsale").val();
+    location.replace("http://" + window.location.hostname + "/oneshop/store_reports/categorywise_sales_report_download?fit_start_time="+fit_start_time+"&fit_end_time="+fit_end_time+"&category_id="+cattegory_id);
+  });
+  
+   //12-06-2015 by venkatesh
+  $("#prtws_dwnld_excel").click(function () {
+      var fit_start_time = $("#orc_datepicker6").val();
+      var fit_end_time = $("#orc_datepicker7").val();
+      var store_code=$("#hstore_code").val();
+      var error = 0;
+      if (fit_start_time.length != 0 || fit_end_time.length != 0)
+      {
+          if (fit_start_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker6").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker6").removeClass("redfoucusclass");
+          }
+          if (fit_end_time.length == 0) {
+              error = 10;
+              $("#orc_datepicker7").addClass("redfoucusclass");
+          } else {
+              $("#orc_datepicker7").removeClass("redfoucusclass");
+          }
+          var date1 = new Date(fit_start_time);
+          var date2 = new Date(fit_end_time);
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+          if (diffDays > 30)
+          {
+              alert("Please Select the dates differance in between below 30 days ");
+              error = 10;
+          }
+      }
+      if (error == 10) {
+          return false;
+      }
+      var product_id_forsale=$("#osdev_product_id_forsale").val();
+    location.replace("http://" + window.location.hostname + "/oneshop/store_reports/productwise_sales_report_download?fit_start_time="+fit_start_time+"&fit_end_time="+fit_end_time+"&product_id_forsale="+product_id_forsale+"&store_code="+store_code);
+  }); 
+
+$('#dev_os_country').change( function() {
+ 
+   var country_id = "country_id=" + $("#dev_os_country").val();
+  // alert(country_id);
+    $.ajax({
+        type: 'POST',
+        url: " http://" + window.location.hostname + "/oneshop/home/state_info",
+        data: country_id,
+        success: function (data) {
+            $("#dev_os_state_list").html(data);
+        }
+    });
+ });
+
+  $("#dev_os_state_list").change(function () {
+        var state_id = "state_id=" + $("#dev_os_state_list").val();
+       // alert(state_id);
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/home/city_info",
+            data: state_id,
+            success: function (data) {
+                $("#dev_os_cities_list").html(data);
+            }
+        });
+    });
+
+//this function is used to save the usersettings information 
+$("#os_user_settings").submit(function(){
+  
+ var dev_os_adress1=$("#dev_os_addr1").val();
+
+ var dev_os_adress2=$("#dev_os_addr2").val();
+  var dev_os_state=$("#dev_os_state_list").val();
+   var dev_os_city=$("#dev_os_cities_list").val();
+     var dev_os_zipcode=$("#zip_code").val();
+     var dev_os_country=$("#dev_os_country").val();
+   
+        $.ajax({
+            type: 'POST',
+            url:  "http://" + window.location.hostname +"/oneshop/home/updateMySettings",
+          data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function(data){
+             
+               if (data == 1)
+                {
+                  alert("Data updated sucessfully");
+                     $("#response").show().html("Thanks.Your data  is updated sucessfully...").fadeIn('slow').delay(5000).hide(1);
+              
+              }else{
+                alert(data);
+              }
+             
+            }
+        });
+     return false;
+   
+});
+
+//this function is used in usersettings(mysettings) by ramadevi
+$("#edit_settings").click(function(){
+  $("#non_editable").hide();
+  $("#edit_div").show();
+});
+
+
+//11 june 2015 by ramadevi this function is load the subcategories based on category id
+$("#find_product_category").change(function () {
+  var category_id=$("#find_product_category").val();
+  //alert(category_id);
+   $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname +"/oneshop/products/subcatagory_ids",
+            data: {Category_id:category_id},
+            success: function (data) {
+            //    alert(data);
+                 $("#find_product_sub_category").show();
+                $("#find_product_sub_category").html(data);
+                          }
+        });
+  
+});
+
+//12 june 2015 .this function is used to find the cancled orders based on number ,order date and canceled date by ramadevi.
+
+$("#find_product").click(function(){
+    var dev_find_date=$("#dev_os_find_order_date").val();
+    var dev_cancel_date=$("#dev_os_find_cancel_date").val();
+    var dev_find_number=$("#dev_os_find_order_number").val();
+    var dev_store_u_id=$("#dev_store_u_id").val();
+  
+  
+    $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname +"/oneshop/home/orderCancellationData/"+dev_store_u_id,
+            data:{order_number:dev_find_number,order_date:dev_find_date,cancel_date:dev_cancel_date},
+            success: function (data) {
+              
+             $("#total_data").html(data);
+            }
+        });
+  });
+    //17-june-2014 
+$("#store_report_problem").click(function(){
+  $("#store_report").fadeToggle();
+});
+//17-june-2014 
+$("#store_report_cancel").click(function(){
+  $("#store_report").fadeToggle();
+  $('#strpt_problrm')[0].reset();
+  return false;
+});
+
+    //17-06-2015 by venkatesh : this function validate file type and size
+    $('input[type="file"]#report_snapshot').bind('change', function (e) {
+
+        e.preventDefault();
+        var files = e.originalEvent.target.files;
+        var file_name = files[0].name;
+        var file_size = files[0].size;
+        var file_type = files[0].type;
+        if (file_size <= 512000 && (file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg')) {
+            
+        }
+        else {
+
+            if (file_size > 512000) {
+                alert("Allow file size should be below 500kb");
+                   $("#report_snapshot").val("");
+            } else {
+                   $("#report_snapshot").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+            }
+        }
+    });
+
+//17-june-2015 by venkatesh
+$("#strpt_problrm").submit(function(){
+   var report_title=$("#report_title").val();
+   var report_description=$("#report_description").val();
+   var report_snapshot=$("#report_snapshot").val();
+   var error=0;
+      if (is_Empty(report_title) != true) {
+            $("#report_title").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#report_title").removeClass("redfoucusclass");
+        }
+      if (is_Empty(report_description) != true) {
+            $("#report_description").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#report_description").removeClass("redfoucusclass");
+        }
+        if(error==10)
+        {
+            return false;
+        }
+           $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/stores/report_on_store",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data);
+              if(data==1)
+              {
+                  $('#strpt_problrm')[0].reset();
+                   alert("Report sucessfully submitted");
+                     $("#store_report").fadeToggle('slow').delay(5000);
+              }
+            }
+        });
+        
+   return false;
+});
+ $("#os_backword_btn").click(function(){
+      window.history.go(-1);
+   });
+   $("#os_forward_btn").click(function(){
+       window.history.go(+1);
+   }); 
+//16 june 2015 by ramadevi redirect to the shipping address
+  $("#dev_os_product_detail_view1").click(function(){
+    var dev_oneshop_product_id=$("#dev_os_p_id").val();
+ var dev_oneshop_store_uid=$("#hstore_uid").val();
+   var mode=$("#hmode").val();
+   if(mode!="public"){
+         window.location="http://"+ window.location.hostname + "/oneshop/home/shippingAddress/"+dev_oneshop_product_id+"/"+dev_oneshop_store_uid; 
+     }else{
+        window.location="http://"+ window.location.hostname + "/oneshop/home/shippingAddress/"+dev_oneshop_product_id+"/public";  
+     }
+       });
+       
+$("#another_address").click(function(){
+ $("#saved_address_div").hide(); 
+  $("#new_address_div").show();
+   getStatesList();
+   
+});
+$("#saved_address").click(function(){
+ 
+  $("#new_address_div").hide();
+   $("#saved_address_div").show();
+});
+//to get all states list based on country id by ramadevi.17 june2015
+ 
+
+//to get all  list based on country id by ramadevi.17 june2015
+$("#dev_billing_os_state_list").change(function(){
+  var state_id=$("#dev_billing_os_state_list").val();
+  
+    $.ajax({
+        type: 'POST',
+        url: " http://" + window.location.hostname + "/oneshop/home/city_info",
+        data:{state_id:state_id},
+        success: function (data) {
+       
+            $("#dev_os_billing_citieslist").html(data);
+        }
+    });
+ 
+});
+//this function shows the states list based on country id by ramadevi on 17 june 2015.
+function getStatesList(){
+  var country_id=$("#dev_billing_os_country").val();
+    $.ajax({
+        type: 'POST',
+        url: " http://" + window.location.hostname + "/oneshop/home/state_info",
+        data:{country_id:country_id},
+        success: function (data) {
+         // alert(data);
+            $("#dev_billing_os_state_list").html(data);
+        }
+    });
+    }
+    $("#newbilling_address").submit(function(){
+      var dev_os_billing_address1=$("#os_billing_address1").val();
+    //  alert(dev_os_billing_address1);
+      var dev_os_billing_address2=$("#os_billing_address2").val();
+      //alert(dev_os_billing_address2);
+      var dev_os_billing_countryid=$("#dev_billing_os_country").val();
+      //alert(dev_os_billing_countryid);
+      var dev_os_billing_stateid=$("#dev_billing_os_state_list").val();
+      //alert(dev_os_billing_stateid);
+       var dev_os_billing_cityid=$("#dev_os_billing_citieslist").val();
+      //alert(dev_os_billing_cityid);
+    var dev_os_billing_zipcode=$("#dev_os_billing_zipcode").val();
+    var delivery_type=($("input:radio[name=deliver_type]:checked").val());
+    
+      //alert(dev_os_billing_zipcode)
+      var error;
+  if(dev_os_billing_address1==''){
+    $("#os_billing_address1").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(dev_os_billing_address2==''){
+     $("#os_billing_address2").addClass("redfoucusclass");
+            error = 10;
+  }
+  
+
+   if(dev_os_billing_stateid==''){
+    $("#dev_billing_os_state_list").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(dev_os_billing_cityid==''){
+    $("#dev_os_billing_citieslist").addClass("redfoucusclass");
+            error = 10;
+  }
+ var zip_code=isNaN(dev_os_billing_zipcode);
+ 
+   if(dev_os_billing_zipcode==''||zip_code==true){
+    $("#dev_os_billing_zipcode").addClass("redfoucusclass");
+  
+ //alert(isNaN(dev_os_billing_zipcode));
+            error = 10;
+  }
+  
+   if (error == 10) {
+          return false;
+      }   
+           if($('#chkbox_address_user').prop('checked')){
+         console.log($('#chkbox_address_user').prop('checked'));
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/updateUserAddress",
+            data:new FormData(this),
+             processData: false,
+            contentType: false,
+            success: function (data) {
+               if(data==1){
+             // $("#oneshop_myStoreManageStaff").html("Your Address is updated successfully");
+             alert("Address updated successfully");
+             $("#billing_address_save").hide();
+                  $("#billing_address_Proceed").show();
+            }
+            }
+        }); 
+ return false;
+      }
+      else{
+           console.log($('#chkbox_address_user').prop('checked'));
+     $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/insertShippingAddress",
+            data:new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+           
+                if(data==1){
+                  alert("Your Address updated successfully");
+                   $("#billing_address_save").hide();
+                 
+                }
+               // $("#osdev_City").html(data);
+            }
+        }); 
+         $("#billing_address_Proceed").show();
+        return false;
+      }
+      });
+    
+   // function is to used take details from user who is not have address in  user_details table.17june2015 by ramadevi
+$("#address_userdetails").submit(function(){
+ var dev_os_user_add1=$("#user_details_addres1").val();
+ var dev_os_user_add2=$("#user_details_addres2").val(); 
+ var dev_os_user_country=$("#dev_billing_os_country").val();
+ var dev_os_user_state=$("#dev_billing_os_state_list").val();
+ var dev_os_user_city=$("#dev_os_bdev_billing_os_countryilling_citieslist").val();
+ var dev_os_user_zipcode=$("#user_details_zipcode").val();
+
+   var error;
+    var delivery_type=($("input:radio[name=deliver_type]:checked").val());
+  if(dev_os_user_add1==''){
+    $("#user_details_addres1").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(dev_os_user_add2==''){
+     $("#user_details_addres2").addClass("redfoucusclass");
+            error = 10;
+  }
+  
+ if(dev_os_user_country==''){
+     $("#dev_billing_os_country").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(dev_os_user_state==''){
+    $("#dev_billing_os_state_list").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(dev_os_user_city==''){
+    $("#dev_os_billing_citieslist").addClass("redfoucusclass");
+            error = 10;
+  }
+ var zip_code=isNaN(dev_os_user_zipcode);
+
+   if(dev_os_user_zipcode==''||zip_code==true){
+    $("#user_details_zipcode").addClass("redfoucusclass");
+            error = 10;
+  }
+  
+   if (error == 10) {
+          return false;
+      }   
+     
+     // var chkbx_confirmation="true";
+     if($('#chkbx_confirmation_billingAddr').is(":checked")){
+         console.log($('#chkbx_confirmation_billingAddr').prop('checked'));
+        $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/updateUserAddress",
+            data:new FormData(this),
+             processData: false,
+            contentType: false,
+            success: function (data) {
+               if(data==1){
+             // $("#oneshop_myStoreManageStaff").html("Your Address is updated successfully");
+             alert("Address updated   successfully");
+             $("#dev_os_userAddressSave1").hide();
+            
+            }
+         $("#dev_os_userAddressProceed1").show();
+            }
+        }); 
+ return false;
+      }
+      else{
+       
+         console.log($('#chkbx_confirmation_billingAddr').prop('checked'));
+     $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/home/insertShippingAddress",
+            data:new FormData(this),
+             processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data);
+               if(data==1){
+             // $("#oneshop_myStoreManageStaff").html("Your Address is updated successfully");
+             alert("Address updated successfully");
+              $("#dev_os_userAddressSave1").hide();
+             
+            }
+            $("#dev_os_userAddressProceed1").show();
+            }
+        }); 
+ return false;
+      }
+   
+});
+  //19 june 2015 by ramdevi for upgrade package.  
+ function getPackageDetails(dev_os_package){
+      $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname +"/oneshop/home/detailsOfPackage",
+            data: {package:dev_os_package},
+            success: function (data) {
+           var result=data.trim();
+                alert(result);
+                var data_arry=result.split("~");
+                var pkg_id=data_arry[0];
+                var s_custom=pkg_id+"~"+$("#hstore_aid").val();
+                $("#pckg_id").val(pkg_id);
+                $("input[name=custom]").val(s_custom);
+                for(var j=1;j<=3;j++){
+                    var element_val=data_arry[j];
+                    var element_id="tblfield_"+j;
+                    if(j==2){
+                        element_val=element_val+" GB";
+                    }
+                    $("#"+element_id).html(element_val);
+                }   
+                          }
+        });
+ }
+  
+   //this is for selection of  radio button is checked by user choice.ramadevi on 19 june 2015.
+   $("input:radio[name=package_type]").click(function(){
+        var dev_os_package=$("input:radio[name=package_type]:checked").val();        
+        getPackageDetails(dev_os_package);  
+  });
+    $("#osdev_PackageType").change(function(){
+        var dev_os_package=$(this).val();        
+         $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname +"/oneshop/home/detailsOfPackage",
+            data: {package:dev_os_package},
+            success: function (data) {
+                var result=data.trim();
+                //alert(result);
+                var data_arry=result.split("~");
+                var pkg_id=data_arry[0];
+                //var s_custom=pkg_id+"~"+$("#hstore_aid").val();
+                $("#hpackage_id").val(pkg_id);
+            }
+        });
+  });
+    //20-july-2015 by venkatesh to add the products in wishlist
+    $("#os_Wishlist").click(function(){
+       var product_aid=$("#dev_os_p_id").val(); 
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/wishlist/",
+            data: {product_aid: product_aid},
+            success: function (data) {
+                var msg="";
+                if(data.trim()=="yes"){
+                    msg="Already added in wishlist";
+                }else{
+                    msg="Added the product in your wishlist";
+                }
+                alert(msg);
+            }
+        });      
+    });
+ //26june2015 by ramadevi
+    $("#official_details1").submit(function(){
+        
+      var store_name=$("#official_storename").val();
+       var official_helpline_name=$("#official_helpline").val();
+       var official_enquirynumber=$("#official_enquirynumber").val();
+       var official_addressline1=$("#official_addressline1").val();
+       var official_addressline2=$("#official_addressline2").val();
+       var official_zipcode=$("#official_zipcode").val();
+       var official_mobile_num=$("#official_mobile_num").val();
+       var official_emailId=$("#official_emailId").val();
+     //isNaN(123);
+     //  alert(emailtrue);
+       var official_company=$("#official_company").val();
+       var official_website=$("#official_website").val();
+       var official_turnover=$("#official_turnover").val();
+        var official_landline_number_ext=$("#official_landline_number_ext").val();
+       var official_landline_number=$("#official_landline_number").val();
+       var country_id=$("#official_storename").val();
+       var dev_os_state_list_official=$("#dev_os_state_list_official").val();
+       var dev_os_cities_list_official=$("#dev_os_cities_list_official").val();
+       var official_description=$("#official_description").val();
+       var error;
+       if(store_name==''){
+   $("#official_storename").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(official_helpline_name==''){
+    $("#official_helpline").addClass("redfoucusclass");
+            error = 10;
+  }
+     if(official_enquirynumber==''){
+    $("#official_enquirynumber").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(official_addressline1==''){
+    $("#official_addressline1").addClass("redfoucusclass");
+            error = 10;
+  }
+    if(official_addressline2==''){
+    $("#official_addressline2").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(official_zipcode==''){
+    $("#official_zipcode").addClass("redfoucusclass");
+            error = 10;
+  } if(official_mobile_num==''&&official_mobile_num>=1){
+    $("#official_mobile_num").addClass("redfoucusclass");
+            error = 10;
+  }
+  if(official_emailId==''){ 
+     console.log(emailVerify);
+    $("#official_emailId").addClass("redfoucusclass");
+            error = 10;
+          
+  }
+  var emailVerify= validateEmail(official_emailId);
+  if(emailVerify){
+          }
+          else{
+            console.log(emailVerify);
+             $("#official_emailId").addClass("redfoucusclass");
+            error = 10;
+          }
+    if(official_company==''){
+    $("#official_company").addClass("redfoucusclass");
+            error = 10;
+  }
+  if(official_website==''){
+    $("#official_website").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(official_turnover==''){
+    $("#official_turnover").addClass("redfoucusclass");
+            error = 10;
+  }
+   if(official_landline_number_ext==''){
+    $("#official_landline_number_ext").addClass("redfoucusclass");
+            error = 10;
+  }
+    if(official_landline_number==''){
+    $("#official_landline_number").addClass("redfoucusclass");
+            error = 10;
+  }
+    if(dev_os_state_list_official==''){
+    $("#dev_os_state_list_official").addClass("redfoucusclass");
+            error = 10;
+  }
+    if(dev_os_cities_list_official==''){
+    $("#dev_os_cities_list_official").addClass("redfoucusclass");
+            error = 10;
+  }
+  
+   if(official_description==''){
+    $("#official_description").addClass("redfoucusclass");
+            error = 10;
+  }
+       if(isNaN(official_zipcode)){
+          $("#official_zipcode").addClass("redfoucusclass");
+            error = 10;
+       }
+        if(isNaN(official_landline_number)){
+          $("#official_landline_number").addClass("redfoucusclass");
+            error = 10;
+          }
+       if(isNaN(official_landline_number_ext)){
+          $("#official_landline_number_ext").addClass("redfoucusclass");
+            error = 10;
+       }
+        if(isNaN(official_mobile_num)){
+          $("#official_mobile_num").addClass("redfoucusclass");
+            error = 10;
+       }
+        if(isNaN(official_enquirynumber)){
+          $("#official_enquirynumber").addClass("redfoucusclass");
+            error = 10;
+       }
+      if(isNaN(official_turnover)){
+          $("#official_turnover").addClass("redfoucusclass");
+            error = 10;
+       } 
+       
+   if (error == 10) {
+          return false;
+      }
+     $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/stores/officialStoreInfo",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                 if(data==1){
+                   alert("Thank you for your response.");
+                    
+                    $('#click_officialSettings').html("");
+                    $('#click_officialSettings').hide();
+                 }
+               
+            }
+        });
+        
+    });
+    $("#category_select").change(function(){
+        //var category_id="C"+$(this).val();
+        var Category_id = "Category_id=" + $(this).val();
+        $.ajax({
+            type:"post",
+            url:"http://"+window.location.hostname+"/oneshop/products/subcatagory_ids",
+            data:Category_id,
+            success:function(data){
+                var result=data.trim();
+                $("#subcategory_select").html(result);
+            }
+        });
+    });
+    // script for quick sell    
+    $("#quick_sell_form").submit(function(){
+        var prod_name=$("#product_name").val();
+        var category_id=$("#category_select").val();
+        var subcategory_id=$("#subcategory_select").val();
+        var cost_price=$("#cost_price").val();
+        var discount=$("#discount").val();
+        var error=0;
+        var elem = document.getElementById("product_img");
+        var names = [];
+        for (var i = 0; i < elem.files.length; ++i) {
+            names.push(elem.files[i].name);
+        }
+        for (var j = 0; j < names.length; j++) {
+            var multiple_ext = names[j].split(".").pop();
+
+            if (multiple_ext == 'gif' || multiple_ext == 'jpg' || multiple_ext == 'png' || multiple_ext == 'jpeg') {
+                $("#product_img").removeClass("redfoucusclass");
+            } else {
+                $("#product_img").addClass("redfoucusclass");
+                $("#product_img").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+                error = 10;
+            }
+        }
+        if (is_Empty(prod_name) != true) {
+            $("#product_name").addClass("redfoucusclass");
+            error = 10;
+        } 
+        if(is_Empty(category_id) != true){
+            $("#category_select").addClass("redfoucusclass");
+            error = 10;
+        }
+        if(is_Empty(subcategory_id) != true){
+            $("#subcategory_select").addClass("redfoucusclass");
+            error = 10;
+        }
+        if(is_Empty(cost_price) != true){
+            $("#cost_price").addClass("redfoucusclass");
+            error = 10;
+        }
+        if(error!=10){
+            $.ajax({
+                type:"post",
+                url:"http://"+window.location.hostname+"/oneshop/home/quick_sell/",
+                data:new FormData(this),
+                processData:false,
+                contentType:false,
+                success:function(data){
+                    var result=data.trim();
+                    if(result==1){
+                        alert("product kept for quick sell successfully....");
+                    }
+                }
+            });
+        }else{
+            return false;
+        }
+        return false;
+    });
+ //26 june 2015 by ramadevi to check email id  
+ function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}    
+
+
+
+//18-aug-2015 : All Js in Custom JS
+//from friends_store controller friends_store_search view
+$(document).on("change","#fcountries",function(){
+      var countries_val=$(this).val();
+      //alert(countries_val);
+      $.ajax({
+        type:"post",
+        url:"http://"+window.location.hostname+"/oneshop/stores/getStates/"+countries_val,
+        success:function(data){
+          //alert(data);
+          var result=data.trim();
+          var options="<option>select state</option>"+result;
+          $("#states").html(options);
+        }
+      });
+    });
+    //from home controller, item_shipping_address view
+     $(".radioBtnClass").click(function(){
+        console.log($("input:radio[name=deliver_type]:checked").val());
+  });
+    
+    //from home controller, my_stores view
+  $("#upgrade_btn").click(function(){
+    window.location.href="http://"+window.location.hostname+"/oneshop/home/upgradePackage/";
+  });
+    
+      //from home conytroller mystore_profile view 
+     //24-june-2015 by venkatesh
+    $(document).on("click", ".jStar", function () {
+        var rating = $(".datasSent").html();
+        var os_store_aid = $("#os_store_aind").val();
+       $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/stores/store_rating",
+            data: {rating: rating, os_store_aid: os_store_aid},
+            success: function (data) {
+                //alert(data);
+            }
+        });
+    });
+    
+    //from home controller mystore settings view
+    $("#check_admin").change(function(){
+    if(this.checked){
+      $("#user_email").css("display","");
+      $("#send_btn").css("display","");
+    }else{
+      $("#user_email").css("display","none");
+      $("#send_btn").css("display","");
+    }
+  });
+  $("#send_btn").click(function(){
+    var store_uid=$("#stuid").val()
+    var user_email=$("#user_email").val();
+    var result=confirm("Are you sure? You want to give admin privileges..");    
+    if(result){
+      $.ajax({
+        type:"post",
+        data:{useremail:user_email,storeuid:store_uid},
+        url:"http://"+window.location.hostname+"/oneshop/home/adminMail/",
+        success:function(data){
+          var res=data.trim();
+          alert(res);
+        }
+      });
+    }
+  });
+  $("#Is_Official").change(function(){
+  var store_aid=$("#hstore_aid").val();
+    var isofficialvalue=$("#Is_Official").val();
+    if(isofficialvalue=='Yes'){
+      $.ajax({
+        type:"post",
+        url:"http://"+window.location.hostname+"/oneshop/stores/getOfficialStatus/",
+        data:{store_aid:store_aid},
+        success:function(data){
+          var result=data.trim();
+          if(result==0){
+            $('#click_officialSettings').fadeIn(300);    
+          }else{
+            alert("already exists in our records");
+          }
+        }
+      });     
+    } 
+});
+ 
+   $("#dev_os_state_list_official").change(function () {
+        var state_id = "state_id=" + $("#dev_os_state_list_official").val();
+    
+        $.ajax({
+            type: 'POST',
+            url: " http://" + window.location.hostname + "/oneshop/home/city_info",
+            data: state_id,
+            success: function (data) {
+                $("#dev_os_cities_list_official").html(data);
+            }
+        });
+    });
+
+function toggle_popUpVisibility(id){
+    var myPopUp = document.getElementById(id);
+    myPopUp.style.display = 'none';
+	}
+    
+    
+     //from home controller, product_detail_view
+  $("#os_product_share").click(function(){
+     var prd_img_src=$("#os_prd_shr_img").val();
+     var os_share_privacy=$("#os_share_privacy").val();
+      var share_module=$("input[name=os_product_share]:checked").val();
+      if(share_module!=null)
+      {
+         $.ajax({
+            type: 'POST',
+            url: "http://" + window.location.hostname + "/oneshop/products/product_share",
+            data: {prd_img_src:prd_img_src,share_module:share_module,os_share_privacy:os_share_privacy},
+            success: function (data) {
+              var data
+                if(data==1)
+                {
+                  $("#os_success_msg").html("This product successfully shared to "+share_module).delay(3000);
+                 setTimeout(  function()   {  $("#os_success_msg").html("");   $("#os_sh_popup").trigger( "click");  }, 5000);
+                }
+            }
+        });
+        
+      }else{
+        return false;
+      }
+    
+   
+  });
+  // from home controller, product_edit view
+   $("#add_image").submit(function(){
+                       
+                       $.ajax({
+                type: 'POST',
+                url: " http://"+window.location.hostname+"/oneshop/products/add_image_update",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+               
+                success: function (data) {
+                
+                 
+                }
+            });
+                     return false;
+        });
+        
+         $('input[type="file"].update_img').bind('change', function (e) {
+    var files = e.originalEvent.target.files;
+        var file_name = files[0].name;
+        var file_size = files[0].size;
+        var file_type = files[0].type;
+        if (( file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg')) {
+             $('#cunnent_img'+$(this).attr("id")).submit();
+        } 
+        
+  });
+  
+  
+   $('input[type="file"].add_img').bind('change', function (e) {
+    var files = e.originalEvent.target.files;
+        var file_name = files[0].name;
+        var file_size = files[0].size;
+        var file_type = files[0].type;
+        if (( file_type == 'image/gif' || file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/jpeg')) {
+             $("#add_image").submit();
+        } 
+        
+  });
+   // from my cart controller, mycart_view view
+  $("#buyall_btn").click(function(){    
+    var prods_str=$("#hproducts_str").val();
+    var store_aid=$("#hstoreid").val();
+    var custom_val=$("#custom").val();
+    var purl="http://"+window.location.hostname+"/oneshop/home/shippingAddress/"+prods_str+"/"+store_aid+"/"+custom_val;
+    window.location=purl;    
+  });
+  
+     //from orders controller, mystore_cancellation_search view
+
+  $("#find_order_btn").click(function(){
+        var order_id=$("#order_num").val();
+        var storeid=$("#hstoreid").val();
+        var order_date=$("#order_date").val();
+        var cancel_date=$("#cancel_date").val();
+        //alert(order_id+":"+storeid);        
+            $.ajax({
+                type:"post",
+                data:{order_no:order_id,order_dt:order_date,cancellation_date:cancel_date},
+                url:"http://"+window.location.hostname+"/oneshop/orders/getCancellationList/"+storeid,
+                success:function(data){
+                    var result=data.trim();
+                    //alert(result);
+                    $("#cancellation_div").html(result);                
+                }
+            });
+        
+    });
+       
+  $("#find_order_btn").click(function(){
+        var order_id=$("#order_num").val();
+        var storeid=$("#hstoreid").val();
+        var order_date=$("#order_date").val();
+        //alert(storeid);        
+            $.ajax({
+                type:"post",
+                data:{order_no:order_id,order_dt:order_date},
+                url:"http://"+window.location.hostname+"/oneshop/orders/mystore_Myorders_list/"+storeid,
+                success:function(data){
+                    var result=data.trim();
+                    //alert(result);
+                    $("#orders_div").html(result);                
+                }
+            });        
+    });
+        
+});
+function checkFirstLetterAlphaOnly(input_val){
+    var regexp=/^([a-zA-Z])$/;
+    if(regexp.test(input_val)){
+        return true;
+    }
+    return false;
+}
+function isAlphaNumWithHyphenUS(input_val){
+    var regexp=/^[a-zA-Z0-9 _-]*$/;
+    if(regexp.test(input_val)){
+        return true;
+    }
+    return false;
+}
+function isJson(item) {
+    item = typeof item !== "string"
+            ? JSON.stringify(item)
+            : item;
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+
+    return false;
+}
+function error_data(data) {
+    var obj = jQuery.parseJSON(data);
+    $.each(obj, function (index, value) {	
+        $("#"+index).addClass("redfoucusclass");
+    });
+    return false;
+}
+function  removeerror(id) {
+    $('#' + id).removeClass("redfoucusclass");
+ }
+ function is_Empty(s_data) {
+        if (s_data.length < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+$(document).on("click","#find_store_btn",function () {
+    var store_name_txt=$("#findstore_name").val();
+    var category_val=$("#store_categ").val();
+
+   if(category_val!='City'){
+    var category_filter=$("#sub_select").val();
+      }else{
+var category_filter=$('#city_txt').val();
+ }
+
+    //if(store_name_txt!=""){
+    $.ajax({
+        type:"post",
+        url:oneshop_url+"stores/getStoreDetails_Info",
+        data:{store_name:store_name_txt,category:category_val,category_filter:category_filter},
+        beforeSend:function(){
+            $("#store_search_result").html("<div class='tmpdiv'><div class='spinner-idx'></div></div>");
+	    $("#find_store_btn").prop('disabled', 'disabled');
+        },
+        success:function(data){
+        $("#find_store_btn").prop('disabled', false);	    
+		
+            var result=data.trim();
+		if(result!=0){
+			    $(".tmpdiv").remove();
+			    $("#store_search_result").html(result);
+		}else{
+             $(".tmpdiv").remove();
+		$("#oneshop_nomoredata").css("display",'block');
+				            
+		}
+	}
+    });        
+});
+

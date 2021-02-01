@@ -1,0 +1,580 @@
+<?php
+if(!isset($_SESSION))
+  {
+  session_start(); 
+  }
+if (!defined('BASEPATH'))
+  exit('No direct script access allowed');
+
+class products extends CI_Controller {
+
+  function __construct() {
+    parent::__construct();
+    $this->load->module("db_api");
+    $this->load->module("imageresize");
+  }
+
+  function get_UserId() {
+    return  $_SESSION['user_id'];
+  }
+  function get_store_ownerId() {
+   if($_SESSION['store_owner_id']){
+      return $_SESSION['store_owner_id'];
+    } 
+  }
+
+  function products_search() {
+    $products_cnt = $this->getProdsCnt("default");
+    $data["products_count"] = $products_cnt[0]["cnt"];
+    $this->load->view('products/products_search', $data);
+  }
+
+  function myproduct_list() {
+    $db_obj = $this->load->module("db_api");
+    $current_url = $_SERVER['PATH_INFO'];
+    $store_unique_id = END(explode("/", $current_url));
+    $store_aid = $this->store_aid_return($store_unique_id);
+    $dev_product_result['results_products'] = $db_obj->custom("select p.product_aid,p.name,p.store_id,p.image_path,p.sell_price,p.category,
+          c.category_aid,c.name as category_name from os_products p,os_category c  where p.store_id=$store_aid and p.category=c.category_aid limit 0,8");
+    $user_id = $this->store_owner_id($store_aid);
+    $dev_product_result["store_uid"] = $this->store_uniqueid_return($user_id);
+    $this->load->view('products/myproduct_list', $dev_product_result);
+  }
+
+  // to get the list of products by Pavani on 01-06-2015
+  function products_search_result($mode="default",$product_name=""){
+    $start=0;
+    $dbobj=$this->load->module("db_api");
+    $records_per_page       =   8; // records to show per page    
+    $page=$this->input->post("p");  
+    //$store_name=$this->input->post("search_val");
+    $category_name=$this->input->post("category_name");
+    $subcategory_name=$this->input->post("subcategory_name");
+    if($page!=""){
+      //$current_page           =   $page - 1;      
+      $start                  =   $page * $records_per_page;
+    }
+    //echo $subcategory_name;
+//     $home_obj=$this->load->module("home");
+//   $country=$home_obj->country_info_based_on_ip();
+    $s_where="stores.country=".$_SESSION["COUNTRY_ID"];
+    if($product_name!=""){
+      $stores_cnt=$this->getProdsCnt($mode,$product_name);
+      $s_where=$s_where." AND prods.name LIKE '%".$product_name."%'";      
+    }
+    if($category_name!="" || $subcategory_name!=""){
+      if($subcategory_name!=""){
+        $s_res=$this->getListCategories($category_name,$subcategory_name);
+        $stores_cnt=$this->getProdsCnt($mode,"",$s_res);
+      }else{
+        $s_res=$this->getListCategories($category_name);
+        $stores_cnt=$this->getProdsCnt($mode,"",$s_res);
+      }
+      $s_where=$s_where." AND prods.Category IN ($s_res)";
+    }
+    $s_where=$s_where." ORDER BY more.viewed_count DESC LIMIT $start,$records_per_page";
+   
+    $s_query="SELECT prods.name as product_name,stores.name as store_name,stores.logo_path as store_log,stores.store_id as store_unique_id,prods.product_aid,prods.cost_price as price,prods.image_path as product_images, more.rank_weitage as rank_weitage, more.review_count as review_count FROM os_products prods INNER JOIN os_all_store stores ON prods.store_id=stores.store_aid INNER JOIN os_product_more_info more ON prods.product_aid=more.product_aid WHERE ".$s_where;
+    $os_products_res=$dbobj->custom($s_query);  
+          
+    $data["products_count"]=$stores_cnt;    
+    $data["products_data"]=$os_products_res; 
+    //echo "<pre>";print_R($os_products_res);echo "</pre>";
+    $this->load->view('products/products_search_result',$data);
+  }
+  // to get the count of products by Pavani on 01-06-2015
+  function getProdsCnt($mode="default",$search="",$s_params=""){
+    $dbapi=$this->load->module("db_api");
+    if($search!=""){
+      $s_query="SELECT COUNT(*) AS cnt FROM os_products prods INNER JOIN os_all_store stores ON prods.store_id=stores.store_aid WHERE stores.country=85 AND prods.name LIKE '%".$search."%'";
+    }elseif($subcategory!="" || $category!=""){
+      if($subcategory_name!=""){
+        $s_res=$this->getListCategories($category_name,$subcategory_name);
+      }else{
+        $s_res=$this->getListCategories($category_name);
+      }
+      $s_query="SELECT COUNT(*) FROM os_products prods INNER JOIN os_all_store stores ON prods.store_id=stores.store_aid INNER JOIN os_product_more_info more ON prods.product_aid=more.product_aid WHERE stores.country=85 AND prods.Category IN ($s_res) ORDER BY more.viewed_count DESC;";
+    }
+    else{
+      $s_query="SELECT COUNT(*) AS cnt FROM os_products prods INNER JOIN os_all_store stores ON prods.store_id=stores.store_aid WHERE stores.country=85";
+    }
+    $rescnt=$dbapi->custom($s_query);
+    return $rescnt;
+  }
+function getListCategories($category="",$subcategory=""){
+    $db_api=$this->load->module("db_api");
+    $s_query="SELECT * FROM os_category WHERE groups='".$category."'";
+    //echo "getListCategories:".$subcategory;
+    if($subcategory!=""){
+      $s_query=$s_query." AND name='".$subcategory."'";
+    }
+    //echo $s_query;
+    $a_res=$db_api->custom($s_query);
+    $s_list="";
+    $count=0;
+    $category_cnt=count($a_res);
+    foreach($a_res as $rows){
+      if($count==$category_cnt-1){
+        $s_list=$s_list.$rows["category_aid"];
+      }else{
+        $s_list=$s_list.$rows["category_aid"].",";
+      }
+      $count++;      
+    }
+    return $s_list;
+  }
+   function mystore_myproduct_search() {
+    $user_id=$this->get_store_ownerId();
+    $store_unique_id=$this->store_uniqueid_return($user_id);
+     $store_aid=$this->store_aid_return($store_unique_id);
+   $db_obj = $this->load->module("db_api");
+ //  echo"SELECT p.product_aid,p.category,c.category_aid,c.name FROM os_products p,os_category c WHERE p.store_id=$store_aid and p.category=c.category_aid";
+   $dev_find_store['results_category']=$db_obj->custom("SELECT p.product_aid,p.category,c.category_aid,c.name FROM os_products p,os_category c WHERE p.store_id=$store_aid and p.category=c.category_aid group by c.name");
+  /* $category_id=$dev_find_store['results_category'][0]['category_aid'];
+   echo "this is".$category_id;*/
+   $dev_find_store['sub_categories']=$db_obj->custom("SELECT c.category_aid,s.subcategory_aid,s.name FROM os_category c,os_subcategory s WHERE c.category_aid=23 and c.category_aid=s.category_aid_fk");
+   $this->load->view('products/mystore_myproduct_search',$dev_find_store);
+  }
+  
+  
+
+//by venkatesh 
+  function mystore_myproduct_list($store_aid) {
+    echo "<center><div class='topviewproduct' style=''><strong>Store Products</strong></div></center>";
+    $db_obj = $this->load->module("db_api");
+    $dev_product_result['results_products'] = $db_obj->custom("select p.product_aid,p.name,p.store_id,p.image_path,p.sell_price,p.category,opmi.review_count,opmi.rank_weitage,
+          c.category_aid,c.name as category_name from os_products p left join os_category c on p.Category=c.category_aid left join os_product_more_info opmi on p.product_aid=opmi.product_aid  where p.store_id=$store_aid and p.category=c.category_aid limit 0,8");
+    $user_id = $this->store_owner_id($store_aid);
+    $dev_product_result["store_uid"] = $this->store_uniqueid_return($user_id);
+    $this->load->view('products/mystore_myproduct_list', $dev_product_result);
+  }
+
+  //by venkatesh : this function shows store's product list
+  function load_product_list() {
+    $load_product_count = $_REQUEST["load_product_count"];
+    $store_aid = $_REQUEST["os_store_aid"];
+    $db_obj = $this->load->module("db_api");
+    $dev_product_result['results_products'] = $db_obj->custom("select p.product_aid,p.name,p.store_id,p.image_path,p.sell_price,p.category,opmi.review_count,opmi.rank_weitage,       c.category_aid,c.name as category_name from os_products p left join os_category c on p.Category=c.category_aid left join os_product_more_info opmi on p.product_aid=opmi.product_aid  where p.store_id=$store_aid and p.category=c.category_aid limit  " . $load_product_count . ",8");
+    $this->load->module("stores");
+    $dev_product_result["store_uid"] = $this->store_unique_id($store_aid);
+    $this->load->view('products/mystore_myproduct_list', $dev_product_result);
+  }
+// by venkatesh : this function show's similar products in product details view
+  function similar_Products($category_id, $subcategory_id, $product_aid) {
+    //echo $category_id;    echo $subcategory_id;die();
+//echo "select op.* from os_products op left join os_product_more_info opmi on op.product_aid=opmi.product_aid left join os_all_store oas on op.store_id=oas.store_aid where (Category=$category_id or subcategory_id=$subcategory_id) and op.product_aid not IN ($product_aid) and oas.country=".$_SESSION["COUNTRY_ID"]." ORDER BY date_added DESC LIMIT 0,4";die();
+    $db_obj = $this->load->module("db_api");
+    $data["similar_products"] = $db_obj->custom("select op.*,opmi.rank_weitage,opmi.viewed_count,opmi.review_count from os_products op left join os_product_more_info opmi on op.product_aid=opmi.product_aid left join os_all_store oas on op.store_id=oas.store_aid where (Category=$category_id or subcategory_id=$subcategory_id) and op.product_aid not IN ($product_aid) and oas.country=".$_SESSION["COUNTRY_ID"]." ORDER BY date_added DESC LIMIT 0,4");
+    for ($a = 0; $a < count($data["similar_products"]); $a++) {
+      $data["similar_products"][$a]["Category_name"] = $this->catagoryname($data["similar_products"][$a]["Category"]);
+      $data["similar_products"][$a]["store_unique_id"] = $this->store_unique_id($data["similar_products"][$a]["store_id"]);
+    }
+   echo "<pre>"; print_R($data);die();
+    $this->load->view('products/similar_products', $data);
+  }
+
+  //03-june-2015 by venkatesh: this function retrive the  category wise products
+  function product_view_tpl($category_name = null) {
+    if ($_REQUEST["category_name"]) {
+      $category_name = $_REQUEST["category_name"];
+    }
+//    $home_obj=$this->load->module("home");
+//    $country=$home_obj->country_info_based_on_ip();
+    $db_obj = $this->load->module("db_api");
+    $data['category_products'] = $db_obj->custom("select op.product_aid, op.cost_price, op.sell_price, op.name as product_name, op.discount, op.waranty_if_any, op.quantity, op.specification, op.description, op.marked_price, op.image_path, oc.name as category_name, oas.store_id as store_unique_id, oas.name as store_name, oas.logo_path as store_logo_path, opmf.rank_weitage,opmf.review_count from os_products op left join os_category oc on op.Category=oc.category_aid left join os_all_store oas on oas.store_aid=op.store_id left join os_product_more_info opmf on op.product_aid=opmf.product_aid where oc.name='" . $category_name . "' and oas.country =".$_SESSION["COUNTRY_ID"]." limit 0,8");
+    $this->load->view('products/product_view_tpl', $data);
+  }
+
+//27-05-2015 by venkatesh : this function return sub category list based on main category id  
+  function subcatagory_ids() {
+    $myfields = "subcategory_aid,name";
+    $where = "category_aid_fk=" . $_REQUEST["Category_id"];
+    $mytable = "os_subcategory";
+    $result = $this->db_api->select($myfields, $mytable, $where);
+    echo "<option value=''>--Select--</option>";
+    for ($i = 0; $i < count($result); $i++) {
+      echo "<option value=" . $result[$i]['subcategory_aid'] . ">" . $result[$i]["name"] . "</option>";
+    }
+  }
+
+//28-05-2015 by venkatesh : this function insert the product details into data base
+  function product_insertion() {
+    $templates_obj=$this->load->module("templates");
+    $rlt=$templates_obj->store_manager_return($this->store_id_return());
+    $rlt[0]["store_manager_emails"]=str_replace("~", "R", $rlt[0]["store_manager_emails"]);
+    $rlt[0]["store_manager_emails"]=str_replace("RR", "R,R", $rlt[0]["store_manager_emails"]);
+    if (preg_match("/\bR".$_SESSION['user_id']."R\b/i",$rlt[0]["store_manager_emails"]) || $_SESSION['store_owner_id']==$_SESSION['user_id']) {
+    
+    require('application/libraries/oneshopconfig.php');
+    //print_R($_REQUEST);  print_R($_REQUEST["Product_Name"]);    print_R($_REQUEST["Category"]);    print_R($_REQUEST["Sub_Category"]);    print_R($_REQUEST["Manufacture_Date"]);    print_R($_REQUEST["Cost_Price"]);    print_R($_REQUEST["Sell_Price"]);    print_R($_REQUEST["Discount"]);    print_R($_REQUEST["Quantity"]);    print_R($_REQUEST["Specifications"]);    print_R($_REQUEST["Description"]);
+    //print_R($_FILES);
+    $prdct_img = "";
+    for ($i = 0; $i < count($_FILES["productImg"]["name"]); $i++) {
+      //echo $_FILES["productImg"]["name"][$i];
+      $date = new DateTime();
+      $date = $date->format('Y-m-d-H-i-s');
+      $user_id = $this->get_store_ownerId();
+      $uploaddir = STORE_UP_PATH . "/" . $this->store_uniqueid_return($user_id) . "/";
+
+      $product_image = basename($_FILES['productImg']['name'][$i]);
+      //list($txt, $ext) = explode(".", $product_image);
+      $ext =end(explode(".", $product_image));
+      $store_logo_image_name = $_REQUEST["Product_Name"] . $date . $i . "." . $ext;
+
+      if ($i == 0) {
+        $prdct_img = $store_logo_image_name;
+      } else {
+        $prdct_img.="," . $store_logo_image_name;
+      }
+      shell_exec('chmod -R 777 /stores/');
+      if (move_uploaded_file($_FILES['productImg']['tmp_name'][$i], $uploaddir . "products/orig/" . $store_logo_image_name)) {
+        shell_exec('chmod -R 777 ' . $uploaddir . "products/orig/" . $store_logo_image_name);
+        $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/li/" . $store_logo_image_name, 600, 400);
+        $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/mi/" . $store_logo_image_name, 180, 150);
+        $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/si/" . $store_logo_image_name, 45, 45);
+        unlink($uploaddir . "products/orig/" . $store_logo_image_name);
+      }
+    }
+    shell_exec('chmod -R 777 /stores/');
+    $i_store_id = $this->store_id_return();
+
+    $a_data = array(
+        "cost_price" => $_REQUEST["Cost_Price"],"sell_price" => $_REQUEST["Sell_Price"],"name" => $_REQUEST['Product_Name'],"brand_name" => $_REQUEST["Brand_Name"],"discount" => $_REQUEST['Discount'],"waranty_if_any" => $_REQUEST["Warranty"],"quantity" => $_REQUEST["Quantity"],"specification" => $_REQUEST["Specifications"],"description" => $_REQUEST["Description"],"store_id" => $i_store_id,"Category" => $_REQUEST["Category"],"subcategory_id" => $_REQUEST["Sub_Category"],"image_path" => $prdct_img
+    );
+    $mytable = "os_products";
+    $rlt = $this->db_api->insert($a_data, $mytable);
+    $size = $this->folder_Size($uploaddir);
+    $a_data = array("used_space" => $size);
+    $s_where = "store_aid =" . $i_store_id;
+    $s_tbl = "os_all_store";
+    $this->db_api->update($a_data, $s_tbl, $s_where);
+    echo $rlt;
+   $product_insert_notification["i_store_id"]=$i_store_id;
+    $product_insert_notification["Product_Name"]=$_REQUEST['Product_Name'];
+    $this->load->module("notification");
+    $this->notification->product_add_notification($product_insert_notification);
+
+    /*   $i_store_id = $this->store_id_return();
+    $product_insert_notification["i_store_id"]=$i_store_id;
+    $product_insert_notification["Product_Name"]=$_REQUEST['Product_Name'];
+    $this->load->module("notification");
+    $this->notification->product_add_notification($product_insert_notification);*/
+    }else{
+      echo "expire";
+      unset($_SESSION["store_owner_id"]);
+    }
+ 
+  }
+
+  //28-05-2015 by venkatesh : this function return store auto increment id based on current user id
+  function store_id_return() {
+    $db_obj=$this->load->module("db_api");
+    $myfields = "store_aid";
+    $where = "created_by=" . $this->get_store_ownerId();
+    $mytable = "os_all_store";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["store_aid"];
+  }
+
+  //28-05-2015 by venkatesh :this function store aid return based on store unique id
+  function store_aid_return($store_u_id) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "store_aid";
+    //Imp //$where = "country_code='" . $this->get_ip_info()."'"; 
+    $where = "store_id='" . $store_u_id . "'";
+    $mytable = "os_all_store";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["store_aid"];
+  }
+
+  //28-05-2015 by venkatesh :this function store aid return based on store unique id
+  function store_unique_id($store_id) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "store_id";
+    //Imp //$where = "country_code='" . $this->get_ip_info()."'"; 
+    $where = "store_aid='" . $store_id . "'";
+    $mytable = "os_all_store";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["store_id"];
+  }
+
+  //28-05-2015 by venkatesh : this function return store unique Id based on user id
+  function store_uniqueid_return($userid) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "store_id";
+    $where = "created_by=" . $userid;
+    $mytable = "os_all_store";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["store_id"];
+  }
+
+  //28-05-2015 by venkatesh : this function return folder size
+  function folder_Size($uploaddir) {
+    $str = exec("du -sh $uploaddir");
+    $arry = preg_split("/[\s,]+/", $str);
+    $size = $arry[0];
+    return number_format($this->convertSize($size), 5);
+  }
+
+  function convertSize($size) {
+    $format = substr($size, -1);
+    $siz = substr($size, 0, strlen($size) - 1);
+    if ($format == "K") {
+      $d = $siz / (1024 * 1024);
+    } elseif ($format == "M") {
+      $d = $siz / 1024;
+    }
+    return $d;
+  }
+
+  //29-05-2015 by venkatesh : this function return store owner iws profile id based on store unique id
+  function store_owner_id($id) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "created_by";
+    $where = "	store_aid=" . $id;
+    $mytable = "os_all_store";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["created_by"];
+  }
+
+  //01-06-2015 by venkatesh : this function return caragory name 
+  function catagoryname($catagory_id) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "name";
+    $where = "category_aid=" . $catagory_id;
+    $mytable = "os_category";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["name"];
+  }
+
+  //01-06-2015 by venkatesh : this function return sub caragory name 
+  function subcategory_Name($subcategory_id) {
+    $db_obj = $this->load->module("db_api");
+    $myfields = "name";
+    $where = "subcategory_aid=" . $subcategory_id;
+    $mytable = "os_subcategory";
+    $result = $db_obj->select($myfields, $mytable, $where);
+    return $result[0]["name"];
+  }
+
+  //03-june-2015 by venkatesh: this function load the category wise product details
+  function load_category_product_list() {
+    // print_R($_REQUEST);
+    $product_limit_count = $_REQUEST["product_limit_count"];
+    $db_obj = $this->load->module("db_api");
+    $data['category_products'] = $db_obj->custom("select    op.product_aid,     op.cost_price,     op.sell_price,     op.name as product_name,     op.discount,     op.waranty_if_any,     op.quantity,     op.specification,     op.description,     op.marked_price,     op.image_path,     oc.name as category_name,     oas.store_id as store_unique_id,     oas.name as store_name,     oas.logo_path as store_logo_path,     opmf.rank_weitage,    opmf.review_count    from    os_products op left join os_category oc on op.Category=oc.category_aid 
+    left join os_all_store oas on oas.store_aid=op.store_id
+    left join os_product_more_info opmf on op.product_aid=opmf.product_aid
+    where oc.name='" . $_REQUEST["CATEGORY_NAME"] . "' limit " . $product_limit_count . ",8");
+//    echo "<pre>";print_R($data['category_products']);die();
+    $this->load->view('products/product_view_tpl', $data);
+  }
+
+  //03-june-2015 by venkatesh: this function load the sub category wise product details
+  function load_subcategory_product_list() {
+    //print_R($_REQUEST["subcategory_id"]);
+    $db_obj = $this->load->module("db_api");
+    $data['category_products'] = $db_obj->custom("select    op.product_aid,    op.cost_price,     op.sell_price,     op.name as product_name,     op.discount,     op.waranty_if_any,     op.quantity,     op.specification,     op.description,     op.marked_price,    op.image_path,     osc.name as category_name,     oas.store_id as store_unique_id,     oas.name as store_name,     oas.logo_path as store_logo_path,     opmf.rank_weitage,    opmf.review_count    from
+    os_products op left join os_subcategory osc on op.subcategory_id=osc.subcategory_aid 
+    left join os_all_store oas on oas.store_aid=op.store_id
+    left join os_product_more_info opmf on op.product_aid=opmf.product_aid
+    where op.subcategory_id='" . $_REQUEST["subcategory_id"] . "' limit 0,8");
+    $this->load->view('products/product_view_tpl', $data);
+  }
+
+//03-june-2015 by venkatesh: this function load the sub category wise product details
+  function load_subcategory_loadproduct_list() {
+    $limit = $_REQUEST["product_subcategory_limit_count"];
+    $db_obj = $this->load->module("db_api");
+    $data['category_products'] = $db_obj->custom("select
+    op.product_aid,    op.cost_price,     op.sell_price,     op.name as product_name,     op.discount,     op.waranty_if_any,     op.quantity,     op.specification,
+    op.description,     op.marked_price,     op.image_path,     osc.name as category_name,     oas.store_id as store_unique_id,     oas.name as store_name,     oas.logo_path as store_logo_path,     opmf.rank_weitage,    opmf.review_count    from
+    os_products op left join os_subcategory osc on op.subcategory_id=osc.subcategory_aid 
+    left join os_all_store oas on oas.store_aid=op.store_id
+    left join os_product_more_info opmf on op.product_aid=opmf.product_aid
+    where op.subcategory_id='" . $_REQUEST["product_subcategory_id"] . "' limit " . $limit . ",8");
+    $this->load->view('products/product_view_tpl', $data);
+  }
+
+//8 june 2015 to load all products and find myproducts by ramadevi.
+  function myproduct_total_list() {
+    $db_obj = $this->load->module("db_api");
+    $user_id = $this->get_store_ownerId();
+    $store_u_id = $this->store_uniqueid_return($user_id);
+    $store_aid = $this->store_aid_return($store_u_id);
+    // echo "this is".$store_aid;
+    if ($_REQUEST['search_data'] == "") {
+      $dev_product_result['results_products'] = $db_obj->custom("select p.*,c.category_aid,c.name as catname,r.product_aid,r.review_count from os_products p, os_category c,os_product_more_info r where p.store_id=$store_aid and c.category_aid=p.category and p.product_aid=r.product_aid limit ".$_REQUEST['starting'].",8");
+      $dev_product_result['store_uid'] = $store_u_id;
+
+       //echo "select p.*,c.category_aid,c.name as catname,r.product_aid,r.review_count from os_products p, os_category c,os_product_more_info r where p.store_id=$store_aid and c.category_aid=p.category and p.product_aid=r.product_aid limit ".$_REQUEST['starting'].",8";
+    } else {
+     // echo "select p.*,c.category_aid,c.name as catname,r.product_aid,r.review_count from os_products p, os_category c,os_product_more_info r where p.store_id=$store_aid and p.name LIKE '%".$_REQUEST['search_data']."%'and c.category_aid=p.category and p.product_aid=r.product_aid limit ".$_REQUEST['starting'].",8";
+
+      $dev_product_result['results_products'] = $db_obj->custom("select p.*,c.category_aid,c.name as catname,r.product_aid,r.review_count from os_products p, os_category c,os_product_more_info r where p.store_id=$store_aid and p.name LIKE '%" . $_REQUEST['search_data'] . "%'and c.category_aid=p.category and p.product_aid=r.product_aid limit " . $_REQUEST['starting'] . ",8");
+      $dev_product_result['store_uid'] = $store_u_id;
+    }
+   // print_R($results_products);
+    $this->load->view('products/myproduct_list', $dev_product_result);
+  }
+
+  //03-june-2015 by venkatesh this function update product images
+  function product_image_update() {
+//    echo $_REQUEST["product_aid"];//    echo $_REQUEST["store_unique_id"];//    echo $_REQUEST["current_image"]."</br>";//    echo $_REQUEST["total_img"];
+    unlink("stores/" . $_REQUEST["store_unique_id"] . "/products/li/" . $_REQUEST["current_image"]);
+    unlink("stores/" . $_REQUEST["store_unique_id"] . "/products/si/" . $_REQUEST["current_image"]);
+    unlink("stores/" . $_REQUEST["store_unique_id"] . "/products/mi/" . $_REQUEST["current_image"]);
+    $product_image = basename($_FILES['updatedimae']['name']);
+    $ext = end(explode(".", $product_image));
+    $imgname = explode('.', $_REQUEST["current_image"]);
+    $imgname[count($imgname) - 1] = $ext;
+    $upload_imgname = implode(".", $imgname);
+    $update_path = str_replace($_REQUEST["current_image"], $upload_imgname, $_REQUEST["total_img"]);
+    shell_exec('chmod -R 777 /var/www/html/oneshop/stores/');
+    if (move_uploaded_file($_FILES['updatedimae']['tmp_name'], "stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname)) {
+      shell_exec("chmod -R 777 stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname);
+      $this->imageresize->resize("stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname, "stores/" . $_REQUEST["store_unique_id"] . "/products/li/" . $upload_imgname, 600, 400);
+      $this->imageresize->resize("stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname, "stores/" . $_REQUEST["store_unique_id"] . "/products/mi/" . $upload_imgname, 180, 150);
+      $this->imageresize->resize("stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname, "stores/" . $_REQUEST["store_unique_id"] . "/products/si/" . $upload_imgname, 45, 45);
+      unlink("stores/" . $_REQUEST["store_unique_id"] . "/products/orig/" . $upload_imgname);
+    }
+    echo $this->db_api->custom("update os_products set image_path='" . $update_path . "' where product_aid=" . $_REQUEST["product_aid"]);
+  }
+
+//3rd june 2015 by ramadevi
+  function add_image_update() {
+    $db_obj = $this->load->module("db_api");
+    require('application/libraries/oneshopconfig.php');
+    // print_R($_FILES);die;
+    $store_unique_id = $_REQUEST["add_store_unique_id"];
+    $date = new DateTime();
+    $date = $date->format('Y-m-d-H-i-s');
+    $uploaddir = STORE_UP_PATH . "/" . $store_unique_id . "/";
+    $product_image = basename($_FILES['add_img12']['name']);
+    //list($txt, $ext) = explode(".", $product_image);
+    $ext =end(explode(".", $product_image));
+    $store_logo_image_name = $_REQUEST["product_name"] . $date . "." . $ext;
+    $prdct_img = "," . $store_logo_image_name;
+    // echo "this is else".$prdct_img;
+    shell_exec('chmod -R 777 /var/www/html/oneshop/stores/');
+    if (move_uploaded_file($_FILES['add_img12']['tmp_name'], $uploaddir . "products/orig/" . $store_logo_image_name)) {
+      shell_exec('chmod -R 777 ' . $uploaddir . "products/orig/" . $store_logo_image_name);
+      $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/li/" . $store_logo_image_name, 600, 400);
+      $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/mi/" . $store_logo_image_name, 180, 150);
+      $this->imageresize->resize($uploaddir . "products/orig/" . $store_logo_image_name, $uploaddir . "products/si/" . $store_logo_image_name, 45, 45);
+      unlink($uploaddir . "products/orig/" . $store_logo_image_name);
+    }
+    // echo $prdct_img;
+    $product_id = $_REQUEST["add_product_aid"];
+    // echo "update os_products set image_path='$prdct_img' where product_aid=$product_id";
+    $previous_product_img_path = $db_obj->custom("select image_path from os_products  where product_aid=$product_id");
+    $previous_product_img_path1 = $previous_product_img_path[0]['image_path'];
+//echo $previous_product_img_path1;
+    echo $added_product_img_path = $previous_product_img_path1 . $prdct_img;
+    echo "update os_products set image_path='$added_product_img_path' where product_aid=$product_id";
+    var_dump($db_obj->custom("update os_products set image_path='$added_product_img_path' where product_aid=$product_id"));
+  }
+function update_product_rating()
+{
+  $db_obj=$this->load->module("db_api");
+  $rlt=$db_obj->custom("update os_product_more_info set rank_weitage=rank_weitage+".$_REQUEST["rating"].",review_count=review_count+1 where product_aid=".$_REQUEST["product_id"]);
+}
+
+
+ //11june2015 by ramadevi.
+  function findProductBycategory()
+  {
+     $db_obj=$this->load->module("db_api");
+    $user_id= $this->get_UserId();
+   $store_u_id=$this->store_uniqueid_return($user_id); 
+    $store_aid=$this->store_aid_return($store_u_id);
+ $category_id=$_REQUEST['category'];
+ $subcategory_id=$_REQUEST['sub_category'];
+  if($_REQUEST['search_data']!=""&&$_REQUEST['category']!==""&&$_REQUEST['sub_category']!==""){
+      $searchStr=$_REQUEST['search_data'];
+      $category=$_REQUEST['category'];
+      $subcategory=$_REQUEST['sub_category'];
+//echo "SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.subcategory_id=$subcategory and store_id=$store_aid and p.name like '%$searchStr%' limit ".$_REQUEST['starting'].",".$_REQUEST['ending']."";     
+$dev_product_result['results_products']=$db_obj->custom("SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.subcategory_id=$subcategory and store_id=$store_aid and p.name like '%$searchStr%' limit ".$_REQUEST['starting'].",8");
+  $dev_product_result['store_uid']=$store_u_id;  
+  }else if($_REQUEST['search_data']!=""&&$_REQUEST['category']!==""){
+     $searchStr=$_REQUEST['search_data'];
+      $category=$_REQUEST['category'];
+  //echo"SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and store_id=$store_aid and c.category_aid=$category_id and p.name like '%$searchStr%' limit ".$_REQUEST['starting'].",".$_REQUEST['ending']."";
+ $dev_product_result['results_products']=$db_obj->custom("SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and p.store_id=$store_aid and c.category_aid=$category_id and p.name like '%$searchStr%' limit ".$_REQUEST['starting'].",8"); 
+ $dev_product_result['store_uid']=$store_u_id;   
+  } 
+  else if($_REQUEST['category']!=="" &&$_REQUEST['sub_category']!==""){
+    $category_id=$_REQUEST['category'];
+    $sub_category_id=$_REQUEST['sub_category'];
+   
+    //echo "SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.subcategory_id=$sub_category_id and p.store_id=$store_aid limit ".$_REQUEST['starting'].",".$_REQUEST['ending']."" ;
+    $dev_product_result['results_products']=$db_obj->custom("SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.subcategory_id=$sub_category_id and p.store_id=$store_aid limit ".$_REQUEST['starting'].",8");
+  $dev_product_result['store_uid']=$store_u_id;
+    
+  }
+   else if($_REQUEST['category']!=="" ||$_REQUEST['sub_category']!==""){
+      if($_REQUEST['category']!=="" ){
+       //echo "SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.store_id=$store_aid limit ".$_REQUEST['starting'].",".$_REQUEST['ending']."";
+         $dev_product_result['results_products']=$db_obj->custom("SELECT p.*,c.category_aid,c.name as catname FROM os_products p,os_category c WHERE p.category=$category_id and c.category_aid=$category_id and p.store_id=$store_aid limit ".$_REQUEST['starting'].",8");
+      }
+      if($_REQUEST['sub_category']!==""){
+      //echo "SELECT p.*,c.category_aid,c.name as catname,s.* FROM os_products p,os_category c,os_subcategory s WHERE p.category=$category_id and c.category_aid=$category_id and s.category_aid_fk=$category_id and s.subcategory_aid=$subcategory_idand p.store_id=$store_aid limit ".$_REQUEST['starting'].",".$_REQUEST['ending']."";
+        $dev_product_result['results_products']=$db_obj->custom("SELECT p.*,c.category_aid,c.name as catname,s.* FROM os_products p,os_category c,os_subcategory s WHERE p.category=$category_id and c.category_aid=$category_id and s.category_aid_fk=$category_id and s.subcategory_aid=$subcategory_id and p.store_id=$store_aid limit ".$_REQUEST['starting'].",8");
+      }
+      $dev_product_result['store_uid']=$store_u_id;
+    }
+    $dev_product_result['store_uid']=$store_u_id;
+
+     $this->load->view('products/myproduct_list',$dev_product_result);
+  }
+
+//11 june 2015 find product by category by ramadevi
+function findProductSearch(){
+  $user_id=$this->get_UserId();
+  $store_unique_id=$this->store_uniqueid_return($user_id);
+  $store_aid=$this->$store_aid_return($store_aid);
+   $db_obj = $this->load->module("db_api");
+   $dev_find_store['']=$db_obj->custom("SELECT p.product_aid,p.category,c.category_aid,c.name FROM os_products p,os_category c WHERE p.store_id=$store_aid and p.category=c.category_aid");
+}
+
+//26-06-2015 by venkatesh : this function shows store top viewed products
+function mystore_top_view_products($store_aid)
+{
+  
+echo "<center><div class='topviewproduct' style=''><strong>Top viewed Products</strong></div></center>";
+  $db_obj = $this->load->module("db_api");
+    $dev_product_result['results_products'] = $db_obj->custom("select p.product_aid,p.name,p.store_id,p.image_path,p.sell_price,p.category,opmi.review_count,opmi.rank_weitage,
+          c.category_aid,c.name as category_name from os_products p left join os_category c on p.Category=c.category_aid left join os_product_more_info opmi on p.product_aid=opmi.product_aid  where p.store_id=$store_aid and p.category=c.category_aid  order by opmi.viewed_count desc limit 0,4");
+    $user_id = $this->store_owner_id($store_aid);
+    $dev_product_result["store_uid"] = $this->store_uniqueid_return($user_id);
+    $this->load->view('products/mystore_myproduct_list', $dev_product_result);
+
+}
+
+function mystore_featured_products($store_aid){
+  $db_obj=$this->load->module("db_api");
+  echo "<center><div class='topviewproduct' style=''><strong>Featured Products</strong></div></center>";
+  $dev_product_result['results_products'] = $db_obj->custom("select p.product_aid,p.name,p.store_id,p.image_path,p.sell_price,p.category,opmi.review_count,opmi.rank_weitage,
+          c.category_aid,c.name as category_name from os_products p left join os_category c on p.Category=c.category_aid left join os_product_more_info opmi on p.product_aid=opmi.product_aid  where p.store_id=$store_aid and p.category=c.category_aid  order by p.discount desc limit 0,4");
+    $user_id = $this->store_owner_id($store_aid);
+    $dev_product_result["store_uid"] = $this->store_uniqueid_return($user_id);
+    $this->load->view('products/mystore_myproduct_list', $dev_product_result);
+}
+function product_share()
+{
+  $db_obj=$this->load->module("db_api");
+  if($_REQUEST["share_module"]=="Buzzin"){
+    $img_src=$_REQUEST["prd_img_src"];
+    $os_share_privacy=$_REQUEST["os_share_privacy"];
+    $string="<a href=".base_url()."><h3>ONESHOP</h3></a> </br><img src=$img_src>";
+    $user_id=$this->get_UserId();
+    $a_data = array("buzz_text" => $string,"posted_by_fk"=>$user_id,"privacy"=>$os_share_privacy);
+    $mytable = "buzzin_post";
+    $rlt = $db_obj->insert($a_data, $mytable);    
+    echo $rlt;
+  }else{
+    
+  }
+}
+}

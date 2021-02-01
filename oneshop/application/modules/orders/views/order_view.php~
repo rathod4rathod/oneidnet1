@@ -1,0 +1,163 @@
+<?php
+$this->load->module('templates');
+$this->templates->app_header();
+$this->templates->os_mainmenu();
+
+$store_owner="no";
+$store_manager="no";
+$store_owner_details=$this->templates->get_store_ownerId();
+$user_id=$this->templates->get_UserId();
+if($store_owner_details!=""){
+    $store_owner="yes";
+}else{
+    $manager_details=$this->templates->store_manager_return($user_id);
+    if($manager_details["role"]=="ORDER_MANAGER" || $manager_details["role"]=="PRODUCT_MANAGER"){
+        $store_manager="yes";
+    }
+    
+}?>
+
+
+<!--Oneshop Content starts Here(vinod 19-05-2015)-->
+<div class="oneshop_container_sectionnew">
+	<div class="oneshop_container_middle_section mat10">
+		<div class="oneshop_left_newcontainer mat15">
+			<div class="fll wi100pstg borderbottom pab5">
+				<div class="fll wi100pstg">
+					<div class="fll wi100pstg"> <h3 class="normal fll mab20"> Order ID </h3> <h3 class="fll fs14 lh20 mal10"> <?php echo $order_details[0]["order_code"]; ?></h3> </div>
+					<div class="fll"><span class="fll mar10"> Order on : </span> <span class="fll"> <?php echo $order_details[0]["time"]; ?> </span> </div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="fll wi100pstg mat20 mab10">
+				<h5 class="pab5 mal5 bold red fll"> Order Summary  </h5>
+				<table width="100%" cellspacing="0" cellpadding="0" border="0" class="packagedat">
+					<tbody>
+					<?php
+						foreach($orderitems as $item) {
+					?>
+					<tr class="bgcolor">
+							<td class="red fs11 bold">  PRODUCT CODE </td>
+							<td class="red fs11 bold"> NAME </td>
+							<td class="red fs11 bold"> QTY </td>
+							<td class="red fs11 bold"> UNIT PRICE </td>
+							<td class="red fs11 bold aright par10"> TOTAL </td>
+						</tr>
+
+						<tr>
+							<td>  <?php echo $item['product_code']; ?></td>
+							<td> <?php echo $item['product_name']; ?> </td>
+							<td> <?php echo $item['quantity']; ?>  </td>
+							<td> <?php echo $item['price']; ?>  </td>
+							<td class="aright par10"> <?php echo $item['price']*$item['quantity']; ?> </td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+				<div class="bold" style="border-top:1px #CCC solid;">
+					<p class="aright bgcolor flr pal10 pat5 fs14"><span class="red mar30"> Net Received Amount : </span> <span> <?php echo $order_details[0]["total_amount"];?></span>  </p>
+				</div>
+			</div>
+			<div class="oisdes_left_parcel_leftbox mal10">
+				<h5 class="mab10 red"> Customer Detail </h5>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Person Name </p><span class="fll">:&nbsp;<?php echo $user_details[0]['first_name']." ".$user_details[0]['middle_name']." ".$user_details[0]['last_name']; ?></span> 
+					<p style="display:none;"> <input type="text" class="oneshop_productfield_textbox" placeholder="Product Name"> </p>
+				</div>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Mobile </p> <span class="fll">:&nbsp;<?php echo $user_details[0]['mobile_no'];?></span>
+					<p style="display:none;"> <select name="privacy" class="oneshop_selectbox_field">
+						<option value="">Select Privacy</option>
+						<option value="Public">Public</option>
+						<option value="Private">Private</option>
+					</select> </p>
+				</div>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Address Line1 </p><span class="fll">:&nbsp;<?php echo $user_details[0]['address_line1'];?></span>
+					<p style="display:none;">  
+						<textarea name="desc" placeholder="Description" class="subcategory_textarea"></textarea>
+					</p>
+				</div>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Address Line2 </p><span class="fll">:&nbsp;<?php echo $user_details[0]['address_line2'];?></span>
+					<p style="display:none;">  
+						<textarea name="desc" placeholder="Description" class="subcategory_textarea"></textarea>
+					</p>
+				</div>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> City </p>
+					<span class="fll">:&nbsp;
+						<?php
+							$orders = $this->load->module('orders');
+							$details = $orders->getCity($user_details[0]['city_id']);
+							echo $details['city_name'];
+						?>
+					</span>
+					<p style="display:none;"> <select name="privacy" class="oneshop_selectbox_field">
+					<option value="">Select Privacy</option>
+					<option value="Public">Public</option>
+					<option value="Private">Private</option>
+					</select> </p>
+				</div>
+
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> State </p><span class="fll">:&nbsp;
+						<?php
+							echo $details['state_name'];
+						?>
+					</span>
+					<p style="display:none;"> <select name="privacy" class="oneshop_selectbox_field">
+					<option value="">Select Privacy</option>
+					<option value="Public">Public</option>
+					<option value="Private">Private</option>
+					</select> </p>
+				</div>
+
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Zip Code </p> <span class="fll">:&nbsp;<?php echo $user_details[0]['zip_code'];?></span>
+					<p style="display:none;"> <select name="privacy" class="oneshop_selectbox_field">
+					<option value="">Select Privacy</option>
+					<option value="Public">Public</option>
+					<option value="Private">Private</option>
+					</select> </p>
+				</div>
+
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Country </p> <span class="fll">:&nbsp;
+						<?php
+							echo $details['country_name'];
+						?>
+					</span>
+					<p style="display:none;"> <select name="privacy" class="oneshop_selectbox_field">
+					<option value="">Select Privacy</option>
+					<option value="Public">Public</option>
+					<option value="Private">Private</option>
+					</select> </p>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+
+			<div class="overflow mal10 fll mat20">
+				<h5 class="mab10 red"> Choose Status </h5>
+				<div class="mab10 overflow">
+					<p class="wi200 fll"> Choose Status </p>
+					<p> <select name="privacy" class="oneshop_setspecified_textbox">
+					<option value="">Select Privacy</option>
+					<option value="Public">Public</option>
+					<option value="Private">Private</option>
+					</select> </p>
+				</div>
+			</div>
+		</div>
+		<div class="oneshop_right_newcontainer mat15">
+			<img src="<?php echo base_url()."assets/images/ad1.jpg";?>" class="hotel_news_imgbox">
+			<img src="<?php echo base_url()."assets/images/ad2.jpg";?>" class="hotel_news_imgbox">
+		</div>
+	</div>
+</div>
+<!--Oneshop Content ends Here(vinod 19-05-2015)-->            
+
+<?php
+$this->templates->app_footer(  ); 
+?>
+

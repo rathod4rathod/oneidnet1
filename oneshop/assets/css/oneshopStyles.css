@@ -1,0 +1,5338 @@
+            @charset "utf-8";
+        .oneshop_leftHead,
+        .oneshop_leftSectionHeader,
+        .oneshop_settingsHead {
+            border-bottom: solid 1px #ccc
+        }
+        
+        #tabs a,
+        .categorylinks ul li,
+        .click_productCategories a,
+        .menu_item,
+        .oneshop_cartItem a,
+        a,
+        a.no-underline,
+        a:hover {
+            text-decoration: none
+       }
+        
+        .input,
+        .oneshop_fieldsbox,
+        .productimg_wrap,
+        .productimg_wrap * {
+            box-sizing: border-box
+        }
+		
+		.clearfix{clear:both;}
+        
+        .oneshop_wrapper {
+            float: left
+        }
+        
+        .minheight600 {
+            overflow: hidden;
+            min-height: 600px
+        }
+        
+        .minheight700 {
+            overflow: hidden;
+            min-height: 700px
+        }
+        
+        .maildes_headerOptions ul ul li.maildes_settingOption:hover {
+            color: #fff
+        }
+        
+        .oneshop_menu ul ul {
+            display: none;
+            position: absolute;
+            margin-top: 29px
+        }
+        
+        .oneshop_menu ul li:hover ul {
+            display: block
+        }
+        
+        .oneshop_leftHead {
+            cursor: pointer
+        }
+        
+        .oneshop_settingsHead {
+            float: left;
+            background-color: #e5e5e5;
+            text-align: center;
+            width: 210px;
+            margin-right: 1px;
+            cursor: pointer;
+            height: 40px;
+            color: #777
+        }
+        
+        .oneshop_leftHead h3,
+        .oneshop_settingsHead h3 {
+            margin: 7px
+        }
+        
+        .oneshop_mystoreField {
+            float: left;
+            border: 1px solid #fc0;
+            height: 30px;
+            width: 300px;
+            font-size: 15px;
+            color: #75749f;
+            margin: 5px 0 0 10px;
+            padding: 0 10px
+        }
+        
+        .textAreaType {
+            width: 300px;
+            height: 75px
+        }
+        
+        .oneshop_gridSection {
+            float: left;
+            width: 635px;
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_homeGrid:hover {
+            background-color: #c5b000
+        }
+        
+        .oneshop_homeGridTitle h5 {
+            font: 14px Arial
+        }
+        
+        .oneshop_lpSectionHeader {
+            width: 810px;
+            border-bottom: solid 1px #ccc
+        }
+        
+        .oneshop_lpSectionContent {
+            border-top-left-radius: 0
+        }
+        
+        .oneshop_lpscItemPic {
+            border: 1px solid #aaa
+        }
+        
+        .oneshop_lpcsItemDetails {
+            padding-top: 5px
+        }
+        
+        .oneshop_corouselSlides {
+            overflow: hidden
+        }
+        
+        .oneshop_corouselSlide {
+            background-color: #aaa;
+            height: 150px
+        }
+        
+        .oneshop_ProfilePage {
+            background-color: rgba(250, 250, 250, .3)
+        }
+        
+        .oneshop_profileDetails {
+            overflow: hidden
+        }
+        
+        .oneshop_profileDetailsCoverWrapper {
+            position: absolute;
+            float: left;
+            width: 890px;
+            height: 200px
+        }
+        
+        .oneshop_profileCoverPicWrapper {
+            float: left;
+            width: 890px;
+            height: 200px;
+            overflow: hidden
+        }
+        
+        .oneshop_profilePicandName {
+            min-width: 280px;
+            max-width: 450px
+        }
+        
+        .oneshop_profileDetailsProfileWrapper {
+            float: left;
+            position: absolute;
+            width: 140px;
+            height: 160px;
+            background-color: #eee;
+            border: 1px solid #fff;
+            overflow: hidden
+        }
+        
+        .oneshop_MyStoreProfileSection {
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_profileSectionTabs {
+            width: 630px
+        }
+        
+        .oneshop_profileSectionTabs ul {
+            background-color: red;
+            width: 630px
+        }
+        
+        .oneshop_profileSectionTabs ul li {
+            padding-top: 8px;
+            font: 16px Arial;
+            color: #555;
+            width: 315px;
+            text-align: center;
+            border-bottom: solid 1px #555
+        }
+        
+        .oneshop_profileSectionTabs ul li:hover {
+            border-bottom: solid 0 #aaa
+        }
+        
+        .oneshop_ReportsPage,
+        .oneshop_cartItemsPage,
+        .oneshop_findProductsPage,
+        .oneshop_findStorePage,
+        .oneshop_friendStorePage {
+            margin: 5px
+        }
+        
+        .oneshop_ReportsPageHead,
+        .oneshop_cartItemsPageHead {
+            height: 30px;
+            font: 16px Arial;
+            color: #555;
+            padding: 0 0 0 1%;
+            border-bottom: solid 1px #ddd
+        }
+        
+        .oneshop_myFindProductImageSection img,
+        .oneshop_myFindStoreImageSection img,
+        .oneshop_myFriendStoreImageSection img {
+            width: 200px;
+            float: left
+        }
+        
+        .oneshop_myCartItemDetailSection,
+        .oneshop_myFindProductDetailSection,
+        .oneshop_myFindStoreDetailSection,
+        .oneshop_myFriendStoreDetailSection {
+            border-top: solid 1px #ccc
+        }
+        
+        .oneshop_rating {
+            background-color: rgba(250, 250, 250, .3);
+            width: 100px
+        }
+        
+        .oneshop_myFindProductImageViews {
+            border-bottom: solid 1px #ccc
+        }
+        
+        .oneshop_productDetailedViewImageViews ul li img {
+            height: 100%
+        }
+        
+        .oneshop_productDetailedViewRating {
+            width: 130px;
+            background-color: #eee
+        }
+        
+        .oneshop_recentOrdersHeader {
+            width: 635px;
+            text-align: center
+        }
+        
+        .oneshop_reports {
+            float: left;
+            width: 100%;
+            height: auto;
+            box-shadow: 0 0 2px #999;
+            background-color: #f5f5f5;
+            margin: 0 5px 5px 0
+        }
+        
+        .menu_item {
+            color: #000
+        }
+        
+        .menu_item:hover {
+            color: #fff
+        }
+        
+        .oneshop_cartItem {
+            background-color: #eee
+        }
+        
+        .oneshop_cartItem a {
+            float: right;
+            padding: 3px 15px;
+            background: linear-gradient(#eee, #ccc);
+            border: 1px solid #bbb;
+            color: #555;
+            margin: 15px 5px 0 0;
+            font: 13px Arial
+        }
+        
+        .priceDetails h3 {
+            color: #555
+        }
+        
+        .oneshop_storeProductsHeading h4 {
+            float: left
+        }
+        
+        .redfoucusclass {
+            color: red;
+            outline: 0;
+            border-color: red;
+            box-shadow: 0 0 10px red;
+            -webkit-animation: focus .1s 2;
+            -ms-animation: focus .1s 2;
+            -moz-animation: focus .1s 2;
+            animation: focus .1s 2
+        }
+        
+        .order_Manager {
+            float: left;
+            font-size: 12px;
+            color: red;
+            margin-left: 2px;
+            display: none
+        }
+        
+        .priceWithDiscountStyl {
+            width: 120px
+        }
+        
+        .oneshop_profileSectionTabs ul li h4:hover {
+            color: #fff
+        }
+        
+        .oneshop_profileSavedProducts {
+            display: none;
+            float: left;
+            width: 600px;
+            min-height: 50px;
+            margin: 5px 0 5px 10px
+        }
+        
+        .oneshop_profileSectionTabs ul li.current {
+            background-color: #ccc
+        }
+        
+        .space_dec {
+            font: 15px Arial
+        }
+        
+        .click_headerOptions {
+            float: left;
+            margin: 15px 0 0 5px;
+            width: 30px;
+            height: 30px
+        }
+        
+        .click_headerOptions ul {
+            float: left;
+            list-style: none
+        }
+        
+        .click_headerIcon {
+            cursor: pointer;
+            float: left;
+            margin: 2.5px 0 0 2.5px;
+            width: 25px;
+            height: 25px
+        }
+        
+        .click_headerOptions ul ul {
+            display: none
+        }
+        
+        .click_headerOptions ul li:hover ul {
+            display: block;
+            float: left;
+            max-height: 422px;
+            overflow: hidden;
+            position: relative;
+            z-index: 100
+        }
+        
+        .click_headerOptions ul ul li.click_bubble {
+            width: 50px;
+            height: 15px
+        }
+        
+        .click_headerOptions ul ul li.click_bubble img {
+            width: 15px;
+            height: 10px;
+            margin: 0 0 0 5px
+        }
+        
+        .click_headerOptions ul ul li.click_settingOption {
+            cursor: pointer;
+            padding: 5px 0 0 5px;
+            color: #333;
+            width: 150px;
+            height: 20px;
+            border-bottom: solid 1px #ddd;
+            font: 12px Arial;
+            background-color: #eee
+        }
+        
+        .click_headerOptions ul ul li.click_settingOption:hover {
+            color: #fff;
+            background-color: #aaa
+        }
+        
+        .click_friendRequest,
+        .click_messageNotifications {
+            width: 390px;
+            float: left;
+            margin: 10px 0 0;
+            border-bottom: solid 1px #ccc;
+            background-color: #eee;
+            cursor: pointer
+        }
+        
+        .shadow {
+            background-color: #eee;
+            box-shadow: 0 0 3px #555;
+            height: 300px;
+            overflow-y: scroll
+        }
+        
+        .click_friendRequestNotificationCount {
+            float: left;
+            position: absolute;
+            box-shadow: 0 0 5px #333;
+            width: 28px;
+            height: 16px;
+            overflow: hidden;
+            margin: -5px 0 0 -10px;
+            border-radius: 10px;
+            background-color: red;
+            border: 1px solid #b00
+        }
+        
+        .click_friendRequestNotificationCount h6 {
+            float: left;
+            font: 11px Arial;
+            color: #fff;
+            margin: 1px 0 0 5px
+        }
+        
+        .click_rightSectionHeader {
+            float: left;
+            width: 250px;
+            height: 40px;
+            background-color: #202578
+        }
+        
+        .click_rightSectionHeader h4 {
+            float: left;
+            font: 16px Arial;
+            color: #fff;
+            margin: 8px
+        }
+        
+        .click_friendSuggessionsList {
+            float: left;
+            max-height: 400px;
+            overflow-X: hidden;
+            overflow-Y: hidden;
+            width: 250px
+        }
+        
+        .click_friendSuggessionsList ul {
+            list-style: none;
+            float: left
+        }
+        
+        .click_friendSuggessionsList ul li {
+            float: left;
+            width: 250px;
+            height: 50px;
+            border-bottom: solid 1px #aaa;
+            background-color: rgba(255, 255, 255, .9)
+        }
+        
+        .click_friendSuggessionsCloseBtn {
+            float: right;
+            width: 6px;
+            height: 6px;
+            cursor: pointer;
+            margin: 3px 2px 0 0
+        }
+        
+        .click_friendSuggessionsPic {
+            float: left;
+            width: 45px;
+            height: 45px;
+            margin: 2px
+        }
+        
+        .click_friendSuggessionsPic img {
+            float: left;
+            width: 45px
+        }
+        
+        .click_friendSuggessionsName {
+            float: left;
+            overflow: hidden;
+            width: 160px;
+            height: 40px
+        }
+        
+        .click_friendSuggessionsName h5 {
+            float: left;
+            font: 11px Arial;
+            color: #555;
+            margin: 2px 0 0
+        }
+        
+        .click_friendSuggessionsFriends {
+            float: left;
+            overflow: hidden;
+            max-width: 100px;
+            height: 20px
+        }
+        
+        .click_friendSuggessionsFriends h4 {
+            float: left;
+            font: 11px Arial;
+            color: #777
+        }
+        
+        .click_friendSuggessionsFriends h6 {
+            float: left;
+            font: 11px Arial;
+            color: #555
+        }
+        
+        .click_sendRequestBtn {
+            float: right;
+            height: 20px;
+            color: #777;
+            margin: 3px 2px 0 0;
+            font: 11px Arial
+        }
+        
+        .topviewproduct {
+            width: 890px;
+            height: 20px;
+            background-color: #e5e5e5;
+            border-bottom: solid 1px #ccc;
+            color: #777;
+            margin-top: 10px;
+            padding: 10px 0;
+            font: 20px
+        }
+        
+        .Banner-oneshop,
+        .txtarea-banner {
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        .Banner-oneshop {
+            background-color: rgba(197, 176, 0, .5);
+            height: 300px;
+            overflow: hidden;
+            width: 900px
+        }
+        
+        .left_banner {
+            width: 640px;
+            height: 300px;
+            float: left;
+            background-image: url(../images/transparent-oneshop.png);
+            background-repeat: repeat
+        }
+        
+        .left_top_banner {
+            width: 630px;
+            height: 240px;
+            display: block
+        }
+        
+        .banner-form {
+            width: 610px;
+            margin: 30px 10px 0 40px;
+            height: 220px
+        }
+        
+        .left-banner-form {
+            float: left;
+            width: 190px
+        }
+        
+        .middle-banner-form {
+            float: left;
+            width: 215px;
+            height: 220px
+        }
+        
+        .last-banner-form {
+            float: left;
+            width: 205px;
+            height: 220px
+        }
+        
+        .last-banner-form-left {
+            width: 95px;
+            height: 220px;
+            float: left
+        }
+        
+        .last-banner-form-right {
+            width: 110px;
+            height: 220px;
+            float: left
+        }
+        
+        .slct-banner,
+        input.txt-banner {
+            width: 162px;
+            background-color: rgba(255, 255, 255, .8);
+            margin: 3px 0 3px 20px;
+            border: none
+        }
+        
+        input.txt-banner {
+            padding: 4px 5px;
+            color: #000
+        }
+        
+        .slct-banner {
+            padding: 3px 2px 3px 5px
+        }
+        
+        .btn_buy {
+            background: #cab000;
+            color: #fff;
+            cursor: pointer;
+            height: 25px;
+            border: 1px solid #fff;
+            margin: 5px 0 0;
+            padding: 0 10px
+        }
+        
+        .form-file,
+        .txtarea-banner {
+            border: none;
+            background-color: rgba(255, 255, 255, .8)
+        }
+        
+        .txtarea-banner {
+            float: left;
+            width: 300px;
+            height: 140px;
+            padding: 5px 0 0 5px;
+            margin: 3px 0 0;
+            font-size: 12px;
+            color: #666
+        }
+        
+        .form-file {
+            width: 85px;
+            margin: 108px 0 0;
+            padding: 0;
+            border-radius: 2px
+        }
+        
+        .btn-banner {
+            background-color: rgba(255, 255, 255, .8);
+            padding: 0 10px;
+            margin: 105px 0 0;
+            border: none;
+            color: #fff;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer
+        }
+        
+        .Right_banner {
+            width: 260px;
+            height: 300px;
+            background-image: url(../images/transparent-oneshop.png);
+            background-repeat: repeat;
+            float: right
+        }
+        
+        .right_sale_pic {
+            width: 230px;
+            height: 300px;
+            margin: 10px 0 0 10px
+        }
+        
+        .right_sale_pic img {
+            margin-top: 20px
+        }
+        
+        .mab20 {
+            margin-bottom: 20px!important
+        }
+        
+        .fs28 {
+            font-size: 28px!important
+        }
+        
+        #oneshop_reportProblemPopupBg {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: rgba(0, 0, 0, .7);
+            z-index: 9999
+        }
+        
+        .adds_bannerTypeWrapper {
+            float: left;
+            margin: 0 0 5px;
+            width: 630px;
+            height: 150px;
+            background-color: #eee
+        }
+        
+        .adds_BannerCloseBtn {
+            cursor: pointer;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #aaa;
+            z-index: 1;
+            margin: 1px 1px 0 614px
+        }
+        
+        .adds_closeBtnImg {
+            float: left;
+            width: 15px;
+            height: 15px
+        }
+        
+        .adds_closeOptions {
+            display: none;
+            float: left;
+            width: 150px;
+            height: 55px;
+            box-shadow: 0 2px 2px #222;
+            background-color: #f5f5f5;
+            margin: 0 0 0 -135px
+        }
+        
+        .adds_closeOptions ul {
+            float: left;
+            list-style: none;
+            width: 150px
+        }
+        
+        .adds_closeOptions ul li {
+            float: left;
+            cursor: pointer;
+            padding: 2px 5px;
+            width: 140px;
+            font: 12px Arial;
+            color: #777
+        }
+        
+        .adds_banner,
+        .adds_bannerContainer {
+            float: left;
+            width: 630px
+        }
+        
+        .adds_closeOptions ul li:hover {
+            background-color: #e5e5e5
+        }
+        
+        .adds_bannerContainer {
+            position: absolute;
+            overflow: hidden;
+            height: 150px
+        }
+        
+        .click_addsFlashTypeWrapper,
+        .click_addsImgTypeWrapper {
+            float: right;
+            width: 250px;
+            height: 400px;
+            background-color: #eee;
+            margin: 0 0 5px
+        }
+        
+        .click_addsImgTypeWrapper {
+            height: 200px
+        }
+        
+        .adds_VerticleCloseBtn {
+            cursor: pointer;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #aaa;
+            z-index: 1;
+            margin: 1px 1px 0 234px
+        }
+        
+        .oneshop_innerWrapper,
+        body {
+            background-color: #fff
+        }
+        
+        .adds_flashContainer,
+        .adds_imgContainer {
+            position: absolute;
+            overflow: hidden;
+            float: left;
+            width: 250px;
+            height: 400px
+        }
+        
+        .adds_imgContainer {
+            height: 200px
+        }
+        
+        .adds_flash {
+            float: left;
+            width: 250px
+        }
+        
+        .oneshop_categories {
+            float: right;
+            height: 30px;
+            margin: 5px 0 0
+        }
+        
+        .click_productCategories a {
+            color: #777
+        }
+        
+        h4,
+        h6 {
+            color: #fff
+        }
+        
+        .click_productCategories {
+            float: left;
+            margin: 0 0 0 10px;
+            padding: 5px 5px 3px;
+            font: 12px Arial
+        }
+        
+        .click_productCategories:hover {
+            border-bottom: solid 3px #555
+        }
+        
+        .oneshop_productrating,
+        oneshop_productDetailedViewRatingSection {
+            float: left;
+            margin: 5px;
+            width: 240px
+        }
+        
+        .oneshop_productrating {
+            width: 200px
+        }
+        
+        .oneshop_mystoreProducts {
+            float: left;
+            width: 890px
+        }
+        
+        .oneshop_wrapper {
+            position: relative;
+            width: 100%;
+            margin: 0 auto
+        }
+        
+        .oneshop_innerWrapper {
+            width: 100%;
+            float: left
+        }
+        
+        h2 {
+            font: 20px Arial
+        }
+        
+        h3 {
+            font: 18px Arial
+        }
+        
+        h4 {
+            font: 16px Arial
+        }
+        
+        h5 {
+            font: 14px Arial
+        }
+        
+        h6 {
+            font: 12px Arial
+        }
+        
+        .oneshop_rightSection {
+            width: 250px;
+            float: right;
+            min-height: 200px;
+            background-color: rgba(250, 250, 250, .3);
+            border-bottom: solid 5px #c5b000;
+            margin: 5px
+        }
+        
+        .oneshop_moduleHeader {
+            float: left;
+            width: 900px;
+            height: 65px;
+            background-color: #c5b000
+        }
+        
+        .oneshop_logo {
+            float: left;
+            margin: 5px;
+            width: 65px;
+            height: 55px
+        }
+        
+        .oneshop_profile {
+            width: 200px;
+            height: 45px;
+            float: left;
+            overflow: hidden;
+            margin: 10px 0 0 150px
+        }
+        
+        .oneshop_profilePic {
+            width: 45px;
+            height: 45px;
+            float: left
+        }
+        
+        .oneshop_profile h4 {
+            margin: 10px 0 0 5px;
+            float: left
+        }
+        
+        .maildes_headerOptions {
+            float: left;
+            margin: 15px 0 0 70px;
+            width: 30px;
+            height: 30px
+        }
+        
+        .maildes_headerOptions ul {
+            list-style: none
+        }
+        
+        .maildes_headerOptions ul ul {
+            display: none
+        }
+        
+        .maildes_headerOptions ul li:hover ul {
+            display: block;
+            float: left;
+            position: relative;
+            width: 210px;
+            margin: -10px 0 0 11px;
+            z-index: 100
+        }
+        
+        .maildes_headerOptions ul ul li.maildes_bubble {
+            width: 50px;
+            height: 15px
+        }
+        
+        .maildes_headerOptions ul ul li.maildes_bubble img {
+            width: 22px;
+            height: 15px;
+            margin: 0 0 0 25px
+        }
+        
+        .maildes_headerOptions ul ul li.maildes_settingOption {
+            cursor: pointer;
+            padding: 10px 0 0 10px;
+            color: #333;
+            width: 200px;
+            height: 22px;
+            border-bottom: solid 1px #ddd;
+            font: 12px Arial;
+            background-color: #eee
+        }
+        
+        .maildes_headerOptions ul ul li.maildes_settingOption:hover {
+            background-color: #ccc
+        }
+        
+        .oneshop_restoreIcon {
+            float: right;
+            width: 30px;
+            height: 40px;
+            margin: 10px
+        }
+        
+        .oneshop_subHeader {
+            float: left;
+            width: 900px;
+            height: 45px;
+            background-color: #ddd
+        }
+        
+        .oneshop_dropMenu {
+            width: 200px;
+            height: 35px;
+            float: left;
+            margin: 5px;
+            background-color: #555
+        }
+        
+        .oneshop_Page,
+        .oneshop_menu ul li:hover,
+        .oneshop_storePage {
+            background-color: #999;
+            color: #fff
+        }
+        
+        .oneshop_menu {
+            float: left;
+            height: 35px;
+            margin: 5px 0 0 20px
+        }
+        
+        .oneshop_menu ul {
+            list-style: none;
+            float: left
+        }
+        
+        .oneshop_menu ul li {
+            cursor: pointer;
+            height: 35px;
+            padding: 0 10px;
+            float: left;
+            margin: 0 5px 0 0;
+            text-align: center
+        }
+        
+        .oneshop_menu ul li h5 {
+            margin: 8px 0 0
+        }
+        
+        .oneshop_navigationBar {
+            float: left;
+            margin-top: 15px;
+            width: 100%;
+            height: 25px;
+            border-bottom: 1px solid #dfd6d1
+        }
+        
+        .oneshop_navigation {
+            float: left;
+            height: 21px;
+            max-width: 100%;
+            overflow: hidden;
+            margin: 2px
+        }
+        
+        .oneshop_navigation h6 {
+            float: left;
+            color: #455A7B;
+            margin: 3px
+        }
+        
+        .oneshop_contentSection {
+            float: left;
+            width: 100%;
+            min-height: 500px
+        }
+        
+        .oneshop_leftSection {
+            width: 625px;
+            float: left;
+            min-height: 100px;
+            margin: 5px
+        }
+        
+        .oneshop_leftSectionHeader {
+            float: left;
+            width: 625px;
+            height: 40px;
+            background-color: #eee
+        }
+        
+        .oneshop_leftSectionHeader h3 {
+            margin: 8px;
+            color: #cab000
+        }
+        
+        .oneshop_mainSection {
+            width: 880px;
+            height: 300px;
+            float: left;
+            margin: 10px;
+            background-color: rgba(250, 250, 250, .3)
+        }
+        
+        .oneshop_footer {
+            float: left;
+            width: 96%;
+            height: 45px;
+            background-color: #fc0;
+            margin-top: 5%;
+            padding: 0 2%
+        }
+        
+        .oneshop_footerContent {
+            float: left;
+            height: 35px;
+            width: 100%;
+            padding: 5px 0
+        }
+        
+        .oneshop_footerContent h6 {
+            float: left;
+            color: #000;
+            margin: 12px 0
+        }
+        
+        .oneshop_footerLogo {
+            float: right;
+            margin: 4px
+        }
+        
+        .oneshop_leftHead {
+            float: left;
+            background-color: #eee;
+            width: 625px;
+            height: 40px;
+            color: #555
+        }
+        
+        .oneshop_leftHead h3 {
+            margin: 7px
+        }
+        
+        .oneshop_myStoreSettings {
+            width: 625px;
+            float: left;
+            background-color: rgba(250, 250, 250, .3)
+        }
+        
+        .oneshop_myStoreBasicInfo,
+        .oneshop_myStoreManageStaff,
+        .oneshop_myStoreNotifications {
+            text-align: center;
+            float: left;
+            width: 600px;
+            border-bottom: solid 1px #555;
+            margin: 10px
+        }
+        
+        .oneshop_myStoreBasicInfo h4,
+        .oneshop_myStoreManageStaff h4,
+        .oneshop_myStoreNotifications h4 {
+            float: left;
+            margin: 5px 0 5px 50px;
+            color: #000
+        }
+        
+        .oneshop_mystoreSettinsField {
+            float: left;
+            margin: 5px 0 0 50px;
+            overflow: hidden;
+            width: 500px;
+            min-height: 30px
+        }
+        
+        .onshop_formsFieldLables {
+            float: left;
+            min-width: 190px;
+            height: 30px
+        }
+        
+        .oneshop_mystoreSettinsField h5 {
+            float: right;
+            color: #111;
+            margin: 5px
+        }
+        
+        .fileType {
+            width: 300px;
+            padding: 0
+        }
+        
+        .checkBoxType {
+            float: right;
+            margin: 8px 100px 0 10px;
+            width: 10px;
+            height: 10px
+        }
+        
+        .selectType {
+            width: 300px
+        }
+        
+        .oneshop_basicInfoBtn {
+            float: right;
+            background-color: #FC0;
+            border: 1px solid #fff;
+            color: #000;
+            padding: 0 10px;
+            min-width: 50px;
+            height: 25px;
+            margin: 5px 50px 5px 5px
+        }
+        
+        .oneshop_PaymentOptionsSection {
+            float: left;
+            width: 600px;
+            height: 100px;
+            border: 1px solid #fff;
+            margin: 5px
+        }
+        
+        .oneshop_homeGrid {
+            cursor: pointer;
+            width: 110px;
+            height: 86px;
+            float: left;
+            margin: 10px 0 0 10px;
+            opacity: .9;
+            background-color: #F90
+        }
+        
+        .oneshop_homeGrid:hover {
+            opacity: 1;
+            border: 1px solid #fff;
+            width: 108px;
+            height: 84px
+        }
+        
+        .oneshop_homeGridCount,
+        .oneshop_homeGridTitle {
+            text-align: center;
+            width: 106px;
+            float: left;
+            height: 50px;
+            margin: 2px 0 0 2px
+        }
+        
+        .oneshop_homeGridCount {
+            height: 30px
+        }
+        
+        .oneshop_homeGridTitle h5 {
+            color: #fff;
+            margin: 2px
+        }
+        
+        .oneshop_homeGridCount h2 {
+            float: right;
+            color: #fff
+        }
+        
+        .upgradeBtn {
+            height: 30px;
+            margin: 5px 23px 5px 0
+        }
+        
+        .oneshop_myProductsFilter {
+            float: left;
+            width: 625px;
+            background-color: rgba(250, 250, 250, .4);
+            margin: 2px 0 0
+        }
+        
+        .oneshop_myProductsFilterFields {
+            float: left;
+            width: 250px;
+            height: 30px;
+            margin: 5px 0 5px 5px;
+            padding: 0 5px;
+            background-color: #eee;
+            border: 1px solid #ccc
+        }
+        
+        .myProductDate,
+        .myProductPrice {
+            width: 100px
+        }
+        
+        .findMyProducts {
+            float: left;
+            height: 30px;
+            width: 80px;
+            margin: 5px 0 0 5px
+        }
+        
+        .oneshop_listOfMyProducts {
+            width: 625px;
+            float: left;
+            margin: 2px 0 0;
+            background-color: rgba(250, 250, 250, .3)
+        }
+        
+        .oneshop_myProductsItem {
+            width: 170px;
+            float: left;
+            height: 200px;
+            background-color: #eee;
+            margin: 5px 0 0 5px
+        }
+        
+        .oneshop_logoPage {
+            float: left;
+            margin: 5px;
+            width: 890px;
+            min-height: 100px
+        }
+        
+        .oneshop_lpSections {
+            width: 810px;
+            float: left;
+            margin: 5px 0 0 40px;
+            padding-bottom: 5px
+        }
+        
+        .oneshop_lpSectionHeader {
+            float: left;
+            text-align: center;
+            min-width: 180px;
+            max-width: 800px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 30px;
+            color: #06F;
+            padding: 0 15px;
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_lpSectionHeader h3 {
+            margin: 5px
+        }
+        
+        .oneshop_lpSectionContent {
+            float: left;
+            width: 810px;
+            border-radius: 0 5px 5px;
+            padding-bottom: 5px;
+
+
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_lpscItemsListWrapper {
+            overflow: hidden;
+            width: 800px;
+            margin: 5px 0 0 5px;
+            float: left
+        }
+        
+        .oneshop_lpscItemPic {
+            width: 190px;
+            height: 100px;
+            float: left
+        }
+        
+        .oneshop_lpcsItemDetails {
+            cursor: pointer;
+            width: 190px;
+            float: left;
+            margin: 0;
+            height: 50px;
+            text-align: center;
+            background-color: #600;
+            overflow: hidden
+        }
+        
+        .oneshop_lpcsItemDetails h4 {
+            font: 13px Arial
+        }
+        
+        .oneshop_corouselContent {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 809px;
+            height: 150px;
+            overflow: hidden
+        }
+        
+        .oneshop_corouselSlides {
+            cursor: move;
+            float: left;
+            left: 0;
+            top: 0;
+            width: 809px;
+            height: 150px;
+            verflow: hidden
+        }
+        
+        .oneshop_corouselSlide {
+            float: left;
+            width: 190px
+        }
+        
+        .jssorb03 {
+            position: absolute
+        }
+        
+        .jssorb03 .av,
+        .jssorb03 div,
+        .jssorb03 div:hover {
+            position: absolute;
+            width: 21px;
+            height: 21px;
+            text-align: center;
+            line-height: 21px;
+            color: #fff;
+            font-size: 12px;
+            background: url(../img/b03.png) no-repeat;
+            overflow: hidden;
+            cursor: pointer
+        }
+        
+        .jssorb03 div {
+            background-position: -5px -4px
+        }
+        
+        .jssorb03 .av:hover,
+        .jssorb03 div:hover {
+            background-position: -35px -4px
+        }
+        
+        .jssorb03 .av {
+            background-position: -65px -4px
+        }
+        
+        .jssorb03 .dn,
+        .jssorb03 .dn:hover {
+            background-position: -95px -4px
+        }
+        
+        .jssora03l,
+        .jssora03r {
+            display: block;
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url(../Images/a03.png) no-repeat;
+            overflow: hidden
+        }
+        
+        .jssora03l {
+            background-position: -3px -33px
+        }
+        
+        .jssora03r {
+            background-position: -63px -33px
+        }
+        
+        .jssora03l:hover {
+            background-position: -123px -33px
+        }
+        
+        .jssora03r:hover {
+            background-position: -183px -33px
+        }
+        
+        .jssora03l.jssora03ldn {
+            background-position: -243px -33px
+        }
+        
+        .jssora03r.jssora03rdn {
+            background-position: -303px -33px
+        }
+        
+        .oneshop_ProfilePage {
+            float: left;
+            margin: 5px;
+            width: 890px;
+            min-height: 100px
+        }
+        
+        .oneshop_profileDetails {
+            float: left;
+            width: 880px;
+            height: 200px;
+            margin: 5px
+        }
+        
+        .oneshop_coverPic {
+            width: 100%;
+            height: 100%;
+            float: left
+        }
+        
+        .oneshop_profilePicandName {
+            position: absolute;
+            margin: 70px 0 0 50px;
+            width: 500px
+        }
+        
+        .oneshop_ppProfilePic {
+            border: 1px solid #fff;
+            width: 130px;
+            float: left;
+            height: 150px
+        }
+        
+        .oneshop_profileName {
+            float: left;
+            color: #fff;
+            height: 30px;
+            margin: 95px 0 0;
+            padding: 0 15px
+        }
+        
+        .oneshop_MyStoreProfileSection,
+        .oneshop_profileSection,
+        .oneshop_storeProductsSection {
+            width: 620px;
+            float: left;
+            min-height: 100px;
+            margin: 5px 0 5px 5px
+        }
+        
+        .oneshop_MyStoreProfileSection {
+            width: 880px
+        }
+        
+        .oneshop_StoreProfileInformation {
+            float: left;
+            width: 880px;
+            margin-top: 20px;
+            min-height: 100px;
+            padding-bottom: 10px;
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_StoreProfileInformation h4 {
+            float: left;
+            font: 16px Arial;
+            width: 200px;
+            overflow: hidden;
+            margin: 5px;
+            color: #C30
+        }
+        
+        .oneshop_StoreProfileInformation p {
+            float: left;
+            font: 13px Arial;
+            color: #333;
+            width: 750px;
+            margin: 5px 0 0 25px
+        }
+        
+        .oneshop_profileSectionTabs {
+            height: 35px;
+            float: left
+        }
+        
+        .oneshop_profileSectionTabs ul {
+            list-style: none;
+            font: 14px Arial;
+            height: 35px;
+            text-align: center;
+            color: #000;
+            float: left;
+            margin: 0
+        }
+        
+        .oneshop_profileSectionTabs ul li {
+            cursor: pointer;
+            display: inline-block;
+            height: 35px;
+            float: left;
+            background-color: #f5f5f5;
+            margin: 0 1px 0 0
+        }
+        
+        .oneshop_profileSectionTabs ul li:hover {
+            background-color: #ccc
+        }
+        
+        .oneshop_profileSectionTabs ul li h4 {
+            padding: 0 10px;
+            margin: 6px 0 0;
+            color: #000
+        }
+        
+        .oneshop_MyStoreProfileSectionContent,
+        .oneshop_profileSectionContent {
+            width: 620px;
+            float: left;
+            min-height: 50px;
+            padding-bottom: 5px;
+            background-color: #f9f9f9
+        }
+        
+        .oneshop_MyStoreProfileSectionContent {
+            width: 880px
+        }
+        
+        .oneshop_profilePurchaseHistory {
+            float: left;
+            width: 600px;
+            min-height: 50px;
+            margin: 5px 0 5px 10px
+        }
+        
+        .oneshop_profilePurchaseHistoryItem:nth-child(odd) {
+            cursor: pointer;
+            float: left;
+            width: 600px;
+            height: 50px;
+            background-color: #f5f5f5;
+            border-bottom: solid 1px #ddd
+        }
+        
+        .oneshop_profilePurchaseHistoryItem:nth-child(even) {
+            cursor: pointer;
+            float: left;
+            width: 600px;
+            height: 50px;
+            background-color: #e9e9e9;
+            border-bottom: solid 1px #ddd
+        }
+        
+        .oneshop_profilePurchaseHistoryItem:hover {
+            background-color: #d5d5d5
+        }
+        
+        .oneshop_pphproductPic {
+            float: left;
+            width: 50px;
+            height: 45px;
+            margin: 2px
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead {
+            float: left;
+            margin: 2px 0 0 10px;
+            list-style: none
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li {
+            display: inline-block;
+            height: 22px;
+            width: 105px;
+            float: left;
+            margin: 0 0 0 5px;
+            overflow: hidden;
+            text-align: center
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li h4 {
+            font: 13px Arial;
+            color: #C30
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody {
+            float: left;
+            margin: 0 0 0 10px;
+            list-style: none
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li {
+            display: inline-block;
+            height: 20px;
+            float: left;
+            margin: 0 0 0 5px;
+            overflow: hidden;
+            text-align: center;
+            width: 105px
+        }
+        
+        .oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li h4 {
+            font: 12px Arial;
+            color: #333
+        }
+        
+        .oneshop_pphClose {
+            float: right;
+            width: 12px;
+            height: 12px;
+            margin: 2px
+        }
+        
+        .oneshop_ReportsPage,
+        .oneshop_cartItemsPage,
+        .oneshop_findProductsPage,
+        .oneshop_findStorePage,
+        .oneshop_friendStorePage {
+            float: left;
+            background-color: #f9f9f9;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            width: 99%;
+            padding-bottom: 5px;
+            min-height: 100px
+        }
+        
+        .oneshop_ReportsPageHead,
+        .oneshop_cartItemsPageHead {
+            width: 100%;
+            float: left;
+            line-height: 30px;
+            font-weight: 700;
+            margin: 0 0 2%
+        }
+        
+        .oneshop_ReportsPageHead h4,
+        .oneshop_cartItemsPageHead h4 {
+            float: left;
+            margin: 8px;
+            color: #000
+        }
+        
+        .oneshop_myCartItem,
+        .oneshop_myFindProductItem,
+        .oneshop_myFindStoreItem,
+        .oneshop_myFrienddStoreItem {
+            width: 15%;
+            float: left;
+            box-shadow: 0 0 2px #777;
+            background-color: #fc0;
+            padding: 1%;
+            margin: 10px .5% 2%
+        }
+        
+        .oneshop_myCartItemImageSection,
+        .oneshop_myFindProductImageSection,
+        .oneshop_myFindStoreImageSection,
+        .oneshop_myFriendStoreImageSection {
+            overflow: hidden;
+            width: 96%;
+            height: 140px;
+            float: left;
+            margin: 2%;
+            background-color: rgba(250, 250, 250, 1)
+        }
+        
+        .oneshop_myCartItemDetailSection,
+        .oneshop_myFindProductDetailSection,
+        .oneshop_myFindStoreDetailSection,
+        .oneshop_myFriendStoreDetailSection {
+            float: left;
+            width: 100%
+        }
+        
+        .oneshop_myCartItemDetailSection h2,
+        .oneshop_myCartItemDetailSection h3,
+        .oneshop_myCartItemDetailSection h4,
+        .oneshop_myFindStoreDetailSection h2,
+        .oneshop_myFindStoreDetailSection h3,
+        .oneshop_myFindStoreDetailSection h4 {
+            float: left;
+            color: #C30;
+            overflow: hidden;
+            width: 65%;
+            max-height: 50px;
+            font: 16px Arial;
+            margin: 5px
+        }
+        
+        .oneshop_myFindProductDetailSection h2,
+        .oneshop_myFindProductDetailSection h3,
+        .oneshop_myFindProductDetailSection h4 {
+            float: left;
+            color: #C30;
+            overflow: hidden;
+            width: 65%;
+            max-height: 50px;
+            font: 16px Arial;
+            margin: 0 0 0 5px
+        }
+        
+        .oneshop_myFriendStoreDetailSection h2,
+        .oneshop_myFriendStoreDetailSection h3,
+        .oneshop_myFriendStoreDetailSection h4 {
+            float: left;
+            color: #C30;
+            overflow: hidden;
+            width: 65%;
+            max-height: 50px;
+            font: 16px Arial;
+            margin: 5px
+        }
+        
+        .oneshop_myCartItemDetailSection h2,
+        .oneshop_myFindProductDetailSection h2,
+        .oneshop_myFindStoreDetailSection h2,
+        .oneshop_myFriendStoreDetailSection h2 {
+            color: #06F;
+            float: right;
+            font: 18px Arial;
+            max-width: 25%
+        }
+        
+        .oneshop_myCartItemDetailSection h4,
+        .oneshop_myFindProductDetailSection h4,
+        .oneshop_myFindStoreDetailSection h4,
+        .oneshop_myFriendStoreDetailSection h4 {
+            float: left;
+            color: #333;
+            font: 12px Arial;
+            width: 80%
+        }
+        
+        .oneshop_myCartItemDetailSection img,
+        .oneshop_myFindProductDetailSection img,
+        .oneshop_myFindStoreDetailSection img,
+        .oneshop_myFriendStoreDetailSection img {
+            width: 25px;
+            height: 25px;
+            float: right;
+            margin: 5px
+        }
+        
+        .oneshop_ratingSection {
+            width: 100%;
+            float: left
+        }
+        
+        .oneshop_ratingSection h4 {
+            width: 50px;
+            margin: 3px 0 0 5px;
+            color: #555;
+            float: left
+        }
+        
+        .oneshop_ratingSection h3 {
+            width: 30px;
+            margin: 2px 0 0 5px;
+            float: left;
+            font: 15px Arial
+        }
+        
+        .oneshop_rating {
+            margin: 2px;
+            float: left;
+            height: 20px
+        }
+        
+        .oneshop_rating img {
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 0 0 0 2px
+        }
+        
+        .oneshop_storeViewBtn {
+            float: right;
+            margin: 5px
+        }
+        
+        .oneshop_filter {
+            margin: 5px;
+            float: left;
+            width: 99%;
+            height: 75px;
+            border-radius: 5px
+        }
+        
+        .oneshop_filterFields {
+            float: left;
+            width: 100%;
+            margin: 15px 0 0;
+            height: 40px
+        }
+        
+        .oneshop_filterFields h5 {
+            float: left;
+            margin: 10px
+        }
+        
+        .oneshop_filterFieldsText {
+            margin: 5px;
+            float: left
+        }
+        
+        .oneshop_storeFindBtn {
+            float: right;
+            margin: 8px
+        }
+        
+        .oneshop_myFindProductImageViews {
+            float: left;
+            width: 100%;
+            height: 50px
+        }
+        
+        .oneshop_productViewBtn {
+            float: left;
+            margin: 5px
+        }
+        
+        .oneshop_productBuyBtn {
+            float: right;
+            margin: 5px
+        }
+        
+        .oneshop_myFindProductImageViews ul {
+            list-style: none;
+            float: left;
+            margin: 0 0 0 10px
+        }
+        
+        .oneshop_myFindProductImageViews ul li {
+            float: left;
+            display: inline-block;
+            overflow: hidden;
+            width: 40px;
+            height: 35px;
+            background-color: #bbb;
+            margin: 2px 0 0 5px
+        }
+        
+        .oneshop_myFindProductImageViews ul li img {
+            float: left;
+            width: 100%
+        }
+        
+        .oneshop_cartIcon,
+        .oneshop_curencyConvertor {
+            cursor: pointer;
+            float: right;
+            width: 25px;
+            height: 25px;
+            margin: 5px
+        }
+        
+        .oneshop_friendStoreFields {
+            width: 24%
+        }
+        
+        .oneshop_findProductStoreDetails,
+        .oneshop_friendStoreFriendDetails {
+            float: left;
+            overflow: hidden;
+            width: 100%;
+            height: 50px
+        }
+        
+        .oneshop_findProductStoreDetails img,
+        .oneshop_friendStoreFriendDetails img {
+            float: left;
+            width: 45px;
+            height: 45px;
+            margin: 2px
+        }
+        
+        .oneshop_findProductStoreDetails h3,
+        .oneshop_friendStoreFriendDetails h3 {
+            float: left;
+            margin: 5px;
+            font: 18px Arial;
+            color: #C30
+        }
+        
+        .oneshop_productDetailedView {
+            float: left;
+            width: 635px;
+            min-height: 100px;
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_productImageSection {
+            float: left;
+            width: 250px;
+            min-height: 300px;
+            margin: 5px;
+            border: 1px dashed #fff
+        }
+        
+        .oneshop_productMainImage {
+            float: left;
+            width: 235px;
+            height: 150px;
+            margin: 5px 0 0 5px
+        }
+        
+        .oneshop_productDetailedViewImageViews {
+            float: left;
+            width: 250px;
+            height: 50px;
+            margin: 5px 0
+        }
+        
+        .oneshop_productDetailedViewImageViews ul {
+            float: left;
+            margin: 0 0 0 13px;
+            list-style: none
+        }
+        
+        .oneshop_productDetailedViewImageViews ul li {
+            display: inline-block;
+            cursor: pointer;
+            overflow: hidden;
+            height: 40px;
+            width: 50px;
+            float: left;
+            margin: 0 0 0 5px
+        }
+        
+        .oneshop_productDetailedViewImageViews ul li img {
+            float: left;
+            width: 100%
+        }
+        
+        .oneshop_productDetailedViewRatingSection {
+            float: left;
+            margin: 5px;
+            width: 240px
+        }
+        
+        .oneshop_productDetailedViewRatingSection h4 {
+            color: #C30;
+            font: 16px Arial;
+            margin: 3px 0 0;
+            float: left
+        }
+        
+        .oneshop_productDetailedViewRating {
+            float: left;
+            margin: 2px;
+            height: 20px
+        }
+        
+        .oneshop_productDetailedViewRating img {
+            cursor: pointer;
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 0 0 0 3px
+        }
+        
+        .oneshop_productDetailedViewRatingSection h3 {
+            font: 18px Arial;
+            color: #555;
+            margin: 3px 0 0 5px;
+            float: left
+        }
+        
+        .oneshop_productDetailedViewDetails {
+            float: left;
+            width: 350px;
+            min-height: 200px;
+            margin: 5px
+        }
+        
+        .oneshop_productDetailedViewHeader {
+            float: left;
+            width: 350px;
+            border-bottom: solid 1px #999;
+            overflow: hidden;
+            height: 50px
+        }
+        
+        .oneshop_productDetailedViewHeader h3 {
+            font: 18px Arial;
+            color: #C30;
+            width: 350px;
+            height: 25px;
+            overflow: hidden;
+            float: left
+        }
+        
+        .oneshop_prouctDetailedViewViews {
+            float: left;
+            width: 200px;
+            height: 25px
+        }
+        
+        .oneshop_prouctDetailedViewViews h5 {
+            float: left;
+            font: 13px Arial;
+            margin: 2px;
+            color: #777
+        }
+        
+        .oneshop_prouctDetailedViewViews h4 {
+            float: left;
+            margin: 1px;
+            font: 14px Arial;
+            color: #555
+        }
+        
+        .oneshop_productDetailedViewDescription,
+        .oneshop_productDetailedViewInStock,
+        .oneshop_productDetailedViewSpecifications {
+            float: left;
+            width: 350px;
+            text-align: left;
+            margin: 5px 0 0
+        }
+        
+        .oneshop_productDetailedViewDescription h4,
+        .oneshop_productDetailedViewSpecifications h4 {
+            font: 15px Arial;
+            float: left;
+            color: #C30;
+            width: 330px
+        }
+        
+        .oneshop_productDetailedViewDescription p,
+        .oneshop_productDetailedViewSpecifications p {
+            font: 11px Arial;
+            margin: 5px 0 0 5px;
+            float: left;
+            color: #333
+        }
+        
+        .oneshop_productDetailedViewSections {
+            float: left;
+            width: 250px;
+            text-align: left;
+
+            margin: 0
+        }
+        
+        .oneshop_productDetailedViewSections h4 {
+            float: left;
+            margin: 1px;
+            color: #777;
+            font: 13px Arial
+        }
+        
+        .oneshop_productDetailedViewSections h3 {
+            float: left;
+            color: #333;
+            margin: 1px;
+            font: 14px Arial
+        }
+        
+        .rightSectionFixedHeight {
+            height: 375px;
+            overflow: hidden
+        }
+        
+        .oneshop_recentOrdersList {
+            float: left;
+            padding-bottom: 5px;
+            width: 625px
+        }
+        
+        .oneshop_recentOrdersHeader {
+            float: left;
+            padding: 0 15px;
+            height: 30px;
+            margin: 5px 0 0 5px;
+            border-bottom: solid 1px #ddd;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_recentOrdersHeader h4 {
+            float: left;
+            margin: 3px 0 0;
+            color: #C30
+        }
+        
+        .oneshop_orderItem:nth-child(even),
+        .oneshop_orderItem:nth-child(odd) {
+            margin: 0 0 0 5px;
+            width: 600px;
+            height: 50px;
+            border-bottom: solid 1px #ddd;
+            float: left;
+            cursor: pointer
+        }
+        
+        .oneshop_orderItem:nth-child(even) {
+            background-color: #f5f5f5
+        }
+        
+        .oneshop_orderItem:nth-child(odd) {
+            background-color: #e9e9e9
+        }
+        
+        .oneshop_orderItem:hover {
+            background-color: #d5d5d5
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphHead {
+            float: left;
+            margin: 2px 0 0 10px;
+            list-style: none
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphHead li {
+            display: inline-block;
+            height: 22px;
+            width: 105px;
+            float: left;
+            margin: 0 0 0 5px;
+            overflow: hidden;
+            text-align: center
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphHead li h4 {
+            font: 13px Arial;
+            color: #C30
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphBody {
+            float: left;
+            margin: 0 0 0 10px;
+            list-style: none
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphBody li {
+            display: inline-block;
+            height: 20px;
+            float: left;
+            margin: 0 0 0 5px;
+            overflow: hidden;
+            text-align: center;
+            width: 105px
+        }
+        
+        .oneshop_orderItem ul.oneshop_pphBody li h4 {
+            font: 12px Arial;
+            color: #333
+        }
+        
+        .oneshop_reportSection {
+            float: left;
+            width: 870px;
+            min-height: 100px;
+            margin: 10px
+        }
+        
+        .oneshop_cartItem {
+            float: left;
+            width: 880px;
+            height: 70px;
+            margin: 5px 0 0 5px;
+            border: 1px dashed #fff
+        }
+        
+        .oneshop_cartItemImage {
+            float: left;
+            width: 60px;
+            margin: 5px;
+            height: 60px
+        }
+        
+        .oneshop_cartItemCloseBtn {
+            cursor: pointer;
+            float: right;
+            width: 15px;
+            height: 15px;
+            margin: 2px
+        }
+        
+        .oneshop_cartItemDetails {
+            float: left;
+            width: 250px;
+            height: 60px;
+            margin: 5px 5px 0 0;
+            overflow: hidden
+        }
+        
+        .priceDetails {
+            width: 150px
+        }
+        
+        .oneshop_cartItemDetails h4 {
+            color: #C30;
+            margin: 5px 0 0 2px;
+            font: 17px Arial
+        }
+        
+        .oneshop_cartItemDetails h3 {
+            float: left;
+            color: #fff;
+            margin: 0 2px 2px 0;
+            font: 17px Arial
+        }
+        
+        .oneshop_cartItemsQuantity {
+            float: left;
+            width: 50px;
+            padding: 0 0 0 5px;
+            font: 16px Arial;
+            height: 30px;
+            margin: 2px;
+            background-color: #eee;
+            border: 0
+        }
+        
+        .oneshop_BuyCartItems {
+            float: left;
+            height: 40px;
+            width: 880px;
+            margin: 5px
+        }
+        
+        .oneshop_StoreProductsPage {
+            float: left;
+            background-color: rgba(250, 250, 250, .3);
+            margin: 5px;
+            width: 890px;
+            min-height: 100px
+        }
+        
+        .oneshop_storeLogoandName {
+            float: left;
+            margin: 5px;
+            width: 500px
+        }
+        
+        .oneshop_storeName {
+            float: left;
+            color: #fff;
+            height: 30px;
+            width: 300px;
+            overflow: hidden;
+            margin: 60px 0 0;
+            padding: 0 15px 0 10px
+        }
+        
+        .oneshop_storeProfilePic {
+            border: 1px solid #fff;
+            width: 80px;
+            float: left;
+            height: 90px
+        }
+        
+        .oneshop_reportProblemHeader,
+        .oneshop_storeProductsHeading {
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+            float: left
+        }
+        
+        .oneshop_storeProductsHeading {
+            padding: 0 20px;
+            height: 40px;
+            min-width: 180px;
+            text-align: center;
+            background-color: rgba(250, 250, 250, .8)
+        }
+        
+        .oneshop_storeProductsHeading h4 {
+            font: 16px Arial;
+            color: #C30;
+            margin: 10px 0 0
+        }
+        
+        .oneshop_reportProblemPopup {
+            position: absolute;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #333;
+            margin: 100px 0 0 200px;
+            width: 500px;
+            height: 300px;
+            z-index: 1001;
+            background-color: #eee
+        }
+        
+        .oneshop_reportProblemHeader {
+            width: 500px;
+            height: 40px;
+            border-bottom: solid 1px #ccc;
+            background-color: #e5e5e5
+        }
+        
+        .oneshop_reportProblemIcon {
+            float: left;
+            width: 30px;
+            height: 30px;
+            margin: 5px
+        }
+        
+        .oneshop_reportProblemHeader h4 {
+            float: left;
+            font: 16px Arial;
+            color: #555;
+            margin: 8px
+        }
+        
+        .oneshop_reportProblemCloseBtn {
+            float: right;
+            width: 20px;
+            height: 20px;
+            margin: 10px
+        }
+        
+        .oneshop_reportProblemContent {
+            float: left;
+            padding-top: 25px;
+            width: 500px;
+            height: 190px
+        }
+        
+        .oneshop_reportProblemFieldSection {
+            float: left;
+            width: 450px;
+            margin: 5px 0 0 25px
+        }
+        
+        .oneshop_reportProblemFieldLable {
+            float: left;
+            width: 170px;
+            height: 30px;
+            margin: 1px;
+            overflow: hidden
+        }
+        
+        .oneshop_reportProblemFieldLable h5 {
+            float: right;
+            margin: 5px;
+            font: 14px Arial;
+            color: #555
+        }
+        
+        .oneshop_reportProblemField {
+            float: right;
+            width: 265px;
+            height: 30px;
+            background-color: #e5e5e5;
+            border: 1px solid #ccc
+        }
+        
+        .oneshop_reportProblemFooter {
+            float: left;
+            width: 500px;
+            height: 40px;
+            border-top: solid 1px #ccc
+        }
+        
+        .oneshop_reportProblemBtn {
+            cursor: pointer;
+            float: right;
+            height: 30px;
+            margin: 5px;
+            padding: 0 15px;
+            background-color: #d5d5d5;
+            font: 16px Arial;
+            color: #555;
+            border: 0
+        }
+        
+        .oneshop_reportProblemBtn:hover {
+            background-color: #999;
+            color: #fff
+        }
+        
+        .oneshop_editProductImages {
+            float: left;
+            width: 595px;
+            min-height: 100px;
+            padding: 0 0 5px 20px;
+            border-bottom: dashed 1px #fff;
+            margin: 5px
+        }
+        
+        .oneshop_editProductImage {
+            float: left;
+            width: 120px;
+            height: 100px;
+            margin: 5px 0 0 15px;
+            background: url(../Images/addProductImage.jpg) no-repeat;
+            box-shadow: 0 0 3px #999
+        }
+        
+        .oneshop_editProductPic {
+            float: left;
+            position: absolute;
+            width: 116px;
+            height: 96px;
+            margin: 2px
+        }
+        
+        .oneshop_editIcon {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            margin: 82px 2px 2px 102px;
+            float: left
+        }
+        
+        .magnifier {
+            float: left;
+            width: 890px;
+            height: 500px;
+            margin: 5px;
+            background-color: #eee
+        }
+        
+        #site-wrapper {
+            font-family: sans-serif;
+            color: #333;
+            margin: 2px;
+            float: left
+        }
+        
+        #demo {
+            float: left
+        }
+        
+        .oneshop_productImage {
+            float: left;
+            width: 200px
+        }
+        
+        a,
+        a:active,
+        a:hover,
+        a:visited {
+            color: #4C91C0
+        }
+        
+        .oneshop_currencyConvertorPopup {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 9999
+        }
+        
+        .oneshop_currencyConvertorWrapper {
+            margin: 50px auto;
+            width: 350px;
+            height: 400px;
+            border-radius: 5px 5px 0 0;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 10px #333
+        }
+        
+        .oneshop_currencyConvertorCloseBtn {
+            cursor: pointer;
+            float: right;
+            position: absolute;
+            margin: -10px 0 0 335px;
+            background-color: #333;
+            border: 1px solid #fff;
+            font: 12px Arial;
+            color: #fff;
+            box-shadow: 0 0 5px #555;
+            padding: 6px 0 2px 8px;
+            width: 17px;
+            height: 17px;
+            border-radius: 15px
+        }
+        
+        .oneshop_currencyConvertorHeader {
+            float: left;
+            border-radius: 5px 5px 0 0;
+            padding: 7px 10px;
+            background-color: #eee;
+            border-bottom: solid 1px #ccc;
+            font: 16px Arial;
+            color: #555;
+            width: 330px
+        }
+        
+        .oneshop_currencyConvertorContent {
+            float: left;
+            padding: 5px;
+            width: 340px;
+            height: 320px;
+            overflow-X: hidden;
+            overflow-Y: Auto
+        }
+        
+        .oneshop_ccContentFieldWrapper {
+            float: left;
+            width: 300px;
+            margin: 10px 0 0 20px
+        }
+        
+        .oneshop_ccContentField {
+            float: left;
+            padding: 0 10px;
+            width: 230px;
+            height: 30px;
+            background-color: #eee;
+            border: 1px solid #bbb
+        }
+        
+        .choose {
+            width: 250px
+        }
+        
+        .oneshop_ccContentFlag {
+            float: right;
+            height: 30px
+        }
+        
+        .oneshop_currencyConvertorFooter {
+            float: left;
+            width: 350px;
+            height: 35px;
+            background-color: #eee;
+            border-top: solid 1px #ccc
+        }
+        
+        .oneshop_currencyConvertorBtns {
+            cursor: pointer;
+            float: right;
+            padding: 5px 15px;
+            margin: 3px 5px 0 0;
+            background: linear-gradient(#eee, #ccc);
+            border: 1px solid #999;
+            font: 12px Arial;
+            color: #555
+        }
+        
+        .oneshop_currencyConvertorBtns:hover {
+            color: #fff;
+            border: 1px solid #c58000;
+            background: linear-gradient(#c5b000, #c58000)
+        }
+        
+        .fll {
+            float: left!important
+        }
+        
+        .flr {
+            float: right!important
+        }
+        
+        .clearfix {
+            clear: both
+        }
+        
+        a img {
+            border: none
+        }
+        
+        a {
+            color: #000
+        }
+        
+        a:hover {
+            color: #024097
+        }
+        
+        .bold {
+            font-weight: 700!important
+        }
+        
+        .italic {
+            font-style: italic
+        }
+        
+        .fs40 {
+            font-size: 40px!important
+        }
+        
+        .fs10 {
+            font-size: 10px!important
+        }
+        
+        .fs11 {
+            font-size: 11px!important
+        }
+        
+        .fs25 {
+            font-size: 18px!important
+        }
+        
+        .fs12 {
+            font-size: 12px!important
+        }
+        
+        .aleft {
+            text-align: left!important
+        }
+        
+        .acenter {
+            text-align: center!important
+        }
+        
+        .aright {
+            text-align: right!important
+        }
+        
+        .ajustify {
+            text-align: justify!important
+        }
+        
+        .lh20 {
+            line-height: 20px
+        }
+        
+        .gray {
+            color: #787979!important
+        }
+        
+        .red {
+            color: #d20000!important
+        }
+        
+        .black {
+            color: #000!important
+        }
+        
+        .yellow {
+            color: #ffd800!important
+        }
+
+        .orange {
+            color: #ff9900!important
+        }
+
+        .graye-bg {
+            background-color: #787979!important
+        }
+        
+        .blue {
+            color: #446cb3!important
+        }
+        
+        .white {
+            color: #fff!important
+        }
+        
+        .wi100pstg {
+            width: 100%!important
+        }
+        
+        .wi900 {
+            width: 900px;
+            margin: 0 auto!important
+        }
+        
+        .wi458 {
+            width: 458px!important
+        }
+        
+        .mat15 {
+            margin-top: 15px!important
+        }
+        
+        .mat20 {
+            margin-top: 20px!important
+        }
+        
+        .mat30 {
+            margin-top: 30px!important
+        }
+
+        .mat0 {
+            margin-top: 0px!important
+        }
+        
+        .mar10 {
+            margin-right: 10px!important
+        }
+        
+        .mar5 {
+            margin-right: 5px!important
+        }
+        
+        .mar20 {
+            margin-right: 20px!important
+        }
+        
+        .mar30 {
+            margin-right: 30px!important
+        }
+        
+        .mar40 {
+            margin-right: 40px!important
+        }
+        
+        .mab10 {
+            margin-bottom: 10px!important
+        }
+        
+        .mab5 {
+            margin-bottom: 5px!important
+        }
+        
+        .mal10 {
+            margin-left: 10px!important
+        }
+        
+        .mal5 {
+            margin-left: 5px!important
+        }
+        
+        .mal3 {
+            margin-left: 3px!important
+        }
+        
+        .mal15 {
+            margin-left: 15px!important
+        }
+        
+        .mal20 {
+            margin-left: 20px!important
+        }
+        
+        .mal25 {
+            margin-left: 25px!important
+        }
+        
+        .mal30 {
+            margin-left: 30px!important
+        }
+        
+        .mal40 {
+            margin-left: 40px!important
+        }
+        
+        .pat20 {
+            padding-top: 20px!important
+        }
+        
+        .pat10 {
+            padding-top: 10px!important
+        }
+        
+        .pat5 {
+            padding-top: 5px!important
+        }
+        
+        .pat7 {
+            padding-top: 7px!important
+        }
+        
+        .pat80 {
+            padding-top: 80px!important
+        }
+        
+        .par10 {
+            padding-right: 10px!important
+        }
+        
+        .pab5 {
+            padding-bottom: 5px!important
+        }
+        
+        .pab10 {
+            padding-bottom: 10px!important
+        }
+        
+        .pal10 {
+            padding-left: 10px!important
+        }
+        
+        .pal5 {
+            padding-left: 5px!important
+        }
+        
+        .mat10 {
+            margin-top: 10px!important
+        }
+        
+        .mat5 {
+            margin-top: 5px!important
+        }
+        
+        .mat3 {
+            margin-top: 3px!important
+        }
+        
+        body {
+            font-family: Arial;
+            font-size: 12px;
+            line-height: 18px
+        }
+        
+        .oneshop_comments_container {
+            width: 880px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            background: #fff
+        }
+        
+        .comment-box {
+            overflow: hidden;
+            padding: 0 0 10px;
+            width: 630px
+        }
+        
+        .incomment-box {
+            margin: 5px;
+            width: 620px
+        }
+        
+        .incomment-box .left-commentbox {
+            float: left;
+            width: 70px
+        }
+        
+        .imgitem {
+            height: 45px;
+            margin: 5px 0 0 5px;
+            width: 60px
+        }
+        
+        .incomment-box .right-commentbox {
+            float: left;
+            width: 550px
+        }
+        
+        .commenthead {
+            font-size: 18px;
+            margin: 10px 0 5px 5px
+        }
+        
+        .incomment-box .right-commentbox .txt-area {
+            background: #fff;
+            border: none;
+            border-radius: 2px;
+            color: #000;
+            height: 35px;
+            margin: 5px 0 0 5px;
+            padding: 5px;
+            width: 525px
+        }
+        
+        .all_comment_box {
+            overflow: hidden;
+            padding: 10px 0 20px;
+            width: 620px
+        }
+        
+        .all-comment-in {
+            border: 1px solid #d8d8d8;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 10px;
+            width: 598px
+        }
+        
+        .leftchannelitem,
+        .leftchannelitem img {
+            float: left;
+            width: 90px;
+            height: 90px
+        }
+        
+        .all_comment_title {
+            color: #d20000;
+            font-size: 14px;
+            font-weight: 700;
+            width: 458px
+        }
+        
+        .np_des_addaccess_btn {
+            background: #333;
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            color: #fff;
+            cursor: pointer;
+            line-height: 24px;
+            font-size: 14px;
+            padding: 6px 20px;
+            margin-right: 5px;
+            font-family: Raleway-Regular
+        }
+        
+        .np_des_addaccess_btn:hover {
+            background: #666;
+            border-radius: 2px;
+            border: 0 solid #CCC
+        }
+        
+        .oneshop_userpublicprofile_container {
+            width: 890px;
+            margin: 0 auto;
+            padding: 5px;
+            overflow: hidden;
+            background: #fff
+        }
+        
+        .oneshop_userpublic_topheader {
+            width: 888px;
+            height: 280px;
+            padding: 20px 0 0;
+            border: 1px solid #CCC
+        }
+        
+        .oneshop_userpublic_leftdetais_box {
+            width: 298px;
+            float: left;
+            margin: 0 25px 0 15px
+        }
+        
+        .oneshop_userpublic_centerdetais_box {
+            width: 200px;
+            float: left;
+            margin: 0 10px 0 0
+        }
+        
+        .oneshop_userpublic_centerdetaisimage_box {
+            width: 200px;
+            border-radius: 120px;
+            overflow: hidden;
+            height: 200px
+        }
+        
+        .oneshop_userpublic_centerdetaisimage_box img {
+            width: 200px;
+            height: 200px
+        }
+        
+        .oneshop_userpublic_rightdetais_box {
+            width: 300px;
+            float: left
+        }
+        
+        .oneshop_userpublic_tabs_mainwrapper {
+            width: 890px;
+            margin: 20px 0 0;
+            float: left
+        }
+        
+        .oneshop_userpublic_tabs_mainwrapper ul {
+            list-style: none;
+            float: left
+        }
+        
+        .oneshop_userpublic_tabs_mainwrapper ul li {
+            cursor: pointer;
+            float: left
+        }
+        
+        .oneshop_userpublic_tabs_mainwrapper ul li a {
+            cursor: pointer;
+            padding: 10px 15px;
+            float: left;
+            border-radius: 2px;
+            font-size: 16px;
+            margin: 0 10px 0 0;
+            color: #fff;
+            border: 1px solid #1f83b0;
+            text-align: center;
+            background: #63b6db;
+            background: -moz-linear-gradient(top, rgba(99, 182, 219, 1) 0, rgba(48, 157, 207, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(99, 182, 219, 1) 0, rgba(48, 157, 207, 1) 100%);
+            background: linear-gradient(to bottom, rgba(99, 182, 219, 1) 0, rgba(48, 157, 207, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#63b6db', endColorstr='#309dcf', GradientType=0)
+        }
+        
+        .oneshop_userpublic_tabs_mainwrapper ul li a:hover {
+            cursor: pointer;
+            padding: 10px 15px;
+            float: left;
+            border-radius: 2px;
+            font-size: 16px;
+            margin: 0 10px 0 0;
+            color: #000;
+            border: 1px solid #1f83b0;
+            text-align: center;
+            background: #49c0f0;
+            background: -moz-linear-gradient(top, rgba(73, 192, 240, 1) 0, rgba(44, 175, 227, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(73, 192, 240, 1) 0, rgba(44, 175, 227, 1) 100%);
+            background: linear-gradient(to bottom, rgba(73, 192, 240, 1) 0, rgba(44, 175, 227, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#49c0f0', endColorstr='#2cafe3', GradientType=0)
+        }
+        
+        .borderbottom {
+            border-bottom: 1px #CCC dotted
+        }
+        
+        .oneshop_container_sectionnew {
+            min-height: 500px;
+            background: #fff;
+            overflow: hidden;
+            display: table;
+            margin: 0;
+            width: 100%
+        }
+        
+        .oneshop_container_middle_section {
+            width: 98%;
+            margin: 10px 10px 0;
+            display: inline-block
+        }
+        
+        .oneshop_leftwrapper_box {
+            float: left;
+            width: 635px
+        }
+        
+        .oneshop_fieldsbox {
+            width: 580px;
+            display: inline-block;
+            margin: 0 0 10px 20px
+        }
+        
+        .oneshop_nosize,
+        .oneshop_productfield_textbox,
+        .oneshop_selectbox_field,
+        .oneshop_setspecified_textbox,
+        .oneshop_specifiedselect_new {
+            float: left;
+            background-color: #fff;
+            height: 24px;
+            width: 400px;
+            padding: 0 10px 0 5px;
+
+            border-bottom: 1px #ccc solid;
+            border-left: 1px #ccc solid;
+            border-top: 0 #ccc solid;
+            border-right: 0 #ccc solid
+        }
+        
+        .oneshop_setspecified_textbox {
+            width: 220px
+        }
+        
+        .oneshop_selectbox_field {
+            width: 420px
+        }
+        
+        .oneshop_specifiedselect_new {
+            width: 240px
+        }
+        
+        .oneshop_rightwrapper_box {
+            float: left;
+            width: 240px
+        }
+        
+        .oneshop_product_images ul {
+            float: left;
+            width: 240px
+        }
+        
+        .oneshop_product_images ul li {
+            float: left;
+            width: 48%;
+            list-style: none;
+            height: auto;
+            margin: 0 1% 10px;
+            background: #f5f5f5
+        }
+        
+        .productimg_box,
+        .productimg_box img {
+            width: 110px;
+            height: 90px
+        }
+        
+        .oneshop_setspecified_textareabox,
+        .subcategory_textarea {
+            resize: none;
+            overflow: hidden;
+            min-height: 60px;
+            width: 400px;
+            padding: 0 10px 0 5px;
+            border-bottom: 1px #ccc solid;
+            border-left: 1px #ccc solid;
+            border-top: 0 #ccc solid;
+            border-right: 0 #ccc solid
+        }
+        
+        .oneshop_setspecified_textareabox {
+            width: 220px
+        }
+        
+        .productimage_shadowbox {
+            width: 75px;
+            height: 50px;
+            cursor: pointer;
+            color: #fff;
+            padding: 40px 0 0 35px;
+            font-size: 60px;
+            font-weight: 400;
+            position: absolute;
+            background: rgba(0, 0, 0, .5)
+        }
+        
+        .productimage_shadowbox a {
+            color: #fff;
+            padding: 0
+        }
+        
+        .fixheight {
+            height: 200px
+        }
+        
+        .bgcolor {
+            background: #f8f8f8;
+            margin: 0;
+            padding: 5px;
+            width: auto
+        }
+        
+        .borderradius {
+            border-radius: 3px
+        }
+        
+        .wi200 {
+            width: 150px!important
+        }
+        
+        .overflow {
+            overflow: hidden
+        }
+        
+        .normal {
+            font-weight: 400!important
+        }
+
+        .oneshop_left_paybook {
+            float: left;
+            width: 50%;
+            background-color: #e3e3e3;
+            margin-right: 1%;
+            margin-left: 1%;
+            padding: 20px
+        }
+        
+        .oneshop_left_newcontainer {
+            float: left;
+            width: 70%;
+            background-color: #fff;
+            margin-right: 1%;
+            margin-left: 1%;
+            padding: 20px
+        }
+        
+        .oneshop_right_newcontainer {
+            float: right;
+            width: 20%
+        }
+
+        .oneshop_right_stripe{
+            float: right;
+            width: 50%;
+            margin-right: 1%;
+            margin-left: 1%
+        }
+        
+        .oisdes_left_parcel_leftbox {
+            float: left;
+            width: 300px
+        }
+        
+        .hotel_news_imgbox,
+        .hotel_news_imgbox img {
+            height: 300px;
+            width: 100%
+        }
+        
+        .packagedat {
+            font-size: 14px;
+            margin: 5px 0 0;
+            text-align: center
+        }
+        
+        .packagedat td {
+            border-bottom: 1px solid #ccc;
+            color: #000;
+            font-size: 12px;
+            padding: 5px 0 5px 10px;
+            text-align: left;
+            width: 500px
+        }
+        
+        .bgcolor3 {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px
+        }
+        
+        .hotel_newly_banner,
+        .hotel_newlycreatedstore_banner_wrapper {
+            height: 260px;
+            width: 100%;
+            margin: 0 0 10px;
+            background: #C33
+        }
+        
+        .hotel_newly_banner img {
+            overflow: hidden;
+            width: 890px;
+            height: 260px;
+            margin: 0
+        }
+        
+        .hotel_newlyleftbox,
+        .hotel_newlyrightbox {
+            height: 240px;
+            width: 230px;
+            position: absolute;
+            margin: 0;
+            color: #fff;
+            padding: 10px;
+            background: rgba(0, 0, 0, .8)
+        }
+        
+        .hotel_newlyrightbox {
+            margin: 30px 0 0 670px;
+            width: 200px;
+            height: 200px;
+            background: 0 0
+        }
+        
+        .oneshop_bubbles_box {
+            width: 90px;
+            border-radius: 120px;
+            overflow: hidden;
+            height: 65px;
+            float: left;
+            margin: 10px 0 0 10px;
+            border: 1px solid #ccc;
+            font-size: 40px;
+            text-align: center;
+            padding: 50px 0 0;
+            background: rgba(245, 242, 245, 1);
+            background: -moz-linear-gradient(left, rgba(245, 242, 245, 1) 0, rgba(235, 235, 235, 1) 50%, rgba(250, 247, 250, 1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0, rgba(245, 242, 245, 1)), color-stop(50%, rgba(235, 235, 235, 1)), color-stop(100%, rgba(250, 247, 250, 1)));
+            background: -webkit-linear-gradient(left, rgba(245, 242, 245, 1) 0, rgba(235, 235, 235, 1) 50%, rgba(250, 247, 250, 1) 100%);
+            background: -o-linear-gradient(left, rgba(245, 242, 245, 1) 0, rgba(235, 235, 235, 1) 50%, rgba(250, 247, 250, 1) 100%);
+            background: -ms-linear-gradient(left, rgba(245, 242, 245, 1) 0, rgba(235, 235, 235, 1) 50%, rgba(250, 247, 250, 1) 100%);
+            background: linear-gradient(to right, rgba(245, 242, 245, 1) 0, rgba(235, 235, 235, 1) 50%, rgba(250, 247, 250, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f5f2f5', endColorstr='#faf7fa', GradientType=1)
+        }
+        
+        .oneshop_newpopdesign {
+            float: left;
+            width: 450px;
+            height: 450PX;
+            padding: 50px 150px 0;
+            border: 1px solid #ccc;
+            background: url(../Images/1b.jpg);
+            overflow: hidden;
+            margin: 50px 0 80px 80px
+        }
+        
+        .fs30 {
+            font-size: 30px!important
+        }
+        
+        .lspacing {
+            letter-spacing: -1px
+        }
+        
+        .cvdes_arrowbtn,
+        .cvdes_arrowbtn2 {
+            background: #656565;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            height: 30px;
+            float: left;
+            padding: 10px 10px 5px
+        }
+        
+        .cvdes_arrowbtn2 {
+            background: #fbaf54
+        }
+        
+        .cvdes_btn,
+        .cvdes_btn2 {
+            background: #555;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            width: 250px;
+            height: 45px;
+            padding: 0 15px
+        }
+        
+        .cvdes_btn2:hover,
+        .cvdes_btn:hover {
+            background: #c5b000
+        }
+        
+        .cvdes_btn2 {
+            background: #fba53d
+        }
+        
+        .oisdes_adminstore_leftbox {
+            float: left;
+            width: 360px
+        }
+        
+        .oisdes_adminsmall_fields_wrap {
+            float: right;
+            width: 220px;
+            margin: 0
+        }
+        
+        .oisdes_services_leftbox {
+            float: left;
+            width: 140px;
+            background: #f5f5f5;
+            padding: 5px;
+            height: 120px;
+            border: 1px solid #ccc;
+            margin: 0
+        }
+        
+        .bgcolor4 {
+            background: #F5F5F5;
+            margin: 0;
+            padding: 0;
+            width: auto
+        }
+        
+        .oneshop_services_store_container {
+            width: 890px;
+            display: inline-block
+        }
+        
+        .oneshop_services_store_menu_wrap {
+            float: left;
+            width: 822px;
+            background: #898989;
+            background: -moz-linear-gradient(top, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%);
+            background: linear-gradient(to bottom, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%)
+        }
+        
+        .oneshop_services_store_menu_wrap ul {
+            float: left;
+            list-style: none;
+            width: 890px
+        }
+        
+        .oneshop_services_store_menu_wrap ul li {
+            float: left;
+            list-style: none;
+            font-size: 11px;
+            padding: 0 10px;
+            line-height: 32px;
+            font-weight: 700
+        }
+        
+        .oneshop_services_store_menu_wrap ul li a {
+            color: #fff
+        }
+        
+        .oneshop_services_store_menu_wrap ul li a.current {
+            font-weight: 700;
+            color: #CCC
+        }
+        
+        .oneshop_services_store_menu_wrap ul li a:hover {
+            color: #CCC
+        }
+        
+        .pro_img_one {
+            width: 80%;
+            height: 120px;
+            transition: all ease-in-out .2s;
+            -webkit-transition: all ease-in-out .2s;
+            -moz-transition: all ease-in-out .2s;
+            -ol-transition: all ease-in-out .2s
+        }
+        
+        .oneshop_products_storebox:hover .pro_img_one {
+            transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            -moz-transform: scale(1.1);
+            -ol-transform: scale(1.1)
+        }
+        
+        .oneshop_products_main_wrap {
+            float: left;
+            width: 100%;
+            margin: 10px 0
+        }
+        
+        .oneshop_products_storebox {
+            float: left;
+            width: 23%;
+            height: 220px;
+            margin: 0 2% 0 0
+        }
+        
+        .oneshop_products_storeboxtop_div {
+            height: 170px;
+            border: 1px solid #fc0;
+            position: relative;
+        }
+        
+        .oneshop_products_storebox_bottomdiv a {
+            font-family: Raleway-Regular;
+            color: #000;
+            font-size: 15px
+        }
+        
+        .oneshop_products_storebox_bottomdiv {
+            max-height: 42px;
+            min-height: auto;
+            padding: 10px;
+            text-align: center;
+            background: #fc0
+        }
+        
+        .oneshop_menuicon_div {
+            width: 160px;
+            height: 25px;
+            overflow: hidden;
+            margin: 0 auto
+        }
+        
+        #flip,
+        #panel {
+            padding: 0
+        }
+        
+        #panel {
+            background-color: #fff;
+            border: 1px solid #e2e2e2;
+            display: none;
+            height: 360px;
+            margin: 0;
+            padding: 10px;
+            position: absolute;
+            z-index: 10000;
+            left: 3%;
+            right: 3%;
+            box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
+        }
+        
+        .oneshop_product_images {
+            float: left;
+            width: 100%;
+        }
+		.oneshop_product_images .heading{padding-bottom:5px; text-transform:uppercase; border-bottom:1px solid #dcdcdc;} 
+        
+        .oneshop_setting_icon,
+        .oneshop_setting_icon2 {
+            position: absolute;
+            width: 34px;
+            height: 36px;
+            border: none;
+            cursor: pointer
+        }
+        
+        .oneshop_setting_icon {
+            background: url(../Images/setting2.png);
+            position: absolute;
+            right: 0px;
+        }
+        
+        .oneshop_setting_icon2 {
+            background: url(../Images/setting2_hover.png);
+            position: absolute;
+            right: 0px;
+        }
+        
+        .stick,
+        .stickChat {
+            position: fixed;
+            z-index: 10
+        }
+        
+        .oneshop_tabspopup_container {
+            float: left;
+            width: 700px;
+            height: 450PX;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: url(../Images/1b.jpg);
+            overflow: hidden;
+            margin: 50px 0 80px 80px
+        }
+        
+
+        .titlecontainer {
+            height: 60px;
+            font-size: 12px
+        }
+        
+        .titlecontainer .titledeco {
+            border-bottom: 1px solid #ccc;
+            height: 25px
+        }
+        
+        .fkinlineblock {
+            display: inline-block
+        }
+        
+        .titlecontainer .titledeco .title-text {
+            background-color: #fff;
+            font-weight: 400;
+            padding: 15px 10px 0
+        }
+        
+        .oneshop_accessories_banner,
+        .oneshop_accessories_banner img {
+            width: 100%;
+            height: 300PX
+        }
+        
+        .oneshop_categories_box {
+            width: 260px;
+            height: 290px;
+            padding: 0;
+            overflow-y: scroll
+        }
+        
+        .categorylinks {
+            margin-top: 0;
+            padding: 0
+        }
+        
+        .categorylinks ul {
+            float: left
+        }
+        
+        .categorylinks ul li {
+            list-style: none;
+            width: 220px
+        }
+        
+        .categorylinks ul li a {
+            width: 220px;
+            color: #000;
+            float: left;
+            padding: 3px 0 3px 10px;
+            border: 1px solid #fff
+        }
+        
+        .categorylinks ul li a:hover {
+            width: 220px;
+            color: #333;
+            float: left;
+            border: 1px solid #FC0;
+            padding: 3px 0 3px 10px
+        }
+        
+        .oneshop_category_mainimages,
+        .oneshop_category_mainimages img {
+            width: 195px;
+            height: 172px
+        }
+        
+        .oneshop_category_headingbox {
+            width: 175px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 0 10px;
+            text-align: center;
+            background: #555;
+            border-top: 1px #e5e5e5 solid
+        }
+        
+        .oneshop_category_contenttotal_wrapper {
+            float: left;
+            width: 195px;
+            height: 225px;
+            margin: 0 13px 0 0
+        }
+        
+        .contentbox_shadow {
+            float: left;
+            width: 195px;
+            height: 16px;
+            background: url(../Images/contentbox_shadow.png)
+        }
+        
+        .oneshop_proimagebox {
+		    display: table;
+			width: 100%;
+			height: 170px;
+			text-align: center;
+			border: 1px solid #fc0;
+			box-sizing: border-box;
+        }
+		
+		.oneshop_proimagebox span{display:table-cell; vertical-align:middle; width:100%; height:100%; text-align:center;}
+        
+        .oneshop_product_ratebg_box {
+            width: 100%;
+            padding:10px;
+            text-align: center;
+            height: 70px;
+			overflow:hidden;
+			background:#ffcc00;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+        }
+
+		.oneshop_product_ratebg_box .title{ text-align:center; margin-bottom:5px !important; font-size:15px; width:100%; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+		.oneshop_product_ratebg_box .price{text-align:center; margin-bottom:0px !important; font-size:16px;}
+        
+       /* .oneshop_pro_total_wrapper_div {
+            float: left;
+            width: 195px;
+            overflow: hidden;
+            margin: 0 13px 30px 0
+        }
+		*/
+		.oneshop_pro_total_wrapper_div{
+			float: left;
+			width: 23%;
+			height: 240px;
+			margin: 0 2% 0 0;
+		}
+        
+        .packagedat_admin {
+            color: #000;
+            font-size: 12px;
+            padding: 0 10px;
+            text-align: left;
+            line-height: 32px;
+            overflow: hidden;
+            background: #ffd65e;
+            background: -moz-linear-gradient(top, rgba(255, 214, 94, 1) 0, rgba(254, 191, 4, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(255, 214, 94, 1) 0, rgba(254, 191, 4, 1) 100%);
+            background: linear-gradient(to bottom, rgba(255, 214, 94, 1) 0, rgba(254, 191, 4, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04', GradientType=0)
+        }
+        
+        .oneshop_adminfilter {
+            float: left;
+            background-color: #fff;
+            height: 22px;
+            line-height: 22px;
+            width: 150px;
+            font-size: 11px;
+            padding: 0 10px 0 5px;
+            border: 1px solid #ccc
+        }
+        
+        .packagedat_admin_store {
+            margin: 0;
+            width: 99%;
+            padding: 5px 10px 5px 0;
+            border-bottom: 1px #ccc solid;
+            background: #f6f9ea;
+            background: -moz-linear-gradient(top, rgba(246, 249, 234, 1) 1%, rgba(255, 255, 255, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(246, 249, 234, 1) 1%, rgba(255, 255, 255, 1) 100%);
+            background: linear-gradient(to bottom, rgba(246, 249, 234, 1) 1%, rgba(255, 255, 255, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f6f9ea', endColorstr='#ffffff', GradientType=0)
+        }
+        
+        .oneshop_leftimg_box,
+        .oneshop_leftimg_box img {
+            width: 35px;
+            height: 30px
+        }
+        
+        .oneshop_leftimg_box {
+            margin: 0;
+            float: left
+        }
+        
+        .oneshop_leftimg_box_content {
+            margin: 0 0 0 10px;
+            width: 450px;
+            padding: 7px 0 0
+        }
+        
+        .oneshop_overview_countbox {
+            float: left;
+            height: 28px;
+            padding: 0 10px;
+            line-height: 28px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 160px;
+            background: #f6f8f9;
+            background: -moz-linear-gradient(top, rgba(246, 248, 249, 1) 0, rgba(229, 235, 238, 1) 50%, rgba(215, 222, 227, 1) 51%, rgba(245, 247, 249, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(246, 248, 249, 1) 0, rgba(229, 235, 238, 1) 50%, rgba(215, 222, 227, 1) 51%, rgba(245, 247, 249, 1) 100%);
+            background: linear-gradient(to bottom, rgba(246, 248, 249, 1) 0, rgba(229, 235, 238, 1) 50%, rgba(215, 222, 227, 1) 51%, rgba(245, 247, 249, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9', GradientType=0)
+        }
+        
+        .oneshop_product_commenttext_here {
+            margin: 0 0 0 10px;
+            width: 570px;
+            min-height: 40px;
+            padding: 0
+        }
+        
+        .oneshop_banner1 {
+            background: url(../images/banner1.png) no-repeat
+        }
+        
+        .oneshop_services_adminstore_menu {
+            float: left;
+            width: 100%;
+            margin: 0;
+            background: #898989;
+            background: -moz-linear-gradient(top, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%);
+            background: linear-gradient(to bottom, rgba(137, 137, 137, 1) 17%, rgba(73, 73, 73, 1) 100%)
+        }
+        
+        .oneshop_services_adminstore_menu ul li {
+            float: left;
+            list-style: none;
+            font-size: 11px;
+            padding: 0 15px;
+            line-height: 32px;
+            font-weight: 700
+        }
+        
+        .oneshop_services_adminstore_menu ul li a {
+            color: #fff
+        }
+        
+        .oneshop_services_adminstore_menu ul li a.current {
+            font-weight: 700;
+            color: #CCC
+        }
+        
+        .oneshop_services_adminstore_menu ul li a:hover {
+            color: #CCC
+        }
+        
+        .oneshop_services_adminstore_menu ul li ul li ul li a,
+        .oneshop_services_adminstore_menu ul li ul li ul li a:hover {
+            color: #4482DB;
+            font-weight: 700
+        }
+        
+        .category_list {
+            float: left;
+            width: 200px;
+            max-height: 320px;
+            overflow: auto;
+            border-right: 1px solid #000;
+            padding-right: 10px
+        }
+        
+        .category_list ul {
+            margin: 0;
+            padding: 0
+        }
+        
+        .category_list ul li {
+            list-style-type: none;
+            padding: 4px 4px 4px 0;
+            font-weight: 700;
+            color: #666;
+            border-bottom: 1px dotted
+        }
+        
+        .category_list ul li a {
+            color: #666
+        }
+        
+        .category_list ul li a:hover {
+            color: #446cb3
+        }
+        
+        .category_list_active {
+            color: #446cb3!important
+        }
+        
+        .category_list_details {
+            float: left;
+            width: 550px;
+            padding-left: 18px;
+            max-height: 320px;
+            overflow: auto
+        }
+        
+        .category1 {
+            width: 230px;
+            float: left
+        }
+        
+        .category1 ul {
+            margin: 6px 0 12px;
+            padding: 0
+        }
+        
+        .category1 ul li {
+            list-style-type: none;
+            padding: 1px 1px 1px 6px
+        }
+        
+        .category1 ul li a {
+            color: #000
+        }
+        
+        .category1 ul li a:hover {
+            color: #ff7519
+        }
+        
+        .category1_active {
+            color: #ff7519!important;
+            font-weight: 700
+        }
+        
+        .arrow_right {
+            float: right
+        }
+        
+        .cat_heading {
+            font-weight: 700;
+            font-size: 10pt
+        }
+        
+        .left_services,
+        .right_services {
+            float: left;
+            width: 360px;
+            margin-top: 20px;
+            padding-left: 20px
+        }
+        
+        .left_services ul {
+            margin: 0;
+            padding: 0
+        }
+        
+        .left_services ul li {
+            list-style-type: none;
+            padding: 4px 4px 4px 26px;
+            background: url(../Images/Yes.png) 0 2px no-repeat;
+            background-size: 20px 20px
+        }
+        
+        .left_services ul li a {
+            color: #000
+        }
+        
+        .left_services ul li a:hover {
+            color: #ff7519
+        }
+        
+        .right_services ul {
+            margin: 0;
+            padding: 0
+        }
+        
+        .right_services ul li {
+            list-style-type: none;
+            padding: 4px 4px 4px 26px;
+            background: url(../Images/Yes.png) 0 2px no-repeat;
+            background-size: 20px 20px
+        }
+        
+        .right_services ul li a {
+            color: #000
+        }
+        
+        .right_services ul li a:hover {
+            color: #ff7519
+        }
+        
+        .services_services {
+            max-height: 280px;
+            overflow: auto;
+            float: left;
+            width: 780px
+        }
+        
+        .click_chatSection {
+            float: left;
+            width: 900px;
+            height: 40px;
+            box-shadow: 0 -2px 2px #777;
+            background-color: #06F
+        }
+        
+        .click_whosOnline {
+            float: right;
+            width: 250px;
+            background-color: #fff;
+            margin: .2% 5px 0 0
+        }
+        
+        .click_findChat {
+            float: left;
+            padding: 3% 10px;
+            border: 0;
+            width: 230px;
+            background-color: #fff
+        }
+        
+        .stick {
+            top: 0
+        }
+        
+        .stickChat {
+            top: 94%
+        }
+        
+        .click_importantNotifications {
+            float: left;
+            display: block;
+            width: 900px;
+            padding-bottom: 10px;
+            margin: 0
+        }
+        
+        * {
+            margin: 0;
+            padding: 0
+        }
+        
+        #tabs {
+            height: 30px;
+            float: right
+        }
+        
+        #tabs>ul {
+            font: 1em;
+            list-style: none
+        }
+        
+        #tabs>ul>li {
+            margin: 0 2px 0 0;
+            padding: 7px 2px;
+            display: block;
+            float: left;
+            color: #000;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            -moz-border-radius-topleft: 4px;
+            -moz-border-radius-topright: 4px;
+            -moz-border-radius-bottomright: 0;
+            -moz-border-radius-bottomleft: 0;
+            border-radius: 4px 4px 0 0
+        }
+        
+        #tabs>ul>li:hover {
+            cursor: pointer;
+            color: #000
+        }
+        
+        #tabs>ul>li.tabActiveHeader {
+            cursor: pointer;
+            color: #446cb3;
+            font-weight: 700
+        }
+        
+        #tabscontent {
+            color: #000;
+            float: left;
+            margin: 0;
+            padding: 10px 10px 25px
+        }
+        
+        .cvdes_notification_drop {
+            width: 270px;
+            overflow-y: scroll;
+            height: 380px;
+            background: #fff;
+            color: #fff;
+            display: none;
+            position: absolute;
+            z-index: 10000;
+            margin-top: 30px;
+            margin-left: 320px;
+            border: 1px solid #FC0
+        }
+        
+        .cvdes_notification_drop ul li,
+        .cvdes_notification_dropnew ul li {
+            list-style: none;
+            border-bottom: 1px dotted #e1e1e1;
+            display: inline-block;
+            width: 240px;
+            min-height: 40px
+        }
+        
+        .cvdes_notification_dropnew ul li {
+            list-style: none;
+            border-bottom: 1px dotted #e1e1e1;
+            display: inline-block;
+            padding: 0 0 5px
+        }
+        
+        .newwithCategory,
+        .slider {
+            display: block
+        }
+        
+        .cvdes_notification_drop ul li a,
+        .cvdes_notification_dropnew ul li a {
+            line-height: 16px;
+            padding: 5px 10px 5px 40px;
+            color: #888;
+            font-size: 12px;
+            display: block;
+            min-height: 35px
+        }
+        
+        .cvdes_notification_drop ul li a:hover,
+        .cvdes_notification_dropnew ul li a:hover {
+            background: #f8f8f8;
+            min-height: 35px;
+            width: 200px;
+            padding: 5px 10px 5px 40px
+        }
+        
+        .letterspacing {
+            letter-spacing: -1px
+        }
+        
+        .new_moduleSearchWrapper {
+            float: left;
+            margin: 0 0 1%;
+            padding: 7px 7px 3px;
+            width: 99%;
+            border-radius: 3px;
+            background: #ccc
+        }
+        
+        .newcategorySelection {
+            background: #f5f5f5;
+            float: left;
+            height: 28px;
+            margin: 0 0 3px;
+            padding: 7px 0 0 10px;
+            width: 30px
+        }
+        
+        .newmoduleSearchIcon {
+            cursor: pointer;
+            float: left;
+            height: 20px;
+            margin: 3px 0 0;
+            position: relative;
+            width: 20px
+        }
+        
+        .new_categorySelectionField,
+        .new_moduleSearchField {
+            background-color: #fff;
+            font: 12px Arial;
+            height: 35px;
+            border: none
+        }
+        
+        .new_categorySelectionField {
+            color: #999;
+            float: left;
+            margin: 5px 2px 10px 0;
+            padding: 0;
+            width: 105px
+        }
+        
+        .new_moduleSearchField {
+            color: #777;
+            float: right;
+            margin: 5px 0 0;
+            padding: 0 10px 0 5px;
+            width: 438px
+        }
+        
+        .np_newpopuup_bgcontainer {
+            width: 500px;
+            margin: 5px auto;
+            background: #ccc;
+            overflow: hidden
+        }
+        
+        .click_posdgdsgsction {
+            position: absolute;
+            float: left;
+            overflow-X: hidden;
+            overflow-Y: none;
+            width: 500px;
+            height: 500px
+        }
+        
+        .click_createGroup_newbtn {
+            cursor: pointer;
+            position: absolute;
+            z-index: 10;
+            width: 25px;
+            height: 25px;
+            margin: 4px 0 0 470px
+        }
+        
+        .np_popupheadingnew_box {
+            float: left;
+            width: 500px;
+            height: 30px;
+            background-color: #fc0
+        }
+        
+        .np_popupheadingnew_box h4 {
+            float: left;
+            font: 14px Arial;
+            color: #000;
+            line-height: 30px;
+            padding: 0 0 0 10px
+        }
+        
+        .np_popupcontainer_middlebox {
+            float: left;
+            width: 458px;
+            min-height: 200px;
+            border: 1px solid #E2E2E2;
+            background: #fff;
+            padding: 20px
+        }
+        
+        .np_popup_amaze_logo {
+            float: left;
+            width: 140px;
+            height: 60px;
+            background: #33C
+        }
+        
+        .np_popup_amaze_logo img {
+            width: 140px;
+            height: 60px;
+            border: 1px solid #ccc
+        }
+        
+        .historyResultsMainDiv {
+            border-bottom: 1px dotted #999;
+            margin-top: 10px;
+            overflow: hidden;
+            padding: 5px 0 10px;
+            width: 100%
+        }
+        
+        .tumbnail,
+        .tumbnail img {
+            height: 80px;
+            width: 100px
+        }
+        
+        .tumbnail {
+            float: left;
+            overflow: hidden
+        }
+        
+        .searchText {
+            float: left;
+            margin-left: 10px;
+            width: 610px
+        }
+        
+        .heading {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .historyDiscript {
+            color: #666;
+            float: left;
+            font: 13px Arial;
+            margin-top: 5px;
+			line-height:18px;
+        }
+        
+        .historyHead {
+            color: #000;
+            font: 16px Arial;
+            width: 400px
+        }
+        
+        .watchDate,
+        .watchDate h2 {
+            float: right;
+            font: 12px Arial
+        }
+        
+        .cartlogos,
+        .cartlogos img {
+            width: 60px;
+            height: 35px
+        }
+        
+        .watchDate {
+            color: #999
+        }
+        
+        .watchDate h2 {
+            color: #ccc
+        }
+        
+        .cartlogos {
+            margin: 0 10px 0 0
+        }
+        
+        .cvdes_rightbar_headingsbg_wrap {
+            background: #f5f5f5;
+            border: 1px solid #b2b1b1;
+            border-radius: 2px;
+            color: #000;
+            font-size: 14px;
+            margin: 0 0 10px;
+            overflow: hidden;
+            padding: 5px 0 3px;
+            text-align: center;
+            width: 100%
+        }
+        
+        .click_fromdatetodate_wrap {
+            background: #eee;
+            margin: 0;
+            overflow: hidden;
+            padding: 5px 5px 5px 10px;
+            width: 610px
+        }
+        
+        .store_activity_maindiv {
+            border-top: 1px solid #ddd;
+            overflow: hidden;
+            padding: 10px 0;
+            width: 100%
+        }
+        
+        .store_searchText {
+            float: left;
+            width: 100%
+        }
+        
+        .store_tumbnail,
+        .store_tumbnail img {
+            height: 40px;
+            width: 50px
+        }
+        
+        .store_tumbnail {
+            float: left;
+            overflow: hidden
+        }
+        
+        .oisdes_leftbanner_box {
+            width: 100%;
+            height: 300px;
+            float: left;
+            overflow: hidden
+        }
+        
+        .isdes_nextbtn,
+        .isdes_prevbtn {
+            position: absolute;
+            background: #4c0092;
+            width: 25px;
+            height: 25px;
+            color: #f8f8f8;
+            font-size: 35px;
+            border-radius: 25px;
+            cursor: pointer;
+            z-index: 99;
+            opacity: .5;
+            text-align: center
+        }
+        
+        .isdes_nextbtn {
+            margin: 140px 25px 0 72%
+        }
+        
+        .isdes_prevbtn {
+            margin: 140px 0 0 12px
+        }
+        
+        .slider,
+        .slider img {
+            width: 100%;
+            height: 300px
+        }
+        
+        .slider {
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            float: left
+        }
+        
+        .oisdes_leftbanner_box:hover .isdes_nextbtn,
+        .oisdes_leftbanner_box:hover .isdes_prevbtn {
+            opacity: 1;
+            transition: all .5 ease-out;
+            -webkit-transition: all .5 ease-out
+        }
+        
+        .oneshop_homepage_products_container {
+            float: left;
+            width: 193px;
+            height: 240px;
+            background: #f5f5f5;
+            border-bottom: 1px #ccc solid;
+            overflow: hidden;
+            margin: 0 13px 30px 0
+        }
+        
+        .oneshop_home_products,
+        .oneshop_home_products img {
+            width: 193px;
+            height: 172px
+        }
+        
+        .oneshop_home_products {
+            text-align: center
+        }
+        
+        .oneshop_home_products_ratebg_box {
+            width: 175px;
+            padding: 5px 10px;
+            text-align: center;
+            min-height: 55px
+        }
+        
+        .hotel_pachagesummary_box {
+            float: left;
+            width: 250px
+        }
+        
+        .bgcolor3 {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 5px;
+            color: #000
+        }
+        
+        .fs14 {
+            font-size: 14px!important
+        }
+        
+        .hotel_pachagesummary_box ul {
+            background: #f5f5f5;
+            border-bottom: 1px solid #ccc;
+            float: left;
+            list-style: none;
+            margin: 0;
+            padding: 5px 0;
+            width: 250px
+        }
+        
+        .hotel_pachagesummary_box ul li {
+            float: left;
+            line-height: 24px;
+            list-style: none;
+            margin: 0 0 0 15px;
+            overflow: hidden;
+            padding: 0;
+            width: 200px;
+            font-family: georgia;
+            font-size: 14px
+        }
+        
+        .green {
+            color: #090
+        }
+        
+        .cart_heading {
+            font: 16px Arial;
+            width: 510px;
+            color: #039;
+            font-weight: 700
+        }
+        
+        .cart_heading a {
+            color: #039
+        }
+        
+        .cart_heading a:hover {
+            color: #036
+        }
+        
+        .oneshop_cartquantity {
+            float: left;
+            background-color: #fff;
+            height: 22px;
+            line-height: 22px;
+            width: 60px;
+            font-size: 11px;
+            padding: 0 10px 0 5px;
+            border: 1px solid #ccc
+        }
+        
+        .np_des_checkout_btn,
+        .paybook_btn {
+            color: #fff;
+            line-height: 24px;
+            cursor: pointer
+        }
+        
+        .np_des_checkout_btn {
+            background: #333;
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            font-size: 18px;
+            padding: 7px 25px
+        }
+        
+        .np_des_checkout_btn:hover {
+            background: #666;
+            border-radius: 2px;
+            border: 0 solid #CCC
+        }
+        
+        .oneshop_paybookpopup {
+            float: left;
+            width: 570px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: hidden;
+            margin: 30px 0 80px
+        }
+
+        .oneshop_paybookpopup1 {
+            float: left;
+            width: 600px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: hidden;
+            margin: 30px 0 80px
+        }
+        
+        .paybook_btn {
+            background: #c5b000;
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            font-size: 14px;
+            padding: 3px 15px
+        }
+        
+        .paybook_btn:hover {
+            background: #666;
+            border-radius: 2px;
+            border: 0 solid #CCC
+        }
+        
+        .oneshop_paybook_yesorno_buttons {
+            margin: 0 auto;
+            width: auto;
+            padding: 20px 0 0;
+            text-align: left
+        }
+        
+        .oneshop_paymenttype_leftbox,
+        .oneshop_paymenttype_wrap {
+            width: 570px;
+            margin: 20px 0 0;
+            float: left
+        }
+        
+        .oneshop_paymenttype_leftbox {
+            height: 100px;
+            overflow-y: scroll
+        }
+        
+        .paybok_field {
+            float: left;
+            background-color: #fff;
+            height: 24px;
+            width: 215px;
+            padding: 0 10px 0 0;
+            border-bottom: 1px #EFEFEF solid;
+            border-left: 0 #ccc solid;
+            border-top: 0 #ccc solid;
+            border-right: 0 #ccc solid;
+            text-align: center
+        }
+        
+        .oneshop_paybook_success_popup {
+            float: left;
+            width: 500px;
+            height: 250PX;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: hidden;
+            margin: 30px 0 80px
+        }
+        
+        .oneshop_paybook_stick {
+            float: left;
+            width: 60px;
+            height: 61PX;
+            position: absolute;
+            margin: -15px 0 0 -15px;
+            background: url(../Images/pay.png) no-repeat
+        }
+        
+        .lh26 {
+            line-height: 26px
+        }
+        
+        .np_des_netpro_settings_tabbg {
+            width: auto
+        }
+        
+        .np_des_contbox_safebox_topdiv {
+            background-color: #f5f5f5;
+            color: #000;
+            display: inline-block;
+            font-weight: 400;
+            font-size: 14px;
+            padding: 5px 10px
+        }
+        
+        .np_des_curner {
+            background: url(../images/curner.png) no-repeat;
+            height: 28px;
+            width: 14px
+        }
+        
+        .ttdes_flightsearch_topheadings_box {
+            color: #333;
+            font-size: 13px;
+            height: 34px;
+            font-weight: 700;
+            line-height: 34px;
+            width: 100%;
+			border-bottom:2px solid #ddd;
+        }
+        
+        #tabs a,
+        .status_btn {
+            font-size: 12px;
+            color: #fff
+        }
+        
+        .ttdes_flightsearch_history_content {
+            height: auto;
+            padding: 8px 0;
+            width: 100%;
+            border-bottom: 1px #ddd solid;
+			font-size:13px;
+			color:#666;
+        }
+        
+        .ttdes_flight_arrival_box,
+        .ttdes_flight_departure_box,
+        .ttdes_flight_duration_box,
+        .ttdes_flight_select_box,
+        .ttdes_flight_delivery_box,
+        .ttdes_flight_edit_box,
+        .ttdes_stores_date,
+        .ttdes_stores_orderid {
+            /*border-right: 1px solid #dcdcdc;*/
+            float: left;
+            text-align: center;
+            width: 17%;
+            padding: 0 0 0 10px
+        }
+        
+        .ttdes_flight_duration_box,
+        .ttdes_stores_date,
+        .ttdes_flight_select_box,
+        .ttdes_flight_delivery_box,
+        .ttdes_flight_edit_box,
+        .ttdes_stores_orderid {
+            border-right: 0 solid #E6E6E6;
+            padding: 0 0 0 10px
+        }
+        
+        .ttdes_flight_arrival_box {
+            padding: 0 0 0 10px;
+            text-align: center;
+            width: 17%;
+        }
+
+        .ttdes_flight_duration_box {
+            padding: 0 0 0 10px;
+            text-align: center;
+            width: 17%;
+        }
+		
+		.ttdes_flight_duration_box label{text-transform:lowercase;}
+
+        .ttdes_flight_delivery_box {
+            padding: 0 0 0 10px;
+            text-align: center;
+            width: 17%;
+        } 
+
+
+        .ttdes_flight_edit_box{
+            text-align: center;
+            width: 17%;
+        }
+
+        .ttdes_flight_select_box{
+            padding: 0 0 0 10px;
+            text-align: center;
+            width: 5%;  
+        }
+        
+        
+        .ttdes_stores_date {
+            text-align: center;
+            width: 17%;
+        }
+        
+        .ttdes_stores_orderid {
+            float: left;
+            text-align: center;
+            width: 17%;
+        }
+        
+        .status_btn {
+            background: #c5b000;
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            cursor: pointer;
+            line-height: 18px;
+            padding: 2px 10px
+        }
+        
+        .status_btn:hover {
+            background: #666;
+            border-radius: 2px;
+            border: 0 solid #CCC
+        }
+        
+        .np_des_company_specific_profile_imagewrap {
+            width: 100%
+        }
+        
+        .np_des_company_promises_imgbox {
+            height: 100px;
+            margin: 180px 0 0 10px;
+            position: absolute;
+            width: 180px
+        }
+        
+        .np_des_company_promises_imgbox img {
+            height: 100px;
+            width: 180px
+        }
+        
+        .np_des_company_specific_profile_img {
+            height: 235px;
+            width: 100%
+        }
+        
+        .np_des_company_specific_profile_img img {
+            height: 235px;
+            overflow: hidden;
+            width: 100%
+        }
+        
+        .np_des_company_profilename {
+            background-color: #ccc;
+            height: 33px;
+            margin: 0 0 0 22%;
+            padding: 5px 0 0 40px;
+            width: 72.6%;
+            float: right
+        }
+        
+        #tabs {
+            overflow: hidden;
+            width: 100%;
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none
+        }
+        
+        #tabs li {
+            float: left;
+            margin: 0
+        }
+        
+        /*#tabs a {
+            float: left;
+            position: relative;
+            padding: 0 28px;
+            height: 0;
+            line-height: 30px;
+            background: #fff;
+            border-right: 30px solid transparent;
+            border-bottom: 30px solid #c5b000
+        }
+		*/
+		#tabs{height:auto !important;}
+		#tabs a {
+            float: left;
+            position: relative;
+            padding:0px 20px;
+            height: 40px;
+            line-height: 42px;
+			font-size:13px;
+			color:#000;
+			text-transform:uppercase;
+			z-index:1;
+        }
+        
+        #tabs #current,
+        #tabs a:focus,
+        #tabs a:hover {
+            color: #000;
+        }
+		
+		#tabs #current:after{
+		background-color: #ffcc00;
+    	-webkit-transform: perspective(900px) rotate3d(1,0,0,0deg);
+    	transform: perspective(900px) rotate3d(1,0,0,0deg);
+		}
+		
+		#tabs a:after{
+		position: absolute;
+		border-top:2px solid #eabc00;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background-color: #ffcc00;
+		content: '';
+		-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+		transition: transform 0.3s, background-color 0.3s;
+		-webkit-transform: perspective(900px) rotate3d(1,0,0,90deg);
+		transform: perspective(900px) rotate3d(1,0,0,90deg);
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+		-webkit-perspective-origin: 50% 100%;
+		perspective-origin: 50% 100%;
+		}
+		
+        
+        #tabs a:focus {
+            outline: 0
+        }
+        
+        #tabs .current {
+            z-index: 3
+        }
+        
+        #content {
+            background: #fff;
+            border-top: 1px solid #ccc;
+            padding: 10px 0;
+            float: left;
+            width: 100%;
+            margin: 0
+        }
+		
+		#content .top{position:relative; padding:10px 0px;}
+		#content .top h3{margin-bottom:0px; margin-top:6px;}
+        
+        #content h2,
+        #content h3,
+        #content p {
+            margin: 0 0 15px
+        }
+        
+        #about {
+            color: #999;
+            text-align: center;
+            font: .9em Arial, Helvetica
+        }
+        
+        #about a {
+            color: #777
+        }
+        
+        .click_tabs_wrap {
+            float: left;
+            width: 100%;
+            margin: 0
+        }
+        
+        .oneshop_pro_saved_products_wrap{
+            float: left;
+            width: 23%;
+            overflow: hidden;
+            margin: 0 2% 15px 0;
+			border:1px solid #ffcc00;
+			height:236px;
+			position:relative;
+        }
+		.oneshop_pro_saved_products_wrap .delete_product{position:absolute; right:0; top:0; padding:5px;}
+		.oneshop_pro_saved_products_wrap:nth-child(4n){margin-right:0px;}
+        
+        .banner_rightside_box {
+            float: right;
+            width: 160px;
+            height: 26px;
+            text-align: right;
+            margin: 5px 0 0;
+            overflow: hidden
+        }
+        
+        .banner_cart_countingbg{
+            float: right;
+            width: 20px;
+            border-radius: 100px;
+            background: #fff;
+            height: 18px;
+            text-align: center;
+            font-size: 10px;
+            padding: 2px 0 0;
+            margin: -9px 0 0 17px;
+            position: absolute
+        }
+        
+        .banner_ratingbox{
+            float:right;
+            margin:7px 15px 0px 15px;
+            color:#fff;
+        }
+        
+        .banner_borderbottom {
+            width: 90px;
+            border-bottom: 1px #CCC solid
+        }
+        
+        .cart_notify_options {
+            float: left;
+            margin: 0;
+            width: 30px;
+            position: absolute;
+            padding: 0 0 5px
+        }
+        
+        .cart_notify_options ul {
+            list-style: none;
+            width: 210px
+        }
+        
+        .maildes_headerIcon {
+            cursor: pointer;
+            float: left;
+            margin: 0.5px 0 0 2.5px;
+            width: 23px;
+            height: 23px
+        }
+        
+        .cart_notify_options ul ul {
+            display: none
+        }
+        
+        .cart_notify_options ul li:hover ul {
+            display: block;
+            float: left;
+            position: absolute;
+            width: 210px;
+            margin: 25px 0 0 -55px;
+            z-index: 100
+        }
+        
+        .cart_notify_options ul ul li.maildes_bubble {
+            width: 50px;
+            height: 15px
+        }
+        
+        .cart_notify_options ul ul li.maildes_bubble img {
+            width: 22px;
+            height: 15px;
+            margin: 0 0 0 62px
+        }
+        
+        .cart_notify_options ul ul li.maildes_settingOption {
+            cursor: pointer;
+            padding: 10px;
+            color: #fff;
+            width: 200px;
+            text-align: left;
+            border-bottom: solid 1px #ddd;
+            font: 12px Arial;
+            background-color: #999
+        }
+        
+        .cart_notify_options ul ul li.maildes_settingOption:hover {
+            background-color: #ccc
+        }
+        
+        .np_des_notift_btn {
+            background: linear-gradient(to bottom, rgba(255, 214, 94, 1) 0, rgba(254, 191, 4, 1) 100%) rgba(0, 0, 0, 0);
+            border: 0 solid #ccc;
+            border-radius: 2px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            width: 200px;
+            bordet-radius: 3px;
+            line-height: 36px;
+            padding: 0 10px
+        }
+        
+        .oneshop_nosize {
+            width: auto;
+            padding: 0
+        }
+        
+        .follow_btn {
+            background: linear-gradient(to bottom, rgba(246, 248, 249, 1) 0, rgba(229, 235, 238, 1) 50%, rgba(215, 222, 227, 1) 51%, rgba(245, 247, 249, 1) 100%) rgba(0, 0, 0, 0);
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            color: #000;
+            cursor: pointer;
+            line-height: 20px;
+            font-size: 12px;
+            padding: 0 10px;
+			outline:none;
+        }
+        
+        .jsError {
+            display: none
+        }
+        
+        .oneshop_product_bigimage_total_wrap {
+            float: left;
+            width: 50%;
+            height: 500px
+        }
+        
+        .oneshop_product_bigimage {
+            float: left;
+            width: 350px;
+            height: 400px;
+            padding: 5px;
+            border-radius: 3px
+        }
+        
+        .oneshop_product_bigimage img {
+            float: left;
+            max-width: 100%;
+            height: 100%;
+            overflow: hidden;
+            text-align: center
+        }
+        
+        .oneshop_product_small_image {
+            float: left;
+            margin: 0;
+            width: 80px;
+        }
+        
+        .oneshop_product_small_image ul {
+            float: left;
+            margin: 0;
+            padding: 0
+        }
+        
+        .oneshop_product_small_image ul li {
+            float: left;
+			margin-bottom:5px;
+			border:1px solid #d8d8d8;
+            list-style: none;
+/*            width: 65px;
+            height: 50px*/
+        }
+		.oneshop_product_small_image ul li a{float:left;}
+        
+        .oneshop_product_small_image ul li img {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #CCC;
+			float:left;
+        }
+        
+        .addtowashlist_wrap {
+            float: left;
+            width: 100%;
+            border: 1px #dcdcdc solid;
+			background: #f7f7f7;
+        }
+        
+        .addtowashlist_wrap ul {
+            float: left;
+            margin: 0;
+            padding: 6px 0
+        }
+        
+        .addtowashlist_wrap ul li {
+            float: left;
+			padding:0 15px;
+            list-style: none;
+			border-right:1px solid #d6d6d6;
+        }
+		.addtowashlist_wrap ul li:last-child{border-right:none;}
+        
+        .addtowashlist_wrap ul li a {
+            float: left;
+            margin: 0 10px;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .addtowashlist_wrap ul li a:hover {
+		color:#4C91C0;
+        }
+        
+        .product_rightbox_pricebox {
+            float: right;
+            width: 250px;
+            margin: 20px 0 0 0;
+			padding: 10px;
+    		border: 1px solid #dcdcdc;
+        }
+        
+        .product_price {
+            float: left;
+            width: 100%;
+            padding:15px;
+            background: linear-gradient(to bottom, rgba(246, 249, 234, 1) 1%, rgba(255, 255, 255, 1) 100%) rgba(0, 0, 0, 0);
+            border: 1px solid #ccc;
+        }
+		
+		.product_price .discount_wrap{ margin-bottom:10px; width:100%;}
+		.product_price .discount_wrap .price{text-decoration:line-through;}
+		.product_price .price_wrap{ font-size:16px; color:#666;}
+		.product_price .price_wrap .price{font-size:28px; color:#FF9800;}
+        
+        .np_des_addtocart,
+        .np_des_buy {
+            color: #fff;
+            line-height: 36px;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 3px 10px;
+/*            font-weight: 700;*/
+            cursor: pointer;
+			outline:none;
+        }
+        
+        .np_des_buy {
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            width: 140px;
+            background: #ff8831;
+			border-bottom:3px solid #e67e04;
+        }
+        
+        .np_des_buy:hover {
+            background: #fb8903
+        }
+        
+        .np_des_addtocart {
+            border: 0 solid #CCC;
+            border-radius: 2px;
+            background: #333;
+			    border-bottom: 3px solid #080808;
+        }
+        
+        .breadcrumbs ul,
+        .breadcrumbs ul li {
+            line-height: 22px;
+            float: left;
+            list-style: none
+        }
+        
+        .np_des_addtocart:hover {
+            background: #666
+        }
+        
+        .standalone_reviewbox {
+            overflow: hidden;
+            padding: 0 0 10px;
+            width: 620px;
+            background: #f5f5f5
+        }
+        
+        .writwareview_textarea {
+            background: #fff;
+            border: 1px solid #CCC;
+            border-radius: 2px;
+            color: #000;
+            height: 35px;
+            margin: 5px 0 0 5px;
+            padding: 5px;
+            width: 520px
+        }
+        
+        .breadcrumbs {
+            float: left;
+            height: 22px;
+            margin: 10px 0 0 5px;
+            width: 900px
+        }
+        
+        .breadcrumbs ul {
+            border-bottom: 1px solid #ddd;
+            height: 22px;
+            width: 620px
+        }
+        
+        .breadcrumbs ul li {
+            height: 22px;
+            margin: 0 10px 0 0
+        }
+        
+        .osdes_rightbar_headingsbg_wrap {
+            background: #f5f5f5;
+            border-radius: 5px;
+            color: #000;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            line-height: 36px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0 10px;
+            text-align: center;
+            width: 90%
+        }
+        
+        .banner-caption {
+            float: left;
+            position: absolute;
+            width: 598px;
+            color: #fff;
+            padding: 8px 0;
+            opacity: 5px;
+            margin: 66px 0 0;
+            background: rgba(0, 0, 0, .8)
+        }
+        
+        .banner-caption h5 {
+            margin-left: 20px
+        }
+        
+        .banborder {
+            width: 98%;
+            border: 5px solid #FFCF43!important
+        }
+        
+        img.banner {
+            width: 98%;
+            border: 5px solid transparent
+        }
+        
+        .bannersMainDiv {
+            overflow: hidden;
+            padding: 5px 0 10px;
+            width: 600px;
+            margin: 10px 15px;
+            cursor: pointer
+        }
+        
+        .oneshop_banner1 {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 141px;
+            display: inline-block
+        }
+        
+        .oneshop_theme_select,
+        .oneshop_theme_select1 {
+            background: url(../images/store_banners/123.png) no-repeat
+        }
+        
+        .oneshop_theme_select2 {
+            background: url(../images/store_banners/banner-2.png) no-repeat
+        }
+        
+        .oneshop_theme_select3 {
+            background: url(../images/store_banners/banner-3.png) no-repeat
+        }
+        
+        .oneshop_theme_select4 {
+            background: url(../images/store_banners/banner-4.png) no-repeat
+        }
+        
+        .oneshop_theme_select5 {
+            background: url(../images/store_banners/banner-5.png) no-repeat
+        }
+        
+        .oneshop_banner1_data_box {
+            padding: 12px 0;
+            width: 100%;
+			float:left;
+        }
+        
+        .nodata_found_bgwrap {
+            float: left;
+            font-size: 14px;
+            margin: 1% 0 0;
+            padding: 5px;
+            width: 100%
+        }
+        
+        .nodata_image {
+            height: 30px;
+            margin: 0 auto;
+            width: 60px
+        }
+        
+        .oneshop_banner_stip_newbox {
+            width: 100%;
+            margin: 0;
+            height: 141px; //background:url(../images/mid.png) repeat-x}.oneshop_banner_stip_middle_content{width:96%;margin:0;float:left;height:141px;background:url(../images/store_banners/mid1.png) repeat-x}.oneshop_banner_left_box,.oneshop_banner_right_box{width:2%;height:141px;float:left;background:url(../images/store_banners/side1.png) no-repeat}.channelitem{border-bottom:0 solid #eaeaea;margin:0 0 5px;width:100%}.all_comment_box,.channelitem,.comment-box{background:#fff}.videoitems_box_newbox_three,.videoitems_box_newbox_two{background:none;overflow:hidden;padding-bottom:5px;padding-top:0;width:100%}.videoitems_box_newbox_three{background:#fff;border-bottom:1px #F0F0F0 solid}.leftchannelitem_storesug{float:left;margin-right:0;margin-left:5px;width:18%}.imgitem_two{width:80%;height:30px;margin-top:3px}.rightchannelitem_storeright{float:left;font-family:Arial,sans-serif;font-size:14px;font-weight:700;width:79%}.right_container_head{overflow:hidden;padding:0}.right_container_head p{border-bottom:1px dotted #ccc;color:#d20000;font-size:14px;font-weight:700;margin:0 0 3px;padding:5px 0 0 5px;width:100%}.btn-suggestion{background:#fff;border:1px solid #CCC;border-radius:3px;color:#000;cursor:pointer;line-height:20px;font-size:12px;padding:0 10px}.box_newbg,.imagediv{padding:3px;background:#fff}.btn-suggestion:hover{background:#666;border-radius:3px;color:#fff;border:1px solid #666}.box_newbg{float:left}.left_oontainer{float:left;margin-right:1%;min-height:745px;width:77%}.left_imagebox{float:left;margin-right:4%;height:180px;width:20%;background:#399}.left_contentbox{float:left;width:76%;margin-top:1%}.imagediv{width:100%;height:100%;border:1px solid #ccc}.right_container{float:right;margin-right:0;margin-top:0;width:22%}.box_newbg{box-shadow:0 2px 5px #555;width:97%;margin:0 0 30px}.newbox-left{background:#fff;box-shadow:0 0 5px #555;width:100%;margin:30px 0 0;overflow:hidden;padding:10px 0 20px}.cancelorder_btn{border:0 solid #CCC;border-radius:2px;color:#fff;font-weight:700;cursor:pointer;line-height:36px;font-size:16px;font-family:Arial,Helvetica,sans-serif;padding:3px 15px;background:#ff8831}.cancelorder_btn:hover{background:#fb8903}.oneshop_myorder_select{float:left;background-color:#fff;height:24px;width:177px;padding:0 10px 0 5px;border-bottom:1px #ccc solid;border-left:1px #ccc solid;border-right:1px #ccc solid;border-top:1px #ccc solid}.myorder_imagediv{float:left;margin-right:2%;height:130px;width:15%;background:#399}.right_content_myorder{float:left;width:82%;margin-top:1%}.bgRed{background-color:#D60F00;padding-right:10px}.spinner-idx{height:100px;width:100px;margin:0 auto;position:relative;top:40%;-webkit-animation:rotation .6s infinite linear;-moz-animation:rotation .6s infinite linear;-ms-animation:rotation .6s infinite linear;animation:rotation .6s infinite linear;border-left:6px solid rgba(255,204,0,.15);border-right:6px solid rgba(255,204,0,.15);border-bottom:6px solid rgba(255,204,0,.15);border-top:6px solid rgba(255,204,0,.8);border-radius:100%}.oneshop_myFindStoreImageSection>img{height:95%;width:95%}.mab15{margin-bottom:15px}.store_img{width:100%;margin:0;height:100px}.np_messages_imageandtext_wrapper,.np_messages_imageandtext_wrapper ul{float:left;width:380px}.np_messages_imageandtext_wrapper ul li{border-bottom:1px dotted #ccc;float:left;list-style:none;margin:0 0 10px}.np_messages_leftimagediv{float:left;height:30px;margin:0 5px 3px 0;width:30px}.np_messages_leftimagediv img{border:1px solid #ccc;height:28px;width:28px}.np_messages_rightcontentmaindiv{float:left;width:340px}.np_des_mab5{margin-bottom:5px!important}.oneshop_compose_selectbox,.oneshop_compose_subject,.oneshop_compose_textarea{float:left;background-color:#fff;height:80px;width:450px;padding:10px 10px 10px 5px;border:1px solid #ccc}.oneshop_compose_subject{width:440px;height:30px;padding:2px 5px}.oneshop_compose_textarea{width:440px;height:40px;padding:2px 5px}
+			
+@media only screen and (min-width:900px) and (max-width:1100px){.oneshop_products_storebox{float:left;width:31%;height:220px;margin:0 3% 15px 0}.oneshop_pro_total_wrapper_div{float:left;width:31%; margin:0 3% 15px 0}.oneshop_products_storebox:nth-child(3n), .sm_products:nth-child(3n){margin-right:0}.stores_list ul li{width:31% !important;height:220px;margin:0 3% 15px 0 !important;}.stores_list ul li:nth-child(3n){margin-right:0px !important;}.oneshop_pro_saved_products_wrap{width:31% !important;margin:0 3% 15px 0 !important;}.oneshop_pro_saved_products_wrap:nth-child(3n){margin-right:0px !important;}.}
+@media only screen and (min-width:900px) and (max-width:1600px){.featured_product_product_mainwrap{margin:0}.pName h3{font:700 12px Arial;height:35px;padding:0 0 0 3%}}
+			
+			.wizard-bgimage-wrapper{background:url(../../assets/images/bed1.jpg);color:#fff;font-family:"Segoe UI";font-size:30px;height:300px;padding:6% 0 0;text-align:center;width:100%}.defaultpage_imagewrap_maindiv{width:250px;height:250px;border-radius:100%;margin:115px 0 0 43%;position:absolute;background-color:rgba(250,250,250,.8)}.defaultpage_image_wrap,.defaultpage_image_wrap img{width:170px;height:170px}.defaultpage_image_wrap{border-radius:100%;overflow:hidden;background:#fff;margin:40px 0 0 42px}.defaultpage_storename_content_wrap{width:96%;height:30px;line-height:30px;background:#FC0;color:$#fff;font-weight:700;font-size:16px;padding:10px 2%;border-top:5px #000 solid}.wi48{width:48%}.wi50{width:50%}.btn{transition:all .2s linear 0s;-moz-user-select:none;background-image:none;border:1px solid transparent;border-radius:0;cursor:pointer;display:inline-block;font-size:14px;font-weight:400;line-height:1.42857;margin-bottom:0;padding:8px 25px;text-align:center;vertical-align:middle;white-space:nowrap}.btn-primary{color:#fff;background-color:#4d89f9;border-color:#3371e6}.btn-primary:active,.btn-primary:focus,.btn-primary:hover{background-color:#3371e6;border-color:#1b59cd;color:#fff}.btn-ghost{border-color:#4d89f9;color:#fff}.btn-ghost:active,.btn-ghost:focus,.btn-ghost:hover{background-color:#3371e6;border-color:#1b59cd}.mab30{margin-bottom:30px}.popupbox_new_wrapper{width:100%;height:500px;margin:0}.popupbox_new_rightboxer{width:70%;height:400px;float:left;margin:0 0 0 2%}.popupbox_new_leftboxer{width:28%;height:500px;float:left}.popupleft_logo{width:100px;float:left;margin:5px 0 0;display:inline-table}.class1{background:rgba(0,0,0,0)!important;color:#fff}.wid5{width:5%}.wid94{width:95%}.wid97{width:99%;padding-left:5px;padding-right:5px}.wid33,.wid60{margin:2% 0 0;min-height:1px;padding-right:0;position:relative;float:left}.wid33{padding-left:15px;width:35.3333%}.wid60{padding-left:0;width:63%}.chat-conversation-box{background:linear-gradient(to bottom,#fff 0,#e5e5e5 100%) rgba(0,0,0,0);border:1px solid #ccc;color:#000;float:left;font-size:14px;line-height:18px;min-height:28px;padding:0;resize:none;width:99.7%;word-wrap:break-word}.btn_box,.callgroup_btn{color:#fff;font-size:12px;cursor:pointer}.chat-conversation-contenteditablediv{margin:0}.oneshop_compose_textarea_oneshop{background:rgba(0,0,0,0);border:0 solid #ccc;float:left;height:60px;padding:5px;width:99%}.callgroup_btn{background:#0c0;border:none;border-radius:2px;font-weight:700;margin:8px 0 0;padding:5px 8px}.callgroup_btn:hover{background:#093;float:left}.btn_box{background:#fb6e52;border:none;border-radius:2px;line-height:22px;padding:0 8px}.btn_box:hover{background:#7ca447;border-radius:2px}.chatconversation_search_maindiv{background-color:#fff;border:1px solid #ccc;float:left;height:25px;margin:1% 0 5px 2%;width:96%}.chatconversation_users_wrapper{float:left;height:500px;margin:0 0 5%;overflow-y:scroll;width:100%}.chatconversation_users_singlemaindiv{float:left;width:100%}.chatconversation_users_leftimage{background:#3c0;border-radius:150px;float:left;height:55px;overflow:hidden;width:20%}.chatconversation_users_leftimage_online{background:#3c0;border:2px solid #6f0;border-radius:150px;float:left;height:55px;overflow:hidden;width:20%}.chatconversation_image{height:100%;width:100%}.chatconversation_user_name{color:#000;float:left;font-size:14px;font-weight:700;margin:5% 0 0 3%;width:75%}.chatconversation_user_online{background:#0c0;border:2px solid #fff;border-radius:100px;float:left;height:12px;margin:3px 0 0;width:12px}.chat_usermaindiv-box,.chat_usermaindiv-box-activebox,.chat_usermaindiv_box_coffice,.chat_usermaindiv_box_dealex{background-color:#fff;border-bottom:1px solid #CCC;cursor:pointer;float:left;height:60px;margin:0;padding:2% 3% 0;width:94%}.chat_usermaindiv-box-activebox{background-color:#CC9;border-bottom:1px solid #FFF}.click_createGroupPopUpCloseBtn_messages{background-color:#d20001;cursor:pointer;height:16px;margin:0 0 0 232px;position:absolute;width:16px;z-index:10}.bgcolor5,.bgcolor6{width:90%;padding:10px 10px 10px 15px}.click_createGroupPopUpCloseBtn_messages h2{font-size:10px;text-align:center;line-height:16px}.fs24{font-size:24px!important}.bgcolor5{background:#ff5a5f;margin:0 0 5px;color:#fff}.bgcolor6{background:#ffeb7d;margin:0 0 5px 5%;color:#000;border-top:2px #333 solid}.messagebox_withoutreplay_box{height:465px;width:100%;list-style:none;margin:0 0 10px;overflow-y:scroll;padding:0}#oneshop_nomessages{background:#f5f5f5;border:1px solid #ccc;border-radius:5px;color:#000;font-size:14px;line-height:36px;margin:0 auto;overflow:hidden;padding:0 10px;text-align:center;width:40%}.semi-transparent-button{background:rgba(255,255,255,.5);border-radius:8px;box-sizing:border-box;color:#000;display:block;letter-spacing:1px;margin:0 auto;max-width:200px;padding:8px;text-align:center;text-decoration:none;transition:all .3s ease-out 0s;width:80%}.statistics_total_wqrap{float:left;width:100%}.preference_top_heading_wrap{margin:0;overflow:hidden;width:100%}.preference_module_names,.preference_module_names_highlated,.statistics_preference_box1,.statistics_preference_box2,.statistics_preference_box_content{background:linear-gradient(to bottom,rgba(125,126,125,1) 0,rgba(14,14,14,1) 100%) rgba(0,0,0,0);color:#fff;float:left;font-size:14px;line-height:36px;margin:0;padding:0 0 0 1%;width:24%}.statistics_preference_box2{margin:0 0 0 1px;width:23.8%;text-align:center}.preference_bottom_content_wrap{border-bottom:1px dotted #ccc;overflow:hidden;width:100%;margin:1% 0}.preference_bottom_content_wrap_highleted_box{border:2px solid #999;overflow:hidden;width:100%;margin:1% 0}.preference_module_names,.preference_module_names_highlated{background:#fff;color:#F60;font-size:14px;line-height:26px;padding:0 0 0 1%;margin:0;width:23.5%;border-left:2px #F90 solid;border-right:2px #F90 solid}.preference_module_names_highlated{border-left:0 #F90 solid}.statistics_preference_box_content{background:#fff;border-left:1px solid #f5f5f5;height:40px;line-height:40px;width:23.8%;color:#000}.spinner-lg,.spinner-md,.spinner-sm{position:relative;top:40%;-moz-animation:rotation .6s infinite linear;-ms-animation:rotation .6s infinite linear;-webkit-animation:rotation .6s infinite linear;border-left:6px solid rgba(191,224,38,1);border-radius:100%}.dark_gray{color:#333!important}.red2{color:red!important}.green2{color:#0F3!important}.spinner-lg{height:100px;width:100px;border-right:6px solid rgba(5,174,63,1);border-bottom:6px solid rgba(5,174,63,1);border-top:6px solid rgba(95,174,63,1)}.spinner-sm{height:30px;width:30px;border-right:6px solid rgba(5,140,63,1);border-bottom:6px solid rgba(5,144,63,1);border-top:6px solid rgba(95,140,63,1)}.spinner-md{height:60px;width:60px;border-right:6px solid rgba(5,174,63,1);border-bottom:6px solid rgba(5,174,63,1);border-top:6px solid rgba(95,174,63,1)}@-webkit-keyframes rotation{from{-webkit-transform:rotate(0)}to{-webkit-transform:rotate(359deg)}}@-moz-keyframes rotation{from{-moz-transform:rotate(0)}to{-moz-transform:rotate(359deg)}}@-ms-keyframes rotation{from{-ms-transform:rotate(0)}to{-ms-transform:rotate(359deg)}}@keyframes rotation{from{transform:rotate(0)}to{transform:rotate(359deg)}}.price_box_datadiv{border:1px solid #ccc;float:left;padding:15px;width:100%;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#fff;}.price_box_usdbox{border:1px solid #ccc;height:30px;width:100%;padding:0 5px;line-height:30px;margin:10px 0 0}.price_box_usdbox_droupbox{border-top:0 solid #ccc;border-bottom:0 solid #ccc;border-left:1px solid #ccc;border-right:0 solid #ccc;height:24px;width:125px;padding:0 0 0 5px}.price_box_usdbox_inrpricediv{border-left:1px solid #ccc;height:24px;width:100px;font-size:16px;font-weight:700;margin:0 0 0 5px;padding:0 10px}.following_boxstyles{background:#fff;width:97%;margin:0;overflow:hidden;padding:1.5% 1.5% 1%;border:1px solid #ccc;border-radius:2px}.following_userimage{background:#ccc;width:60px;height:60px;margin:0;border-radius:100%;overflow:hidden}.following_userimage img{width:100%;height:60px}.following_user_namebox{width:70%;margin:0 0 0 2%}.following_user_namebox h2{margin:0;padding:0;font-size:18px}.dealerpost-totalwrap{background:0 0;color:#fff;margin:0 0 30px;padding:0 0 30px;width:99.8%}.dx_des_mal20{margin-left:20px!important}.dealerpost-top-wrapper-bronze,.dealerpost-top-wrapper-gold,.dealerpost-top-wrapper-platinum,.dealerpost-top-wrapper-silver{background:#ffeb7d;height:45px;line-height:45px;margin:0;width:100%}.dealerpost-top-leftlogo{float:left;height:85px;margin:1% 0 0 1%;width:85px;overflow:hidden;border-radius:100%}.dealerpost-auctionname-wrap{background-color:#fff;display:inline-table;margin:2% 0 0 2%;overflow:hidden;padding:10px 0 10px 10px;width:76%;border:1px solid #ccc}.dx_des_mat30{margin-top:30px!important}.dealerpost-dealerlogo{margin:0;overflow:hidden;padding:0;width:96%}.dealerpost-dealerleftlogo,.dealerpost-dealerleftlogo img{float:left;height:83px;margin:0;width:100px}.dealerpost-dealerleftlogo-rightcontent{float:left;margin:0 0 0 3%;width:83%}.dealerpost-bottomdiv{background-color:rgba(0,0,0,.6);border-top:1px solid #999;height:40px;line-height:40px;margin:30px 0 0;padding:0 2% 0 0;text-align:right;width:98%}.click_popUp{display:none;position:fixed;width:100%;height:100%;background-color:rgba(0,0,0,.6);z-index:1015}.click_createGroupPopUpWrapper,.click_popUpWrapper{margin:50px 0 0 250px;box-shadow:0 0 5px #000;width:850px;height:500px;background-color:#f5f5f5;border-radius:5px}.click_createGroupPopUpWrapper{width:500px;height:300px;margin:100px auto}.click_createGroupPopUpCloseBtn,.click_popUpCloseBtn{cursor:pointer;position:absolute;z-index:10;width:25px;height:25px;margin:-10px 0 0 830px;box-shadow:0 0 3px #333;border-radius:15px;background-color:#555;border:1px solid #fff}.click_createGroupPopUpCloseBtn{margin:-10px 0 0 485px}.click_createGroupPopUpCloseBtn h2,.click_popUpCloseBtn h2{float:left;margin:3px 0 0 8px;font:15px Arial;color:#fff}.click_createGroupPopUpFooter{float:left;width:500px;height:40px;background-color:#eee;border-top:solid 1px #ddd;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.click_createGroupPopUpFooterOptions{float:right;margin:5px}.click_createGroupPopUpFooterBtns,.click_reportProblemBtn{float:left;padding:4px 10px;background:linear-gradient(#ddd,#ccc);color:#777;font:13px Arial;margin:0 0 0 5px;border:1px solid #999}.click_createGroupPopUpFooterBtns:hover,.click_reportProblemBtn:hover{color:#fff;border:1px solid #00f;background:linear-gradient(#09F,#03F)}.maincontianer_wrap{margin:30px 2%;width:96%;display:table}.os_bckwdndfrwdwrap{margin:0;height:auto}.os_bckwdndfrwdwrap ul{float:left;margin:6px}.os_bckwdndfrwdwrap ul li{background:#eee;color:#505050;padding:4px 5px;list-style:none;width:20px;border:1px solid #d6d6d6;float:left;text-align:center;font-size:19px;margin:0 0 0 9px;border-radius:3px;cursor:pointer}.maincontianer_wrap .oneshop_container_middle_section{width:100%;margin:0}.maincontianer_wrap .oneshop_left_newcontainer{width:65%;margin:0}.maincontianer_wrap .oneshop_left_paybook{width:50%;margin:0}.maincontianer_wrap .oneshop_right_stripe{width:50%;margin:0}.maincontianer_wrap .oneshop_right_newcontainer{width:27%}.quicklinkwrap{width:initial;margin-bottom:20px;display:block;float:none}.quicklinkwrap h3{background:#fc0;padding:12px;color:#000;border:1px solid #fc0;font-family:Raleway-SemiBold}.quicklinkwrap ul{background:#f7f7f7;border:1px solid #eee;float:none;list-style:none;width:inherit;border-top:0}.quicklinkwrap ul li{font-family:Raleway-Regular;line-height:18px;list-style:none inside;margin:0;overflow:hidden;padding:0;font-size:14px;float:none;width:inherit;position:relative}.quicklinkwrap ul li a{padding:10px 10px 10px 30px;display:block;border-bottom:1px solid #e8e8e8;color:#5a5a5a;border-top:1px solid #fff}.quicklinkwrap ul li:first-child a{border-top:0}.quicklinkwrap ul li:last-child a{border-bottom:0}.quicklinkwrap ul li a i{font-size:24px;margin-right:7px;color:#e6bb0c;position:absolute;left:11px;top:7px}.slider_wrap{position:relative;display:table;width:100%}.slider_wrap .isdes_nextbtn,.slider_wrap .isdes_prevbtn{margin:inherit;top:45%;width:33px;height:40px;border-radius:0;z-index:3;background:#fff}.slider_wrap .isdes_prevbtn{left:0}.slider_wrap .isdes_nextbtn{right:0}.slider_wrap .btnarrow{color:#909090}ul.storesugg_wrap{padding:0!important;background:#fff}ul.storesugg_wrap li img{float:left;width:35px;height:35px;margin:0 13px 0 0;padding:0}ul.storesugg_wrap li a{padding:10px 87px 10px 10px}ul.storesugg_wrap li .btn-suggestion{padding:2px 10px;position:absolute;right:11px;top:24%;transition:all ease-in .2s}ul.storesugg_wrap li h4{font-family:Raleway-Medium;margin:10px 0;font-size:15px;color:#333}ul.product_wrap li a{padding:10px}ul.product_wrap li p{color:#525252;font-family:Arial;font-weight:700}ul.product_wrap li img{width:50px;height:50px}.hd_heading h1 span,.hd_heading h2 span{background:#fc0;width:20%;height:3px;bottom:-2px;left:40%;text-transform:uppercase}ul.product_wrap li h4{margin:4px 0 5px;color:#6d6d6d}.hd_heading h1,.hd_heading h2{font-family:Raleway-SemiBold;font-size:24px;padding:10px 0 20px;margin:25px 0;border-bottom:1px solid #e6e6e6;text-align:center}.hd_heading h2{position:relative}.hd_heading h2 span{position:absolute}.hd_heading h1{position:relative}.hd_heading h1 span{position:absolute}.store_mainwrap{margin:30px 3%}.store_mainwrap .oneshop_left_newcontainer{margin:0;width:70%}.store_mainwrap .oneshop_left_paybook{margin:0;width:40%}.store_mainwrap .oneshop_right_stripe{margin:0;width:50%}.input,.oneshop_fieldsbox select{background:#fbfbfb;margin:0!important;color:#696969;box-shadow:none}.store_mainwrap .oneshop_right_newcontainer{width:25%}.input{width:100%;padding:11px 10px;height:auto;border:1px solid #dedede;font:400 14px catriel!important;border-radius:0;font-family:Raleway-Regular}.oneshop_fieldsbox select{width:100%;padding:10px;height:40px;border:1px solid #dedede;font:400 14px catriel!important;border-radius:0;font-family:Raleway-Regular}.select{position:relative;float:left;width:100%}.select:after,.select:before{content:'';position:absolute;pointer-events:none}.select:before{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #757575;bottom:15px;right:9px;z-index:1}.discount:after,.select:after{height:38px;background:#dcdcdc}.select:after{width:36px;right:1px;bottom:1px}.discount{position:relative;float:left;width:100%}.discount:after,.discount:before{position:absolute;pointer-events:none}.discount:before{content:'%';bottom:10px;right:9px;z-index:1;font-size:19px}.discount:after{width:36px;content:'';right:1px;bottom:1px}.oneshop_fieldsbox{margin-bottom:25px}.oneshop_fieldsbox label{font-size:13px;padding-bottom:5px;float:left;font-family:Raleway-Regular}.productimg_wrap .oneshop_product_images{width:100%}.productimg_wrap .oneshop_product_images ul{width:100%;padding:20px;border:1px solid #dcdcdc}.productimg_wrap h5{background:#eee;padding:15px;font-size:16px;font-family:Raleway-SemiBold}
+            .oneshop_products_storeboxtop_div img {
+                max-width: 100%;
+                max-height: 146px;
+            }
+			
+.select_field{
+	border: 1px solid #d3d8c8;
+    height: auto;
+    outline: none;
+    -webkit-box-shadow: #FFFFFF 0px 1px 0px inset;
+    -moz-box-shadow: #FFFFFF 0px 1px 0px inset;
+    box-shadow: #FFFFFF 0px 1px 0px inset;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 7px 14px 7px 14px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: 0px 1px 0 rgba(255,255,255,0.44);
+    font-weight: bold;
+    color: #383838;
+    background-color: #efefef;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#e4e4e4));
+    background-image: -webkit-linear-gradient(top, #efefef, #e4e4e4);
+    background-image: -moz-linear-gradient(top, #efefef, #e4e4e4);
+    background-image: -ms-linear-gradient(top, #efefef, #e4e4e4);
+    background-image: -o-linear-gradient(top, #efefef, #e4e4e4);
+    background-image: linear-gradient(to bottom, #efefef, #e4e4e4);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#efefef, endColorstr=#e4e4e4);}
+	
+.activity_tab_content{width:100%; position:relative;}
+.activity_tab_content .avatar{padding:10px 0px; padding-left:75px; padding-right:170px !important; min-height:83px !important;}
+.activity_tab_content .avatar .store_tumbnail{position:absolute; top:10px; left:0px; bottom:10px; border:1px solid #ffcc00; width:60px; height:60px; display:table;}
+.activity_tab_content .avatar .store_tumbnail a{width:100%; height:100%; display:table-cell; vertical-align:middle; text-align:center;}
+.activity_tab_content .avatar .store_tumbnail img{position:relative; max-width:100% !important;}
+.activity_tab_content .avatar .watchDate{position:absolute; right:0px; top:10px;}
+
+.stores_list{position:relative;}
+.stores_list ul{list-style:none;}
+.stores_list ul li{list-style:none; width:23%; height:220px; margin:0 2% 15px 0px; float:left;}
+.stores_list ul li .product{border:1px solid #fc0; width:100%; display:table; height:170px;}
+.stores_list ul li .product span{display:table-cell; vertical-align:middle; width:100%; height:100%; text-align:center;}
+.stores_list ul li .p_name{max-height: 42px; min-height: auto; text-align: center;  background: #fc0; width:100%; border:1px solid #fc0;}
+.stores_list ul li .p_name p{margin:10px !important; font-size:15px;}
+
+
+.avatar{position:relative; display:block; padding:10px; padding-left:80px; min-height:60px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+.avatar img{position:absolute;}
+.box_sizing{-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+.box_sizing *{-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+
+
+
+.header_logo{ position:relative;}
+.header_logo .name{margin-top:8px; font-family:'Raleway-SemiBold'; font-size:16px !important; font-weight:bold; width: 100%; max-width:300px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
+
+.rating{margin-top:7px; font-size:14px; font-family:'Raleway-Medium';}
+
+.add_to_cart{position:relative;}
+.heading_1{position:relative; padding-bottom:5px; border-bottom:1px solid #dcdcdc; margin-bottom:10px;}
+
+.no_data{padding:10px; border-radius:4px; background:#fde1e1; text-align:center; border:1px solid #e0abab; font-size:14px;}
+
+.edit_product{position: absolute;
+    right: 0;
+    top: 0;
+    background: #dedede;
+    padding: 3px 5px;
+    border-radius: 0px 0px 0px 3px; z-index:9; cursor:pointer;}
+.edit_product i{color:#737373; font-size:14px;}
+.cms_contentwrap .services_wrap *{font-family:Arial, Helvetica, sans-serif;}
+.cms_contentwrap .services_wrap{background:#fff; float:left; width:100%; padding:15px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+.cms_contentwrap .services_wrap ul{position:relative; display:block; padding-left:30px;float:left;width:100%;float:left;width:100%;}
+.cms_contentwrap .services_wrap ul li{ list-style:upper-roman; display:block; margin-bottom:15px!important; font-size:16px; color:#666;float:left;width:100%;}
+.cms_contentwrap .services_wrap ul li:last-child{margin-bottom:30px;}
+.cms_contentwrap .services_wrap h2{font-size:17px; margin-bottom:0; margin-top:20px; background-color:white; color:#202578; padding-bottom:5px; border-bottom:1px solid #e4e4e4;float:left;width:100%;font-weight:bold;}
+.cms_contentwrap .services_wrap h3{margin:12px 0 9px!important; font-size:16px;color:#5a5a5a;float:left;width:100%;font-weight:bold;}
+.cms_contentwrap .services_wrap .price, .services_wrap .cent{font-size:20px; color:#202578;}

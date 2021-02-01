@@ -1,0 +1,48 @@
+<div class="oneshop_container_middle_section mat10">
+
+<?php $this->templates->os_oneshopheader(); ?>
+
+<div class="oneshop_left_newcontainer pab10">
+
+<h2 class="mat10 borderbottom wi100pstg mab10 fll"> Services </h2>   
+<?php
+
+if($store_details[0]["services"] != ""){
+    $savedServArr = explode(",", $store_details[0]["services"]);
+}
+
+
+if(count($savedServArr) > 0){
+    foreach($savedServArr as $serviceVal){
+    ?>
+    <p class="wi100pstg fll">
+        <span class="fll">
+            <img src="<?php echo base_url()."assets/images/Yes.png";?> " width="22" height="22">
+        </span>
+        <span class="fll mat5 mal5 fs14"> <?php echo ucwords(strtolower($serviceVal)); ?>  </span>
+    </p>
+    <?php
+    }
+}
+?>
+
+<div class="oneshop_products_main_wrap mat20">
+    <h4 class="mat10 wi100pstg mab10 black fll"> Recent Products </h4>   
+
+   <?php
+		$this->load->module('products');
+		$this->products->getrecentproducts($store_details[0]['store_code']); 
+	?>
+</div>
+
+</div>
+
+<div class="oneshop_right_newcontainer mat15">
+
+<img class="hotel_news_imgbox" src="<?php echo base_url()."assets/images/ad2.jpg";?>">
+
+</div>
+
+</div> 
+
+       

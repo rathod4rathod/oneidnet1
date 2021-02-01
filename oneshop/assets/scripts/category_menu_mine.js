@@ -1,0 +1,1 @@
+function auto_grow(o){o.style.height="5px",o.style.height=o.scrollHeight+"px"}$(window).on("load",function(){var o=$(".click_importantNotifications"),i=o.position();$(window).scroll(function(){var n=$(window).scrollTop();n>i.top?o.addClass("stick"):o.removeClass("stick")})}),$(window).on("load",function(){$("#flip").click(function(){$("#panel").slideToggle("slow")})});

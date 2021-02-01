@@ -1,0 +1,61 @@
+<?php
+$i=1;
+foreach($campaigns as $res){
+    if($res == '')
+    {
+        unset($res);
+    }
+   if($res){
+    ?>
+    <div class="click_addsFlashTypeWrapper" id="click_addsFlashTypeWrapper<?php echo $res['campaign_id'];?>">
+        <div class="adds_VerticleCloseBtn">
+            <img src="<?php echo base_url() . "assets/"; ?>images/addsCloseBtn.png" class="adds_closeBtnImg" title="Close ad" >
+            <div class="adds_closeOptions">
+                <h5>Report this Ad</h5>
+                <ul>
+                    <li class="close_ad_<?php echo $i;?>" id="1">Not Interested</li>
+                    <li class="close_ad_<?php echo $i;?>" id="2">Irrelevant</li>
+                    <li class="close_ad_<?php echo $i;?>" id="3">Repetitive</li>
+                </ul>
+            </div>
+        </div>
+        <div class="adds_flashContainer">
+            <img src="<?php echo base_url()."data/banner/".$res['file_path'];?>" class="adds_flash_<?php echo $i;?>" id="<?php echo $res['campaign_id'];?>">
+        </div>
+    </div>
+<?php    
+}
+$i++; }
+?>
+
+    
+<!--    <div class="click_addsImgTypeWrapper">
+    	<div class="adds_VerticleCloseBtn">
+            <img src="<?php echo base_url() . "assets/"; ?>images/addsCloseBtn.png" class="adds_closeBtnImg">
+            <div class="adds_closeOptions">
+                <ul>
+                    <li class="close_ad_2" id="1">Not Interested</li>
+                    <li class="close_ad_2" id="2">Irrelevant</li>
+                    <li class="close_ad_2" id="3">Repetitive</li>
+                </ul>
+            </div>
+        </div>
+        <div class="adds_imgContainer">
+            <img src="" class="adds_flash_2">
+        </div>
+    </div>
+    <div class="click_addsImgTypeWrapper">
+    	<div class="adds_VerticleCloseBtn">
+            <img src="<?php echo base_url() . "assets/"; ?>images/addsCloseBtn.png" class="adds_closeBtnImg">
+            <div class="adds_closeOptions">
+                <ul>
+                    <li class="close_ad_3" id="1">Not Interested</li>
+                    <li class="close_ad_3" id="2">Irrelevant</li>
+                    <li class="close_ad_3" id="3">Repetitive</li>
+                </ul>
+            </div>
+        </div>
+        <div class="adds_imgContainer">
+            <img src="" class="adds_flash_3">
+        </div>
+    </div>-->

@@ -1,0 +1,5254 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;}
+body{
+	/*background-color: #000;
+	background-image: url(../images/BG01.jpg);*/}
+.oneshop_wrapper{
+	position: relative;
+	width: 900px;
+	border: solid 1px black;
+	margin: 0px auto;}
+.oneshop_innerWrapper{
+	width: 900px;
+	float: left;}
+
+.minheight600 {
+	overflow: hidden;
+	min-height: 600px;
+	}
+.minheight700 {
+	overflow: hidden;
+	min-height: 700px;
+	}
+
+h2{font: 20px Arial;}	
+h3{font: 18px Arial;}	
+h4{font: 16px Arial; color: white;}	
+h5{font: 14px Arial;}	
+h6{font: 12px Arial; color: white;}	
+	
+.oneshop_rightSection{
+	width: 250px;
+	float: right;
+	min-height: 200px;
+	background-color: rgba(250, 250, 250, 0.3);
+	border-bottom: solid 5px #c5b000;
+	margin: 5px 5px 5px 0;}	
+	
+/*------One Shop Module Header style starts Here(vinod 19-05-2015)------*/	
+.oneshop_moduleHeader{
+	float: left;
+	width: 900px;
+	height: 65px;
+	background-color: #c5b000;}
+.oneshop_logo{
+	float: left;
+	margin: 5px;
+	width: 65px;
+	height: 55px;}
+.oneshop_profile{
+	width: 200px;
+	height: 45px;
+	float: left;
+	overflow: hidden;
+	margin: 10px 0 0 150px;}
+.oneshop_profilePic{
+	width: 45px;
+	height: 45px;
+	float: left;}
+.oneshop_profile h4{
+	margin: 10px 0 0 5px;
+	float: left;}
+	
+.maildes_headerOptions{
+	float: left;
+	margin: 15px 0px 0px 70px;
+	width: 30px;
+	height: 30px;}
+.maildes_headerOptions ul{
+	list-style: none;}
+.maildes_headerIcon{
+	cursor: pointer;
+	float: left;
+	margin: 2.5px 0px 0px 2.5px;
+	width: 25px;
+	height: 25px;}	
+.maildes_headerOptions ul ul{
+	display: none;}	
+.maildes_headerOptions ul li:hover ul{
+	display: block;
+	float: left;
+	position: relative;
+	width: 210px;
+	margin: 0 0 0 -20px;
+	z-index: 100;}	
+.maildes_headerOptions ul ul li.maildes_bubble{
+	width: 50px;
+	height: 15px;}
+.maildes_headerOptions ul ul li.maildes_bubble img{
+	width: 22px;
+	height: 15px;
+	margin: 0px 0px 0px 25px;}
+.maildes_headerOptions ul ul li.maildes_settingOption{
+	cursor: pointer;
+	padding: 10px 0 0 10px;
+	color: #333;
+	width: 200px;
+	height: 22px;
+	border-bottom: solid 1px #ddd;
+	font: 12px Arial;
+	background-color: #eee;}
+.maildes_headerOptions ul ul li.maildes_settingOption:hover{
+	color: white;
+	background-color: #aaa;}	
+.oneshop_restoreIcon{
+	float: right; 
+	width: 30px;
+	height: 40px;
+	margin: 10px;}
+/*------One Shop Module Header style ends Here(vinod 19-05-2015)------*/		
+
+/*------One Shop Sub Header style starts Here(vinod 19-05-2015)------*/
+.oneshop_subHeader{
+	float: left;
+	width: 900px;
+	height: 45px;
+	background-color: #ddd;}
+.oneshop_dropMenu{
+	width: 200px;
+	height: 35px;
+	float: left;
+	margin: 5px;
+	background-color: #555;}
+.oneshop_menu{
+	float: left;
+	height: 35px;
+	margin: 5px 0 0 20px;}
+.oneshop_menu ul{
+	list-style: none;
+	float: left;}
+.oneshop_menu ul ul{
+    display: none;
+    position: absolute;
+    margin-top:29px;
+}
+.oneshop_menu ul li:hover ul{
+    display: block;
+}
+.oneshop_menu ul li{
+	cursor: pointer;
+	height: 35px;
+	padding: 0 10px 0 10px;
+	float: left;
+	margin: 0 5px 0 0;
+	text-align: center;}		
+.oneshop_menu ul li:hover{
+	background-color: #999;
+	color: white;}
+.oneshop_Page{
+	background-color: #999;
+	color: white;}
+.oneshop_menu ul li h5{
+	margin: 8px 0 0 0;}
+.oneshop_storePage{
+	background-color: #999;
+	color: white;}
+/*------One Shop Sub Header style ends Here(vinod 19-05-2015)------*/	
+
+/*------One Shop NavigationBar style starts Here(vinod 19-05-2015)------*/
+.oneshop_navigationBar{
+	float: left;
+	margin-top: 1px;
+	width: 900px;
+	height: 25px;
+	background-color: #eee;}
+.oneshop_navigation{
+	float: left;
+	height: 21px;
+	max-width: 890px;
+	overflow: hidden;
+	margin: 2px;}
+.oneshop_navigation h6{
+	float: left;
+	color: #c5b000;
+	margin: 3px;}
+/*------One Shop NavigationBar style ends Here(vinod 19-05-2015)------*/
+
+/*------Oneshop Content Style starts Here(vinod 19-05-2015)-----*/
+.oneshop_contentSection{
+	float: left;
+	width: 900px;
+	min-height: 500px;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_leftSection{
+	width: 635px;
+	float: left;
+	min-height: 100px;
+	margin: 5px 0 0 5px;}
+.oneshop_leftSectionHeader{
+	float: left;
+	width: 635px;
+	height: 40px;
+	background-color: #e5e5e5;
+	border-bottom: solid 1px #ccc;}
+.oneshop_leftSectionHeader h3{
+	margin: 8px;
+	color: #cab000;}		
+.oneshop_mainSection{
+	width: 880px;
+	height: 300px;
+	float: left;
+	margin: 10px;
+	background-color: rgba(250, 250, 250, 0.3);}
+/*------Oneshop Content Style ends Here(vinod 19-05-2015)-----*/
+
+/*------One Shop Footer Style Starts Here------*/
+.oneshop_footer{
+	float: left;
+	width: 900px;
+	height: 45px;
+	background-color: #c5b000;}
+.oneshop_footerContent{
+	float: left;
+	height: 35px;
+	width: 890px;
+	margin: 5px;}
+.oneshop_footerContent h6{
+	float: left;
+	margin: 8px;}	
+.oneshop_footerLogo{
+	float: right;
+	margin: 4px;}
+/*------One Shop Footer Style Starts Here------*/
+
+/*------Settings Page Style Starts Here(vinod 19-05-2015)------*/
+.oneshop_leftHead{
+	float: left;
+	background-color: #e5e5e5;
+	border-bottom: solid 1px #ccc;
+	width: 635px;
+    cursor:pointer;
+	height: 40px;
+	color: #555;}
+.oneshop_settingsHead{
+	float: left;
+	background-color: #e5e5e5;
+	border-bottom: solid 1px #ccc;
+	text-align: center;
+	width: 210px;
+	margin-right: 1px;
+    cursor:pointer;
+	height: 40px;
+	color: #777;}	
+.oneshop_leftHead h3, .oneshop_settingsHead h3{
+	margin: 7px;}
+.oneshop_myStoreSettings{
+	width: 635px;
+	float: left;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_myStoreBasicInfo, .oneshop_myStoreManageStaff, .oneshop_myStoreNotifications{
+	text-align: center;
+	float: left;
+	width: 600px;
+	border-bottom: solid 1px #555;
+	margin: 10px;}	
+.oneshop_myStoreBasicInfo h4, .oneshop_myStoreManageStaff h4, .oneshop_myStoreNotifications h4{
+	float: left;
+	margin: 5px 0 5px 50px;
+	color: #000;}
+.oneshop_mystoreSettinsField{
+	float: left;
+	margin: 5px 0 0 40px;
+	overflow: hidden;
+	width: 500px;
+	min-height: 30px;}
+.onshop_formsFieldLables{
+	float: left;
+	min-width: 170px;
+	height: 30px;}
+.oneshop_mystoreSettinsField h5{
+	/*float: right;*/
+	float: left;
+	color: #111;
+	margin: 5px;}
+.oneshop_mystoreField{
+	float: left;
+	border: solid 1px #aaa;
+	background-color: rgba(240, 240, 240, 0.9);
+	height: 30px;
+	width: 300px;
+	margin: 5px 0 0 10px;
+	padding: 0 10px 0 10px;}
+.fileType{
+	width: 300px;
+	padding: 0px;}
+.textAreaType{
+	width: 300px;
+	height: 75px;}
+.checkBoxType{
+	float: right;
+	margin: 8px 100px 0 10px;
+	width: 10px;
+	height: 10px;}
+.selectType{
+	width: 300px;}	
+.oneshop_basicInfoBtn{
+	float: right;
+	background-color: #cab000;
+	border: solid 1px white;
+	color: white;
+	padding: 0 10px 0 10px;
+	min-width: 50px;
+	height: 25px;
+	margin: 5px 50px 5px 5px;}
+.oneshop_PaymentOptionsSection{
+	float: left;
+	width: 600px;
+	height: 100px;
+	border: solid 1px white;
+	margin: 5px;}	
+/*------Settings Page Style Ends Here(vinod 19-05-2015)------*/
+
+/*------Home Page Style Starts Here(vinod 19-05-2015)------*/
+.oneshop_gridSection{
+	float: left;
+	width: 635px;
+	background-color: #f5f5f5;}
+.oneshop_homeGrid{
+	cursor: pointer;
+	width: 120px;
+	height: 90px;
+	float: left;
+	margin: 5px 0 0 5px;
+	opacity: 0.9;
+	background-color: #F90;}
+.oneshop_homeGrid:hover{
+    background-color: #c5b000;
+	opacity: 1;
+	border: solid 1px white;
+	width: 118px;
+	height: 88px;}
+.oneshop_homeGridTitle, .oneshop_homeGridCount{
+	float: left;
+	text-align: center;
+	width: 110px;
+	height: 45px;
+	margin: 5px 0 0 5px;}	
+.oneshop_homeGridCount{
+	height: 30px;}	
+.oneshop_homeGridTitle h5{font: 14px Arial; color: white; margin: 2px;}
+.oneshop_homeGridCount h2{
+	color: white;}
+.upgradeBtn{
+	height: 30px;
+	margin: 5px 8px 5px 0;}
+/*------Home Page Style Ends Here(vinod 19-05-2015)------*/
+
+
+/*------My Products Page Starts Here(vinod 20-05-2015)--------*/
+.oneshop_myProductsFilter{
+	float: left;
+	width: 625px;
+	background-color: rgba(250, 250, 250, 0.4);
+	margin: 2px 0 0 0;}
+.oneshop_myProductsFilterFields{
+	float: left;
+	width: 250px;
+	height: 30px;
+	margin: 5px 0 5px 5px;
+	padding: 0 5px 0 5px;
+	background-color: #eee;
+	border: solid 1px #ccc;}
+.myProductDate{width: 100px;}
+.myProductPrice{width: 100px;}
+.findMyProducts{
+	float: left;
+	height: 30px;
+	width: 80px;
+	margin: 5px 0px 0 5px;}
+.oneshop_listOfMyProducts{
+	width: 625px;
+	float: left;
+	margin: 2px 0 0 0;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_myProductsItem{
+	width: 170px;
+	float: left;
+	height: 200px;
+	background-color: #eee;
+	margin: 5px 0 0 5px;}
+/*------My Products Page Ends Here(vinod 20-05-2015)--------*/
+/*-----Page when Clicks on Logo(vinod 21-05-2015)------*/
+.oneshop_logoPage{
+	float: left;
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}
+.oneshop_lpSections{
+	width: 810px;
+	float: left;
+	margin: 5px 0 0 40px;
+	padding-bottom: 5px;}
+.oneshop_lpSectionHeader{
+	float: left;
+	text-align: center;
+	width: 810px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	border-bottom: solid 1px #ccc;
+	height: 30px;
+	color: #06F;
+	background-color: #e5e5e5;}
+.oneshop_lpSectionHeader h3{
+	margin: 5px;}
+.oneshop_lpSectionContent{
+	float: left;
+	width: 810px;
+	padding-bottom: 5px;
+	border-top-left-radius: 0px;
+	background-color: #f5f5f5;}
+.oneshop_lpscItemsListWrapper{
+	overflow: hidden;
+	width: 800px;
+	margin: 5px 0 0 5px;
+	float: left;}
+.oneshop_lpscItemPic{
+	width: 198px;
+	border: solid 1px #aaa;
+	height: 100px;
+	float: left;}
+.oneshop_lpcsItemDetails{
+	cursor: pointer;
+	width: 200px;
+	float: left;
+	margin: 0px;
+	padding-top: 5px;
+	height: 45px;
+	text-align: center;
+	background-color: #600;
+	overflow: hidden;}
+.oneshop_lpcsItemDetails h4{
+	font: 13px Arial;}
+	
+.oneshop_corouselContent{	
+	position: relative; 
+	top: 0px; 
+	left: 0px; 
+	width: 809px; 
+	height: 150px; 
+	overflow: hidden;}
+.oneshop_corouselSlides{
+	cursor: move; 
+	float: left;
+	left: 0px; 
+	top: 0px; 
+	width: 809px; 
+	height: 150px; 
+	overflow: hidden; }
+.oneshop_corouselSlide{
+	float: left;
+	background-color: #aaa;
+	width: 200px;
+	height: 150px;}	
+	
+/* jssor slider bullet navigator skin 03 css */
+            /*
+            .jssorb03 div           (normal)
+            .jssorb03 div:hover     (normal mouseover)
+            .jssorb03 .av           (active)
+            .jssorb03 .av:hover     (active mouseover)
+            .jssorb03 .dn           (mousedown)
+            */
+            .jssorb03 {
+                position: absolute;
+            }
+            .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 21px;
+                height: 21px;
+                text-align: center;
+                line-height: 21px;
+                color: white;
+                font-size: 12px;
+                background: url(../img/b03.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .jssorb03 div { background-position: -5px -4px; }
+            .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+            .jssorb03 .av { background-position: -65px -4px; }
+            .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+			
+			
+ /* jssor slider arrow navigator skin 03 css */
+            /*
+            .jssora03l                  (normal)
+            .jssora03r                  (normal)
+            .jssora03l:hover            (normal mouseover)
+            .jssora03r:hover            (normal mouseover)
+            .jssora03l.jssora03ldn      (mousedown)
+            .jssora03r.jssora03rdn      (mousedown)
+            */
+            .jssora03l, .jssora03r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 55px;
+                height: 55px;
+                cursor: pointer;
+                background: url(../images/a03.png) no-repeat;
+                overflow: hidden;
+            }
+            .jssora03l { background-position: -3px -33px; }
+            .jssora03r { background-position: -63px -33px; }
+            .jssora03l:hover { background-position: -123px -33px; }
+            .jssora03r:hover { background-position: -183px -33px; }
+            .jssora03l.jssora03ldn { background-position: -243px -33px; }
+            .jssora03r.jssora03rdn { background-position: -303px -33px; }				
+			
+	
+/*-----Page when Clicks on Logo(vinod 21-05-2015)------*/
+
+/*-----Profile Page(vinod 21-05-2015)------*/
+.oneshop_ProfilePage{
+	float: left;
+	background-color: rgba(250, 250, 250, 0.3);
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}
+.oneshop_profileDetails{
+	float: left;
+    overflow: hidden;
+	width: 890px;
+	height: 200px;
+	margin: 0 0 30px 0;}
+.oneshop_profileDetailsCoverWrapper{
+    position: absolute;
+    float:  left;
+    width: 890px;
+    height: 200px;}
+.oneshop_profileCoverPicWrapper{
+	float: left;
+	width: 890px;
+	height: 200px;
+	overflow: hidden;}
+.oneshop_coverPic{
+	width: 890px;
+	float: left;}
+.oneshop_profilePicandName{
+	position: absolute;
+	margin: 65px 0 0 30px;
+	min-width: 280px;
+        max-width: 450px;}
+.oneshop_profileDetailsProfileWrapper{
+    float: left;
+    position: absolute;
+    width: 140px;
+    height:  160px;
+    background-color: #eee;
+    border:  solid 1px white;
+    overflow:  hidden;
+}
+.oneshop_ppProfilePic{
+	width: 140px;
+	height: 155px;
+	float: left;}
+.oneshop_profileName{
+	float: right;
+	color: white;
+	height: 30px;
+	margin: 95px 0 0 0;
+	padding: 0 15px 0 15px;}
+.oneshop_profileSection, .oneshop_MyStoreProfileSection{
+	width: 630px;
+	float: left;
+	min-height: 100px;}
+.oneshop_MyStoreProfileSection{
+	width: 890px;
+	background-color: #f5f5f5}
+.oneshop_StoreProfileInformation{
+	float: left;
+	width: 880px;
+	min-height: 100px;
+	padding-bottom: 10px;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_StoreProfileInformation h4{
+	float: left;
+	font: 16px Arial;
+	width: 200px;
+	overflow: hidden;
+	margin: 5px;
+	color: #C30;}		
+.oneshop_StoreProfileInformation p{
+	float: left;
+	font: 13px Arial;
+	color: #333;
+	width: 750px;
+	margin: 5px 0 0 25px;}	
+.oneshop_profileSectionTabs{
+	width: 630px;
+	height: 35px;
+	float: left;}
+.oneshop_profileSectionTabs ul{
+	list-style: none;
+	font: 14px Arial;
+	background-color: red;
+	width: 630px;
+	height: 35px;
+	text-align: center;
+	color: black;
+	float: left;
+	margin: 0 0 0 0px;}	
+.oneshop_profileSectionTabs ul li{
+	cursor: pointer;
+	display: inline-block;
+	padding-top: 8px;
+	font: 16px Arial;
+	color: #555;
+	height: 27px;
+	float: left;
+	width: 315px;
+	text-align: center;	
+	border-bottom: solid 1px #555;
+	background-color: #f5f5f5;}
+.oneshop_profileSectionTabs ul li:hover{
+	background-color: #ccc;
+	border-bottom: solid 0px #aaa;}	
+.oneshop_profileSectionTabs ul li h4{
+	padding: 0 10px 0 10px;
+	margin: 6px 0 0 0;
+	color: black;}	
+.oneshop_profileSectionContent, .oneshop_MyStoreProfileSectionContent{
+	width: 630px;
+	float: left;
+	min-height: 50px;
+	background-color: rgba(250, 250, 250, 0.5);}
+.oneshop_MyStoreProfileSectionContent{
+	width: 880px;
+	background-color: #f5f5f5;}	
+.oneshop_profilePurchaseHistory{
+	float: left;
+	width: 630px;
+	min-height: 50px;
+	margin: 0 0 5px 0;}
+.oneshop_profilePurchaseHistoryItem:nth-child(odd){
+	cursor: pointer;
+	float: left;
+	width: 615px;
+	height: 50px;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #ddd;}
+.oneshop_profilePurchaseHistoryItem:nth-child(even){
+	cursor: pointer;
+	float: left;
+	width: 615px;
+	height: 50px;
+	background-color: #e9e9e9;
+	border-bottom: solid 1px #ddd;}
+.oneshop_profilePurchaseHistoryItem:hover{
+	background-color: #d5d5d5;}
+.oneshop_pphproductPic{
+	float: left;
+	width: 50px;
+	height: 45px;
+	margin: 2px;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead{
+	float: left;
+	/*width: 615px;*/
+	margin: 2px 0 0 0;
+	list-style: none;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li{
+	display: inline-block;
+	height: 22px;
+	width: 115px;
+	float: left;
+	overflow: hidden;
+	text-align: center;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li h4{
+	font: 13px Arial;
+	color: #C30;}	
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody{
+	float: left;
+	/*width: 615px;*/
+	margin: 0px 0 0 0;
+	list-style: none;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li{
+	display: inline-block;
+	height: 20px;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	width: 115px;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li h4{
+	font: 12px Arial;
+	color: #333;}
+.oneshop_pphClose{
+	float: right;
+	width: 15px;
+	height: 15px;
+	margin: 2px;}
+/*-----Profile Page(vinod 21-05-2015)------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----Cart Items Page(vinod 21-05-2015)------*/
+.oneshop_cartItemsPage, .oneshop_friendStorePage, .oneshop_findProductsPage, .oneshop_findStorePage, .oneshop_ReportsPage{
+	float: left;
+	background-color: #f9f9f9;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	margin: 5px;
+	width: 890px;
+	padding-bottom: 5px;
+	min-height: 100px;}
+.oneshop_cartItemsPageHead, .oneshop_ReportsPageHead{
+	width: 98%;
+	height: 30px;
+	float: left;
+	font: 16px Arial;
+	color: #555;
+	padding: 10px 0 0 2%;
+	border-bottom: solid 1px #ddd;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #eee;}
+.oneshop_myCartItem, .oneshop_myFindStoreItem, .oneshop_myFindProductItem, .oneshop_myFrienddStoreItem{
+	width: 210px;
+	float: left;
+	box-shadow: 0 0 2px #777;
+	background-color: #eee;
+	margin: 10px 0 0 10px;}
+.oneshop_myCartItemImageSection, .oneshop_myFindStoreImageSection, .oneshop_myFindProductImageSection, .oneshop_myFriendStoreImageSection{
+	overflow: hidden;
+	width: 200px;
+	height: 140px;
+	float: left;
+	margin: 5px;
+	background-color: rgba(250, 250, 250, 0);}
+.oneshop_myFindStoreImageSection img, .oneshop_myFindProductImageSection img, .oneshop_myFriendStoreImageSection img{
+	width: 200px;
+	float: left;}	
+.oneshop_myCartItemDetailSection, .oneshop_myFindStoreDetailSection, .oneshop_myFindProductDetailSection, .oneshop_myFriendStoreDetailSection{
+	float: left;
+	border-top: solid 1px #ccc;
+	background-color: #f5f5f5;
+	width: 100%;}
+.oneshop_myCartItemDetailSection h3, .oneshop_myCartItemDetailSection h2, .oneshop_myCartItemDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 14px Arial;
+	margin: 5px;}
+.oneshop_myFindStoreDetailSection h3, .oneshop_myFindStoreDetailSection h2, .oneshop_myFindStoreDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 5px;}
+.oneshop_myFindProductDetailSection h3, .oneshop_myFindProductDetailSection h2, .oneshop_myFindProductDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 0 0 0 5px;}
+.oneshop_myFriendStoreDetailSection h3, .oneshop_myFriendStoreDetailSection h2, .oneshop_myFriendStoreDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 5px;}			
+.oneshop_myCartItemDetailSection h2, .oneshop_myFindStoreDetailSection h2, .oneshop_myFindProductDetailSection h2, .oneshop_myFriendStoreDetailSection h2{
+	color: #06F;
+	float: right;
+	font: 18px Arial;
+	max-width: 25%;}
+.oneshop_myCartItemDetailSection h4, .oneshop_myFindStoreDetailSection h4, .oneshop_myFindProductDetailSection h4, .oneshop_myFriendStoreDetailSection h4{
+	float: left;
+	color: #333;
+	font: 12px Arial;
+	width: 80%;}	
+.oneshop_myCartItemDetailSection img, .oneshop_myFindStoreDetailSection img, .oneshop_myFindProductDetailSection img, .oneshop_myFriendStoreDetailSection img{
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin: 5px;}	
+/*-----Cart Items Page(vinod 21-05-2015)------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----Find Stores(Vinod 22-05-2015)-----*/
+.oneshop_ratingSection{
+	width: 100%;
+	float: left;}
+.oneshop_ratingSection h4{
+	width: 45px;
+	color: #555;	
+	float: left;}
+.oneshop_ratingSection h3{
+	width: 30px;
+	float: left;
+	font: 13px Arial;}	
+.oneshop_rating{
+	margin: 2px;
+	background-color: rgba(250, 250, 250, 0.3);
+	float: left;
+	width: 100px;
+	height: 20px;}
+.oneshop_storeViewBtn{
+	float: right;
+	margin: 5px;}
+/*----Find Stores(Vinod 22-05-2015)-----*/
+
+
+/*---One Shop Filter Starts Here (Vinod22-05-2015)---*/
+.oneshop_filter{
+	margin: 5px;
+	float: left;
+	width: 890px;
+	height: 75px;
+	border-radius: 5px;
+	background-color: rgba(250, 250, 250, 0.4);}
+.oneshop_filterFields{
+	float: left;
+	width: 865px;
+	margin: 15px 0 0 20px;
+	height: 40px;}
+.oneshop_filterFields h5{
+	float: left;
+	margin: 10px;}
+.oneshop_filterFieldsText{
+	float: left;}
+.oneshop_storeFindBtn{
+	float: right;
+	margin: 8px;}	
+/*---One Shop Filter Starts Here (Vinod22-05-2015)---*/
+
+/*---One Shop Find Products starts Here(vinod 22-05-2015)---*/
+.oneshop_myFindProductImageViews{
+	float: left;
+	width: 100%;
+	height: 50px;
+	border-bottom: solid 1px #ccc;}
+.oneshop_productViewBtn{
+	float: left;
+	margin: 5px;}
+.oneshop_productBuyBtn{
+	float: right;
+	margin: 5px;}	
+.oneshop_myFindProductImageViews ul{
+	list-style: none;
+	float: left;
+	margin: 0 0 0 10px;}
+.oneshop_myFindProductImageViews ul li{
+	float: left;
+	display: inline-block;
+	overflow: hidden;
+	width: 40px;
+	height: 35px;
+	background-color: none;
+	margin: 2px 0 0 5px;}
+.oneshop_myFindProductImageViews ul li img{
+	float: left;
+	width: 100%;}
+.oneshop_cartIcon{
+	cursor: pointer;
+	float: right;
+	width: 25px;
+	height: 25px;
+	margin: 5px;}
+/*---One Shop Find Products starts Here(vinod 22-05-2015)---*/
+
+
+/*---One Shop Friend Store Start Here(Vinod 22-05-2015)---*/
+.oneshop_friendStoreFields{
+	width: 180px;}
+.oneshop_friendStoreFriendDetails, .oneshop_findProductStoreDetails{
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	height: 50px;}
+.oneshop_friendStoreFriendDetails img, .oneshop_findProductStoreDetails img{
+	float: left;
+	width: 45px;
+	height: 45px;
+	margin: 2px;}
+.oneshop_friendStoreFriendDetails h3, .oneshop_findProductStoreDetails h3{
+	float: left;
+	margin: 5px;
+	font: 18px Arial;
+	color: #C30;}
+/*---One Shop Friend Store Start Here(Vinod 22-05-2015)---*/
+
+
+/*---One Shop Product Detailed View(Vinod 22-05-2015)---*/
+.oneshop_productDetailedView{
+	float: left;
+	width: 635px;
+	min-height: 100px;
+	background-color: #f5f5f5;}
+.oneshop_productImageSection{
+	float: left;
+	width: 250px;
+	min-height: 300px;
+	margin: 5px;
+	border: dashed 1px white;}
+.oneshop_productMainImage{
+	float: left;
+	width: 220px;
+	height: 180px;
+	margin: 5px 0 0 15px;}
+.oneshop_productDetailedViewImageViews{
+	float: left;
+	width: 250px;
+	height: 50px;
+	margin: 5px 0 5px 0;}
+.oneshop_productDetailedViewImageViews ul{
+	float: left;
+	margin: 0 0 0 13px;
+	list-style: none;}
+.oneshop_productDetailedViewImageViews ul li{
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	float: left;
+	margin: 0 0 0 5px;}
+.oneshop_productDetailedViewImageViews ul li img{
+	width: 100%;
+	height: 100%;}
+.oneshop_productDetailedViewRatingSection{
+	float: left;
+	margin: 5px;
+	width: 240px;}
+.oneshop_productDetailedViewRatingSection h4{
+	color: #C30;
+	font: 16px Arial;
+	float: left;}
+.oneshop_productDetailedViewRating{
+	width: 130px;
+	float: left;
+	margin: 2px;
+	height: 20px;
+	background-color: #eee;}	
+.oneshop_productDetailedViewRatingSection h3{
+	float: left;}	
+.oneshop_productDetailedViewDetails{
+	float: left;
+	width: 350px;
+	min-height: 200px;
+	margin: 5px;}
+.oneshop_productDetailedViewHeader{
+	float: left;
+	width: 350px;
+	border-bottom: solid 1px #999;
+	overflow: hidden;
+	height: 50px;}
+.oneshop_productDetailedViewHeader h3{
+	font: 18px Arial;
+	color: #C30;
+	width: 350px;
+	height: 25px;
+	overflow: hidden;
+	float: left;}
+.oneshop_prouctDetailedViewViews{
+	float: left;
+	width: 200px;
+	height: 25px;}
+.oneshop_prouctDetailedViewViews h5{
+	float: left;
+	font: 13px Arial;
+	margin: 2px;
+	color: #777;}	
+.oneshop_prouctDetailedViewViews h4{
+	float: left;
+	margin: 1px;
+	font: 14px Arial;
+	color: #555;}
+.oneshop_productDetailedViewSpecifications, .oneshop_productDetailedViewDescription, .oneshop_productDetailedViewInStock{
+	float: left;
+	width: 350px;
+	text-align: left;
+	margin: 5px 0 0 0;}
+.oneshop_productDetailedViewSpecifications h4, .oneshop_productDetailedViewDescription h4{
+	font: 15px Arial;
+	float: left;
+	color: #C30;
+	width: 330px;}
+.oneshop_productDetailedViewSpecifications p, .oneshop_productDetailedViewDescription p{
+	font: 11px Arial;
+	margin: 5px 0 0 5px;
+	float: left;
+	color: #333;}	
+.oneshop_productDetailedViewSections{
+	float: left;
+	width: 250px;
+	text-align: left;
+	margin: 0px 0 0 0;}	
+.oneshop_productDetailedViewSections h4{
+	float: left;
+	color: #555;
+	margin: 1px;
+	color: #777;
+	font: 13px Arial;}
+.oneshop_productDetailedViewSections h3{
+	float: left;
+	color: #333;
+	margin: 1px;
+	font: 14px Arial;}
+.rightSectionFixedHeight{
+	height: 375px;
+	overflow: hidden;}
+/*---One Shop Product Detailed View(Vinod 22-05-2015)---*/
+
+
+.oneshop_recentOrdersList{
+	float: left;
+	padding-bottom: 5px;
+	width: 635px;}
+.oneshop_recentOrdersHeader{
+	float: left;
+	width: 635px;
+	height: 40px;
+	text-align: center;
+	margin: 5px 0 0 0;
+	border-bottom: solid 1px #ccc;
+	background-color: #e5e5e5;}
+.oneshop_recentOrdersHeader h4{
+	float: left;
+	margin: 10px 0 0 15px;
+	color: #C30;}	
+.oneshop_orderItem:nth-child(even){
+	margin: 0;
+	cursor: pointer;
+	float: left;
+	width: 635px;
+	height: 50px;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #ddd;}
+.oneshop_orderItem:nth-child(odd){
+	margin: 0;
+	cursor: pointer;
+	float: left;
+	width: 635px;
+	height: 50px;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #ddd;}
+.oneshop_orderItem:hover{
+	background-color: #d5d5d5;}
+.oneshop_orderItem ul.oneshop_pphHead{
+	float: left;
+	margin: 2px 0 0 10px;
+	list-style: none;}
+.oneshop_orderItem ul.oneshop_pphHead li{
+	display: inline-block;
+	height: 22px;
+	width: 105px;
+	float: left;
+	margin: 0 5px 0 5px;
+	overflow: hidden;
+	text-align: center;}
+.oneshop_orderItem ul.oneshop_pphHead li h4{
+	font: 14px Arial;
+	color: #C30;}	
+.oneshop_orderItem ul.oneshop_pphBody{
+	float: left;
+	margin: 0px 0 0 10px;
+	list-style: none;}
+.oneshop_orderItem ul.oneshop_pphBody li{
+	display: inline-block;
+	height: 20px;
+	float: left;
+	margin: 0 5px 0 5px;
+	overflow: hidden;
+	text-align: center;
+	width: 105px;}
+.oneshop_orderItem ul.oneshop_pphBody li h4{
+	font: 12px Arial;
+	color: #333;}
+	
+/*---My Store Reports Page(Vinod 23-05-2015)---*/	
+.oneshop_reportSection{
+	float: left;
+	width: 870px;
+	min-height: 100px;
+	margin: 10px;}
+.oneshop_reports{
+	float: left;
+	width: 100%;
+/*	height: 300px;*/
+	height: auto;
+	box-shadow: 0 0 2px #999;
+	background-color: #f5f5f5;
+	margin: 0 5px 5px 0;}
+/*---My Store Reports Page(Vinod 23-05-2015)---*/	
+
+
+.menu_item{
+    text-decoration: none;
+  color: black;
+}
+.menu_item:hover{
+    color: white;
+}
+
+
+
+
+/*---Cart Item Style(Vinod 25-05-2015)---*/
+.oneshop_cartItem{
+	float: left;
+	width: 880px;
+	height: 70px;
+	margin: 0 0 0 5px;
+	background-color: #eee;
+	border-bottom: solid 1px #ccc;}
+.oneshop_cartItem a{
+	float: right;
+	padding: 3px 15px 3px 15px;
+	background: linear-gradient(#eee, #ccc);
+	border: solid 1px #bbb;
+	color: #555;
+	text-decoration: none;
+	margin: 15px 5px 0 0;
+	font: 13px Arial;}
+.oneshop_cartItemImage{
+	float: left;
+	width: 60px;
+	margin: 5px;
+	height: 60px;}
+.oneshop_cartItemCloseBtn{
+	cursor: pointer;
+	float: right;
+	width: 15px;
+	height: 15px;
+	margin: 2px;}	
+.oneshop_cartItemDetails{
+	float: left;
+	width: 250px;
+	height: 60px;
+	margin: 5px 5px 0 0px;
+	overflow: hidden;}
+.priceDetails{
+	width: 150px;}	
+.priceDetails h3{
+	color: #555;}
+.oneshop_cartItemDetails h4{
+	color: #C30;
+	margin: 5px 0 0 2px;
+	font: 17px Arial;}
+.oneshop_cartItemDetails h3{
+	float: left;
+	color: #555;
+	margin: 0px 2px 2px 0;
+	font: 17px Arial;}
+.oneshop_cartItemsQuantity{
+	float: left;
+	width: 50px;
+	padding: 0 0px 0 5px;
+	font: 16px Arial;
+	height: 30px;
+	margin: 2px;
+	background-color: #eee;
+	border: 0px;}
+.oneshop_BuyCartItems{
+	float: left;
+	height: 40px;
+	width: 880px;
+	margin: 5px;}	
+/*---Cart Item Style(Vinod 25-05-2015)---*/
+
+
+
+/*---Store Products(Vinod 26-05-2015)---*/
+.oneshop_StoreProductsPage{
+	float: left;
+	background-color: rgba(250, 250, 250, 0.3);
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}	
+.oneshop_storeLogoandName{
+	float: left;
+	margin: 5px;
+	width: 500px;}
+.oneshop_storeName{
+	float: left;
+	color: white;
+	height: 30px;
+	width: 300px;
+	overflow: hidden;
+	margin: 60px 0 0 0;
+	padding: 0 15px 0 10px;}
+.oneshop_storeProfilePic{
+	border: solid 1px white;
+	width: 80px;
+	float: left;
+	height: 90px;}	
+.oneshop_storeProductsHeading{
+	float: left;
+	padding: 0 20px 0 20px;
+	height: 40px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: rgba(250, 250, 250, 0.8);}
+.oneshop_storeProductsHeading h4{
+	font: 16px Arial;
+	color: #C30;
+	float: left;
+	margin: 10px 0 0 0;}
+/*---Store Products(Vinod 26-05-2015)---*/
+		
+.redfoucusclass{
+	color: red;
+	outline: none;
+    border-color: red;
+    box-shadow: 0 0 10px red;
+	-webkit-animation: focus 0.1s 2;
+	-ms-animation: focus 0.1s 2;
+	-moz-animation: focus 0.1s 2;
+	animation: focus 0.1s 2;
+}
+
+/*---Edit Product Starts Here(Vinod 29-05-2015)---*/
+.oneshop_editProductImages{
+	float: left;
+	width: 595px;
+	min-height: 100px;
+	padding: 0 0 5px 20px;
+	border-bottom: dashed 1px white;
+	margin: 5px;}
+.oneshop_editProductImage{
+	float: left;
+	width: 120px;
+	height: 100px;
+	margin: 5px 0 0 15px;
+	background:url(../images/addProductImage.jpg) no-repeat;
+	box-shadow: 0 0 3px #999;}
+.oneshop_editProductPic{
+	float: left;
+	position: absolute;
+	width: 116px;
+	height: 96px;
+	margin: 2px;}
+.oneshop_editIcon{
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	margin: 82px 2px 2px 102px;
+	float: left;}
+/*---Edit Product Ends Here(Vinod 29-05-2015)---*/
+
+
+.order_Manager{
+    float:left;font-size: 12px;color:red;margin-left:2px;
+    display:none;
+}
+/* styles starts here by Pavani on 04-06-2015 */
+.priceWithDiscountStyl{
+	width: 120px;}
+/* styles ends here by Pavani on 04-06-2015 */
+/* style by Pavani on 02-06-2015*/
+.oneshop_profileSectionTabs ul li h4:hover{	
+	color: #fff;}
+/* style by Pavani on 02-06-2015*/
+/* styles by Pavani on 02-06-2015*/
+.oneshop_profileSavedProducts{
+    display:none;
+    float: left;
+    width: 600px;
+    min-height: 50px;
+    margin: 5px 0 5px 10px;
+}
+.oneshop_profileSectionTabs ul li.current{
+    background-color:#ccc;    
+}
+/* styles by Pavani on 02-06-2015*/
+
+
+
+/*---Report A Problem Style Starts Here(Vinod 27-05-2015)---*/
+.oneshop_reportProblemPopup{
+	border-radius: 5px;
+	box-shadow: 0 0 5px #333;
+	margin: 150px auto;
+	width: 500px;
+	height: 300px;
+	z-index: 1001;
+	background-color: #eee;}
+.oneshop_reportProblemHeader{
+	float: left;
+	width: 500px;
+	height: 40px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom: solid 1px #ccc;
+	background-color: #e5e5e5;}	
+.oneshop_reportProblemIcon{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 5px;}
+.oneshop_reportProblemHeader h4{
+	float: left;
+	font: 16px Arial;
+	color: #555;
+	margin: 8px;}
+.oneshop_reportProblemCloseBtn{
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin: 10px;}
+.oneshop_reportProblemContent{
+	float: left;
+	padding-top: 25px;
+	width: 500px;
+	height: 190px;}
+.oneshop_reportProblemFieldSection{
+	float: left;
+	width: 450px;
+	margin: 5px 0 0 25px;}
+.oneshop_reportProblemFieldLable{
+	float: left;
+	width: 170px;
+	height: 30px;
+	margin: 1px;
+	overflow: hidden;}	
+.oneshop_reportProblemFieldLable h5{
+	float: right;
+	margin: 5px;
+	font: 14px Arial;
+	color: #555;}	
+.oneshop_reportProblemField{
+	float: right;
+	width: 265px;
+	height: 30px;
+	background-color: #e5e5e5;
+	border: solid 1px #ccc;}	
+.oneshop_reportProblemFooter{
+	float: left;
+	width: 500px;
+	height: 40px;
+	border-top: solid 1px #ccc;}
+.oneshop_reportProblemBtn{
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	margin: 5px;
+	padding: 0 15px 0 15px;
+	background-color: #d5d5d5;
+	font: 16px Arial;
+	color: #555;
+	border: 0px;}
+.oneshop_reportProblemBtn:hover{
+	background-color: #999;
+	color: white;}
+/*---Report A Problem Style Starts Here(Vinod 27-05-2015)---*/
+
+.space_dec{
+    font: 15px Arial;
+}
+
+
+
+
+
+.click_headerOptions{
+	float: left;
+	margin: 15px 0px 0px 5px;
+	width: 30px;
+	height: 30px;}
+.click_headerOptions ul{
+	float: left;
+	list-style: none;}
+.click_headerIcon{
+	cursor: pointer;
+	float: left;
+	margin: 2.5px 0px 0px 2.5px;
+	width: 25px;
+	height: 25px;}	
+.click_headerOptions ul ul{
+	display: none;}	
+.click_headerOptions ul li:hover ul{
+	display: block;
+	float: left;
+	max-height: 422px;
+	overflow: hidden;
+	position: relative;
+	z-index: 100;}	
+.click_headerOptions ul ul li.click_bubble{
+	width: 50px;
+	height: 15px;}
+.click_headerOptions ul ul li.click_bubble img{
+	width: 15px;
+	height: 10px;
+	margin: 0px 0px 0px 5px;}
+.click_headerOptions ul ul li.click_settingOption{
+	cursor: pointer;
+	padding: 5px 0 0 5px;
+	color: #333;
+	width: 150px;
+	height: 20px;
+	border-bottom: solid 1px #ddd;
+	font: 12px Arial;
+	background-color: #eee;}
+.click_headerOptions ul ul li.click_settingOption:hover{
+	color: white;
+	background-color: #aaa;}
+.click_friendRequest, .click_messageNotifications{
+    width: 390px;
+	float: left;
+	
+	border-bottom: solid 1px #ccc;
+	height: 50px;
+	background-color: #eee;
+        cursor: pointer;
+}
+.shadow{
+        background-color: #eee;
+	box-shadow: 0 0 3px #555;
+         height: 300px;
+        overflow-y: scroll;}	
+.click_friendRequestNotificationCount{
+	float: left;
+	position: absolute;
+	box-shadow: 0 0 5px #333;
+	width: 28px;
+	height: 16px;
+	overflow: hidden;
+	margin: -5px 0 0 -10px;
+	border-radius: 10px;
+	background-color: #F00;
+	border: solid 1px #b00;}
+.click_friendRequestNotificationCount h6{
+	float: left;
+	font: 11px Arial;
+	color: white;
+	margin: 1px 0 0 5px;}
+
+
+.click_rightSectionHeader{
+	float: left;
+	width: 250px;
+	height: 40px;
+	background-color: #202578;}		
+.click_rightSectionHeader h4{
+	float: left;
+	font: 16px Arial;
+	color: white;
+	margin: 8px;}
+.click_friendSuggessionsList{
+	float: left;
+	max-height: 400px;
+	overflow-X: hidden;
+	overflow-Y: hidden;
+	width: 250px;}
+.click_friendSuggessionsList ul{
+	list-style: none;
+	float: left;}
+.click_friendSuggessionsList ul li{
+	float: left;
+	width: 250px;
+	height: 50px;
+	border-bottom: solid 1px #aaa;
+	background-color: rgba(255, 255, 255, 0.9);}
+.click_friendSuggessionsCloseBtn{
+	float: right;
+	width: 6px;
+	height: 6px;
+	cursor: pointer;
+	margin: 3px 2px 0 0px;}	
+.click_friendSuggessionsPic{
+	float: left;
+	width: 45px;
+	height: 45px;
+	margin: 2px;}
+.click_friendSuggessionsPic img{
+	float: left;
+	width: 45px;}
+.click_friendSuggessionsName{
+	float: left;
+	overflow: hidden;
+	width: 160px;
+	height: 40px;}	
+.click_friendSuggessionsName h5{
+	float: left;
+	font: 11px Arial;
+	color: #555;
+	margin: 2px 0 0 0px;}	
+.click_friendSuggessionsFriends{
+	float: left;
+	overflow: hidden;
+	max-width: 100px;
+	height: 20px;}
+.click_friendSuggessionsFriends h4{
+	float: left;
+	font: 11px Arial;
+	color: #777;}
+.click_friendSuggessionsFriends h6{
+	float: left;
+	font: 11px Arial;
+	color: #555;}
+.click_sendRequestBtn{
+	float: right;
+	height: 20px;
+	color: #777;
+	margin: 3px 2px 0 0;
+	font: 11px Arial;}	
+.topviewproduct{
+	width: 890px;
+	height: 20px;
+    background-color: #e5e5e5;
+	border-bottom: solid 1px #ccc;
+	font: 14px Arial;
+	color: #777;
+	margin-top: 10px;
+	padding:10px 0 10px 0;
+	font: 20px;}
+/* styles for quick sell--10/07/2015 */
+.Banner-oneshop {
+    background-color: rgba(197, 176, 0, 0.5);
+    height: 300px;
+    overflow: hidden;
+    width: 900px;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+.white { color:#fff; }
+
+.left_banner
+{
+	width:640px;
+	height:300px;
+	float:left;
+	background-image:url(../images/transparent-oneshop.png);
+	background-repeat:repeat;
+}
+.left_top_banner
+{
+	width:630px;
+	height:240px;
+	display:block;
+	}
+
+.banner-form
+{
+	width:610px;
+	margin:30px 10px 0px 40px;
+	height:220px;	
+/*	background:#999;
+*/	
+}
+ .left-banner-form
+{
+	float:left;
+	width:190px;
+/*	background:#FF6;
+*/}
+.middle-banner-form
+{
+	float:left;
+	width:215px;
+	height:220px;	
+/*	background:#F89;
+*/}
+.last-banner-form
+{
+	float:left;
+	width:205px;
+	height:220px;	
+/*	background:#FF6;
+*/}
+.last-banner-form-left
+{
+	width:95px;
+/*	background:#0F9;
+*/	height:220px;
+	float:left;
+}
+.last-banner-form-right
+{
+	width:110px;
+/*	background:#f89;
+*/	height:220px;
+	float:left;
+}
+
+input.txt-banner
+{
+	width:162px;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding:4px 5px 4px 5px;
+	margin: 3px 0px 3px 20px;
+	border:none;
+	color:#000;
+}
+.slct-banner
+{
+	width:162px;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding:3px 2px 3px 5px;
+	margin: 3px 0px 3px 20px;
+	border:none;
+
+}
+
+.btn_buy {
+    background: #cab000 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    height: 25px;
+	border:1px #fff solid;
+    margin: 5px 0 0;
+    padding: 0 10px;
+	}	
+
+.txtarea-banner{
+	float: left;
+	width: 300px;
+	height:140px;
+	padding:5px 0 0 5px;
+	margin: 3px 0 0 0;
+	border:none;
+	font-size:12px;
+	color:#666;
+	font-family:Arial, Helvetica, sans-serif;
+	background-color: rgba(255, 255, 255, 0.8);}
+
+.form-file
+{
+	width:85px;
+	margin:108px 0px 0px 0px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border:none;
+	padding:0;
+	border-radius:2px;
+
+}
+.btn-banner
+{
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 0px 10px 0px 10px;
+	margin:105px 0px 0px 0px;
+	border:none;
+	color:#fff;
+	height:30px;
+	line-height:30px;
+	cursor:pointer;
+	}
+.Right_banner
+{
+	width:260px;
+	height:300px;
+	background-image:url(../images/transparent-oneshop.png);
+	background-repeat:repeat;
+	float:right;
+}
+.right_sale_pic
+{
+	width:230px;
+	height:300px;
+	margin:10px 0px 0px 10px ;
+}
+.right_sale_pic img
+{
+	margin-top:20px;
+}
+.mal20 {
+    margin-left: 20px !important;
+	}
+.mab20 {
+    margin-bottom: 20px !important;
+	}
+.fs28 {
+    font-size: 28px !important;
+	}
+/* styles for quick sell--10/07/2015 */
+
+
+#oneshop_reportProblemPopupBg{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 9999;}
+
+
+
+
+/*---20-07-2015 adds Style Starts Here---*/	
+.adds_bannerTypeWrapper{
+	float: left;
+	margin: 0 0 5px 0;
+	width: 630px;
+	height: 150px;
+	background-color: #eee;}
+.adds_BannerCloseBtn{
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	background-color: #aaa;
+	z-index: 1;
+	margin: 1px 1px 0 614px;}
+.adds_closeBtnImg{
+	float: left;
+	width: 15px;
+	height: 15px;}	
+.adds_closeOptions{
+	display: none;
+	float: left;
+	width: 150px;
+	height: 55px;
+	box-shadow: 0 2px 2px #222;
+	background-color: #f5f5f5;
+	margin: 0 0 0 -135px;}
+.adds_closeOptions ul{
+	float: left;
+	list-style: none;
+	width: 150px;}
+.adds_closeOptions ul li{
+	float: left;
+	cursor: pointer;
+	padding: 2px 5px 2px 5px;
+	width: 140px;
+	font: 12px Arial;
+	color: #777;}
+.adds_closeOptions ul li:hover{
+	background-color: #e5e5e5;}
+.adds_bannerContainer{
+	position: absolute;
+	overflow: hidden;
+	float: left;
+	width: 630px;
+	height: 150px;}
+.adds_banner{
+	float: left;
+	width: 630px;}	
+	
+	
+.click_addsFlashTypeWrapper, .click_addsImgTypeWrapper{
+	float: right;
+	width: 250px;
+	height: 400px;
+	background-color: #eee;
+	margin: 0 0 5px 0;}
+.click_addsImgTypeWrapper{
+	height: 200px;}	
+.adds_VerticleCloseBtn{
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	background-color: #aaa;
+	z-index: 1;
+	margin: 1px 1px 0 234px;}	
+.adds_flashContainer, .adds_imgContainer{
+	position: absolute;
+	overflow: hidden;
+	float: left;
+	width: 250px;
+	height: 400px;}
+.adds_imgContainer{
+	height: 200px;}	
+.adds_flash{
+	float: left;
+	width: 250px;}	
+/*---20-07-2015 adds Style Ends Here---*/
+
+
+.oneshop_categories{
+	float: right;
+	height: 30px;
+	margin: 5px 0 0 0;}
+.click_productCategories a{
+	color: #777;
+	text-decoration: none;}	
+.click_productCategories{
+	float: left;
+	margin: 0 0 0 10px;
+	padding: 5px 5px 3px 5px;
+	font: 12px Arial;}
+.click_productCategories:hover{
+	border-bottom: solid 3px #555;}
+	
+	
+oneshop_productDetailedViewRatingSection, .oneshop_productrating{
+	float: left;
+	margin: 5px;
+	width: 240px;}
+.oneshop_productrating{
+	width: 200px;}	
+.oneshop_productDetailedViewRatingSection h4{
+	color: #C30;
+	font: 16px Arial;
+	margin: 3px 0 0 0;
+	float: left;}
+.oneshop_productDetailedViewRating{
+	float: left;
+	margin: 2px;
+	height: 20px;}
+.oneshop_productDetailedViewRating img{
+	cursor: pointer;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 0 0 0 3px;}	
+.oneshop_productDetailedViewRatingSection h3{
+	font: 18px Arial;
+	color: #555;
+	margin: 3px 0 0 5px;
+	float: left;}
+	
+	
+.oneshop_ratingSection{
+	width: 100%;
+	float: left;}
+.oneshop_ratingSection h4{
+	width: 45px;
+	margin: 3px 0 0 5px;
+	color: #555;	
+	float: left;}
+.oneshop_ratingSection h3{
+	width: 30px;
+	margin: 2px 0 0 5px;
+	float: left;
+	font: 15px Arial;}	
+.oneshop_rating{
+	margin: 2px;
+	float: left;
+	height: 20px;}
+.oneshop_rating img{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin: 0 0 0 2px;}	
+	
+	
+.oneshop_mystoreProducts{
+	float: left;
+	width: 890px;}
+
+
+/*  Developer: Ravi Teja - Date : 25-12-2015   */
+
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;}
+body{
+	background-color: #000;
+	background-image: url(../Images/BG01.jpg)}
+.oneshop_wrapper{
+	position: relative;
+	width: 900px;
+	border: solid 1px black;
+	margin: 0px auto;}
+.oneshop_innerWrapper{
+	width: 900px;
+	float: left;}
+h2{font: 20px Arial;}	
+h3{font: 18px Arial;}	
+h4{font: 16px Arial; color: white;}	
+h5{font: 14px Arial;}	
+h6{font: 12px Arial; color: white;}	
+a{
+	text-decoration: none;
+	color: #333;}
+	
+.oneshop_rightSection{
+	width: 250px;
+	float: right;
+	min-height: 200px;
+	background-color: rgba(250, 250, 250, 0.3);
+	border-bottom: solid 5px #c5b000;
+	margin: 5px;}	
+	
+/*------One Shop Module Header style starts Here(vinod 19-05-2015)------*/	
+.oneshop_moduleHeader{
+	float: left;
+	width: 900px;
+	height: 65px;
+	background-color: #c5b000;}
+.oneshop_logo{
+	float: left;
+	margin: 5px;
+	width: 65px;
+	height: 55px;}
+.oneshop_profile{
+	width: 200px;
+	height: 45px;
+	float: left;
+	overflow: hidden;
+	margin: 10px 0 0 150px;}
+.oneshop_profilePic{
+	width: 45px;
+	height: 45px;
+	float: left;}
+.oneshop_profile h4{
+	margin: 10px 0 0 5px;
+	float: left;}
+	
+.maildes_headerOptions{
+	float: left;
+	margin: 15px 0px 0px 70px;
+	width: 30px;
+	height: 30px;}
+.maildes_headerOptions ul{
+	list-style: none;}
+.maildes_headerIcon{
+	cursor: pointer;
+	float: left;
+	margin: 2.5px 0px 0px 2.5px;
+	width: 25px;
+	height: 25px;}	
+.maildes_headerOptions ul ul{
+	display: none;}	
+.maildes_headerOptions ul li:hover ul{
+	display: block;
+	float: left;
+	position: relative;
+	width: 210px;
+	margin: 0 0 0 -20px;
+	z-index: 100;}	
+.maildes_headerOptions ul ul li.maildes_bubble{
+	width: 50px;
+	height: 15px;}
+.maildes_headerOptions ul ul li.maildes_bubble img{
+	width: 22px;
+	height: 15px;
+	margin: 0px 0px 0px 25px;}
+.maildes_headerOptions ul ul li.maildes_settingOption{
+	cursor: pointer;
+	padding: 10px 0 0 10px;
+	color: #333;
+	width: 200px;
+	height: 22px;
+	border-bottom: solid 1px #ddd;
+	font: 12px Arial;
+	background-color: #eee;}
+.maildes_headerOptions ul ul li.maildes_settingOption:hover{
+	background-color: #ccc;}	
+.oneshop_restoreIcon{
+	float: right; 
+	width: 30px;
+	height: 40px;
+	margin: 10px;}
+/*------One Shop Module Header style ends Here(vinod 19-05-2015)------*/		
+
+/*------One Shop Sub Header style starts Here(vinod 19-05-2015)------*/
+.oneshop_subHeader{
+	float: left;
+	width: 900px;
+	height: 45px;
+	background-color: #ddd;}
+.oneshop_dropMenu{
+	width: 200px;
+	height: 35px;
+	float: left;
+	margin: 5px;
+	background-color: #555;}
+.oneshop_menu{
+	float: left;
+	height: 35px;
+	margin: 5px 0 0 20px;}
+.oneshop_menu ul{
+	list-style: none;
+	float: left;}
+.oneshop_menu ul li{
+	cursor: pointer;
+	height: 35px;
+	padding: 0 10px 0 10px;
+	float: left;
+	margin: 0 5px 0 0;
+	text-align: center;}		
+.oneshop_menu ul li:hover{
+	background-color: #999;
+	color: white;}
+.oneshop_Page{
+	background-color: #999;
+	color: white;}
+.oneshop_menu ul li h5{
+	margin: 8px 0 0 0;}
+.oneshop_storePage{
+	background-color: #999;
+	color: white;}
+/*------One Shop Sub Header style ends Here(vinod 19-05-2015)------*/	
+
+/*------One Shop NavigationBar style starts Here(vinod 19-05-2015)------*/
+.oneshop_navigationBar{
+	float: left;
+	margin-top: 1px;
+	width: 900px;
+	height: 25px;
+	background-color: #eee;}
+.oneshop_navigation{
+	float: left;
+	height: 21px;
+	max-width: 890px;
+	overflow: hidden;
+	margin: 2px;}
+.oneshop_navigation h6{
+	float: left;
+	color: #c5b000;
+	margin: 3px;}
+/*------One Shop NavigationBar style ends Here(vinod 19-05-2015)------*/
+
+/*------Oneshop Content Style starts Here(vinod 19-05-2015)-----*/
+.oneshop_contentSection{
+	float: left;
+	width: 900px;
+	min-height: 500px;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_leftSection{
+	width: 625px;
+	float: left;
+	min-height: 100px;
+	margin: 5px;}
+.oneshop_leftSectionHeader{
+	float: left;
+	width: 625px;
+	height: 40px;
+	background-color: #eee;}
+.oneshop_leftSectionHeader h3{
+	margin: 8px;
+	color: #cab000;}		
+.oneshop_mainSection{
+	width: 880px;
+	height: 300px;
+	float: left;
+	margin: 10px;
+	background-color: rgba(250, 250, 250, 0.3);}
+/*------Oneshop Content Style ends Here(vinod 19-05-2015)-----*/
+
+/*------One Shop Footer Style Starts Here------*/
+.oneshop_footer{
+	float: left;
+	width: 900px;
+	height: 45px;
+	background-color: #c5b000;}
+.oneshop_footerContent{
+	float: left;
+	height: 35px;
+	width: 890px;
+	margin: 5px;}
+.oneshop_footerContent h6{
+	float: left;
+	margin: 8px;}	
+.oneshop_footerLogo{
+	float: right;
+	margin: 4px;}
+/*------One Shop Footer Style Starts Here------*/
+
+/*------Settings Page Style Starts Here(vinod 19-05-2015)------*/
+.oneshop_leftHead{
+	float: left;
+	background-color: #eee;
+	width: 625px;
+	height: 40px;
+	color: #555;}
+.oneshop_leftHead h3{
+	margin: 7px;}
+.oneshop_myStoreSettings{
+	width: 625px;
+	float: left;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_myStoreBasicInfo, .oneshop_myStoreManageStaff, .oneshop_myStoreNotifications{
+	text-align: center;
+	float: left;
+	width: 600px;
+	border-bottom: solid 1px #555;
+	margin: 10px;}	
+.oneshop_myStoreBasicInfo h4, .oneshop_myStoreManageStaff h4, .oneshop_myStoreNotifications h4{
+	float: left;
+	margin: 5px 0 5px 50px;
+	color: #000;}
+.oneshop_mystoreSettinsField{
+	float: left;
+	margin: 5px 0 0 50px;
+	overflow: hidden;
+	width: 500px;
+	min-height: 30px;}
+.onshop_formsFieldLables{
+	float: left;
+	min-width: 190px;
+	height: 30px;}
+.oneshop_mystoreSettinsField h5{
+	float: right;
+	color: #111;
+	margin: 5px;}
+.oneshop_mystoreField{
+	/*float: right;*/
+	background-color: rgba(240, 240, 240, 0.9);
+	height: 30px;
+	width: 280px;
+	margin-left: 10px;
+	padding: 0 10px 0 10px;
+	border: 0px;}
+.fileType{
+	width: 300px;
+	padding: 0px;}
+.textAreaType{
+	height: 75px;}
+.checkBoxType{
+	float: right;
+	margin: 8px 100px 0 10px;
+	width: 10px;
+	height: 10px;}
+.selectType{
+	width: 300px;}	
+.oneshop_basicInfoBtn{
+	float: right;
+	background-color: #cab000;
+	border: solid 1px white;
+	color: white;
+	padding: 0 10px 0 10px;
+	min-width: 50px;
+	height: 25px;
+	margin: 5px 50px 5px 5px;}
+.oneshop_PaymentOptionsSection{
+	float: left;
+	width: 600px;
+	height: 100px;
+	border: solid 1px white;
+	margin: 5px;}	
+/*------Settings Page Style Ends Here(vinod 19-05-2015)------*/
+
+/*------Home Page Style Starts Here(vinod 19-05-2015)------*/
+.oneshop_homeGrid{
+	cursor: pointer;
+	width: 110px;
+	height: 86px;
+	float: left;
+	margin: 10px 0 0 10px;
+	opacity: 0.9;
+	background-color: #F90;}
+.oneshop_homeGrid:hover{
+	opacity: 1;
+	border: solid 1px white;
+	width: 108px;
+	height: 84px;}
+.oneshop_homeGridTitle, .oneshop_homeGridCount{
+	width: 106px;
+	float: left;
+	height: 50px;
+	margin: 2px 0 0 2px;}	
+.oneshop_homeGridCount{
+	height: 30px;}	
+.oneshop_homeGridTitle h5{color: white; margin: 2px;}
+.oneshop_homeGridCount h2{
+	float: right;
+	color: white;}
+.upgradeBtn{
+	height: 30px;
+	margin: 5px 23px 5px 0;}
+/*------Home Page Style Ends Here(vinod 19-05-2015)------*/
+
+
+/*------My Products Page Starts Here(vinod 20-05-2015)--------*/
+.oneshop_myProductsFilter{
+	float: left;
+	width: 625px;
+	background-color: rgba(250, 250, 250, 0.4);
+	margin: 2px 0 0 0;}
+.oneshop_myProductsFilterFields{
+	float: left;
+	width: 250px;
+	height: 30px;
+	margin: 5px 0 5px 5px;
+	padding: 0 5px 0 5px;
+	background-color: #eee;
+	border: solid 1px #ccc;}
+.myProductDate{width: 100px;}
+.myProductPrice{width: 100px;}
+.findMyProducts{
+	float: left;
+	height: 30px;
+	width: 80px;
+	margin: 5px 0px 0 5px;}
+.oneshop_listOfMyProducts{
+	width: 625px;
+	float: left;
+	margin: 2px 0 0 0;
+	background-color: rgba(250, 250, 250, 0.3);}
+.oneshop_myProductsItem{
+	width: 170px;
+	float: left;
+	height: 200px;
+	background-color: #eee;
+	margin: 5px 0 0 5px;}
+/*------My Products Page Ends Here(vinod 20-05-2015)--------*/
+
+/*-----Page when Clicks on Logo(vinod 21-05-2015)------*/
+.oneshop_logoPage{
+	float: left;
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}
+.oneshop_lpSections{
+	width: 810px;
+	float: left;
+	margin: 5px 0 0 40px;
+	padding-bottom: 5px;}
+.oneshop_lpSectionHeader{
+	float: left;
+	text-align: center;
+	min-width: 180px;
+	max-width: 800px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px; 
+	height: 30px;
+	color: #06F;
+	padding: 0 15px 0 15px;
+	background-color: #f5f5f5;}
+.oneshop_lpSectionHeader h3{
+	margin: 5px;}
+.oneshop_lpSectionContent{
+	float: left;
+	width: 810px;
+	border-radius: 5px;
+	padding-bottom: 5px;
+	border-top-left-radius: 0px;
+	background-color: #f5f5f5;}
+.oneshop_lpscItemsListWrapper{
+	overflow: hidden;
+	width: 800px;
+	margin: 5px 0 0 5px;
+	float: left;}
+.oneshop_lpscItemPic{
+	width: 190px;
+	height: 100px;
+	float: left;}
+.oneshop_lpcsItemDetails{
+	cursor: pointer;
+	width: 190px;
+	float: left;
+	margin: 0px;
+	height: 50px;
+	text-align: center;
+	background-color: #600;
+	overflow: hidden;}
+.oneshop_lpcsItemDetails h4{
+	font: 13px Arial;}
+	
+.oneshop_corouselContent{	
+	position: relative; 
+	top: 0px; 
+	left: 0px; 
+	width: 809px; 
+	height: 150px; 
+	overflow: hidden;}
+.oneshop_corouselSlides{
+	cursor: move; 
+	float: left;
+	left: 0px; 
+	top: 0px; 
+	width: 809px; 
+	height: 150px; 
+	verflow: hidden; }
+.oneshop_corouselSlide{
+	float: left;
+	width: 190px;}	
+	
+/* jssor slider bullet navigator skin 03 css */
+            /*
+            .jssorb03 div           (normal)
+            .jssorb03 div:hover     (normal mouseover)
+            .jssorb03 .av           (active)
+            .jssorb03 .av:hover     (active mouseover)
+            .jssorb03 .dn           (mousedown)
+            */
+            .jssorb03 {
+                position: absolute;
+            }
+            .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 21px;
+                height: 21px;
+                text-align: center;
+                line-height: 21px;
+                color: white;
+                font-size: 12px;
+                background: url(../img/b03.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .jssorb03 div { background-position: -5px -4px; }
+            .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+            .jssorb03 .av { background-position: -65px -4px; }
+            .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+			
+			
+ /* jssor slider arrow navigator skin 03 css */
+            /*
+            .jssora03l                  (normal)
+            .jssora03r                  (normal)
+            .jssora03l:hover            (normal mouseover)
+            .jssora03r:hover            (normal mouseover)
+            .jssora03l.jssora03ldn      (mousedown)
+            .jssora03r.jssora03rdn      (mousedown)
+            */
+            .jssora03l, .jssora03r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 55px;
+                height: 55px;
+                cursor: pointer;
+                background: url(../Images/a03.png) no-repeat;
+                overflow: hidden;
+            }
+            .jssora03l { background-position: -3px -33px; }
+            .jssora03r { background-position: -63px -33px; }
+            .jssora03l:hover { background-position: -123px -33px; }
+            .jssora03r:hover { background-position: -183px -33px; }
+            .jssora03l.jssora03ldn { background-position: -243px -33px; }
+            .jssora03r.jssora03rdn { background-position: -303px -33px; }				
+			
+	
+/*-----Page when Clicks on Logo(vinod 21-05-2015)------*/
+
+/*-----Profile Page(vinod 21-05-2015)------*/
+.oneshop_ProfilePage{
+	float: left;
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}
+.oneshop_profileDetails{
+	float: left;
+	width: 880px;
+	height: 200px;
+	margin: 5px;}
+.oneshop_coverPic{
+	width: 100%;
+	height: 100%;
+	float: left;}
+.oneshop_profilePicandName{
+	position: absolute;
+	margin: 70px 0 0 50px;
+	width: 500px;}
+.oneshop_ppProfilePic{
+	border: solid 1px white;
+	width: 130px;
+	float: left;
+	height: 150px;}
+.oneshop_profileName{
+	float: left;
+	color: white;
+	height: 30px;
+	margin: 95px 0 0 0;
+	padding: 0 15px 0 15px;}
+.oneshop_profileSection, .oneshop_MyStoreProfileSection, .oneshop_storeProductsSection{
+	width: 620px;
+	float: left;
+	min-height: 100px;
+	margin: 5px 0 5px 5px;}
+.oneshop_MyStoreProfileSection{
+	width: 880px;}
+.oneshop_StoreProfileInformation{
+	float: left;
+	width: 880px;
+	margin-top: 20px;
+	min-height: 100px;
+	padding-bottom: 10px;
+	background-color: #f5f5f5;}
+.oneshop_StoreProfileInformation h4{
+	float: left;
+	font: 16px Arial;
+	width: 200px;
+	overflow: hidden;
+	margin: 5px;
+	color: #C30;}		
+.oneshop_StoreProfileInformation p{
+	float: left;
+	font: 13px Arial;
+	color: #333;
+	width: 750px;
+	margin: 5px 0 0 25px;}	
+.oneshop_profileSectionTabs{
+	height: 35px;
+	float: left;}
+.oneshop_profileSectionTabs ul{
+	list-style: none;
+	font: 14px Arial;
+	height: 35px;
+	text-align: center;
+	color: black;
+	float: left;
+	margin: 0 0 0 0px;}	
+.oneshop_profileSectionTabs ul li{
+	cursor: pointer;
+	display: inline-block;
+	height: 35px;
+	float: left;	
+	background-color: #f5f5f5;
+	margin: 0 1px 0 0;}
+.oneshop_profileSectionTabs ul li:hover{
+	background-color: #ccc;}	
+.oneshop_profileSectionTabs ul li h4{
+	padding: 0 10px 0 10px;
+	margin: 6px 0 0 0;
+	color: black;}	
+.oneshop_profileSectionContent, .oneshop_MyStoreProfileSectionContent{
+	width: 620px;
+	float: left;
+	min-height: 50px;
+	padding-bottom: 5px;
+	background-color: #f9f9f9;}
+.oneshop_MyStoreProfileSectionContent{
+	width: 880px;}	
+.oneshop_profilePurchaseHistory{
+	float: left;
+	width: 600px;
+	min-height: 50px;
+	margin: 5px 0 5px 10px;}
+.oneshop_profilePurchaseHistoryItem:nth-child(odd){
+	cursor: pointer;
+	float: left;
+	width: 600px;
+	height: 50px;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #ddd;}
+.oneshop_profilePurchaseHistoryItem:nth-child(even){
+	cursor: pointer;
+	float: left;
+	width: 600px;
+	height: 50px;
+	background-color: #e9e9e9;
+	border-bottom: solid 1px #ddd;}
+.oneshop_profilePurchaseHistoryItem:hover{
+	background-color: #d5d5d5;}
+.oneshop_pphproductPic{
+	float: left;
+	width: 50px;
+	height: 45px;
+	margin: 2px;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead{
+	float: left;
+	margin: 2px 0 0 10px;
+	list-style: none;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li{
+	display: inline-block;
+	height: 22px;
+	width: 105px;
+	float: left;
+	margin: 0 0 0 5px;
+	overflow: hidden;
+	text-align: center;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphHead li h4{
+	font: 13px Arial;
+	color: #C30;}	
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody{
+	float: left;
+	margin: 0px 0 0 10px;
+	list-style: none;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li{
+	display: inline-block;
+	height: 20px;
+	float: left;
+	margin: 0 0 0 5px;
+	overflow: hidden;
+	text-align: center;
+	width: 105px;}
+.oneshop_profilePurchaseHistoryItem ul.oneshop_pphBody li h4{
+	font: 12px Arial;
+	color: #333;}
+.oneshop_pphClose{
+	float: right;
+	width: 12px;
+	height: 12px;
+	margin: 2px;}
+/*-----Profile Page(vinod 21-05-2015)------*/
+
+/*-----Cart Items Page(vinod 21-05-2015)------*/
+.oneshop_cartItemsPage, .oneshop_friendStorePage, .oneshop_findProductsPage, .oneshop_findStorePage, .oneshop_ReportsPage{
+	float: left;
+	background-color: #f9f9f9;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	margin: 5px;
+	width: 890px;
+	padding-bottom: 5px;
+	min-height: 100px;}
+.oneshop_cartItemsPageHead, .oneshop_ReportsPageHead{
+	width: 100%;
+	height: 40px;
+	float: left;
+	box-shadow: 0 1px 3px #777;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #eee;}
+.oneshop_cartItemsPageHead h4, .oneshop_ReportsPageHead h4{
+	float: left;
+	margin: 8px;
+	color: black;}
+.oneshop_myCartItem, .oneshop_myFindStoreItem, .oneshop_myFindProductItem, .oneshop_myFrienddStoreItem{
+	width: 210px;
+	float: left;
+	box-shadow: 0 0 2px #777;
+	background-color: #eee;
+	margin: 10px 0 0 10px;}
+.oneshop_myCartItemImageSection, .oneshop_myFindStoreImageSection, .oneshop_myFindProductImageSection, .oneshop_myFriendStoreImageSection{
+	overflow: hidden;
+	width: 200px;
+	height: 140px;
+	float: left;
+	margin: 5px;
+	background-color: rgba(250, 250, 250, 1);}
+.oneshop_myCartItemDetailSection, .oneshop_myFindStoreDetailSection, .oneshop_myFindProductDetailSection, .oneshop_myFriendStoreDetailSection{
+	float: left;
+	width: 100%;}
+.oneshop_myCartItemDetailSection h3, .oneshop_myCartItemDetailSection h2, .oneshop_myCartItemDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 5px;}
+.oneshop_myFindStoreDetailSection h3, .oneshop_myFindStoreDetailSection h2, .oneshop_myFindStoreDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 5px;}
+.oneshop_myFindProductDetailSection h3, .oneshop_myFindProductDetailSection h2, .oneshop_myFindProductDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 0 0 0 5px;}
+.oneshop_myFriendStoreDetailSection h3, .oneshop_myFriendStoreDetailSection h2, .oneshop_myFriendStoreDetailSection h4{
+	float: left;
+	color: #C30;
+	overflow: hidden;
+	width: 65%;
+	max-height: 50px;
+	font: 16px Arial;
+	margin: 5px;}			
+.oneshop_myCartItemDetailSection h2, .oneshop_myFindStoreDetailSection h2, .oneshop_myFindProductDetailSection h2, .oneshop_myFriendStoreDetailSection h2{
+	color: #06F;
+	float: right;
+	font: 18px Arial;
+	max-width: 25%;}
+.oneshop_myCartItemDetailSection h4, .oneshop_myFindStoreDetailSection h4, .oneshop_myFindProductDetailSection h4, .oneshop_myFriendStoreDetailSection h4{
+	float: left;
+	color: #333;
+	font: 12px Arial;
+	width: 80%;}	
+.oneshop_myCartItemDetailSection img, .oneshop_myFindStoreDetailSection img, .oneshop_myFindProductDetailSection img, .oneshop_myFriendStoreDetailSection img{
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin: 5px;}	
+/*-----Cart Items Page(vinod 21-05-2015)------*/
+
+/*----Find Stores(Vinod 22-05-2015)-----*/
+.oneshop_ratingSection{
+	width: 100%;
+	float: left;}
+.oneshop_ratingSection h4{
+	width: 45px;
+	margin: 3px 0 0 5px;
+	color: #555;	
+	float: left;}
+.oneshop_ratingSection h3{
+	width: 30px;
+	margin: 2px 0 0 5px;
+	float: left;
+	font: 15px Arial;}	
+.oneshop_rating{
+	margin: 2px;
+	float: left;
+	height: 20px;}
+.oneshop_rating img{
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin: 0 0 0 2px;}	
+.oneshop_storeViewBtn{
+	float: right;
+	margin: 5px;}
+/*----Find Stores(Vinod 22-05-2015)-----*/
+
+
+/*---One Shop Filter Starts Here (Vinod22-05-2015)---*/
+.oneshop_filter{
+	margin: 5px;
+	float: left;
+	width: 890px;
+	height: 75px;
+	border-radius: 5px;
+	background-color: rgba(250, 250, 250, 0.4);}
+.oneshop_filterFields{
+	float: left;
+	width: 850px;
+	margin: 15px 0 0 20px;
+	height: 40px;}
+.oneshop_filterFields h5{
+	float: left;
+	margin: 10px;}
+.oneshop_filterFieldsText{
+	margin: 5px;
+	float: left;}
+.oneshop_storeFindBtn{
+	float: right;
+	margin: 8px;}	
+/*---One Shop Filter Starts Here (Vinod22-05-2015)---*/
+
+/*---One Shop Find Products starts Here(vinod 22-05-2015)---*/
+.oneshop_myFindProductImageViews{
+	float: left;
+	width: 100%;
+	height: 50px;}
+.oneshop_productViewBtn{
+	float: left;
+	margin: 5px;}
+.oneshop_productBuyBtn{
+	float: right;
+	margin: 5px;}	
+.oneshop_myFindProductImageViews ul{
+	list-style: none;
+	float: left;
+	margin: 0 0 0 10px;}
+.oneshop_myFindProductImageViews ul li{
+	float: left;
+	display: inline-block;
+	overflow: hidden;
+	width: 40px;
+	height: 35px;
+	background-color: #bbb;
+	margin: 2px 0 0 5px;}
+.oneshop_myFindProductImageViews ul li img{
+	float: left;
+	width: 100%;}
+.oneshop_cartIcon, .oneshop_curencyConvertor{
+	cursor: pointer;
+	float: right;
+	width: 25px;
+	height: 25px;
+	margin: 5px;}
+/*---One Shop Find Products starts Here(vinod 22-05-2015)---*/
+
+
+/*---One Shop Friend Store Start Here(Vinod 22-05-2015)---*/
+.oneshop_friendStoreFields{
+	width: 180px;}
+.oneshop_friendStoreFriendDetails, .oneshop_findProductStoreDetails{
+	float: left;
+	overflow: hidden;
+	width: 100%;
+	height: 50px;}
+.oneshop_friendStoreFriendDetails img, .oneshop_findProductStoreDetails img{
+	float: left;
+	width: 45px;
+	height: 45px;
+	margin: 2px;}
+.oneshop_friendStoreFriendDetails h3, .oneshop_findProductStoreDetails h3{
+	float: left;
+	margin: 5px;
+	font: 18px Arial;
+	color: #C30;}
+/*---One Shop Friend Store Start Here(Vinod 22-05-2015)---*/
+
+
+/*---One Shop Product Detailed View(Vinod 22-05-2015)---*/
+.oneshop_productDetailedView{
+	float: left;
+	width: 635px;
+	min-height: 100px;
+	background-color: #f5f5f5;}
+.oneshop_productImageSection{
+	float: left;
+	width: 250px;
+	min-height: 300px;
+	margin: 5px;
+	border: dashed 1px white;}
+.oneshop_productMainImage{
+	float: left;
+	width: 235px;
+	height: 150px;
+	margin: 5px 0 0 5px;}
+.oneshop_productDetailedViewImageViews{
+	float: left;
+	width: 250px;
+	height: 50px;
+	margin: 5px 0 5px 0;}
+.oneshop_productDetailedViewImageViews ul{
+	float: left;
+	margin: 0 0 0 13px;
+	list-style: none;}
+.oneshop_productDetailedViewImageViews ul li{
+	display: inline-block;
+	cursor: pointer;
+	overflow: hidden;
+	height: 40px;
+	width: 50px;
+	float: left;
+	margin: 0 0 0 5px;}
+.oneshop_productDetailedViewImageViews ul li img{
+	float: left;
+	width: 100%;}
+.oneshop_productDetailedViewRatingSection{
+	float: left;
+	margin: 5px;
+	width: 240px;}
+.oneshop_productDetailedViewRatingSection h4{
+	color: #C30;
+	font: 16px Arial;
+	margin: 3px 0 0 0;
+	float: left;}
+.oneshop_productDetailedViewRating{
+	float: left;
+	margin: 2px;
+	height: 20px;}
+.oneshop_productDetailedViewRating img{
+	cursor: pointer;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 0 0 0 3px;}	
+.oneshop_productDetailedViewRatingSection h3{
+	font: 18px Arial;
+	color: #555;
+	margin: 3px 0 0 5px;
+	float: left;}	
+.oneshop_productDetailedViewDetails{
+	float: left;
+	width: 350px;
+	min-height: 200px;
+	margin: 5px;}
+.oneshop_productDetailedViewHeader{
+	float: left;
+	width: 350px;
+	border-bottom: solid 1px #999;
+	overflow: hidden;
+	height: 50px;}
+.oneshop_productDetailedViewHeader h3{
+	font: 18px Arial;
+	color: #C30;
+	width: 350px;
+	height: 25px;
+	overflow: hidden;
+	float: left;}
+.oneshop_prouctDetailedViewViews{
+	float: left;
+	width: 200px;
+	height: 25px;}
+.oneshop_prouctDetailedViewViews h5{
+	float: left;
+	font: 13px Arial;
+	margin: 2px;
+	color: #777;}	
+.oneshop_prouctDetailedViewViews h4{
+	float: left;
+	margin: 1px;
+	font: 14px Arial;
+	color: #555;}
+.oneshop_productDetailedViewSpecifications, .oneshop_productDetailedViewDescription, .oneshop_productDetailedViewInStock{
+	float: left;
+	width: 350px;
+	text-align: left;
+	margin: 5px 0 0 0;}
+.oneshop_productDetailedViewSpecifications h4, .oneshop_productDetailedViewDescription h4{
+	font: 15px Arial;
+	float: left;
+	color: #C30;
+	width: 330px;}
+.oneshop_productDetailedViewSpecifications p, .oneshop_productDetailedViewDescription p{
+	font: 11px Arial;
+	margin: 5px 0 0 5px;
+	float: left;
+	color: #333;}	
+.oneshop_productDetailedViewSections{
+	float: left;
+	width: 250px;
+	text-align: left;
+	margin: 0px 0 0 0;}	
+.oneshop_productDetailedViewSections h4{
+	float: left;
+	color: #555;
+	margin: 1px;
+	color: #777;
+	font: 13px Arial;}
+.oneshop_productDetailedViewSections h3{
+	float: left;
+	color: #333;
+	margin: 1px;
+	font: 14px Arial;}
+.rightSectionFixedHeight{
+	height: 375px;
+	overflow: hidden;}
+/*---One Shop Product Detailed View(Vinod 22-05-2015)---*/
+
+
+.oneshop_recentOrdersList{
+	float: left;
+	padding-bottom: 5px;
+	width: 625px;}
+.oneshop_recentOrdersHeader{
+	float: left;
+	padding: 0 15px 0 15px;
+	height: 30px;
+	margin: 5px 0 0px 5px;
+	border-bottom: solid 1px #ddd;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #f5f5f5;}
+.oneshop_recentOrdersHeader h4{
+	float: left;
+	margin: 3px 0 0 0;
+	color: #C30;}	
+.oneshop_orderItem:nth-child(even){
+	margin: 0px 0 0 5px;
+	cursor: pointer;
+	float: left;
+	width: 600px;
+	height: 50px;
+	background-color: #f5f5f5;
+	border-bottom: solid 1px #ddd;}
+.oneshop_orderItem:nth-child(odd){
+	cursor: pointer;
+	margin: 0px 0 0 5px;
+	float: left;
+	width: 600px;
+	height: 50px;
+	background-color: #e9e9e9;
+	border-bottom: solid 1px #ddd;}
+.oneshop_orderItem:hover{
+	background-color: #d5d5d5;}
+.oneshop_orderItem ul.oneshop_pphHead{
+	float: left;
+	margin: 2px 0 0 10px;
+	list-style: none;}
+.oneshop_orderItem ul.oneshop_pphHead li{
+	display: inline-block;
+	height: 22px;
+	width: 105px;
+	float: left;
+	margin: 0 0 0 5px;
+	overflow: hidden;
+	text-align: center;}
+.oneshop_orderItem ul.oneshop_pphHead li h4{
+	font: 13px Arial;
+	color: #C30;}	
+.oneshop_orderItem ul.oneshop_pphBody{
+	float: left;
+	margin: 0px 0 0 10px;
+	list-style: none;}
+.oneshop_orderItem ul.oneshop_pphBody li{
+	display: inline-block;
+	height: 20px;
+	float: left;
+	margin: 0 0 0 5px;
+	overflow: hidden;
+	text-align: center;
+	width: 105px;}
+.oneshop_orderItem ul.oneshop_pphBody li h4{
+	font: 12px Arial;
+	color: #333;}
+	
+/*---My Store Reports Page(Vinod 23-05-2015)---*/	
+.oneshop_reportSection{
+	float: left;
+	width: 870px;
+	min-height: 100px;
+	margin: 10px;}
+/*.oneshop_reports{
+	float: left;
+	width: 285px;
+	height: 75px;
+	box-shadow: 0 0 2px #999;
+	background-color: #f5f5f5;
+	margin: 0 5px 5px 0;}*/
+/*---My Store Reports Page(Vinod 23-05-2015)---*/	
+
+
+/*---Cart Item Style(Vinod 25-05-2015)---*/
+.oneshop_cartItem{
+	float: left;
+	width: 880px;
+	height: 70px;
+	margin: 5px 0 0 5px;
+	border: dashed 1px #fff;}
+.oneshop_cartItemImage{
+	float: left;
+	width: 60px;
+	margin: 5px;
+	height: 60px;}
+.oneshop_cartItemCloseBtn{
+	cursor: pointer;
+	float: right;
+	width: 15px;
+	height: 15px;
+	margin: 2px;}	
+.oneshop_cartItemDetails{
+	float: left;
+	width: 250px;
+	height: 60px;
+	margin: 5px 5px 0 0px;
+	overflow: hidden;}
+.priceDetails{
+	width: 150px;}	
+.oneshop_cartItemDetails h4{
+	color: #C30;
+	margin: 5px 0 0 2px;
+	font: 17px Arial;}
+.oneshop_cartItemDetails h3{
+	float: left;
+	color: #fff;
+	margin: 0px 2px 2px 0;
+	font: 17px Arial;}
+.oneshop_cartItemsQuantity{
+	float: left;
+	width: 50px;
+	padding: 0 0px 0 5px;
+	font: 16px Arial;
+	height: 30px;
+	margin: 2px;
+	background-color: #eee;
+	border: 0px;}
+.oneshop_BuyCartItems{
+	float: left;
+	height: 40px;
+	width: 880px;
+	margin: 5px;}	
+/*---Cart Item Style(Vinod 25-05-2015)---*/
+
+
+/*---Store Products(Vinod 26-05-2015)---*/
+.oneshop_StoreProductsPage{
+	float: left;
+	background-color: rgba(250, 250, 250, 0.3);
+	margin: 5px;
+	width: 890px;
+	min-height: 100px;}	
+.oneshop_storeLogoandName{
+	float: left;
+	margin: 5px;
+	width: 500px;}
+.oneshop_storeName{
+	float: left;
+	color: white;
+	height: 30px;
+	width: 300px;
+	overflow: hidden;
+	margin: 60px 0 0 0;
+	padding: 0 15px 0 10px;}
+.oneshop_storeProfilePic{
+	border: solid 1px white;
+	width: 80px;
+	float: left;
+	height: 90px;}	
+.oneshop_storeProductsHeading{
+	float: left;
+	padding: 0 20px 0 20px;
+	height: 40px;
+	min-width: 180px;
+	text-align: center;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: rgba(250, 250, 250, 0.8);}
+.oneshop_storeProductsHeading h4{
+	font: 16px Arial;
+	color: #C30;
+	margin: 10px 0 0 0;}
+/*---Store Products(Vinod 26-05-2015)---*/
+
+/*---Report A Problem Style Starts Here(Vinod 27-05-2015)---*/
+.oneshop_reportProblemPopup{
+	display: none;
+	position: absolute;
+	z-index: 1000;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #333;
+	margin: 100px 0 0 200px;
+	width: 500px;
+	height: 300px;
+	z-index: 1001;
+	background-color: #eee;}
+.oneshop_reportProblemHeader{
+	float: left;
+	width: 500px;
+	height: 40px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom: solid 1px #ccc;
+	background-color: #e5e5e5;}	
+.oneshop_reportProblemIcon{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 5px;}
+.oneshop_reportProblemHeader h4{
+	float: left;
+	font: 16px Arial;
+	color: #555;
+	margin: 8px;}
+.oneshop_reportProblemCloseBtn{
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin: 10px;}
+.oneshop_reportProblemContent{
+	float: left;
+	padding-top: 25px;
+	width: 500px;
+	height: 190px;}
+.oneshop_reportProblemFieldSection{
+	float: left;
+	width: 450px;
+	margin: 5px 0 0 25px;}
+.oneshop_reportProblemFieldLable{
+	float: left;
+	width: 170px;
+	height: 30px;
+	margin: 1px;
+	overflow: hidden;}	
+.oneshop_reportProblemFieldLable h5{
+	float: right;
+	margin: 5px;
+	font: 14px Arial;
+	color: #555;}	
+.oneshop_reportProblemField{
+	float: right;
+	width: 265px;
+	height: 30px;
+	background-color: #e5e5e5;
+	border: solid 1px #ccc;}	
+.oneshop_reportProblemFooter{
+	float: left;
+	width: 500px;
+	height: 40px;
+	border-top: solid 1px #ccc;}
+.oneshop_reportProblemBtn{
+	cursor: pointer;
+	float: right;
+	height: 30px;
+	margin: 5px;
+	padding: 0 15px 0 15px;
+	background-color: #d5d5d5;
+	font: 16px Arial;
+	color: #555;
+	border: 0px;}
+.oneshop_reportProblemBtn:hover{
+	background-color: #999;
+	color: white;}
+/*---Report A Problem Style Starts Here(Vinod 27-05-2015)---*/
+
+/*---Edit Product Starts Here(Vinod 29-05-2015)---*/
+.oneshop_editProductImages{
+	float: left;
+	width: 595px;
+	min-height: 100px;
+	padding: 0 0 5px 20px;
+	border-bottom: dashed 1px white;
+	margin: 5px;}
+.oneshop_editProductImage{
+	float: left;
+	width: 120px;
+	height: 100px;
+	margin: 5px 0 0 15px;
+	background:url(../Images/addProductImage.jpg) no-repeat;
+	box-shadow: 0 0 3px #999;}
+.oneshop_editProductPic{
+	float: left;
+	position: absolute;
+	width: 116px;
+	height: 96px;
+	margin: 2px;}
+.oneshop_editIcon{
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	margin: 82px 2px 2px 102px;
+	float: left;}
+/*---Edit Product Ends Here(Vinod 29-05-2015)---*/
+
+
+.textAreaType{
+	height: 75px;}
+	
+	
+.magnifier{
+	float: left;
+	width: 890px;
+	height: 500px;
+	margin: 5px;
+	background-color: #eee;}
+	
+#site-wrapper {
+font-family: sans-serif;
+margin: auto;
+color: #333333;
+margin: 2px;
+float: left;
+}
+#demo {
+	float: left;
+}
+.oneshop_productImage{
+	float: left;
+	width: 200px;}
+a.no-underline {
+text-decoration: none;
+}
+a, a:visited, a:hover, a:active {
+color: #4C91C0;
+}
+a:hover {
+text-decoration: underline;
+}
+ 
+ 
+ 
+/*---Currency Convertor PopUp Style Starts Here Vinod (14-07-2015)---*/ 
+.oneshop_currencyConvertorPopup{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9999;}
+.oneshop_currencyConvertorWrapper{
+	 margin: 50px auto;
+	 width: 350px;
+	 height: 400px;
+	 border-radius: 5px 5px 0 0;
+	 background-color: #f5f5f5;
+	 box-shadow: 0 0 10px #333;}
+.oneshop_currencyConvertorCloseBtn{
+	cursor: pointer;
+	float: right;
+	position: absolute;
+	margin: -10px 0 0 335px;
+	background-color: #333;
+	border: solid 1px white;
+	font: 12px Arial;
+	color: white;
+	box-shadow: 0 0 5px #555;
+	padding: 6px 0px 2px 8px;
+	width: 17px;
+	height: 17px;
+	border-radius: 15px;}
+.oneshop_currencyConvertorHeader{
+	float: left;
+	border-radius: 5px 5px 0 0;
+	padding: 7px 10px 7px 10px;
+	background-color: #eee;
+	border-bottom: solid 1px #ccc;
+	font: 16px Arial;
+	color: #555;
+	width: 330px;}
+.oneshop_currencyConvertorContent{
+	float: left;
+	padding: 5px;
+	width: 340px;
+	height: 320px;
+	overflow-X: hidden;
+	overflow-Y: Auto;}
+.oneshop_ccContentFieldWrapper{
+	float: left;
+	width: 300px;
+	margin: 10px 0 0 20px;}
+.oneshop_ccContentField{
+	float: left;
+	padding: 0 10px 0 10px;
+	width: 230px;
+	height: 30px;
+	background-color: #eee;
+	border: solid 1px #bbb;}
+.choose{
+	width: 250px;}	
+.oneshop_ccContentFlag{
+	float: right;
+	height: 30px;}			
+.oneshop_currencyConvertorFooter{
+	float: left;
+	width: 350px;
+	height: 35px;
+	background-color: #eee;
+	border-top: solid 1px #ccc;}
+.oneshop_currencyConvertorBtns{
+	cursor: pointer;
+	float: right;
+	padding: 5px 15px 5px 15px;
+	margin: 3px 5px 0 0;
+	background: linear-gradient(#eee, #ccc);
+	border: solid 1px #999;
+	font: 12px Arial;
+	color: #555;}
+.oneshop_currencyConvertorBtns:hover{
+	color: white;
+	border: solid 1px #c58000;
+	background: linear-gradient(#c5b000, #c58000);}
+/*---Currency Convertor PopUp Style Ends Here Vinod (14-07-2015)---*/ 	
+
+
+/*---suresh 18/12/2015 styles start here---*/ 
+
+
+/*----------| flots |----------*/
+.fll { float:left !important; }
+.flr { float:right !important; }
+.clearfix { clear:both; }
+
+/*----------| A Hover |----------*/
+a img { border:none; }
+a { color:#000; text-decoration:none; }
+a:hover { text-decoration:none; color:#024097; }
+
+/*----------| Font Weight |----------*/
+.bold { font-weight:bold !important; }
+
+/*----------| Font Style |----------*/
+.italic { font-style:italic; }
+
+/*----------| Font Size |----------*/
+.fs40 { font-size:40px !important; }
+.fs10 { font-size:10px !important; }
+.fs11 { font-size:11px !important; }
+.fs14 { font-size:14px !important; }
+.fs25 { font-size:18px !important; }
+.fs12 { font-size:12px !important; }
+
+/*----------| Text Alignments |----------*/
+.aleft { text-align:left !important; }
+.acenter { text-align:center !important; }
+.aright { text-align:right !important; }
+.ajustify { text-align:justify !important; }
+
+/*----------| Line Height |----------*/
+.lh20 { line-height:20px; }
+
+
+/*----------| Colors |----------*/
+.gray { color:#787979 !important; }
+.red { color:#d20000 !important; }
+.black { color:#000 !important; }
+.yellow { color:#ffd800 !important; }
+.blue { color:#446cb3 !important; }
+.white { color:#fff !important; }
+
+/*----------| Width |----------*/
+.wi100pstg {
+    width: 100% !important;
+}
+.wi900 { width:900px; margin:0 auto !important; }
+.wi458 { width:458px !important; }
+
+/*----------| Margin Top |----------*/
+
+.mat10 { margin-top:10px !important;}
+.mat15 { margin-top:15px !important}
+.mat20 { margin-top:20px !important;}
+.mat30 { margin-top:30px !important;}
+
+
+/*----------| Margin Right |----------*/
+.mar10 { margin-right:10px !important; }
+.mar5 { margin-right:5px !important; }
+.mar20 { margin-right:20px !important; }
+.mar30 { margin-right:30px !important; }
+.mar40 { margin-right:40px !important; }
+
+
+/*----------| Margin Bottom |----------*/
+.mab10 { margin-bottom:10px !important; }
+.mab5 { margin-bottom:5px !important; }
+
+
+/*----------| Margin Left |----------*/
+.mal10 { margin-left:10px !important; }
+.mal5 { margin-left:5px !important; }
+.mal3 { margin-left:3px !important; }
+.mal15 { margin-left:15px !important; }
+.mal20 { margin-left:20px !important; }
+.mal25 { margin-left:25px !important; }
+.mal30 { margin-left:30px !important; }
+.mal40 { margin-left:40px !important; }
+
+
+
+
+/*----------| Padding Top |----------*/
+.pat20 { padding-top:20px !important; }
+.pat10 { padding-top:10px !important; }
+.pat5 { padding-top:5px !important; }
+.pat7 { padding-top:7px !important; }
+.pat80 { padding-top:80px !important; }
+
+
+/*----------| Padding Right |----------*/
+.par10 { padding-right:10px !important; }
+
+
+/*----------| Padding Bottom |----------*/
+.pab5 { padding-bottom:5px !important; }
+.pab10 { padding-bottom:10px !important; }
+
+
+/*----------| Padding Left |----------*/
+.pal10 { padding-left:10px !important; }
+.pal5 { padding-left:5px !important; }
+
+
+/*----------| Margin Top |----------*/
+.mat10 { margin-top:10px !important; }
+.mat5 { margin-top:5px !important; }
+.mat3 { margin-top:3px !important; }
+
+body{
+	font-family:Arial;
+	font-size:12px;
+	line-height:18px;
+	}	
+
+.oneshop_comments_container{
+	width:880px;
+	margin:0 auto;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:#fff;
+	}	
+.comment-box {
+    overflow: hidden;
+    padding: 0 0 10px;
+    width: 630px;
+	background:#ccc;
+	}
+.incomment-box {
+    margin: 5px;
+    width: 620px;
+	}
+.incomment-box .left-commentbox {
+    float: left;
+    width: 70px;
+	}
+.imgitem {
+    height: 45px;
+    margin: 5px 0 0 5px;
+    width: 60px;
+}
+.incomment-box .right-commentbox {
+    float: left;
+    width: 550px;
+}
+.commenthead {
+    font-size: 18px;
+    margin: 10px 0 5px 5px;
+}
+.incomment-box .right-commentbox .txt-area {
+    background: #fff none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 2px;
+    color: #000;
+    height: 35px;
+    margin: 5px 0 0 5px;
+    padding: 5px;
+    width: 525px;
+	}
+.all_comment_box {
+    overflow: hidden;
+    padding: 10px 0 20px 0;
+    width: 620px;
+}
+.all-comment-in {
+    border: 1px solid #d8d8d8;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 10px;
+    width: 598px;
+}
+.leftchannelitem {
+    float: left;
+    width: 90px;
+	height:90px;
+	}
+
+.leftchannelitem img{
+    float: left;
+    width: 90px;
+	height:90px;
+	}
+
+.all_comment_title {
+    color: #d20000;
+    font-size: 14px;
+    font-weight: bold;
+    width: 458px;
+}
+
+.np_des_addaccess_btn {
+    background: #333333 none repeat scroll 0 0;
+    border: 0px solid #CCC;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+	line-height:24px;
+	font-size:14px;
+    padding: 0px 10px;
+}
+.np_des_addaccess_btn:hover {
+    background: #666666 none repeat scroll 0 0;
+    border-radius: 2px;
+	border: 0px solid #CCC;
+}
+
+/* user public profile page */
+
+.oneshop_userpublicprofile_container{
+	width:890px;
+	margin:0 auto;
+	padding:5px;
+	overflow:hidden;
+	background:#fff;
+	}
+.oneshop_userpublic_topheader{
+	width:888px;
+	height:280px;
+	padding:20px 0 0 0;
+	border:1px #CCC solid;
+	}
+.oneshop_userpublic_leftdetais_box{
+	width:298px;
+	float:left;
+	margin:0 25px 0 15px;
+	}
+.oneshop_userpublic_centerdetais_box{
+	width:200px;
+	float:left;
+	margin:0 10px 0 0;
+	}
+.oneshop_userpublic_centerdetaisimage_box{
+	width:200px;
+	border-radius:120px;
+	overflow:hidden;
+	height:200px;
+	}
+.oneshop_userpublic_centerdetaisimage_box img {
+	width:200px;
+	height:200px;
+	}
+.oneshop_userpublic_rightdetais_box{
+	width:300px;
+	float:left;
+	}
+
+.oneshop_userpublic_tabs_mainwrapper{
+	width:890px;
+	margin:20px 0 0 0;
+	float:left;
+	}
+	
+.oneshop_userpublic_tabs_mainwrapper ul{
+	list-style: none;
+	float: left;
+	}
+	
+.oneshop_userpublic_tabs_mainwrapper ul li{
+	cursor: pointer;
+	float: left;
+	}
+
+.oneshop_userpublic_tabs_mainwrapper ul li a{
+	cursor: pointer;
+	padding:10px 15px 10px 15px;
+	float: left;
+	border-radius:2px;
+	font-size:16px;
+	margin: 0 10px 0 0;
+	color:#fff;
+	border:1px #1f83b0 solid;
+	text-align: center;
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#63b6db+0,309dcf+100;Blue+3D+%234 */
+background: rgb(99,182,219); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(99,182,219,1) 0%, rgba(48,157,207,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(99,182,219,1) 0%,rgba(48,157,207,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#63b6db', endColorstr='#309dcf',GradientType=0 ); /* IE6-9 */
+}
+
+.oneshop_userpublic_tabs_mainwrapper ul li a:hover{
+	cursor: pointer;
+	padding:10px 15px 10px 15px;
+	float: left;
+	border-radius:2px;
+	font-size:16px;
+	margin: 0 10px 0 0;
+	color:#000;
+	border:1px #1f83b0 solid;
+	text-align: center;
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#49c0f0+0,2cafe3+100;Blue+3D+%2311 */
+background: rgb(73,192,240); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(73,192,240,1) 0%, rgba(44,175,227,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(73,192,240,1) 0%,rgba(44,175,227,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(73,192,240,1) 0%,rgba(44,175,227,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#49c0f0', endColorstr='#2cafe3',GradientType=0 ); /* IE6-9 */
+}
+
+/*------ Add Products styles start here 23/12/2015 -----*/
+
+.borderbottom { border-bottom:1px #CCC dotted; }
+.oneshop_container_sectionnew {
+	width: 900px;
+	min-height: 500px;
+	background:#fff;
+	overflow:hidden;
+	}
+.oneshop_container_middle_section {
+	width: 890px;
+	margin:0 auto;
+	display:inline-block;
+	}
+.oneshop_leftwrapper_box {
+    float: left;
+    width: 635px;
+	}
+.oneshop_fieldsbox {
+    width: 580px;
+	display:inline-block;
+	margin:0 0 10px 20px;
+	}
+.oneshop_productfield_textbox, .oneshop_setspecified_textbox, .oneshop_selectbox_field, .oneshop_specifiedselect_new,.oneshop_nosize{
+	float: left;
+	background-color:#fff;
+	height: 24px;
+	width: 400px;
+	padding: 0 10px 0 5px;
+	border-bottom:1px #ccc solid;
+	border-left:1px #ccc solid;
+	border-top:0px #ccc solid;
+	border-right:0px #ccc solid;
+	}
+.oneshop_setspecified_textbox { width:220px; }
+.oneshop_selectbox_field { width:420px; }
+.oneshop_specifiedselect_new { width:240px; }
+
+			
+.oneshop_rightwrapper_box {
+    float: left;
+    width: 240px;
+	}
+
+.oneshop_product_images{
+    float: left;
+    width: 240px;
+	}
+.oneshop_product_images ul{
+    float: left;
+    width: 240px;
+	}
+.oneshop_product_images ul li{
+    float: left;
+    width: 110px;
+	list-style:none;
+	height:110px;
+	margin:0px 10px 10px 0px;
+	background:#f5f5f5;
+	border-bottom:1px #ccc solid;
+	margin-bottom: 50px;
+	}
+.productimg_box{
+    width: 110px;
+	height:90px;
+	}
+.productimg_box img{
+    width: 110px;
+	height:90px;
+	}
+.subcategory_textarea, .oneshop_setspecified_textareabox {
+    resize: none;
+    overflow: hidden;
+    min-height: 60px;
+	width: 400px;
+	padding: 0 10px 0 5px;
+	border-bottom:1px #ccc solid;
+	border-left:1px #ccc solid;
+	border-top:0px #ccc solid;
+	border-right:0px #ccc solid;
+	}
+.oneshop_setspecified_textareabox { width:220px; }
+
+.productimage_shadowbox{
+    width: 75px;
+	height:50px;
+	cursor:pointer;
+	color:#fff;
+	padding:40px 0 0 35px;
+	font-size:60px;
+	font-weight:normal;
+	position:absolute;
+	background:rgba(0,0,0, 0.5 )
+	}
+.productimage_shadowbox a{ color:#fff; padding:0px; }
+.fixheight { height: 200px; }
+
+/* 28/12/2015 */
+
+.bgcolor {
+    background: #f8f8f8 none repeat scroll 0 0;
+    margin: 0;
+    padding: 5px;
+    width: auto;
+}
+
+/* 29/12/2015 */
+
+.borderradius{ border-radius:3px; }
+.wi200 { width:150px !important; }
+.overflow {
+    overflow: hidden;
+}
+.normal {
+    font-weight: normal !important;
+}
+.oneshop_left_newcontainer {
+    float: left;
+    width: 625px;
+    margin-left:4px;
+    background-color:#fff;
+    padding-left:7px;
+    padding-right:5px;
+    margin-bottom:8px;
+	}
+.oneshop_right_newcontainer {
+    float: right;
+    width: 249px;
+	}
+.oisdes_left_parcel_leftbox {
+    float: left;
+    width: 300px;
+}
+
+.hotel_news_imgbox {
+    height: 300px;
+    width: 250px;
+}
+
+.hotel_news_imgbox img{
+    height: 300px;
+    width: 250px;
+}
+.packagedat {
+    font-size: 14px;
+    margin: 5px 0 0;
+    text-align: center;
+}
+.packagedat td {
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    font-size: 12px;
+    padding: 5px 0 5px 10px;
+    text-align: left;
+    width: 500px;
+}
+.bgcolor3{
+    background: #ff5a5f none repeat scroll 0 0;
+    margin: 0;
+    padding: 5px 10px 5px 10px;
+	color:#fff;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	}
+
+.hotel_newlycreatedstore_banner_wrapper {
+    height:260px;
+    width: 100%;
+	margin:0 0 10px 0;
+	background:#C33;
+	}
+.hotel_newly_banner {
+    height:260px;
+    width: 100%;
+	margin:0 0 10px 0;
+	background:#C33;
+}
+.hotel_newly_banner img{
+   overflow:hidden;
+   width: 890px;
+   height:260px;
+   margin:0 0 0px 0;
+   }
+.hotel_newlyleftbox, .hotel_newlyrightbox {
+    height:240px;
+    width: 230px;
+	position:absolute;
+	margin:0 0 0 0;
+	color:#fff;
+	padding:10px;
+	background:rgba(0,0,0, 0.8);
+	}
+.hotel_newlyrightbox { margin:30px 0 0 670px; width:200px; height: 200px; background:none;}
+  
+.oneshop_bubbles_box{
+	width:90px;
+	border-radius:120px;
+	overflow:hidden;
+	height:65px;
+	float:left;
+	margin:10px 0 0 10px;
+	border:1px #ccc solid;
+	font-size:40px;
+	text-align:center;
+	padding:50px 0 0 0px;
+	
+	
+	background: rgba(245,242,245,1);
+background: -moz-linear-gradient(left, rgba(245,242,245,1) 0%, rgba(235,235,235,1) 50%, rgba(250,247,250,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(245,242,245,1)), color-stop(50%, rgba(235,235,235,1)), color-stop(100%, rgba(250,247,250,1)));
+background: -webkit-linear-gradient(left, rgba(245,242,245,1) 0%, rgba(235,235,235,1) 50%, rgba(250,247,250,1) 100%);
+background: -o-linear-gradient(left, rgba(245,242,245,1) 0%, rgba(235,235,235,1) 50%, rgba(250,247,250,1) 100%);
+background: -ms-linear-gradient(left, rgba(245,242,245,1) 0%, rgba(235,235,235,1) 50%, rgba(250,247,250,1) 100%);
+background: linear-gradient(to right, rgba(245,242,245,1) 0%, rgba(235,235,235,1) 50%, rgba(250,247,250,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f2f5', endColorstr='#faf7fa', GradientType=1 );
+	}
+
+/* 30/12/2015 popup */
+
+.oneshop_newpopdesign{
+	float: left;
+	width: 450px;
+	height:450PX;
+	padding:50px 150px 0 150px;
+	border:1px #ccc solid;
+	background:url( ../Images/1b.jpg);
+	overflow:hidden;
+	margin:50px 0 80px 80px;
+	}
+.fs30 { font-size:30px !important; }
+.lspacing { letter-spacing:-1px; }
+
+.cvdes_arrowbtn {
+    background:url(../Images/r1.jpg);
+	}
+.cvdes_arrowbtn, .cvdes_arrowbtn2 {
+    background: #656565 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    height: 30px;
+	float:left;
+	padding: 10px 10px 5px 10px;
+}
+.cvdes_arrowbtn2 {  background: #fbaf54 none repeat scroll 0 0; }
+
+.cvdes_btn, .cvdes_btn2 {
+    background: #555555 none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+	width:250px;
+	height:45px;
+    padding: 0px 15px 0px 15px;
+}
+.cvdes_btn:hover, .cvdes_btn2:hover {
+    background: #c5b000 none repeat scroll 0 0;
+}
+.cvdes_btn2 { background: #fba53d none repeat scroll 0 0; }
+
+.oisdes_adminstore_leftbox {
+    float: left;
+    width: 360px;
+}
+
+.oisdes_adminsmall_fields_wrap {
+    float: right;
+    width: 220px;
+	margin:0 0 0 0px;
+}
+
+.oisdes_services_leftbox {
+    float: left;
+    width: 140px;
+	background:#f5f5f5;
+	padding:5px;
+	height:120px;
+	border:1px #ccc solid;
+	margin:0 0 0 0px;
+	}
+.bgcolor4 {
+    background: #F5F5F5 none repeat scroll 0 0;
+    margin: 0;
+    padding: 0px;
+    width: auto;
+	}
+
+/* 31/12/2015 popup */
+
+.oneshop_services_store_container{
+	width: 890px;
+	display:inline-block;
+	}	
+.oneshop_services_store_menu_wrap {
+	float: left;
+	width: 822px;
+	
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#898989+17,494949+100 */
+background: rgb(137,137,137); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(137,137,137,1) 17%, rgba(73,73,73,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(137,137,137,1) 17%,rgba(73,73,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(137,137,137,1) 17%,rgba(73,73,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+	
+.oneshop_services_store_menu_wrap ul {
+	float: left;
+	list-style:none;
+	width: 890px;
+	}
+.oneshop_services_store_menu_wrap ul li {
+	float: left;
+	list-style:none;
+	font-size:11px;
+	padding:0 10px 0 10px;
+	line-height:32px;
+	font-weight:bold;
+	}
+.oneshop_services_store_menu_wrap ul li a{ color:#fff; }
+.oneshop_services_store_menu_wrap ul li a.current{ font-weight:bold; color:#CCCCCC; }
+.oneshop_services_store_menu_wrap ul li a:hover{ color:#CCCCCC; }
+
+.oneshop_products_main_wrap {
+	float: left;
+	width: 625px;
+	}
+.oneshop_products_storebox{
+	float: left;
+	width: 195px;
+	height:220px;
+	margin:0 13px 0 0px;
+	}
+.oneshop_products_storeboxtop_div{
+	width: 193px;
+	height:170px;
+	border:1px #e5e5e5 solid;
+	}
+.oneshop_products_storebox_bottomdiv{
+	width: 175px;
+	height:42px;
+	padding:5px 10px 0 10px;
+	text-align:center;
+	background:#f5f5f5;
+	border-bottom:1px #e5e5e5 solid;
+	}
+.oneshop_setting_icon{
+	width: 34px;
+	height:36px;
+	position:absolute;
+	margin:0 0 0 160px;
+	}
+.oneshop_menuicon_div{
+	width: 160px;
+	height:25px;
+	overflow:hidden;
+	margin:0 auto;
+	}
+	
+#panel, #flip {
+    padding: 0px;
+	}
+#panel {
+    background-color: white;
+    border: 4px solid #000;
+    display: none;
+    height: 360px;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    width: 799px;
+    z-index: 10000;
+}
+.oneshop_product_images {
+    float: left;
+    width: 240px;
+}
+
+
+
+	
+/* 06/01/2016 tabs popup */
+
+.oneshop_setting_icon{
+	width: 34px;
+	height:36px;
+	position:absolute;
+	background:url( ../Images/setting2.png);
+	margin:0 0 0 160px;
+	cursor:pointer;
+	border:none;
+	}
+.oneshop_setting_icon2 { 
+background:url( ../Images/setting2_hover.png); 
+position:absolute; 
+width: 34px; height:36px; 
+margin:0 0 0 160px;
+cursor:pointer;
+border:none; 
+}
+
+.oneshop_tabspopup_container{
+	float: left;
+	width: 700px;
+	height:450PX;
+	padding:20px;
+	border:1px #ccc solid;
+	background:url( ../Images/1b.jpg);
+	overflow:hidden;
+	margin:50px 0 80px 80px;
+	}
+.titlecontainer {
+    height: 60px;
+	font-size:12px;
+	}
+.titlecontainer .titledeco {
+    border-bottom: 1px solid #ccc;
+    height: 25px;
+}
+.fkinlineblock {
+    display: inline-block;
+}
+.titlecontainer .titledeco .title-text {
+    background-color: #fff;
+    font-weight: normal;
+    padding: 15px 10px 0;
+}
+
+.oneshop_accessories_banner{
+	width: 625px;
+	height:300PX;
+	}
+.oneshop_accessories_banner img{
+	width: 625px;
+	height:300PX;
+	}
+
+.oneshop_categories_box{
+	width: 260px;
+	height:290px;
+	padding:0px 0 0px 0;
+	overflow-y:scroll;
+	}
+
+
+.categorylinks {
+    margin-top: 0;
+    padding: 0 0px;
+}
+.categorylinks ul {
+   float:left;
+}
+.categorylinks ul li {
+    text-decoration: none;
+	list-style:none;
+	width: 220px;
+	}
+.categorylinks ul li a {
+    width: 220px;
+	color:#000;
+	float:left;
+	padding:3px 0 3px 10px;
+	border:1px #fff solid;
+	}
+.categorylinks ul li a:hover{
+    width: 220px;
+	color:#333;
+	float:left;
+	border:1px #FC0 solid;
+	padding:3px 0 3px 10px;
+	}
+.oneshop_category_mainimages{
+	width: 195px;
+	height:172px;
+	}
+.oneshop_category_mainimages img{
+	width: 195px;
+	height:172px;
+	}
+.oneshop_category_headingbox{
+	width: 175px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	font-weight:bold;
+	font-size:12px;
+	padding:0px 10px 0 10px;
+	text-align:center;
+	background:#555555;
+	border-top:1px #e5e5e5 solid;
+	}
+.oneshop_category_contenttotal_wrapper{
+	float: left;
+	width: 195px;
+	height:225px;
+	margin:0 13px 0 0px;
+	}
+.contentbox_shadow{
+	float: left;
+	width: 195px;
+	height:16px;
+	background:url( ../Images/contentbox_shadow.png);
+	}
+.oneshop_proimagebox{
+	width: 195px;
+	height:172px;
+	text-align:center;
+	}
+.oneshop_product_ratebg_box{
+	width: 175px;
+	padding:5px 10px 5px 10px;
+	text-align:center;
+	min-height:55px;
+	border-bottom:1px #e5e5e5 solid;
+	border-top:1px #e5e5e5 solid;
+	}
+.oneshop_pro_total_wrapper_div{
+	float: left;
+	width: 195px;
+	overflow:hidden;
+	margin:0 13px 30px 0px;
+	}
+	
+/* 07-01-16 overview store page css */
+
+
+.packagedat_admin {
+    color: #000;
+    font-size: 12px;
+    padding: 0px 10px 0px 10px;
+    text-align: left;
+	line-height:32px;
+	overflow:hidden;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffd65e+0,febf04+100;Yellow+3D+%232 */
+background: rgb(255,214,94); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,214,94,1) 0%, rgba(254,191,4,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,214,94,1) 0%,rgba(254,191,4,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd65e', endColorstr='#febf04',GradientType=0 ); /* IE6-9 */
+
+
+
+	
+	
+}
+.oneshop_adminfilter{
+	float: left;
+	background-color:#fff;
+	height: 22px;
+	line-height:22px;
+	width: 150px;
+	font-size:11px;
+	padding: 0 10px 0 5px;
+	border:1px #ccc solid;
+	}
+.packagedat_admin_store  {
+    margin: 0px 0 0;
+	width:615px;
+	padding:5px 10px 5px 0px;
+	border-bottom:1px #ccc solid;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f9ea+1,ffffff+100 */
+background: rgb(246,249,234); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(246,249,234,1) 1%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(246,249,234,1) 1%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(246,249,234,1) 1%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f9ea', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+	}
+.oneshop_leftimg_box  {
+    margin: 0px 0 0;
+	width:35px;
+	float:left;
+	height:30px;
+	}
+.oneshop_leftimg_box img  {
+	width:35px;
+	height:30px;
+	}
+.oneshop_leftimg_box_content {
+    margin: 0px 0 0 10px;
+	width:450px;
+	padding:7px 0 0 0;
+	}
+.oneshop_overview_countbox {
+	float: left;
+	height:28px;
+	padding:0 10px 0 10px;
+	line-height:28px;
+	text-align:center;
+	border:1px #ccc solid;
+	border-radius:160px;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f6f8f9+0,e5ebee+50,d7dee3+51,f5f7f9+100;White+Gloss */
+background: rgb(246,248,249); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(246,248,249,1) 0%, rgba(229,235,238,1) 50%, rgba(215,222,227,1) 51%, rgba(245,247,249,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(246,248,249,1) 0%,rgba(229,235,238,1) 50%,rgba(215,222,227,1) 51%,rgba(245,247,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* IE6-9 */
+	}
+.oneshop_product_commenttext_here {
+    margin: 0px 0 0 10px;
+	width:570px;
+	min-height:40px;
+	padding:0px 0 0 0;
+	}
+.oneshop_banner1 {
+    margin:0 0 0 0px;
+	padding:0 0 0px 0;
+	width:900px;
+	height:141px;
+	background:url(../images/banner1.png) no-repeat;
+	display:inline-block;
+	}
+.oneshop_banner1_data_box {
+	padding:15px 0 13px 0;
+	width:820px;
+	height:35px;
+	margin:0 auto;
+	}
+
+
+.oneshop_services_adminstore_container{
+	width: 832px;
+	margin:0 auto;
+	}	
+.oneshop_services_adminstore_menu {
+	float: left;
+	width: 822px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#898989+17,494949+100 */
+background: rgb(137,137,137); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(137,137,137,1) 17%, rgba(73,73,73,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(137,137,137,1) 17%,rgba(73,73,73,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(137,137,137,1) 17%,rgba(73,73,73,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	}
+.oneshop_services_adminstore_menu ul {
+	}
+.oneshop_services_adminstore_menu ul li {
+	float: left;
+	list-style:none;
+	font-size:11px;
+	padding:0 10px 0 10px;
+	line-height:32px;
+	font-weight:bold;
+	}
+.oneshop_services_adminstore_menu ul li a{ color:#fff; }
+.oneshop_services_adminstore_menu ul li a.current{ font-weight:bold; color:#CCCCCC; }
+.oneshop_services_adminstore_menu ul li a:hover{ color:#CCCCCC; }
+.oneshop_services_adminstore_menu ul li ul li ul li a{ color: #4482DB; font-weight: bold; }
+.oneshop_services_adminstore_menu ul li ul li ul li a:hover{ color: #4482DB; font-weight: bold; }
+
+/* Mahesh */
+
+.category_list{
+float:left;
+width:200px;
+max-height:320px;
+overflow:auto;
+border-right:1px solid #000;
+padding-right:10px;
+}
+.category_list ul{
+margin:0px;
+padding:0px;
+}
+.category_list ul li{
+list-style-type:none;
+padding:4px;
+border-bottom:0px solid #000;
+padding-left:0px;
+font-weight:bold;color:#666;
+ border-bottom: 1px dotted;
+}
+.category_list ul li a{
+color:#666;
+}
+.category_list ul li a:hover{
+color:#446cb3;
+}
+.category_list_active{
+ color: #446cb3 !important;
+}
+.category_list_details{
+float:left;
+width:550px;
+padding-left:18px;max-height:320px;
+overflow:auto;
+}
+.category1{
+width:230px;
+float:left;
+}
+.category1 ul{
+margin:0px;
+padding:0px;
+margin-top:6px;
+margin-bottom:12px;
+}
+.category1 ul li{
+list-style-type:none;
+padding:1px;
+padding-left:6px;
+}
+.category1 ul li a{
+ color:#000;
+}
+.category1 ul li a:hover{
+ color:#ff7519;
+}
+.category1_active{
+ color:#ff7519 !important;
+font-weight:bold;
+}
+.arrow_right{
+float:right;
+}
+.cat_heading{
+font-weight:bold;
+font-size:10pt;
+}
+.left_services{
+float:left;
+width:360px;
+margin-top:20px;padding-left: 20px;
+}
+.right_services{
+float:left;
+width:360px;
+margin-top:20px;
+padding-left:20px;
+}
+.left_services ul{
+margin:0px;
+padding:0px;
+}
+.left_services ul li{
+list-style-type:none;
+padding:4px;
+background: url(../Images/Yes.png) no-repeat 0px 2px;
+background-size: 20px 20px;
+padding-left:26px;
+}
+.left_services ul li a{
+color:#000;
+}
+.left_services ul li a:hover{
+color:#ff7519;
+}
+.right_services ul{
+margin:0px;
+padding:0px;
+}
+.right_services ul li{
+list-style-type:none;
+padding:4px;
+background: url(../Images/Yes.png) no-repeat 0px 2px;
+background-size: 20px 20px;
+padding-left:26px;
+}
+.right_services ul li a{
+color:#000;
+}
+.right_services ul li a:hover{
+color:#ff7519;
+}
+.services_services{
+max-height:280px;
+overflow:auto;
+float:left;
+width:780px;
+}
+
+.click_chatSection{
+	float: left;
+	width: 900px;
+	height: 40px;
+	box-shadow: 0 -2px 2px #777;
+	background-color: #06F;}
+.click_whosOnline{
+	float: right;
+	width: 250px;
+	background-color: #fff;
+	margin: 0.2% 5px 0 0;}
+.click_findChat{
+	float: left;
+	padding: 3% 10px 3% 10px;
+	border: 0px;
+	width: 230px;
+	background-color: #fff;}
+.stick{
+	position: fixed;
+	top: 0px;
+	z-index: 9999;}
+.stickChat{
+	position: fixed;
+	top: 94%;
+	z-index: 9999;}
+.click_importantNotifications{
+	float: left;
+	display: block;
+	width: 900px;
+	padding-bottom: 10px;
+	margin:0 0 0 0px;
+	}
+	
+* {
+	margin:0;
+	padding:0;
+}
+
+#tabContainer {
+
+}
+
+#tabs{
+	height:30px;
+	overflow:hidden;
+float:right;
+}
+
+#tabs > ul{
+	font: 1em;
+	list-style:none;
+}
+
+#tabs > ul > li{
+	margin:0 2px 0 0;
+	padding:7px 2px;
+	display:block;
+	float:left;
+	color:#000;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-top-left-radius:4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px; 
+
+}
+
+#tabs > ul > li:hover{
+	
+	cursor:pointer;
+	color: #000;
+}
+
+#tabs > ul > li.tabActiveHeader{
+	
+	cursor:pointer;
+	color:#446cb3;
+font-weight:bold;
+}
+
+#tabscontent {
+    color: #000;
+    float: left;
+    margin: 0;
+    padding: 10px 10px 25px;
+}
+
+.cvdes_notification_drop {
+	width:270px;
+	overflow-y:scroll;
+	height:380px;
+	background:#fff;
+	color:#fff;
+	display:none;
+	position:absolute;
+	z-index:10000;
+	margin-top:30px;
+	margin-left:-138px;
+	border-left:1px solid #CCC;	
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	}
+.cvdes_notification_drop  ul li, .cvdes_notification_dropnew  ul li {
+	list-style:none;
+	border-bottom:1px dotted #e1e1e1;
+	display:inline-block;
+	width:240px;
+	min-height:40px;
+	}
+.cvdes_notification_dropnew  ul li {
+	list-style:none;
+	border-bottom:1px dotted #e1e1e1;
+	display:inline-block;
+	padding:0 0 5px 0;
+	}
+.cvdes_notification_drop  ul li a, .cvdes_notification_dropnew  ul li a {
+	line-height:16px;
+	padding:5px 10px 5px 40px;
+	color:#888; 
+	font-size:12px;
+	display:block;
+	min-height:35px;
+	
+	}
+.cvdes_notification_drop  ul li a:hover, .cvdes_notification_dropnew  ul li a:hover {
+	background:#f8f8f8;
+	min-height:35px;
+	width:200px;
+	padding:5px 10px 5px 40px;
+	}
+
+/* 20/01/2016 */
+
+
+.letterspacing { letter-spacing:-1px; }
+
+.newwithCategory {
+    display: block;
+}
+.new_moduleSearchWrapper {
+    float: left;
+    margin: 0;
+    padding: 7px 7px 3px 7px ;
+    width: 600px;
+	border-radius:3px;
+	background:#ccc;
+}
+.newcategorySelection {
+    background: #f5f5f5 none repeat scroll 0 0;
+    float: right;
+    height: 28px;
+    margin: 5px 0 0;
+    padding: 7px 0 0 10px;
+    width: 30px;
+}
+.newmoduleSearchIcon {
+    cursor: pointer;
+    float: left;
+    height: 20px;
+    margin: 3px 0 0;
+    position: relative;
+    width: 20px;
+}
+.new_categorySelectionField {
+    background-color: #fff;
+    border: medium none;
+    color: #999;
+    float: left;
+    font: 12px Arial;
+    height: 35px;
+    margin: 5px 2px 10px 0;
+    padding: 0;
+    width: 105px;
+}
+.new_moduleSearchField {
+    background-color: #fff;
+    border: medium none;
+    color: #777;
+    float: right;
+    font: 12px Arial;
+    height: 35px;
+    margin: 5px 0 0;
+    padding: 0 10px 0 5px;
+    width: 438px;
+}
+
+
+/*--- Suresh Popup Css Start here ---*/
+
+.np_newpopuup_bgcontainer{
+	width: 500px;
+	margin: 100px auto;
+	background:#ccc;
+	overflow:hidden;
+	}
+.click_posdgdsgsction{
+	position: absolute;
+	float: left;
+	overflow-X: hidden;
+	overflow-Y: none;
+	width: 500px;
+	height: 500px;
+	}
+.click_createGroup_newbtn{
+	cursor: pointer;
+	position: absolute;
+	z-index: 10;
+	width: 25px;
+	height: 25px;
+	margin:4px 0 0 470px;
+	}
+.np_popupheadingnew_box{
+	float: left;
+	width: 500px;
+	height: 30px;
+	background-color: #f5f5f5;
+	}	
+.np_popupheadingnew_box h4{
+	float: left;
+	font: 16px Arial;
+	color: #333;
+	line-height:30px;
+	padding:0 0 0 10px;
+	}
+.np_popupcontainer_middlebox{
+	float: left;
+	width: 458px;
+	min-height:200px;
+	border:1px #E2E2E2 solid;
+	background:#fff;
+	padding:20px 20px 20px 20px;
+	}
+.np_popup_amaze_logo{
+	float: left;
+	width: 140px;
+	height:60px;
+	background:#33C;
+	}
+.np_popup_amaze_logo img{
+	width: 140px;
+	height:60px;
+	border:1px #ccc solid;
+	}
+.historyResultsMainDiv {
+    border-bottom: 1px dotted #999;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 5px 0 10px;
+    width: 620px;
+}
+.tumbnail {
+    float: left;
+    height: 80px;
+    overflow: hidden;
+    width: 100px;
+}
+.tumbnail img {
+    height: 80px;
+    width: 100px;
+}
+.searchText {
+    float: left;
+    margin-left: 10px;
+    width: 510px;
+}
+.heading {
+    float: left;
+    overflow: hidden;
+    width: 350px;
+}
+.historyDiscript {
+    color: #666;
+    float: left;
+    font: 13px Arial;
+    margin-top: 5px;
+}
+.historyHead {
+    color: #000;
+    font: 16px Arial;
+    width: 400px;
+}
+.watchDate {
+    color: #999;
+    float: right;
+    font: 12px Arial;
+}
+.watchDate h2 {
+    color: #ccc;
+    float: right;
+    font:12px Arial;
+    }
+    
+.cartlogos {
+	width: 60px;
+	height: 35px;
+	margin: 0 10px 0 0px;
+	}
+.cartlogos img{
+	width: 60px;
+	height: 35px;
+	}
+}
+.cvdes_rightbar_headingsbg_wrap {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border: 1px solid #b2b1b1;
+	border-radius:2px;
+    color: #000;
+    font-size: 14px;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding: 5px 0 3px;
+    text-align: center;
+    width: 628px;
+}
+/* 22/01/16 store activity styles */
+
+.click_fromdatetodate_wrap {
+    background: #eee none repeat scroll 0 0;
+    margin: 0;
+	overflow:hidden;
+    padding: 5px 5px 5px 10px;
+    width: 610px;
+}
+
+.store_activity_maindiv {
+    border-bottom: 1px dotted #999;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 5px 0 5px;
+    width: 620px;
+}
+.store_searchText {
+    float: left;
+    margin-left: 10px;
+    width: 560px;
+}
+
+.store_tumbnail {
+    float: left;
+    height: 40px;
+	width: 50px;
+    overflow: hidden;
+   
+}
+.store_tumbnail img {
+    height: 40px;
+	width: 50px;
+}
+	
+/* 22/01/16 store activity styles closed */
+
+
+/*==== oneshop home page styles and slider styles here==========*/
+
+.oisdes_leftbanner_box
+{
+	width:625px;
+	height:300px;
+	float:left;
+	overflow:hidden;
+}
+
+.isdes_nextbtn
+{
+	position:absolute;
+	right:250px;
+	margin: 140px  25px 0 0;
+	background:#4c0092;	width:25px;
+	height:25px;
+	color:#f8f8f8;
+	font-size:35px;
+	text-align:center;
+	cursor:pointer;
+	z-index:99;
+	border-radius:25px;
+	opacity:0.5;
+}
+.isdes_prevbtn
+{
+	position:absolute;
+	left:0;
+	margin: 140px  0 0 12px;
+	background:#4c0092;
+	width:25px;
+	height:25px;
+	color:#f8f8f8;
+	font-size:35px;
+	border-radius:25px;
+	text-align:center;
+	cursor:pointer;
+	z-index:99;
+	opacity:0.5;
+}
+.slider
+{
+	width:630px;
+	height:300px;
+	position:relative;
+	overflow:hidden;
+	z-index:1;
+	display:block;
+	float:left;
+}
+
+ .slider img
+ {
+	 width:630px;
+	 height:300px;
+	 
+ }
+
+.oisdes_leftbanner_box:hover .isdes_prevbtn
+{
+	opacity:1;
+	transition:all .5 ease-out;
+	-webkit-transition: all .5 ease-out;
+}
+.oisdes_leftbanner_box:hover .isdes_nextbtn
+{
+	opacity:1;
+	transition:all .5 ease-out;
+	-webkit-transition: all .5 ease-out;
+}
+
+.oneshop_homepage_products_container{
+	float: left;
+	width: 193px;
+	height:240px;
+	background:#f5f5f5;
+	border-bottom:1px #ccc solid;
+	overflow:hidden;
+	margin:0 13px 30px 0px;
+	}
+.oneshop_home_products{
+	width: 193px;
+	height:172px;
+	text-align:center;
+	}
+.oneshop_home_products img{
+	width: 193px;
+	height:172px;
+	}
+.oneshop_home_products_ratebg_box{
+	width: 175px;
+	padding:5px 10px 5px 10px;
+	text-align:center;
+	min-height:55px;
+	}
+
+.hotel_pachagesummary_box {
+    float: left;
+    width: 250px;
+}
+.bgcolor3 {
+    background: #fff6ae none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 5px;
+	color:#000;
+}
+.fs14 {
+    font-size: 14px !important;
+}
+.hotel_pachagesummary_box ul {
+    background: #f5f5f5 none repeat scroll 0 0;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 5px 0;
+    width: 250px;
+}
+.hotel_pachagesummary_box ul li {
+    float: left;
+    line-height: 24px;
+    list-style: outside none none;
+    margin: 0 0 0 15px;
+    overflow: hidden;
+    padding: 0;
+    width: 200px;
+}
+
+
+/*============End slider styles here====*/
+.np_des_notift_btn {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(255, 214, 94, 1) 0%, rgba(254, 191, 4, 1) 100%) repeat scroll 0 0;
+    color: #000;
+    border: 0 solid #ccc;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight:bold;
+    width:200px;
+    border-radius:3px;
+    line-height: 36px;
+    padding: 0 10px;
+}
+.green { color:#090; }
+
+.cart_heading {
+    font: 16px Arial;
+    width: 510px;
+    color:#039;
+    font-weight:bold;
+}
+.cart_heading a{ color:#039; } .cart_heading a:hover{ color:#036; }
+	
+.oneshop_cartquantity{
+    float: left;
+    background-color:#fff;
+    height: 22px;
+    line-height:22px;
+    width: 60px;
+    font-size:11px;
+    padding: 0 10px 0 5px;
+    border:1px #ccc solid;
+}
+.np_des_checkout_btn {
+    background: #333333 none repeat scroll 0 0;
+    border: 0px solid #CCC;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    line-height:24px;
+    font-size:18px;
+    padding: 7px 25px;
+}
+.np_des_checkout_btn:hover {
+    background: #666666 none repeat scroll 0 0;
+    border-radius: 2px;
+	border: 0px solid #CCC;
+}
+/* 26/01/16 paybook styles*/
+
+.oneshop_paybookpopup{
+	float: left;
+	width: 570px;
+	padding:15px;
+	border:1px #ccc solid;
+	background:#fff;
+	overflow:hidden;
+	margin:30px 0 80px 0px;
+	}
+	
+.paybook_btn {
+	background:#c5b000;
+    border: 0px solid #CCC;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+	line-height:24px;
+	font-size:14px;
+    padding: 3px 15px;
+}
+.paybook_btn:hover {
+    background: #666666 none repeat scroll 0 0;
+    border-radius: 2px;
+	border: 0px solid #CCC;
+}
+.oneshop_paybook_yesorno_buttons{
+	margin:0 auto;
+	width: auto;
+	padding:20px 0 0 0;
+	text-align:center;
+	}
+.oneshop_paymenttype_wrap{
+	float: left;
+	width: 570px;
+	margin:20px 0 0 0;
+	}
+
+.oneshop_paymenttype_leftbox{
+	float: left;
+	width: 570px;
+	height:100px;
+	overflow-y:scroll;
+	margin:20px 0 0 0;
+	}
+.paybok_field {
+	float: left;
+	background-color:#fff;
+	height: 24px;
+	width: 215px;
+	padding: 0 10px 0 0px;
+	border-bottom:1px #EFEFEF solid;
+	border-left:0px #ccc solid;
+	border-top:0px #ccc solid;
+	border-right:0px #ccc solid;
+	text-align:center;
+	}
+
+.oneshop_paybook_success_popup{
+	float: left;
+	width: 500px;
+	height:250PX;
+	padding:15px;
+	border:1px #ccc solid;
+	background:#fff;
+	overflow:hidden;
+	margin:30px 0 80px 0px;
+	}
+.oneshop_paybook_stick{
+	float: left;
+	width: 60px;
+	height:61PX;
+	position:absolute;
+	margin:-15px 0 0 -15px;
+	background: url(../Images/pay.png) no-repeat;
+	}
+.lh26 { line-height:26px; }
+/* store page styles */
+
+.np_des_netpro_settings_tabbg {
+    width: auto;
+}
+.np_des_contbox_safebox_topdiv {
+    background-color:#f5f5f5;
+    color: #000;
+    display: inline-block;
+    font-weight: normal;
+	font-size:14px;
+    padding: 5px 10px;
+}
+.np_des_curner {
+    background:url(../images/curner.png) no-repeat;
+    height: 28px;
+    width: 14px;
+}
+
+
+/* 27/01/16 Purchasing history page styles */
+
+.ttdes_flightsearch_topheadings_box {
+    background: #f5f5f5 none repeat scroll 0 0;
+    color: #000;
+    font-size: 12px;
+    height: 26px;
+	font-weight:bold;
+    line-height: 26px;
+    margin: 20px 0 0;
+    width: 625px;
+}
+
+.ttdes_flightsearch_history_content {  margin: 0px 0 5px 0; font-weight:normal;  height: auto; padding:5px 0 5px 0;  width: 625px; border-bottom:1px #f5f5f5 solid;  }
+
+.ttdes_flight_departure_box, .ttdes_flight_arrival_box, .ttdes_flight_duration_box, .ttdes_stores_date, .ttdes_stores_orderid {
+    border-right: 1px solid #E6E6E6;
+    float: left;
+    text-align: left;
+    width: 210px;
+	padding: 0 0 0 10px;
+	
+}
+.ttdes_flight_arrival_box {
+    padding: 0 0 0 10px;
+    text-align: left;
+    width: 240px;
+}
+.ttdes_flight_duration_box {
+    width: 140px;
+	padding: 0 0 0 10px;
+	border-right: 0px solid #E6E6E6;
+}
+
+.ttdes_stores_date {
+    padding: 0 0 0 10px;
+    text-align: left;
+    width: 240px;
+	border-right: 0px solid #E6E6E6;
+}
+.ttdes_stores_orderid {
+    border-right: 0px solid #E6E6E6;
+    float: left;
+    text-align: left;
+    width: 210px;
+	padding: 0 0 0 10px;
+}
+
+.status_btn {
+	background:#c5b000;
+    border: 0px solid #CCC;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+	line-height:18px;
+	font-size:12px;
+    padding: 2px 10px;
+}
+.status_btn:hover {
+    background: #666666 none repeat scroll 0 0;
+    border-radius: 2px;
+	border: 0px solid #CCC;
+}
+
+/* 27/01/16 Purchasing history page en styles */
+
+
+.np_des_company_specific_profile_imagewrap {
+    width: 620px;
+}
+.np_des_company_promises_imgbox {
+    height: 100px;
+    margin: 180px 0 0 10px;
+    position: absolute;
+    width: 180px;
+}
+.np_des_company_promises_imgbox img {
+    height: 100px;
+    width: 180px;
+}
+.np_des_company_specific_profile_img {
+    height: 235px;
+    width: 635px;
+}
+.np_des_company_specific_profile_img img {
+    height: 235px;
+    overflow: hidden;
+    width: 635px;
+}
+.np_des_company_profilename {
+    background-color: #ccc;
+    height: 33px;
+    margin: 0 0 0 160px;
+    padding: 5px 0 0 40px;
+    width: 420px;
+}
+/* --------------------22/01/2016 - tabs----------------------------- */
+
+	#tabs {
+	  overflow: hidden;
+	  width: 100%;
+	  margin: 10px 0 0 0;
+	  padding: 0;
+	  list-style: none;
+	  
+	}
+
+	#tabs li {
+	  float: left;
+	  margin: 0 0px 0 0;
+
+	}
+
+	#tabs a {
+	  float: left;
+	  position: relative;
+	  padding: 0 28px;
+	  font-size:12px;
+	  height: 0;
+	  line-height: 30px;
+	  text-decoration: none;
+	  color: #fff;
+	  background:#fff;      
+	  border-right: 30px solid transparent;
+	  border-bottom: 30px solid #c5b000;
+	 
+	}
+
+	#tabs a:hover,
+	#tabs a:focus {
+	  border-bottom-color: #f5f5f5;
+	  color:#000;
+
+	}
+
+	#tabs a:focus {
+	  outline: 0;
+	}
+
+	#tabs #current {
+	  z-index: 3;
+	  border-bottom-color: #f5f5f5;
+	  color:#000;
+	}
+
+	/* ----------- */
+	#content {
+	    background: #fff;
+	    border-top: 2px solid #ccc;
+	    padding: 10px 0 10px 0;
+		float:left;
+		width:620px;
+		margin:0 0 0 0px;
+	    /*height: 220px;*/
+	}
+
+	#content h2,
+	  #content h3,
+	  #content p {
+	    margin: 0 0 15px 0;
+	}  
+
+	/* Demo page only */
+	#about {
+	    color: #999;
+	    text-align: center;
+	    font: 0.9em Arial, Helvetica;
+	}
+
+	#about a {
+	    color: #777;
+	}   
+	
+	
+.click_tabs_wrap{
+	float: left;
+	width: 620px;
+	margin:0 0px 0px 0px;	
+	}
+
+.oneshop_pro_saved_products_wrap{
+	float: left;
+	width: 195px;
+	overflow:hidden;
+	margin:0 10px 30px 0px;
+	}
+/* 27/01/16 end styles */
+
+
+
+.banner_rightside_box {
+    float: right;
+	width:130px;
+	height:26px;
+	text-align:right;
+	margin:5px 0 0 0;
+	overflow:hidden;
+	}
+.banner_cart_countingbg {
+    float: right;
+	width:20px;
+	border-radius:100px;
+	background:#fff;
+	height:18px;
+	text-align:center;
+	font-size:10px;
+	padding:2px 0 0 0;
+	margin:-5px 0 0 15px;
+	position:absolute;
+	}
+	
+.banner_ratingbox {
+	width:130px;
+	float:right;
+	margin:0px 0 0 0;
+	color:#fff;
+	font-size:12px;
+	}
+.banner_borderbottom {
+	width:90px;
+	border-bottom:1px #CCC solid;
+	}
+
+.cart_notify_options{
+	float: left;
+	margin: 0px 0px 0px 0px;
+	width: 30px;
+	position:absolute;
+	padding:0px 0 5px 0;
+	}
+	
+.cart_notify_options ul{
+	list-style: none;
+	width: 210px;
+	}
+	
+.maildes_headerIcon{
+	cursor: pointer;
+	float: left;
+	margin: 2.5px 0px 0px 2.5px;
+	width: 25px;
+	height: 25px;}	
+	
+.cart_notify_options ul ul{
+	display: none;
+	}	
+	
+.cart_notify_options ul li:hover ul{
+	display: block;
+	float: left;
+	position: absolute;
+	width: 210px;
+	margin: 25px 0px 0 -55px;
+	z-index: 100;
+	}	
+	
+.cart_notify_options ul ul li.maildes_bubble{
+	width: 50px;
+	height: 15px;}
+.cart_notify_options ul ul li.maildes_bubble img{
+	width: 22px;
+	height: 15px;
+	margin: 0px 0px 0px 62px;
+	}
+	
+.cart_notify_options ul ul li.maildes_settingOption{
+	cursor: pointer;
+	padding: 10px 10px 10px 10px;
+	color: #fff;
+	width: 200px;
+	text-align:left;
+	border-bottom: solid 1px #ddd;
+	font: 12px Arial;
+	background-color: #999999;
+	}
+	
+.cart_notify_options ul ul li.maildes_settingOption:hover{
+	background-color: #ccc;
+	}
+	
+.np_des_notift_btn {
+   background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(255, 214, 94, 1) 0%, rgba(254, 191, 4, 1) 100%) repeat scroll 0 0;
+    color: #000;
+    border: 0 solid #ccc;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+	font-weight:bold;
+	width:200px;
+	bordet-radius:3px;
+    line-height: 36px;
+    padding: 0 10px;
+}
+.oneshop_nosize { width:auto; padding: 0 0px 0 0px;  }

@@ -1,0 +1,567 @@
+<div  id="clickPopup" style="display: none;"></div>
+<div id="profilepicpopup" class="clickPopupPosition">
+    <div id="popupWrapper">
+        <div class="np_des_experiencetextbox_popup_cliebtnbg">Profile Picture of <?php  echo $profiledata[0]['profile_name'];?>
+            <a href="javascript: void(0)" onclick="toggle_visibility('profilepicpopup')">
+                <img src="<?php echo base_url() . 'assets/images/closicon.png' ?>" class="popupClose">
+            </a>
+        </div>
+
+        <div class="np_des_img_popnewbox">
+            <?php if ($profiledata[0]['image_path'] == "") { ?>
+                <img src="<?PHP echo base_url() . 'assets/images/avatar.png' ?>" alt="profile pic" style="width: 552px; height: 294px;" id="profile_image_tag">
+
+            <?php } else { ?>
+                <img src="<?PHP echo base_url() . 'udata/avatar/mi/' . $profiledata[0]['image_path'] ?>" alt="profile pic" style="width: 552px; height: 294px;" id="profile_image_tag">
+            <?php } ?>
+        </div>
+    </div>
+</div>
+<div id="coverpicpopup" class="clickPopupPosition">
+    <div id="popupWrapper">
+        <div class="np_des_experiencetextbox_popup_cliebtnbg">Cover Picture of <?php  echo $profiledata[0]['profile_name'];?>
+            <a href="javascript: void(0)" onclick="toggle_visibility('coverpicpopup')">
+                <img src="<?php echo base_url() . 'assets/images/closicon.png' ?>" class="popupClose" >
+            </a>
+        </div>
+
+
+
+        <div class="np_des_img_popnewbox">
+            <?php if ($profiledata[0]['cover_path'] == "") { ?>
+
+                <img src="<?PHP echo base_url() . 'assets/images/default_cover.jpg' ?>" alt="profile pic" style="width: 552px; height: 294px;" id="profile_cover_tag">
+
+            <?php } else { ?>
+                <img src="<?PHP echo base_url() . 'udata/cover/mi/' . $profiledata[0]['cover_path'] ?>" alt="profile pic" style="width: 552px; height: 294px;" id="profile_cover_tag">
+
+            <?php } ?>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+<script type="text/javascript">
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == 'block') {
+            e.style.display = 'none';
+        }
+        else {
+            e.style.display = 'block';
+        }
+    }
+</script>
+<?php
+$this->load->module('templates');
+$this->templates->app_header();
+//print_r($profiledata);
+?>
+<div class="breadcrumbs">
+    <ul style='list-style:none; float: left;'>
+    <?php
+    $name=$profiledata[0]['profile_name'];
+        $navigation=$this->templates->breadcrumbs("search",array("Search"=>"search_users","$name"=>$name));
+        $nav_url=explode(",",$navigation);
+        for($i=0;$i<count($nav_url);$i++){
+            $item=$nav_url[$i];
+            $bc=explode("-",$item);
+            $iurl=base_url().$bc[1];
+            if($i==count($nav_url)-1){
+                echo "<li><span>".$bc[0]."</span></li>";
+            }else{
+                echo "<li><a href='".$iurl."'>".$bc[0]."</a></li>";                
+            }
+        }
+    ?>
+    </ul>
+</div>
+<div class="np_des_module_container_wrap"> <!--module_container start here-->    
+    <div class="np_des_wrapper-inner"><!--wrapper inner start here-->
+        <div class="np_des_left_container fll"> <!--left container start here-->
+            <div class="np_des_company_specific_profile_imagewrap">
+                <div class="np_des_editprofile_namebox"> 
+                    <div class="np_des_editprofile_photo fll"> 
+                        <a href="javascript:void()" onclick="toggle_visibility('profilepicpopup')">
+                        <?php if($profiledata[0]['image_path'] == "") { ?>
+                        <img src="<?PHP echo base_url() . 'assets/images/avatar.png' ?>" width="83" height="93" alt="edit photo">
+
+                        <?php } else { ?>
+                        <img src="<?PHP echo base_url() . 'udata/avatar/mi/' . $profiledata[0]['image_path'] ?>" width="83" height="93" alt="edit photo">
+                    <?php } ?>
+                        </a>
+                    </div>
+                    <div class="np_des_editprofile_names flr"> 
+                        <p class="flr np_des_pat5 np_des_mar10">Total Profile views : <?php echo "<b>".$profiledata[0]['views_count']."</b>"; ?> </p>
+                        <p class="fll np_des_wi100pst fs18 white"> <?php echo $profiledata[0]['profile_name']; ?> </p>
+                        <p class="fll np_des_wi100pst np_des_mat5 bold">  <?php $headline = $summarydata[0]['prof_headline']; if ( !empty( $headline ) ) { echo ucfirst( $headline); } else { echo 'Not mentioned by user'; }  ?></p>
+                        <p class="fll np_des_wi100pst np_des_mat5"> Location: <?php $location = $locationdata[0]['city_name']; if( !empty($location) ) { echo ucfirst( $location ); } else { echo "<span style='color:grey'>Not mentioned by user</span>"; }?> </p>
+<!--                        <p class="fll np_des_wi100pst np_des_mat5"> Exp : Computer </p>-->
+                        <?php
+                        if($profiledata[0]['user_id_fk'] != $_SESSION['user_id']) {
+
+                        if ($connectcount[0]['counts'] == 0) {
+                            ?>
+                            <a href="javascript:void(0)"  class="netpro_connect" onclick="addconnectionprofile(this.id)" id="<?php echo $profiledata[0]['user_id_fk'] ?> ">    
+                                <input type="button" value="Connect" class="np_des_edit_add_btn flr np_des_mar5">
+                            </a>
+                            <a href="javascript:void(0)" class="netpro_Pending" style="display:none;"  >    
+                                <input type="button" value="Pending" class="np_des_edit_add_btn flr np_des_mar5">
+                            </a>
+                            <a href="javascript:void(0)" class="netpro_remove" style="display:none;"  onclick="removeconnectionprofile(this.id)" id="<?php echo $profiledata[0]['user_id_fk'] ?> ">    
+                                <input type="button" value="Remove Connection" class="np_des_edit_add_btn flr np_des_mar5">
+                            </a>
+                        <?php
+                        } else {
+                            if ($connectcount[0]['is_confirmed'] == 'Pending') {
+                                ?>
+                                <a href="javascript:void(0)" class="netpro_Pending"   >    
+                                    <input type="button" value="Pending" class="np_des_edit_add_btn flr np_des_mar5">
+                                </a>
+                            <?php
+                            } else if ($connectcount[0]['is_confirmed'] == 'Accepted') {
+                                ?>
+                                <a href="javascript:void(0)" class="netpro_remove"   onclick="removeconnectionprofile(this.id)" id="<?php echo $profiledata[0]['user_id_fk'] ?> ">    
+                                    <input type="button" value="Remove Connection" class="np_des_edit_add_btn flr np_des_mar5">
+                                </a>
+                            <?php }
+                            ?>
+
+                            <a href="javascript:void(0)"  class="netpro_connect" style="display:none;" onclick="addconnectionprofile(this.id)" id="<?php echo $profiledata[0]['user_id_fk'] ?> ">    
+                                <input type="button" value="Connect" class="np_des_edit_add_btn flr np_des_mar5">
+                            </a>
+                        <?php } }?>
+                    </div>
+                </div>
+                <a href="javascript:void(0)"  onclick="toggle_visibility('coverpicpopup')" class="white">
+                <span class="np_des_company_specific_profile_img"> 
+                    <?php if($profiledata[0]['cover_path'] == "") {?>
+                      <img src="<?PHP echo base_url() . 'assets/images/default_cover.jpg'?>" alt="gg"></span>
+                    <?php } else { ?>                    
+                    <img src="<?PHP echo base_url() . 'udata/cover/mi/' . $profiledata[0]['cover_path'] ?>" alt="gg"></span>
+                    <?php } ?>
+                </a>
+                <div class="np_des_editprofile_contactino_box">
+                    <span class="fll">Contact Info</span>
+                    <span class="flr">Connections <?php echo $totalconnections[0]['connectionscount'];?></span>
+                </div>
+            </div>
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div class="np_des_editpro_headboxdiv_newdesign fll"> <h4>SUMMARY</h4> </div>
+
+                </div>
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+                    <?php if($summarydata[0]['prof_summary'] == "") { ?>
+                    <p class="lh18"> No Summary to Show</p>
+                    <?php }else { ?>
+                    <p class="lh18"> <?php echo $summarydata[0]['prof_summary'] ?> </p>
+                    <?php } ?>
+                </div> 
+
+            </div>
+<!--------------EXPERIENCE-------------------->
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>EXPERIENCE</h4> </div>
+                </div>
+<div id="experience_ajaxload">
+
+</div>
+               
+
+   
+  </div>
+<!--------------Projects-------------------->
+ <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>PROJECTS</h4> </div>
+
+                </div>
+            <div id="project_ajaxload">
+</div>
+            </div>
+
+<!--------------Education-------------------->
+          
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div class="np_des_editpro_headboxdiv_newdesign fll"> <h4>EDUCATION</h4> </div>
+
+                </div>
+                <div id="education_ajaxload">
+
+                     </div>
+ 
+            </div>
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div class="np_des_editpro_headboxdiv_newdesign fll"> <h4>LANGUAGES</h4> </div>
+
+                </div>
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+                <div id="language_ajaxload">
+</div>
+
+                </div> 
+
+            </div>
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>SKILLS</h4> </div>
+
+
+                                <?php //echo"<pre>";
+                                // print_r($skillsdata);
+                                $this->load->module('pprofile');
+                                if($skillsdata[0]['technology_str'] == "")
+                                {?>
+                    <div class="np_des_editpro_contentboxtransprent_wrap">
+                    No Skills to Show
+                    </div>              
+                                <?php }else {
+                                    
+                                
+                                
+                                foreach ($skillsdata as $skilldata) {
+                                    $a_skilldata = json_decode($skilldata['technology_str']);
+                                    ?> 
+                        <div class="np_des_editpro_contentboxtransprent_wrap">
+                            <div class="fll np_des_wi580">
+                                <span class="fll lh18 netprodev_skills np_des_wi280" id="<?php echo $skilldata['cvskill_aid'] ?>"> 
+    <?php
+    
+//print_R($profiledata[0]["user_id_fk"]);
+//echo $current_user;
+//    echo $profileid;
+
+    $i = 1;
+    $endorce_count = $this->pprofile->getendorcedata($skilldata['skill_id'],$profiledata[0]['user_id_fk']);
+    foreach ($a_skilldata as $key => $value) {
+        if ($key == 'skillName') {
+            echo "<b> Skill : </b>" . $value ;?>
+                                    <?php if($current_user!=$profiledata[0]["user_id_fk"])
+                                        {if($endorce_count == 0) { ?>
+                                    <a href="javascript:void(0)" class="netpro_endorce" id="<?php echo $skillid;?>">  
+                                        <input type="hidden" value="<?php echo $profiledata[0]['user_id_fk']; ?>" id="netpro_userid">
+                                    <input type="button" value="Endorce" class="np_des_edit_add_btn flr np_des_mar5">
+                                         </a>
+                                    <?php } else {?> 
+                                        <a href="javascript:void(0)" class="netpro_endorce_remove" id="<?php echo $skillid;?>">  
+                                        <input type="hidden" value="<?php echo $profiledata[0]['user_id_fk']; ?>" id="netpro_userid">
+                                    <input type="button" value="Remove Endorce" class="np_des_edit_add_btn flr np_des_mar5">
+                                </a>
+        <?php  }}?>
+            <?php $skillname = $value;
+        }
+        if ($key == 'proficiencyLevel') {
+            $skilllevel = $value;
+        }
+
+        if ($key == 'skillId') {
+            $skillid = $value;
+            
+        }
+        
+    }
+    ?></span>
+
+    <?php  if ($skilldata['endorsement_count'] > 0) { ?> <span class="fll"> Endorsers:<?php echo $skilldata['endorsement_count'] ?><a  class="netpro_endoser" user_id_fk="<?php echo $skilldata['user_id_fk'] ?>" id="<?php echo $skilldata['skill_id'] ?>" href="javascript: void(0)" ><img src="<?php echo base_url() . 'assets/images/icon3.png' ?>"  height="10" width="10"></a></span><?php } ?>
+                            </div>
+                        </div>      
+                                <?php } }?> 
+                </div>
+            </div>
+            
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>RECOMMENDATION</h4> </div>
+
+                </div>  
+                <?php if($reccount[0]['count']== 0) {?>
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+
+<div class="np_des_recommendation_leftimage">
+<img src="<?PHP echo base_url() . 'udata/avatar/mi/' . $userdata[0]['image_path'] ?>"  alt="logo">
+</div>
+
+<div class="np_des_recommendation_rightbox flr">
+<h2 class="fs14"> </h2>
+<p class="lh18 np_des_mat5">
+    <?php echo ucfirst($userdata[0]['profile_name']).","?>Would you like to recommend <?php echo  $profiledata[0]['profile_name'] ?></br>
+ <a href="<?php echo base_url() .'pprofile/recommandation/'.$profileid ?>">  Recommend <?php echo $profiledata[0]['profile_name'];?></a>
+
+</p>
+
+</div>
+
+</div>
+                   <?php  } 
+                    else {?>
+                <div class="np_des_editpro_contentboxtransprent_wrap"><?php  echo "<b>You alreday given recommendation to this user</b>";?></div>
+                       
+                     <?php   }?>
+<?php if($recommendationsdata[0]['image_path'] == "") {  ?>       
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+                    No Recommendations to Show
+                </div>
+<?php } else {                 
+  foreach($recommendationsdata as $recommendationdata){ ?>
+<div class="np_des_editpro_contentboxtransprent_wrap">
+
+<div class="np_des_recommendation_leftimage">
+<img src="<?php echo base_url().'udata/avatar/mi/'.$recommendationdata['image_path']?>"  alt="logo">
+</div>
+
+<div class="np_des_recommendation_rightbox flr">
+<h2 class="fs14"> </h2>
+<p class="lh18 np_des_mat5">
+<?php echo  $recommendationdata['text'] ?>
+</p>
+
+</div>
+
+</div>
+<?php } }?>
+
+
+            </div>
+
+
+
+
+            <div class="np_des_findjobs_contentbox np_des_mat15">
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>HONORS AND AWARDS</h4> </div>
+
+                </div>
+
+
+
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+                    <?php if($awardsdata[0]['award_name'] == "") { ?> 
+                    No Awards to Show
+                        <?php  } else { 
+foreach ($awardsdata as $awarddata) { ?>
+                        <div class="fll">
+                            <p>
+                                <span class="np_des_honor_award_icon fll"><img src="<?php echo base_url() . 'assets/images/icon1.png' ?>" width="29" height="24" alt="icon"></span>
+                                <span class="np_des_wi100pst np_des_pat8 os_des_mal10"><?php echo "<b>" . ucfirst($awarddata['award_name']) . "</b>" ?> </span>
+                            </p>
+                        </div>
+                        <?php } }
+?>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+           
+			<div class="np_des_findjobs_contentbox np_des_mat15" id="sb_access">
+                <div class="np_des_wi620">
+                    <div  class="np_des_editpro_headboxdiv_newdesign fll"> <h4>Safebox Access </h4> </div>
+                    <?php 
+                    //echo $profiledata[0]["user_id_fk"];
+                    ?>
+                    <div class="np_des_editpro_contentboxtransprent_wrap">
+                        No Documents has been shared
+                    </div>
+                </div>                
+            </div>
+<!--    schoolprograms -------
+--------->   
+<div class="np_des_findjobs_contentbox">
+                    <div class="np_des_wi620">
+                        <div class="np_des_editpro_headboxdiv_newdesign fll">
+                             <h4>SCHOOL PROGRAMS</h4>
+                            
+                        </div>
+
+                    </div>
+
+                    <form method="post" action="">
+                        <div class="np_des_editpro_contentboxtransprent_wrap">
+                          
+                            <div id="schoolprograms_ajaxload">
+<?php  if ($schoolprograms[0]['activity_id'] != '') {
+    foreach ($schoolprograms as $schooldata) {
+        ?>
+        <div  class="netdev_schoolprogram"  id="<?php echo $schooldata['activity_id'] ?>">
+            <div class="np_des_memeber_bgcolor2new np_des_mat5 fll">
+
+                <p>
+                    <span class="np_des_wi100pst np_des_pat8 os_des_mal10"><?php echo "<b>" . ucfirst($schooldata['activity_name']) . "</b>" ?> </span>
+                </p>
+            </div></div>
+<?php } } ?>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+<!---------school  programs end------------>
+<!---------causes end------------>
+<div class="np_des_findjobs_contentbox">
+                    <div class="np_des_wi620">
+                        <div class="np_des_editpro_headboxdiv_newdesign fll">
+                             <h4>CAUSES</h4>
+                            
+                        </div>
+
+                    </div>
+
+                    <form method="post" action="">
+                        <div class="np_des_editpro_contentboxtransprent_wrap">
+                          
+                            <div id=""><?php
+ if($causes_details[0]['cause_id']!=''){
+            foreach($causes_details as $list){
+        ?>
+                <div class="np_des_editpro_contentboxtransprent_wrap">
+                    <div id="npexperience_appenddata">
+                        <div class="np_des_experiencetextbox_wraprightbox fll lh24">Causes:</div>
+                        <div class="np_des_editpro_leftbox flr "></div>
+                        <div id="div<?php echo $list['cause_id']?>">
+                            <span id="span_cause<?php echo $list['cause_id']?>"><?php echo $list["cause_name"]?></span>
+                            
+                        </div>  
+<?php }} ?> 
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+<!---------certification ------------>
+<div class="np_des_findjobs_contentbox">
+                    <div class="np_des_wi620">
+                        <div class="np_des_editpro_headboxdiv_newdesign fll">
+                             <h4>CERTIFICATION</h4>
+                            
+                        </div>
+
+                    </div>
+
+                    <form method="post" action="">
+                        <div class="np_des_editpro_contentboxtransprent_wrap">
+                          
+                            <div id="">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+<!-------------Comunity services------------>
+<div class="np_des_findjobs_contentbox">
+                    <div class="np_des_wi620">
+                        <div class="np_des_editpro_headboxdiv_newdesign fll">
+                             <h4>COMUNITY SERVICES</h4>
+                            
+                
+                        </div>
+                       <div id="comunityservices_ajaxload">
+                            </div>
+
+                    </div>
+
+
+                   
+                </div>
+<!-------------------------------->
+        </div> <!--left container end here-->
+
+
+        <div class="np_des_right_container flr"> <!--right container start here-->
+<!--people suggestions -->
+            <div class="click_friendSuggessions">
+                <div class="click_rightSectionHeader"><h4>Friend Suggestions</h4></div>
+                <div class="click_friendSuggessionsList" id="click_friendSuggessionsList" >
+
+
+                </div>
+            </div>
+            <!--             company suggestions-->
+
+            <div class="click_friendSuggessions">
+                <div class="click_rightSectionHeader"><h4>Company Suggestions</h4></div>
+                <div class="click_companySuggessionsList" id="click_companySuggessionsList" >
+
+
+                </div>
+            </div>
+            <!--                        Group Suggestions-->
+                 <div class="click_groupSuggessions">
+                	<div class="click_rightSectionHeader"><h4>Group Suggestions</h4></div>
+                    <div class="click_friendSuggessionsList">
+                    	<ul id="npgroupsuggestions_ajaxload">
+
+                        </ul>
+                    </div>
+                </div>
+
+        </div> <!--right container end here-->
+
+
+
+
+
+    </div> <!--wrapper inner closed here--> 
+</div> <!--module container end here-->
+
+<div class="clearfix"></div>
+
+<?php
+$this->load->module('templates');
+$this->templates->app_footer();
+?>
+<script src="<?php echo base_url() . 'assets/js/suggestions.js'; ?>" type="text/javascript"></script>
+<script src="<?php echo base_url() . 'assets/js/profile.js'; ?>" type="text/javascript"></script>
+
+<script type="text/javascript">    
+    $.get('http://'+window.location.hostname+'/netpro/pprofile/displaySafeboxAccess',{user_id:$("#netpro_userid").val()},function(data){        
+        var html_data="";
+        var result=data.trim();
+        if(result!=0){
+            var json_arry=$.parseJSON(result);
+            //alert(json_arry);
+            for(var j=0;j<json_arry.length;j++){
+                //alert(json_arry[0]["folder_category"]);
+                var document_id=json_arry[0]["doc_id_fk"];
+                html_data+='<p class="lh18"><b>'+json_arry[0]["folder_category"]+'</b><br>'+json_arry[0]["name"]+'</p><input type="button" value="Download" onclick="download('+document_id+')"/>';
+            }
+        }       
+        $("#sb_access .np_des_editpro_contentboxtransprent_wrap").html(html_data);
+    });
+    /*$("#sb_access .np_des_editpro_contentboxtransprent_wrap a").click(function(){
+        alert("download function");
+    });*/
+    function download(doc_id){
+        $.ajax({
+            type:"post",
+            data:{document_id:doc_id},
+            url:"http://"+window.location.hostname+"/netpro/pprofile/downloadDoc",
+            success:function(data){
+                alert(data);
+            }
+        });
+    }
+</script>

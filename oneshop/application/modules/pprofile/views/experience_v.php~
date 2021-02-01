@@ -1,0 +1,218 @@
+
+    <?php
+$this->load->module('experience'); 
+    if($experiencedata[0]['exp_id']!=''){ 
+    foreach($experiencedata as $expdata){?>
+<div class="np_des_editpro_leftbox netprodev_experience" id="<?php echo $expdata['exp_id']?>">
+     <div class="np_des_memeber_bgcolor2new np_des_mat5 fll">
+    <p class="lh18"> <?php echo ucfirst($expdata['job_title']); ?> </p>
+<p class="lh18"> <?php echo ucfirst($expdata['employer_name']); ?> </p>
+<p class="lh18"> <?php echo $expdata['work_start_date'].'-'.$expdata['work_end_date']; ?> </p>
+</div></div>
+
+
+<div class="clearfix"></div>
+
+
+<div class="np_des_experiencetextbox_wrap" id="netprodev_experience<?php echo $expdata['exp_id'] ?>" style="display:none">
+<input type="button" name="button" class="np_des_closebtnexperiencebox_delete_newbtn np_des_mar5 flr" onclick="deleteexperience(<?php echo $expdata['exp_id'] ?>)" value="-DELETE">
+
+<input type="button" name="button" class="np_des_closebtnexperiencebox_edit_newbtn np_des_mar5 flr" onclick="editexperience(<?php echo $expdata['exp_id'] ?>)" value="+EDIT">
+
+<h2 class="fs14 np_des_mab20"> Details </h2>
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Employer Name </div> 
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id']; ?>"> <?php echo ucfirst($expdata['employer_name']); ?></div><input  onfocus="removeerror(this.id)" name="employer_name<?php echo $expdata['exp_id'] ?>" onfocus="removeerror(this.id)"  id="employer_name<?php echo $expdata['exp_id'] ?>" value="<?php echo ucfirst($expdata['employer_name']); ?>"  style="display:none" class="np_des_groupfield_textbox experience_editdata<?php echo $expdata['exp_id'] ?>" type="text">
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Job title </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> 
+ <?php echo ucfirst($expdata['job_title']); ?>
+
+
+</div>
+<input  onfocus="removeerror(this.id)" name="job_title<?php echo $expdata['exp_id'] ?>" id="job_title<?php echo $expdata['exp_id'] ?>" value="<?php echo ucfirst($expdata['job_title']); ?>"  style="display:none" class="np_des_groupfield_textbox experience_editdata<?php echo $expdata['exp_id'] ?>" type="text">
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Industry type </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>">
+ <?php $industrytype='';   $clCount=count($industriesList);
+                for($j=0;$j<$clCount;$j++){ 
+          $selected ='';
+                        if($industriesList[$j]['industry_id']==$expdata['industry_type']){
+                            $industrytype = $industriesList[$j]['industry_name'];
+                              $selected ='selected';
+                           }
+
+                   }    ?>
+  
+
+
+<?php echo ucfirst($industrytype); ?>
+
+</div>
+<select onchange="getfunctionalarea(this.value ,<?php echo $expdata['exp_id'] ;?>);removeerror(this.id);"   name="industry_type<?php echo $expdata['exp_id'] ?>" id="industry_type<?php echo $expdata['exp_id'] ?>"  value="<?php echo ucfirst($expdata['industry_type']); ?>"  style="display:none" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>" >       <option value="">select</option>  
+                         <?php    
+                 for($j=0;$j<$clCount;$j++){ 
+          $selected ='';
+                        if($industriesList[$j]['industry_id']==$expdata['industry_type']){
+                            $industrytype = $industriesList[$j]['industry_name'];
+                              $selected ='selected';
+                           }
+
+                       ?>
+                                <option value="<?php echo $industriesList[$j]['industry_id']; ?>"  <?php echo"$selected"; ?>><?php echo $industriesList[$j]['industry_name']; ?></option>
+                                <?php } ?>                     
+</select>
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Functional Area </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> 
+<?php  $functionalarea=''; $itCount=count($functionalareaList); for($j=0;$j<$itCount;$j++){ $selected =''; 
+
+if($expdata['functional_area']==$functionalareaList[$j]['fun_area_id']){ $selected ='selected';   echo ucfirst($functionalareaList[$j]['fun_area_name']); } }  ?> </div>
+<select name="functional_area<?php echo $expdata['exp_id'] ?>"  id="functional_area<?php echo $expdata['exp_id'] ?>"   onchange='removeerror(this.id)' style="display:none" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>" >
+ <option value=''>Select</option>
+<?php $itCount=count($functionalareaList); for($j=0;$j<$itCount;$j++){
+ if($expdata['functional_area']==$functionalareaList[$j]['fun_area_id']){ $selected ='selected';  }
+?> 
+     
+<option value="<?php echo $functionalareaList[$j]['fun_area_id']; ?>" <?php echo "$selected" ;?> ><?php echo $functionalareaList[$j]['fun_area_name']; ?></option>
+						        <?php } ?>
+
+      </select> 
+
+
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Current CTC </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> <?php echo ucfirst($expdata['current_ctc']); ?>
+</div>
+<input name="current_ctc<?php echo $expdata['exp_id'] ?>"  id="current_ctc<?php echo $expdata['exp_id'] ?>"  value="<?php echo ucfirst($expdata['current_ctc']); ?>"  style="display:none" class="np_des_groupfield_textbox experience_editdata<?php echo $expdata['exp_id'] ?>" type="text">
+
+</div>
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Currently Working </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> 
+<span class="fll">
+<?php echo $expdata['currently_working']; ?>
+</span>
+</div>
+<select name="currently_working<?php echo $expdata['exp_id'] ?>" id="currently_working<?php echo $expdata['exp_id'] ?>"   style="display:none" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>"><option value="">select</option><option value="Yes" <?php if($expdata['currently_working']=="Yes"){echo"selected='selected'";} ?>>Yes</option><option value="No" <?php if($expdata['currently_working']=="No"){echo"selected='selected'";} ?>>No</option></select>
+
+</div>
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24">Responsibilities </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> <?php echo $expdata['job_description']; ?>
+
+</div>
+<textarea name="job_description<?php echo $expdata['exp_id'] ?>" id="job_description<?php echo $expdata['exp_id'] ?>"  rows="4"cols="20" style="display:none" class="np_texttarea_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>" ><?php echo ucfirst($expdata['job_description']); ?> </textarea>
+
+</div>
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> From </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> <?php echo $expdata['work_start_date']; ?>
+
+</div>
+<select name="work_start_date<?php echo $expdata['exp_id'] ?>"  id="work_start_date<?php echo $expdata['exp_id'] ?>"   style="display:none;" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>">
+    <option value="">Select</option>
+    <?php for($i=1980;$i<2100;$i++){ ?>
+    <option value="<?php echo$i ?>" <?php if($expdata['work_start_date']==$i){ echo "selected='selected'";} ?>><?php echo $i ?></option>
+    <?php } ?>
+   </select>
+
+</div>
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> To </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> <?php echo $expdata['work_end_date']; ?>
+
+</div>
+<select name="work_end_date<?php echo $expdata['exp_id'] ?>"  onchange="removeerror(this.id);" id="work_end_date<?php echo $expdata['exp_id'] ?>"   style="display:none" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>">
+    <option value="">select</option>
+    <?php for($i=1980;$i<2100;$i++){ ?>
+    <option value="<?php echo$i ?>" <?php if($expdata['work_end_date']==$i){ echo "selected='selected'";} ?>><?php echo $i ?></option>
+    <?php } ?>
+   </select>
+
+
+</div>
+
+
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> Country </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> 
+<?php $clCount=count($countriesList);
+ for($j=0;$j<$clCount;$j++){ 
+ if($expdata['country_id']==$countriesList[$j]['country_id']){ echo $countriesList[$j]['country_name']; }  } ?>
+
+</div>
+<select   onchange="getstates(this.value ,<?php echo $expdata['exp_id'];?>);removeerror(this.id);"  name="netdev_countryid<?php echo $expdata['exp_id'] ?>"   id="netdev_countryid<?php echo $expdata['exp_id'] ?>"   style="display:none;" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>">
+    <option value="">Select</option>
+    <?php $clCount=count($countriesList); for($j=0;$j<$clCount;$j++){ ?>
+                                <option value="<?php echo $countriesList[$j]['country_id']; ?>"  <?php if($expdata['country_id']==$countriesList[$j]['country_id']){ $countryname =$countriesList[$j]['country_name'];  echo "selected='selected'"; } ?> ><?php echo $countriesList[$j]['country_name']; ?></option>
+                                <?php } ?>
+   </select>
+
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> State </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>">
+<?php  $statesList =  $this->experience->listAllStates1($expdata['country_id']);
+ 
+ $slCount=count($statesList); for($j=0;$j<$slCount;$j++){   
+if($expdata['state_id']==$statesList[$j]['stateID']){ echo $statesList[$j]['stateName'];   } } ?>
+
+</div>
+<?php  $statesList =  $this->experience->listAllStates1($expdata['country_id']);
+ ?>
+<select  onchange="getcities(this.value ,<?php echo $expdata['exp_id'];?>);removeerror(this.id);" name="netdev_stateid<?php echo $expdata['exp_id'] ?>"   id="netdev_stateid<?php echo $expdata['exp_id'] ?>"   style="display:none;" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>">
+    <option value="">Select</option>
+     <?php
+ $slCount=count($statesList); for($j=0;$j<$slCount;$j++){   $selected='';
+if($expdata['state_id']==$statesList[$j]['stateID']){ $statename =$statesList[$j]['stateName'];   $selected='selected'; } ?>
+                                <option value="<?php echo $statesList[$j]['stateID']; ?>" <?php echo $selected ; ?>   ><?php echo $statesList[$j]['stateName']; ?></option>
+                                <?php } ?>   
+   </select>
+
+</div>
+<div class="np_des_wi580 fll np_des_mab10">
+<div class="np_des_experiencetextbox_wraprightbox fll lh24"> City </div>
+<div class="np_des_editpro_leftbox flr experience_savedata<?php echo $expdata['exp_id'] ?>"> 
+ <?php 
+$citiesList =  $this->experience->listAllCities1($expdata['country_id'],$expdata['state_id']);
+$slCount=count($citiesList); for($j=0;$j<$slCount;$j++){   $selected='';
+if($expdata['city_id']==$citiesList[$j]['cityID']){echo $citiesList[$j]['cityName'];
+}}
+
+ ?>
+</div>
+<select name="netdev_cityid<?php echo $expdata['exp_id'] ?>"  id="netdev_cityid<?php echo $expdata['exp_id'] ?>"   style="display:none;" class="np_experienceselectbox experience_editdata<?php echo $expdata['exp_id'] ?>">
+    <option value="">Select</option>
+<?php
+$slCount=count($citiesList); for($j=0;$j<$slCount;$j++){   $selected='';
+if($expdata['city_id']==$citiesList[$j]['cityID']){ $cityname =$citiesList[$j]['cityName'];   $selected='selected'; } ?>
+                                <option value="<?php echo $citiesList[$j]['cityID']; ?>" <?php echo $selected ; ?>   ><?php echo $citiesList[$j]['cityName']; ?></option>
+                                <?php } ?> 
+   </select>
+
+</div>
+<span class="flr">  
+<input type="button" name="button"   style="display:none"class="np_des_edit_add_btn np_des_mar5 flr experience_editdata<?php echo $expdata['exp_id'] ?>" onclick="experiencesave(<?php echo $expdata['exp_id'] ?>)" value="UPDATE">
+<input type="button" name="button"  style="display:none" class="np_des_edit_add_btn np_des_mar5 flr experience_editdata<?php echo $expdata['exp_id'] ?>" onclick="experiencecancel()" value="CANCEL">
+</span> 
+
+</div>
+
+
+    <?php } }else{ 
+     echo"No Experience Added";   
+        
+     }?>
+<?php // print_r($industriesList) ;?>
+
+

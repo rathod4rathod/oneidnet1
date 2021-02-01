@@ -1,0 +1,509 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+/* * ******************************************************************************
+ * Purpose: Controller class to load the buzzin index page management of app.
+ * Date Written: Apr 29, 2015
+ * ***************************************************************************** */
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+class pprofile extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+        $this->load->module('db_api');
+    }
+
+    function user_id() {
+        
+        return $_SESSION['user_id'];
+    }
+
+    function index() {
+        
+    }
+
+    function profilepage($pid = "") {
+        $purl = $this->uri->total_segments();   // to get the count of parameters passed to the url in the browser  
+        if ($pid != "" && $purl <= 3) {
+            $result = $this->db_api->custom("select nus.user_id_fk as userid,profile_privacy from netpro_users_settings nus left join iws_profiles ip on nus.user_id_fk = ip.profile_id where ip.user_id= '$pid' ");
+            $uid = $result[0]['userid'];
+            $data['user_id']=$uid;
+            $data['netpro_page_title'] = "Welcome to User Profile";
+
+
+            $sql="select blocked_userid from netpro_blockedusers where user_id=".$_SESSION['user_id'];
+            $blockuser=  $this->db_api->custom($sql);
+//            if (in_array($uid,$blockuser)) {
+//
+//    echo 'hi';
+//}else
+//{
+//    echo "bye";
+//}
+            if($blockuser[0]['blocked_userid']!= $uid){
+            $data['profileid'] = $pid;
+            $data['current_user'] = $this->user_id();   
+            
+            $profilequery = "select * from `netpro_users_settings` where 	user_id_fk =$uid";
+            //profile data
+            $data['profiledata'] = $this->db_api->custom($profilequery);
+
+            //summary
+            $summaryquery = "SELECT * FROM `cvbank_users_details` where iws_profile_id =$uid";
+            $data['summarydata'] = $this->db_api->custom($summaryquery);
+
+            //experience 
+            $experiencequery = "SELECT * FROM `cvbank_positions` where iws_profile_id =$uid";
+            $data['experiencedata'] = $this->db_api->custom($experiencequery);
+
+            //education 
+            $educationquery = "SELECT * FROM `cvbank_education` where iws_profile_id =$uid";
+            $data['educationsdata'] = $this->db_api->custom($educationquery);
+
+            //language
+            $languagesquery = "SELECT * FROM `cvbank_languages`  where iws_profile_id =$uid";
+            $data['languagesdata'] = $this->db_api->custom($languagesquery);
+
+            //awards
+            $awardsquery = "SELECT * FROM `netpro_awards` where user_id_fk =$uid";
+            $data['awardsdata'] = $this->db_api->custom($awardsquery);
+
+            //projects
+            $projectsquery = "SELECT * FROM `cvbank_projects` where iws_profile_id =$uid";
+            $data['projectsdata'] = $this->db_api->custom($projectsquery);
+            //skills
+            $data['skillsdata'] = $this->getskilldata($uid);
+
+            //total connections
+            $data['totalconnections'] = $this->db_api->custom("SELECT count(*) as  connectionscount FROM netpro_connection where (user_id_fk=$uid or assosiate_id_fk= $uid) and is_confirmed='Accepted'");
+
+
+            //for connect count 
+            $data['connectcount'] = $this->db_api->custom("SELECT count(*) as counts,is_confirmed  FROM `netpro_connection` WHERE `user_id_fk`=$uid and assosiate_id_fk = " . $_SESSION['user_id'] . " or `user_id_fk`=" . $_SESSION['user_id'] . " and assosiate_id_fk =$uid ");
+
+            //for getting location
+            $locationquery = "select gci.city_name from iws_profiles ip left join global_cities_info gci on ip.city_id=gci.city_id where ip.profile_id=$profileid";
+            $data['locationdata'] = $this->db_api->custom($locationquery);
+
+            //for recommendation 
+            $recommendationquery = "SELECT nr.text,nr.recommended_by,nr.status,ns.profile_name,ns.image_path FROM `netpro_recommendation` as nr  inner join netpro_users_settings as ns on ns.user_id_fk =nr.recommended_by where nr.user_id_fk=$uid";
+            $data['recommendationsdata'] = $this->db_api->custom($recommendationquery);
+//school programs 
+$schoolprogramsquery = "SELECT * FROM `cvbank_activities` where iws_profile_id =".$uid." and activity_type ='Spl School Programs'";
+    $data['schoolprograms'] =  $this->db_api->custom($schoolprogramsquery);
+// comunity services
+
+   $comunityservicesquery = "SELECT * FROM `cvbank_activities` where activity_type='Community Services' and iws_profile_id =".$uid;
+    $data['comservicedata'] = $this->db_api->custom($comunityservicesquery);
+	//causes
+         $causesquery ="SELECT * FROM  netpro_causes where profile_id_fk=".$uid;
+	$data["causes_details"]=$this->db_api->custom($causesquery);
+	
+            //for getting session data
+            $userquery = "select * from netpro_users_settings where user_id_fk=" . $_SESSION['user_id'];
+            $data['userdata'] = $this->db_api->custom($userquery);
+
+            //getting recommendation count
+            $reccountqry = "select count(*) as count from netpro_recommendation where user_id_fk= $uid and recommended_by= $profileid";
+            $data['reccount'] = $this->db_api->custom($reccountqry);
+            $paccessqry = "SELECT count(*) as count,status FROM `netpro_profile_access` where entity_id = $uid and user_id_fk =" . $_SESSION['user_id'];
+
+            $data['profileaccesscount'] = $this->db_api->custom($paccessqry);
+//         echo "<pre>";print_R($data['profileaccesscount']);die();
+            $peoplesql = " SELECT ns.profile_name, ns.image_path, ns.cover_path, ns.user_id_fk FROM netpro_users_settings AS ns WHERE ns.user_id_fk NOT IN (SELECT assosiate_id_fk FROM  `netpro_connection`)and  ns.user_id_fk<>" . $_SESSION['user_id'] . "  and  ns.profile_privacy != 'Private'";
+            $data['peoplesdata'] = $this->db_api->custom($peoplesql);
+            if ($result[0]['profile_privacy'] == 'Private') {
+                $this->load->view('profile_privatepage', $data);
+            } else {
+				$current_user=$this->user_id();
+                $profile_id=$this->getProfileId($pid);
+                if($current_user!=$profile_id){
+                    $uquery="UPDATE netpro_users_settings SET views_count=views_count+1 WHERE user_id_fk=".$profile_id;
+                    $this->db_api->custom($uquery);
+                }
+                $this->load->view('profile_page', $data);
+            }
+        }
+        else
+        {
+                $this->load->view('errorpage');
+        }
+                }
+
+        else {
+            // in case of adding more parameters in the url
+            $CI = &get_instance();
+            $CI->load->view("show_error");
+        }
+    }
+
+    function getprofilename() {
+        $query = "SELECT profile_name   FROM `netpro_users_settings` where user_id_fk = " . $_SESSION['user_id'];
+        $data = $this->db_api->custom($query);
+        return $data[0]['profile_name'];
+    }
+
+    function getusercode() {
+        $query = "SELECT profile_id   FROM `iws_profiles` where user_id = " . $_SESSION['user_id'];
+        $data = $this->db_api->custom($query);
+        return $data[0]['profile_id'];
+    }
+
+    function getskilldata($user_id = "") {
+
+        $db_obj = $this->load->module('db_api');
+
+        $skillquery = "SELECT * FROM `cvbank_skills` where iws_profile_id =$user_id";
+        //$edata['skillsdata'] = $db_obj->custom($skillquery);
+        $cvbank_skillsdata = $db_obj->custom($skillquery);
+
+        foreach ($cvbank_skillsdata as $sdata) {
+            $endorsement_query = "SELECT count(*) as counts  FROM `netpro_skills_endorsement` WHERE `user_id`= $user_id   and  `skill_id_fk` =" . $sdata['skill_id'];
+            $endorsement_count = $db_obj->custom($endorsement_query);
+            if ($endorsement_count[0]['counts'] > 0) {
+                $skillsdata[] = array('cvskill_aid' => $sdata['cvskill_aid'],
+                    'technology_str' => $sdata['technology_str'],
+                    'skill_id' => $sdata['skill_id'],
+                    'endorsement_count' => $endorsement_count[0]['counts'],
+                    'user_id_fk' => $user_id
+                );
+            } else {
+                $skillsdata[] = array('cvskill_aid' => $sdata['cvskill_aid'],
+                    'technology_str' => $sdata['technology_str'],
+                    'skill_id' => $sdata['skill_id'],
+                    'endorsement_count' => $endorsement_count[0]['counts'],
+                    'user_id_fk' => $user_id
+                );
+            }
+        }
+        return $skillsdata;
+    }
+
+    function getendorcedata($skillid, $profileid) {
+
+        $db_obj = $this->load->module('db_api');
+        $endorsement_query = "SELECT count(*) as counts  FROM `netpro_skills_endorsement` WHERE `user_id`= $profileid   and  `skill_id_fk` =$skillid and endorsed_by= " . $_SESSION['user_id'];
+        $endorsement_count = $db_obj->custom($endorsement_query);
+        return $endorsement_count[0]['counts'];
+    }
+
+    function addconnection() {
+        $this->load->module('db_api');
+        $netprodev_userid = $this->input->post('netprodev_userid');
+        $method = $this->input->post('method');
+        $fields = array('user_id_fk' => $netprodev_userid, 'assosiate_id_fk' => $_SESSION['user_id']);
+        $mytable = "netpro_connection";
+        $result = $this->db_api->insert($fields, $mytable);
+        $last_insid = $this->db_api->last_insertid();
+        $result = $this->addconnectionnotification($netprodev_userid);
+        if ($method == 'friendconnection') {
+            $this->load->module('peoplesuggestions');
+            $this->peoplesuggestions->getSuggestions_Info();
+        }
+        if ($method == 'profileconnection') {
+            echo $result;
+        }
+    }
+
+    function addconnectionnotification($netprodev_userid) {
+
+        $s_profilename = $this->getprofilename();
+        //$s_usercode = $this->getusercode();
+        $s_url = base_url() . 'connections/connection_notificationview/' . $_SESSION['user_id'];
+        $mytable = " netpro_notification";
+        $netpro_string = '<li><span class="small_icons">&nbsp;</span><a href="' . $s_url . '">' . $s_profilename . ' Send New Connection Request  </a></li>';
+        $a_data = array('user_id_fk' => $netprodev_userid,
+            'type' => 'New Connection',
+            'html_text' => $netpro_string);
+        //print_r($a_data);
+        $result = $this->db_api->insert($a_data, $mytable);
+        return $result;
+    }
+
+    function removeconnection() {
+        $this->load->module('db_api');
+        $netprodev_companyid = $this->input->post('netprodev_userid');
+        $user_id = $_SESSION['user_id'];
+        $where = "user_id_fk = $user_id and assosiate_id_fk = $netprodev_companyid";
+        $mytable = "netpro_connection";
+        echo $result = $this->db_api->delete($mytable, $where);
+    }
+
+    function endorecement() {
+
+        $netpro_skillid = $this->input->post('netpro_skillid');
+        $netpro_userid = $this->input->post('netpro_userid');
+        $fields = array('user_id' => $netpro_userid, 'skill_id_fk' => $netpro_skillid, 'endorsed_by' => $_SESSION['user_id']);
+        $mytable = "netpro_skills_endorsement";
+        $result = $this->db_api->insert($fields, $mytable);
+        echo $result;
+    }
+
+    function endorecement_remove() {
+
+        $netpro_skillid = $this->input->post('netpro_skillid');
+        $netpro_userid = $this->input->post('netpro_userid');
+        $where = "user_id = $netpro_userid and skill_id_fk = $netpro_skillid and endorsed_by =" . $_SESSION['user_id'];
+        $mytable = "netpro_skills_endorsement";
+        echo $result = $this->db_api->delete($mytable, $where);
+    }
+
+    function recommandation($uid = "") {
+        $data['profileid'] = $uid;
+        $data['netpro_page_title'] = "Welcome To Recomendation Page";
+        $this->load->view('recommendation_page', $data);
+    }
+
+    function recommendation_insert() {
+
+        $query = "select nus.user_id_fk as userid from netpro_users_settings nus left join iws_profiles ip on nus.user_id_fk = ip.profile_id where ip.user_id='" . $_REQUEST['netpro_userid'] . "'";
+        $result = $this->db_api->custom($query);
+        $uid = $result[0]['userid'];
+
+        $recommendation_text = $_REQUEST['recommendation_text'];
+        $relationship = $_REQUEST['relationship'];
+        $netpro_userid = $this->input->post('netpro_userid');
+        $fields = array('user_id_fk' => $uid, 'recommended_by' => $_SESSION['user_id'], 'text' => $recommendation_text, 'relation' => $relationship);
+        $mytable = "netpro_recommendation";
+        $result = $this->db_api->insert($fields, $mytable);
+        echo $result;
+    }
+
+    function profileaccess() {
+        $uid = $this->user_id();
+        $empornot = $this->db_api->select("registered_by", "iws_employers", "registered_by=" . $uid);
+        if ($empornot == 0) {
+            $type = "INDIVIDUAL";
+        } else {
+            $type = "COMPANY";
+        }
+        $fields = array('user_id_fk' => $uid, 'entity_id' => $_REQUEST['netprodev_userid'], 'type' => $type);
+
+        $result = $this->db_api->insert($fields, "netpro_profile_access");
+        echo $result;
+    }
+
+    /* profile access 07-12-2015 by venkatesh */
+
+    function profile_access() {
+        $data['netpro_page_title']="Welcome to Profile Access page";
+        $data['is_netpro_profileaccess_active']="Yes";
+   $data["profile_privacy"] = $this->db_api->select("profile_privacy","netpro_users_settings","user_id_fk=".$this->user_id());
+//          print_R($data);
+        $this->load->view("profile_access",$data);
+    }
+  /* profile access 07-12-2015 by venkatesh */
+    function prf_access() {
+        $id = $this->user_id();        
+        $data["prf_access_pnd"] = $this->db_api->custom("SELECT np.rec_aid,np.user_id_fk,np.from_time,np.to_time,np.type,np.request_time,np.status,nus.profile_name,nus.image_path,
+ip.user_id 
+from netpro_profile_access np 
+left join netpro_users_settings nus on np.user_id_fk=nus.user_id_fk 
+left join iws_profiles ip on ip.profile_id=np.user_id_fk
+where np.entity_id=".$id." and np.status in('PENDING','ACCEPTED') order by status ASC");
+
+        $this->load->view("prf_access", $data);
+    }
+      /* profile access 07-12-2015 by venkatesh */
+    function prf_acceptdate(){
+//        $sdate=$_POST["Start_date"];
+//        $date = new DateTime($sdate);
+//        $_POST["Start_date"] = $date->format('Y-m-d H:i:s');   
+//        $date = new DateTime($_POST["End_Date"]);
+//        $_POST["End_Date"] = $date->format('Y-m-d H:i:s');
+        $fields = array( 'status' => 'ACCEPTED');
+         $this->db_api->update($fields, "netpro_profile_access","rec_aid=".$_POST["id"]);
+         $this->accept_fields($_POST["id"]);
+    }
+      /* profile access 07-12-2015 by venkatesh */
+    function accept_fields($rec_id){
+        $id = $this->user_id();        
+        $data["prf_access_pnd"] = $this->db_api->custom("SELECT np.rec_aid,np.user_id_fk,np.from_time,np.to_time,np.type,np.request_time,np.status,nus.profile_name,nus.image_path,ip.user_id
+from netpro_profile_access np left join netpro_users_settings nus on np.user_id_fk=nus.user_id_fk  left join iws_profiles ip on ip.profile_id=np.user_id_fk
+where np.rec_aid=".$rec_id);
+
+        
+        $this->load->view("prf_accept_view", $data);
+    }
+      /* profile access 07-12-2015 by venkatesh */
+    function prf_access_rejct(){
+//        $fields = array( 'status' => 'DECLINE');
+        echo $this->db_api->delete( "netpro_profile_access","rec_aid=".$_POST["rid"]);
+
+    }
+      /* profile access 07-12-2015 by venkatesh */    
+    function addprfaccess(){
+        $rlt=$this->db_api->select("profile_id", "iws_profiles","email='".$_POST["email"]."'");
+        if($rlt!=0){
+           $rlt=$this->db_api->select("profile_id", "iws_profiles","email='".$_POST["email"]."'");
+        }else{
+             echo "error";die();
+        }
+       
+        $fields = array('user_id_fk'=>$rlt[0]["profile_id"],"type"=>'INDIVIDUAL',"entity_id"=>$this->user_id(), 'status' => 'ACCEPTED');
+        $this->db_api->insert($fields, "netpro_profile_access");
+        $dt=$this->db_api->select("max(rec_aid) as rec_aid", "netpro_profile_access","entity_id=".$this->user_id());
+        $this->accept_fields($dt[0]["rec_aid"]);
+    }
+      /* profile access 07-12-2015 by venkatesh */
+	/* display the safebox document by Pavani */
+    function displaySafeboxAccess(){
+        $profile_id=$this->input->get("user_id");
+        $db_api=$this->load->module("db_api"); 
+        $current_datetime=date("Y-m-d H:i:s");
+        $query="select doc_id_fk,nsa.folder_category,from_time,to_time,path,name from netpro_safebox_access nsa inner join netpro_safebox ns on nsa.doc_id_fk=ns.doc_aid where ";
+        $represent_data=$db_api->select("representative_code","iws_representative","user_id_fk=".$_SESSION["user_id"]);
+        if($represent_data!=0){
+            $entity_id=$represent_data[0]["representative_code"];
+            $query.=" entity_id='".$entity_id."'";
+        }else{
+            $query.=" entity_id=".$profile_id;
+        }
+        //echo $query;
+        $query.=" and '".$current_datetime."'>from_time and '".$current_datetime."'<to_time";        
+        $sb_data=$db_api->custom($query);
+        $rslt=[];        
+        $result="No data";
+        if($sb_data!=0){
+            $i=0;
+            foreach($sb_data as $list){
+                $rslt[$i]["doc_id_fk"]=$list["doc_id_fk"];
+                $rslt[$i]["from_time"]=$list["from_time"];
+                $rslt[$i]["folder_category"]=$list["folder_category"];
+                $rslt[$i]["to_time"]=$list["to_time"];
+                $rslt[$i]["name"]=$list["name"];                
+                $rslt[$i]["path"]=$list["path"];
+                $rslt[$i]["encoded_docid"]=  base64_encode(base64_encode($list["doc_id_fk"]));
+                $i++;
+            }
+            $result=json_encode($rslt);
+        }        
+        echo $result;
+        //print_r($sb_data);
+    }
+    function downloadDoc(){
+        $document_id=base64_decode(base64_decode($_REQUEST["document_id"]));
+        $dbapi=$this->load->module("db_api");
+        $sb_result=$dbapi->select("path","netpro_safebox","doc_aid=".$document_id);
+        $file_name=$sb_result[0]["path"];        
+	// required for IE
+	if(ini_get('zlib.output_compression')) { 
+            ini_set('zlib.output_compression', 'Off');	
+	}
+	// get the file Mime type using the file extension
+	$mime=$this->get_mime_by_extension($file_name);
+        //echo filesize($file_name);
+	header('Pragma: public'); 	// required
+	header('Expires: 0');		// no cache
+	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+	header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($file_name)).' GMT');
+	header('Cache-Control: private',false);
+	header('Content-Type: '.$mime);
+	header('Content-Disposition: attachment; filename="'.basename($file_name).'"');
+	header('Content-Transfer-Encoding: binary');
+	header('Content-Length: '.filesize($file_name));	// provide file size
+        ob_clean();        
+	readfile($file_name);        
+        flush();
+	exit();
+    }
+    
+    function get_mime_by_extension($path){
+        $mime="";
+        switch(strtolower(substr(strrchr($path, '.'), 1))) {
+			case 'pdf':  $mime = 'application/pdf'; break; // pdf files
+			case 'zip':  $mime = 'application/zip'; break; // zip files
+			case 'jpeg': $mime = 'image/jpeg'; break;// images jpeg
+			case 'jpg':  $mime = 'image/jpg'; break;
+		            case 'png':  $mime = 'image/png'; break;
+			case 'mp3':  $mime = 'audio/mpeg'; break; // audio mp3 formats
+			case 'doc':  $mime = 'application/msword'; break; // ms word
+			case 'avi':  $mime = 'video/x-msvideo'; break;  // video avi format
+			case 'txt':  $mime = 'text/plain'; break; // text files
+			case 'xls':  $mime = 'application/vnd.ms-excel'; break; // ms excel
+			default: $mime = 'application/force-download';
+		}
+        return $mime;
+    }
+	function getProfileId($user_id=""){
+        $db_api=$this->load->module("db_api");
+        $profiles=$db_api->select("profile_id","iws_profiles","user_id='".$user_id."'");
+        $iws_profile_id=$profiles[0]["profile_id"];
+        return $iws_profile_id;
+    }
+    
+    function  blockconnection()
+{
+    $this->load->module('db_api');
+    $netprodev_companyid =  $this->input->post('netprodev_userid');
+    $user_id=$_SESSION['user_id'];
+    $fields = array('user_id'=>$user_id,'blocked_userid' => $netprodev_companyid);
+    $mytable = "netpro_blockedusers";
+    echo $result = $this->db_api->insert($fields,$mytable);
+}
+
+function  unblockconnection()
+{
+    $this->load->module('db_api');
+    $netprodev_companyid =  $this->input->post('netprodev_userid');
+    $where = "rec_id = $netprodev_companyid";
+    $mytable = "netpro_blockedusers";
+    echo $result = $this->db_api->delete($mytable, $where);
+}
+//11-12-2015 by venkatesh
+    function myactivities(){
+       $this->load->view("myactivities");
+    }
+    //11-12-2015 by venkatesh
+    function activities_view(){
+       $db_obj= $this->load->module("db_api");
+       $lt=0;
+       if(isset($_REQUEST["load_act_count"])){
+           $lt=$_REQUEST['load_act_count'];
+       }
+       $data["activities"]=$db_obj->custom("SELECT np.*,date(np.posted_on) as post_date,nus.profile_name,nus.image_path from netpro_post np left join netpro_users_settings nus on np.posted_by=nus.user_id_fk where posted_by=".$this->user_id()." order by np.posted_on desc limit ".$lt.",8");
+        $this->load->view("activities_view",$data);
+    }
+    //14-12-2015 by venaktesh 
+function ppschooldetails(){
+    $data['schoolprograms'] =  $this->db_api->custom("SELECT * FROM `cvbank_activities` where iws_profile_id =".$_REQUEST["uuserid"]." and activity_type ='Spl School Programs'");
+    $this->load->view("ppschooldetails",$data);
+}
+function ppresearchnpatents(){
+        $data["res_pat_data"] = $this->db_api->select("*", "cvbank_activities", "iws_profile_id=" . $_REQUEST["uuserid"] . " and activity_type='Research/Patents'");
+        if ($data["res_pat_data"] != 0) {
+
+            $this->load->view("ppres_pat_view", $data);
+        } else {
+            echo "<div class='np_des_editpro_contentboxtransprent_wrap'> RESEARCH/PATENTS Not Added</div>";
+
+        }
+}
+function ppcertification(){
+    
+     $dbobj = $this->load->module("db_api");
+        $data["certifications"] = $dbobj->custom("select gi.industry_name,gc.certification_name,cc.* from cvbank_certifications cc left join global_industries gi on cc.industry_id=gi.industry_id left join global_certifications gc on gc.certification_id=cc.certificate_id where cc.iws_profile_id=" . $_REQUEST["uuserid"]);
+        if ($data["certifications"] != 0) {
+            $this->load->view('ppcertification', $data);
+        } else {
+            echo "<div class='np_des_editpro_contentboxtransprent_wrap'>CERTIFICATIONS not added</div>";
+        }
+}
+function pppublications(){
+    $dbobj = $this->load->module("db_api");
+        $data["publication_data"] = $dbobj->select("*", "cvbank_activities", "iws_profile_id=" . $_REQUEST["uuserid"] . " and activity_type='Publications'");
+
+        if ($data["publication_data"] != 0) {
+//            print_R($data["publication_data"]);die();
+            $this->load->view("pppublications", $data);
+        } else {
+            echo "<div class='np_des_editpro_contentboxtransprent_wrap'>Publications not added</div>";
+        }
+}
+
+}

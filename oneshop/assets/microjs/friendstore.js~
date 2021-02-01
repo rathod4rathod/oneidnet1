@@ -1,0 +1,3 @@
+$.get(oneshop_url+'stores/friends_Storesdata',function(data){
+        $("#friend_storeresult").html(data);
+    });

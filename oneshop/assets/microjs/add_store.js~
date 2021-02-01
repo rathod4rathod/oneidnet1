@@ -1,0 +1,302 @@
+$("#store_reg_form").submit(function () {
+    
+        var error = 0;
+        var osdev_store_name = $("#osdev_store_name").val();
+        var osdev_Country = $("#osdev_Country").val();
+        var osdev_State = $("#osdev_State").val();
+        var osdev_City = $("#osdev_City").val();
+        var osdev_Zipcode = $("#osdev_Zipcode").val();
+        var osdev_Enquirymobilenumber = $("#osdev_Enquirymobilenumber").val();
+        var osdev_ServiceEmail = $("#osdev_ServiceEmail").val();
+        
+        /*var osdev_Store_Logo = $("#osdev_Store_Logo").val();
+        var osdev_Store_Logoval = osdev_Store_Logo.split(".").pop();
+        var osdev_StoreCoverPicture = $("#osdev_StoreCoverPicture").val();
+        var osdev_StoreCoverPictureval = osdev_StoreCoverPicture.split(".").pop();
+        var osdev_IsOfficial = $("#osdev_IsOfficial").val();*/
+        var osdev_PackageType = $("#osdev_PackageType").val();
+        var osdev_Time_Zone = $("#Time_Zone").val();
+        var osdev_Curency = $("#Currency").val();
+        var osdev_Delivery_Mode = $("#osdev_Delivery_Mode").val();
+        var osdev_PackagePeriod = $("#osdev_PackagePeriod").val();
+        $("#store_reg_form p").css("display","none");
+        if (is_Empty(osdev_store_name) != true) {
+            $("#osdev_store_name").addClass("redfoucusclass");
+            $("#osdev_store_name_error").css("display","block");
+            error = 10;
+        } else {
+            if(/^[A-Za-z][A-Za-z0-9 ]+$/.test(osdev_store_name) == false) {
+                //alert('Your search string contains illegal characters.');
+                $("#osdev_store_name").addClass("redfoucusclass");
+                $("#osdev_store_name_error").css("display","block").text("Store name should not contain special charaters");
+                error = 10;
+            }else{
+                 $("#osdev_store_name").removeClass("redfoucusclass");
+            }
+            $("#osdev_store_name_error").css("display","none");
+        }
+        
+        if (is_Empty(osdev_Country) != true) {
+            $("#osdev_Country").addClass("redfoucusclass");
+            $("#osdev_Country_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_Country").removeClass("redfoucusclass");
+            $("#osdev_Country_error").css("display","block");
+        }
+        
+        if(osdev_State != null){
+            if (is_Empty(osdev_State) != true) {
+                $("#osdev_State").addClass("redfoucusclass");                
+                $("#osdev_State_error").css("display","block");
+                error = 10;
+            } else {
+                $("#osdev_State").removeClass("redfoucusclass");                
+                $("#osdev_State_error").css("display","none");
+            }
+        }
+        
+        if(osdev_City != null){
+            if (is_Empty(osdev_City) != true) {
+                $("#osdev_City").addClass("redfoucusclass");
+                $("#osdev_City_error").css("display","block");
+                error = 10;
+            } else {
+                $("#osdev_City").removeClass("redfoucusclass");
+                $("#osdev_City_error").css("display","none");
+            }
+        }
+        
+        if (is_Empty(osdev_Zipcode) != true || osdev_Zipcode.length < 3) {
+            $("#osdev_Zipcode").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            //$("#osdev_Zipcode").removeClass("redfoucusclass");
+             if(/^(?=.*\d.*)[A-Za-z0-9]{3,10}$/.test(osdev_Zipcode) == false) {
+                $("#osdev_Zipcode").addClass("redfoucusclass");
+                $("#osdev_Zipcode_error").css("display","block");
+                error = 10;
+            }else{
+                 $("#osdev_Zipcode").removeClass("redfoucusclass");
+                 $("#osdev_Zipcode_error").css("display","none");
+            }
+        }
+        
+        if(osdev_Enquirymobilenumber != ""){
+            //alert(osdev_Enquirymobilenumber.length);
+            if (is_Empty(osdev_Enquirymobilenumber) != true || osdev_Enquirymobilenumber % 1 != 0 || osdev_Enquirymobilenumber.length > 10) {
+                $("#osdev_Enquirymobilenumber").addClass("redfoucusclass");
+                $("#osdev_Enquirymobilenumber_error").css("display","block").text("Contact Number accepts digits and should be greater than 0 and less than 10");
+                error = 10;
+            } else {
+                $("#osdev_Enquirymobilenumber").removeClass("redfoucusclass");
+            }
+        }else{
+            $("#osdev_Enquirymobilenumber").addClass("redfoucusclass");
+            $("#osdev_Enquirymobilenumber_error").css("display","block").text("Mobile Number is required");
+        }
+        
+        if(osdev_ServiceEmail != ""){
+            if (is_Empty(osdev_ServiceEmail) != true || isValid_Email(osdev_ServiceEmail) != true) {
+                $("#osdev_ServiceEmail").addClass("redfoucusclass");
+                $("#osdev_ServiceEmail_error").css("display","block").text("Please enter valid email address");
+                error = 10;
+            } else {
+                $("#osdev_ServiceEmail").removeClass("redfoucusclass");
+            }
+        }
+        
+        if (is_Empty(osdev_Time_Zone) != true) {
+            $("#Time_Zone").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#Time_Zone").removeClass("redfoucusclass");
+        }
+       
+        /*if (osdev_Store_Logoval.length != 0) {
+            if (osdev_Store_Logoval == 'gif' || osdev_Store_Logoval == 'jpg' || osdev_Store_Logoval == 'png' || osdev_Store_Logoval == 'jpeg') {
+                $("#osdev_Store_Logo").removeClass("redfoucusclass");
+            } else {
+                $("#osdev_Store_Logo").addClass("redfoucusclass");
+                $("#osdev_Store_Logo").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+                error = 10;
+            }
+        }
+        else {
+            $("#osdev_Store_Logo").addClass("redfoucusclass");
+            error = 10;
+        }
+        if (osdev_StoreCoverPictureval.length != 0)
+        {
+            if (osdev_StoreCoverPictureval == 'gif' || osdev_StoreCoverPictureval == 'jpg' || osdev_StoreCoverPictureval == 'png' || osdev_StoreCoverPictureval == 'jpeg') {
+                $("#osdev_StoreCoverPicture").removeClass("redfoucusclass");
+            } else {
+                $("#osdev_StoreCoverPicture").addClass("redfoucusclass");
+                $("#osdev_StoreCoverPicture").val("");
+                alert("Allow file type should be jpg|png|gif|jpeg");
+                error = 10;
+            }
+        } else {
+            $("#osdev_StoreCoverPicture").addClass("redfoucusclass");
+            error = 10;
+        }*/
+    
+       if (is_Empty(osdev_Curency) != true) {
+            $("#Currency").addClass("redfoucusclass");
+            $("#Curency_error").css("display","block");
+            error = 10;
+        } else {
+            $("#Currency").removeClass("redfoucusclass");
+            $("#Curency_error").css("display","none");
+        }
+       
+        if (is_Empty(osdev_PackageType) != true) {
+            $("#osdev_PackageType").addClass("redfoucusclass");
+            error = 10;
+        } else {
+            $("#osdev_PackageType").removeClass("redfoucusclass");
+        }
+        
+         if (is_Empty(osdev_PackagePeriod) != true) {
+            $("#osdev_PackagePeriod").addClass("redfoucusclass");
+            $("#osdev_PackagePeriod_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_PackagePeriod").removeClass("redfoucusclass");
+            $("#osdev_PackagePeriod_error").css("display","none");
+        }
+        
+        if (is_Empty(osdev_Delivery_Mode) != true) {
+            $("#osdev_Delivery_Mode").addClass("redfoucusclass");
+            $("#osdev_Delivery_Mode_error").css("display","block");
+            error = 10;
+        } else {
+            $("#osdev_Delivery_Mode").removeClass("redfoucusclass");
+            $("#osdev_Delivery_Mode_error").css("display","none");
+        }
+        
+       
+        if (error == 10) {
+            return false;
+        }
+        
+        
+        //Getting base url
+        var baseurl = $.trim($("#baseurl").val());
+        $.ajax({
+            type: 'POST',
+            url: "/oneshop/stores/stores_creation",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+alert(data);
+				
+				 if (isJson(data) == true) {
+                 error_data(data);
+               }
+                else{ 
+					if($.trim(data) == "already_created"){
+						alert("Store Name is not available, Please choose some other name.");
+						return false;
+					}else{
+						var storeCode = $.trim(data);
+						location.replace(baseurl+"store_home/"+storeCode);
+					}
+			}
+                //alert(data);
+                //var result=data.trim();
+                //location.replace("http://" + window.location.hostname + "/oneshop/home/mystore_Profile_Page/" + data);
+               // window.open("http://"+window.location.hostname+"/oneshop/stores/quotation/"+result,"_blank");
+            }
+        });
+        return false;
+    });
+    
+    function is_Empty(s_data) {
+        if (s_data.length < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    function isValid_Email(s_data) {
+        var regx_emails = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z-]+(\.[a-z-]+)*(\.[a-z]{2,4})$/;
+        var flag = false;
+        if (s_data.match(regx_emails)) {
+            flag = true;
+        }
+        return flag;
+    }
+    //
+    
+    //Edit Store
+    $("#edit_store_form").submit(function () {
+        //Getting base url
+        var baseurl = $.trim($("#baseurl").val());
+        //Getting Store Code
+        var store_code = $.trim($("#store_code").val());
+        
+        var enquiry_number = $.trim($("#enquiry_number").val());
+        var delivery_mode = $.trim($("#delivery_mode").val());
+        if(enquiry_number != ""){
+            if (is_Empty(enquiry_number) != true || enquiry_number % 1 != 0 || enquiry_number.length < 8) {
+                $("#enquiry_number").addClass("redfoucusclass");
+                return false;
+            } else {
+                $("#enquiry_number").removeClass("redfoucusclass");
+            }
+        }
+        
+        if (is_Empty(delivery_mode) != true) {
+            $("#delivery_mode").addClass("redfoucusclass");
+            return false;
+        } else {
+            $("#delivery_mode").removeClass("redfoucusclass");
+        }
+        
+       
+       
+        
+        //Right side services drop down all selected
+        $("#right_services option").prop("selected", true);
+        
+        $.ajax({
+            type: 'POST',
+            url: "/oneshop/stores/stores_updation",
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                if($.trim(data) == "Updated Successfully"){
+                    location.replace(baseurl+"edit_store/"+store_code+"/1");
+                }
+            }
+        });
+        return false;
+    });
+function isJson(item) {
+    item = typeof item !== "string"
+            ? JSON.stringify(item)
+            : item;
+    try {
+        item = JSON.parse(item);
+    } catch (e) {
+        return false;
+    }
+
+    if (typeof item === "object" && item !== null) {
+        return true;
+    }
+
+    return false;
+}
+function error_data(data) {
+    var obj = jQuery.parseJSON(data);
+    $.each(obj, function (index, value) {	
+        $("#"+index).addClass("redfoucusclass");
+    });
+    return false;
+}

@@ -1,0 +1,59 @@
+var s_url = "http://" + window.location.hostname + "/oneshop/";
+
+    function  unfollowing(id){
+	callAJAX(s_url+"explorepeople/unFollowing",{followerid:id},function(data){
+	
+	$('#user_following').html(data);
+	},"","")
+	} 
+	function  unFollowers(id){
+	callAJAX(s_url+"explorepeople/unFollowers",{followerid:id},function(data){
+	
+	$('#user_followers').html(data);
+	},"","")
+	}     
+	function userFollow(id){
+		
+		callAJAX(s_url+"explorepeople/userfollow",{profileid:id},function(data){
+		if($.trim(data)==0){
+			alert("some error ") ;
+			}else{
+			$('#explore_peopledata').html(data);	
+				//$("#"+'userfollow'+id).css('display','none')
+			
+				}
+		},"","")
+		}
+function callAJAX(url, parameters, successCallback, beforeSendCallback, completeCallback ) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data:  parameters ,
+        param:parameters,
+        beforeSend: beforeSendCallback,
+        complete: completeCallback,
+        success: successCallback,
+        error: function(xhr, textStatus, errorThrown) {
+            console.log('error'+textStatus);
+        }
+    });
+} 
+
+$(document).ready(function(){
+	
+callAJAX(s_url+"explorepeople/userFollowings",{},function(data){
+	
+	$('#user_following').html(data);
+	},"","")
+	
+	callAJAX(s_url+"explorepeople/userFollowers",{},function(data){
+	
+	$('#user_followers').html(data);
+	},"","")
+	
+	callAJAX(s_url+"explorepeople/explorePeopledata",{},function(data){
+	
+	$('#explore_peopledata').html(data);
+	},"","")
+});
+

@@ -1,0 +1,70 @@
+<?php require('application/libraries/oneshopconfig.php');
+$i=0;
+$store_code=$this->uri->segment(2);
+if(is_array($products_data)) {
+	foreach($products_data as $rows){
+	  $img=$rows["primary_image"];
+		  if($rows["product_name"]!="") {
+		  $s_len=strlen($rows["product_name"]);
+		  //echo $s_len;
+		  $product_name=$rows["product_name"];
+		  if($s_len>12){    
+			$prod_name=substr($product_name,0,12)."..";
+		  }else{
+			$prod_name=$product_name;
+		  }  
+		  $store_url = base_url() . "home/mystore_profile_page/" . $rows['store_id'];
+		  $product_url=  base_url()."product_detail_view?product_id=".base64_encode(base64_encode($rows["product_aid"]));
+		?>
+		<div class="oneshop_products_storebox">
+			<div class="oneshop_products_storeboxtop_div">
+                            <?php
+                            if($store_owner!="yes"){
+                            ?>
+				<span class="oneshop_setting_icon"><a href="javascript:additemtocart('<?php echo $rows["product_aid"];?>','<?php echo $store_code;?>')"><img src="<?php echo base_url() . "assets/" ?>images/products/setting2.png"></a></span>
+                                <?php
+                            }
+                                ?>
+							<?php
+							if($img!=""){
+								$img_url=base_url()."/mi/".$img;
+								?>
+								<p class="acenter mat30"><a href="<?php echo $product_url;?>" title="<?php echo ucfirst($product_name)?>"> <img src="<?php echo STORE_PATH."".$store_code."/products/".$rows["product_aid"]."/mi/".$img; ?>"></a> </p>
+								<?php
+							}else{
+								?>
+								<p class="acenter mat30"> <img src="<?php echo base_url().'assets/images/addProductImage.jpg'?>"> </p>
+								<?php
+							}
+							?>			
+			</div>
+				<div class="oneshop_products_storebox_bottomdiv"><a href="<?php echo $product_url;?>" title="<?php echo ucfirst($product_name)?>"><?php echo ucfirst($product_name) ?></a></div>
+		</div>
+		<?php
+		}
+			$i++;
+	} 
+} else {
+	?>
+	<div class="cvdes_rightbar_headingsbg_wrap mat20">
+		<div style="width:200px; margin:0 auto; overflow:hidden;"><span class="fll mat3"> <img src="<?php echo base_url().'assets/images/nodata.png'?>" alt="nodata"> </span><span class="fll mat3 mal10 bold gray"> No More Data Found </span></div>
+	</div>
+<?php
+}
+?>
+<script type="text/javascript">
+    function additemtocart(prodid, store_code){
+        url = location.href;
+        $.ajax({
+            type: 'POST',
+            url: "/oneshop/products/addItemsToCart",
+            data: { product_id: prodid, store_code : store_code} ,
+            success: function (data) {
+                data = $.trim(data);
+                if( data == "ADDEDTOCART"){
+                    location.replace(url);
+                }
+            }
+        });
+    }
+</script>

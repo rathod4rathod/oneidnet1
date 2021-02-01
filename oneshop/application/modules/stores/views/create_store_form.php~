@@ -1,0 +1,169 @@
+<?php
+    //Get Package Selected
+    $package_selected = $selected_package_type;
+?>    
+<div class="oneshop_container_middle_section mat10">
+       <div class="oneshop_left_newcontainer pab10">
+           <h2 class="mat10 borderbottom wi100pstg mab10 fll"> Create Your Store </h2> 
+            <div class="oneshop_leftwrapper_box mat15">
+                <form id="store_reg_form">
+                <input type="hidden" name="baseurl" id="baseurl" value="<?php echo base_url();?>">
+                <div class="oneshop_fieldsbox" id="store_name_div">
+                    <div class="wi100pstg mab5"> Store Name  </div>
+                    <div class="wi100pstg"> <input type="text" placeholder="Enter Store Name Here" name="store_name" id="osdev_store_name" class="oneshop_productfield_textbox"> </div>
+                    <div class="wi100pstg fs11 red clearfix" id="osdev_store_name_error"> Please write your store name </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Country  </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="Country" id="osdev_Country">
+                            <option value="">--Select Country--</option>
+                            <?php                         
+                            $country_list=explode(',',$country_info);                        
+                            //foreach ($country_info as $country_inf) {
+                            foreach ($country_list as $country_inf) {
+                                $country_opt=explode("-",$country_inf);
+                              ?>
+                              <option value="<?php echo $country_opt[0]; ?>"><?php echo $country_opt[1]; ?></option>
+                              <?php }
+                            ?>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_Country_error"> Please select Country</p>
+                    </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> State  </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="State" id="osdev_State" >
+                            <!--<option value="Telangana">Telangana</option>-->
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_State_error"> Please select state </p>
+                    </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> City  </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="City" id="osdev_City" >
+                            <option value="">--Select city--</option>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_City_error"> Please select city </p>
+                    </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Zip code  </div>
+                    <div class="wi100pstg"> <input type="text" placeholder="Zip code" name="Zip_code" id="osdev_Zipcode" class="oneshop_productfield_textbox" maxlength="8"> </div>
+                    <p class="wi100pstg fs11 red clearfix" id="osdev_Zipcode_error"> Please enter the zip code </p>
+                </div>
+                
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Enquiry mobile number  </div>
+                    <div class="wi100pstg"> <input type="text" placeholder="Enquiry mobile number" name="Enquiry_mobile_number" id="osdev_Enquirymobilenumber" class="oneshop_productfield_textbox" maxlength="17"> </div>
+                    <p class="wi100pstg fs11 red clearfix" id="osdev_Enquirymobilenumber_error"> Please enter the enquiry mobile number </p>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Service Email</div>
+                    <div class="wi100pstg"> <input type="text" placeholder="Service Email" name="Service_Email" id="osdev_ServiceEmail" class="oneshop_productfield_textbox"> </div>
+                    <p class="wi100pstg fs11 red clearfix" id="osdev_ServiceEmail_error"> Please enter service email </p>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5">Time Zone</div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="Time_Zone" id="Time_Zone">
+                            <option value="">--Select Time Zone--</option>
+                            <?php                         
+                            foreach ($timezone_list as $tzKey => $tzVal) {
+                              ?>
+                              <option value="<?php echo $tzKey; ?>"><?php echo $tzVal; ?></option>
+                              <?php }
+                            ?>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_ServiceEmail_error"> Please select time zone </p>
+                    </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5">Currency</div>
+                    <div class="wi100pstg"> <input type="text" placeholder="Currency" name="Curency" id="Curency" class="oneshop_productfield_textbox"> </div>
+                    <p class="wi100pstg fs11 red clearfix" id="Curency_error"> Please enter the currency to sell the products </p>
+                </div>
+                
+               <!-- <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5">Store Logo </div>
+                    <div class="wi100pstg"> <input type="file" placeholder="" name="Store_Logo" id="osdev_Store_Logo" class="oneshop_productfield_textbox"> </div>
+                </div>
+               
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5">Store Cover Picture </div>
+                    <div class="wi100pstg"> <input type="file" placeholder="" name="Store_Cover_Picture" id="osdev_StoreCoverPictures" class="oneshop_productfield_textbox"> </div>
+                </div>-->
+
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Package Type  </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="SPackage_Type" id="osdev_PackageType" disabled="disabled">
+                           <option value="">--Select Package Type--</option>
+                            <?php                         
+                            $pckg_list=explode(',',$package_list);                        
+                            foreach ($pckg_list as $package_info) {
+                                $package_opt=explode("-",$package_info);
+                              ?>
+                              <option value="<?php echo $package_opt[0]; ?>" <?php if($package_selected == $package_opt[0])echo "selected"; ?>><?php echo $package_opt[1]; ?></option>
+                              <?php }
+                            ?>
+
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_PackageType_error"> Please select the Package Type </p>
+                    </div>
+                </div>
+               
+               <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Package Period  </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="SPackage_period" id="osdev_PackagePeriod" >
+                           <option value="">--Select Package Period--</option>
+                           <option value="1">1 Month</option>
+                           <option value="3">3 Month</option>
+                           <option value="6">6 Month</option>
+                           <option value="12">1 Year</option>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_PackagePeriod_error"> Please select the Package period </p>
+                    </div>
+                </div>
+                
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Delivery Mode </div>
+                    <div class="wi100pstg"> 
+                        <select class="oneshop_selectbox_field selectType" name="Sdelivery_mode" id="osdev_Delivery_Mode" >
+                           <option value="">--Select Delivery Mode--</option>
+                           <option value="BOTH">BOTH</option>
+                           <option value="PBD">Pay Before Delivery</option>
+                           <option value="COD">Cash on Delivery</option>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_Delivery_Mode_error"> Please select the Delivery Mode </p>
+                    </div>
+                </div>
+                <div class="flr mab10" style="margin-right:250px;">
+                    <input type="hidden" id="hpackage_id" name="hpackage_id" value=""/>
+                    <input type="submit" class="np_des_addaccess_btn" value="Proceed">
+                </div>
+               </form>
+                  
+                
+                <!--<button class="oneshop_basicInfoBtn">Proceed</button> -->
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="<?php echo base_url() . "/application/modules/stores/microjs/"; ?>add_store.js"></script>
+<style type="text/css">
+    #osdev_Delivery_Mode_error,#osdev_PackagePeriod_error,#osdev_store_name_error,#osdev_Country_error,#osdev_State_error,#osdev_City_error,#osdev_Zipcode_error,#osdev_Enquirymobilenumber_error,#osdev_ServiceEmail_error,#Curency_error,#osdev_PackageType_error{
+        display:none;
+    }
+    .displayError{display:block;}
+</style>

@@ -1,0 +1,61 @@
+<?php
+$this->load->module('templates');
+$this->templates->os_Store_Header(  ); 
+$this->templates->mystore_Menu(  );
+$id=$this->input->POST('storeid');
+echo"this".$id;
+
+    ?>
+    
+    
+
+    <!--Oneshop Content starts Here(vinod 19-05-2015)-->
+    	<div class="oneshop_contentSection">
+        	<div class="oneshop_ProfilePage">
+            	<div class="oneshop_profileDetails">
+                <?php 
+               // print_r($results);
+                foreach($results_store as $values){
+                 $dev_oneshop_storeaid=$values['store_aid'];
+                  $dev_oneshop_storeid=$values['store_id'];
+                  $dev_oneshop_store_name=$values['name'];
+                  $dev_oneshop_store_logo=$values['logo_path'];
+                  $dev_oneshop_coverimage=$values['cover_path'];
+                }
+                require('application/libraries/oneshopconfig.php');
+               $dev_oneshop_store_cover_path= STORE_PATH.$dev_oneshop_storeid."/cover/li/".$dev_oneshop_coverimage;
+               $dev_oneshop_store_logo_path= STORE_PATH.$dev_oneshop_storeid."/logo/mi/".$dev_oneshop_store_logo;?>
+                	<img src="<?php echo  $dev_oneshop_store_cover_path; ?>" class="oneshop_coverPic">
+                    <div class="oneshop_profilePicandName">
+	                    <img src="<?php echo $dev_oneshop_store_logo_path; ?>" class="oneshop_ppProfilePic">
+                        <span class="oneshop_profileName"><h2><?php echo $dev_oneshop_store_name;?></h2></span>
+                    </div>
+                </div>
+                
+                <div class="oneshop_profileSection oneshop_MyStoreProfileSection">
+                    
+			<?php
+     // $this->load->module("stores");
+     // $this->stores->about_Store();
+      ?>
+                    
+                    
+                    <div class="oneshop_profileSectionContent oneshop_MyStoreProfileSectionContent">
+                    	
+        <?php
+               $this->load->module("products");
+              $this->products->mystore_myproduct_list($dev_oneshop_storeaid);
+       ?>         
+            
+            
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--Oneshop Content ends Here(vinod 19-05-2015)-->            
+
+    
+        <?php
+$this->templates->app_footer(  ); 
+?>

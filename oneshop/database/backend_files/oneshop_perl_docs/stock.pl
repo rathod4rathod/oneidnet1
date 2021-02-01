@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+#instmodsh ---this is the command to display the modules installed on system, execute the command in terminal
+# after executing the above command will prompt to enter the list of options displayed
+#use strict;
+#use warnings;
+use DBI;
+use Time::Piece;
+#use DateTime;
+$currentdate=localtime->strftime('%Y-%m-%d');
+$dbh = DBI->connect('dbi:mysql:db_oneidnet','root','Weldone123') or die "Connection Error: $DBI::errstr\n";
+$sql = "SELECT store_aid,store_id,email FROM os_all_store stores inner join iws_profiles profiles on stores.created_by=profiles.profile_id GROUP BY store_aid";
+#print "query:$sql\n";
+$sth = $dbh->prepare($sql);
+$sth->execute or die "SQL Error: $DBI::errstr\n";
+my $filename = '/home/pavani/Desktop/storeids.txt';
+open FILE,">",$filename or die $!;
+print "todays datetime:".getCurrentTime()."\n";
+while (@row = $sth->fetchrow_array) {
+	$str="";	
+	#$expires_on=$row[5];
+	$store_aid=$row[0];
+	$emailid=$row[2];
+	$str=$store_aid."~".$emailid."\n";
+	print FILE $str;	
+} 
+close FILE;
+my $datetime=getCurrentTime();
+
+sub getCurrentTime {
+    my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst)=localtime(time);
+    my $nice_timestamp = sprintf ( "%04d-%02d-%02d %02d:%02d:%02d",$year+1900,$mon+1,$mday,$hour,$min,$sec);
+    return $nice_timestamp;
+}
+
+

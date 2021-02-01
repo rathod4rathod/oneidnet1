@@ -1,0 +1,247 @@
+<?php 
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class Templates extends CI_Controller {
+
+    function get_UserId() {
+        $cookies_obj=$this->load->module("cookies");
+        $user_id=$cookies_obj->getUserID();
+        return $user_id;
+    }
+    function get_store_ownerId($store_code="") {
+        $dbapi=$this->load->module("db_api");
+        $store_owner_id="";
+        //$rlt=$dbapi->custom("select created_by from oshop_stores where created_by=".$this->get_UserId());
+        if($store_code==""){
+            $rlt=$dbapi->custom("select store_code,store_name from oshop_stores where created_by=".$this->get_UserId());
+        }else{
+            $rlt=$dbapi->custom("select store_code,store_name from oshop_stores where store_code='".$store_code."'");
+        }
+        
+        if($rlt!=0)
+        {
+            //$store_owner_id=$this->get_UserId();
+            //print_r($rlt);
+            foreach($rlt as $stores_list){
+                if($store_owner_id==""){
+                    $store_owner_id.=$stores_list["store_name"].":".$stores_list["store_code"];
+                }else{
+                    $store_owner_id.="~".$stores_list["store_name"].":".$stores_list["store_code"];
+                }
+            }
+        }
+          return $store_owner_id;
+    } 
+    function app_header() {
+        $db_obj=$this->load->module('db_api');
+        $ntf_count=$db_obj->custom("select count(rec_aid) as notification_count from os_notification where user_id=".$this->get_UserId()." and read_or_not='0'" );
+        $user_profile_pic=$db_obj->custom("select profile_img from os_user_details where profile_id_fk=".$this->get_UserId());
+        $data["profile_img"]=$user_profile_pic[0]["profile_img"];
+
+        $data["notification_count"]=$ntf_count[0]["notification_count"];
+	$cookies_obj=$this->load->module("cookies");
+        $user_name=$cookies_obj->getUserFullName();
+	$data["user_fullname"]=$user_name;
+        $this->load->view('templates/os_mainheader',$data);
+    }
+    function os_mainmenu() {
+        $user_id=$this->get_UserId();
+        $manager_details=$this->store_manager_return($user_id);
+        $order_manager="no";
+        $product_manager="no";
+        $store_owner="no";
+        if($manager_details["role"]!="" || $manager_details["role"]=="ORDER_MANAGER"){
+            $store_code=$manager_details["store_code"];
+            $order_manager="yes";
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+        }
+        else if($manager_details["role"]!="" || $manager_details["role"]=="PRODUCT_MANAGER"){
+            $product_manager="yes";
+            $store_code=$manager_details["store_code"];
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+        }else{            
+            $store_owner_details=$this->get_store_ownerId();            
+            if($store_owner_details!=""){
+                $store_owner="yes";
+                $data["store_owner_id"] = $store_owner_details;
+            }else{
+                $store_owner="no";
+                $data["store_owner_id"] = "";
+            }
+        }
+        //echo $store_owner;
+        $data["order_manager"]=$order_manager;
+        $data["product_manager"]=$product_manager;
+        $data["store_owner"]=$store_owner;
+        $data["manager_details"]=$manager_details;
+        /*$manager_details = $this->store_manager_return($store_uid);
+        $data["order_manager"] = $manager_details[0]["order_manager_emails"];
+        $data["store_manager"] = $manager_details[0]["store_manager_emails"];*/        
+        $this->load->view('templates/os_mainmenu', $data);
+    }
+    function os_oneshopheader() {
+        //$db_obj=$this->load->module('db_api');
+        $user_id=$this->get_UserId();
+        $manager_details=$this->store_manager_return($user_id);
+        $order_manager="no";
+        $product_manager="no";
+        $store_owner="no";
+        if($manager_details["role"]!="" || $manager_details["role"]=="ORDER_MANAGER"){
+            $store_code=$manager_details["store_code"];
+            $order_manager="yes";
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+            //print_r($data["store_owner_id"]);
+        }
+        else if($manager_details["role"]!="" || $manager_details["role"]=="PRODUCT_MANAGER"){
+            $product_manager="yes";
+            $store_code=$manager_details["store_code"];
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+        }else{            
+            $store_owner_details=$this->get_store_ownerId();            
+            if($store_owner_details!=""){
+                $store_owner="yes";
+                $data["store_owner_id"] = $store_owner_details;
+            }else{
+                $store_owner="no";
+                $data["store_owner_id"] = "";
+            }
+        }
+        $dbapi=$this->load->module("dbapi");        
+        $data["order_manager"]=$order_manager;
+        $data["product_manager"]=$product_manager;
+        $data["store_owner"]=$store_owner;
+        //$data["store_owner_id"] = $this->get_store_ownerId();
+        $this->load->view('templates/os_oneshopheader',$data);
+    }
+    //User role check (Anil 2nd Feb 2016)
+    function onshop_user_check_role(){
+        $user_id=$this->get_UserId();
+        $manager_details=$this->store_manager_return($user_id);
+        $order_manager="no";
+        $product_manager="no";
+        $store_owner="no";
+        if($manager_details["role"]!="" || $manager_details["role"]=="ORDER_MANAGER"){
+            $store_code=$manager_details["store_code"];
+            $order_manager="yes";
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+            //print_r($data["store_owner_id"]);
+        }
+        else if($manager_details["role"]!="" || $manager_details["role"]=="PRODUCT_MANAGER"){
+            $product_manager="yes";
+            $store_code=$manager_details["store_code"];
+            $data["store_owner_id"] = $this->get_store_ownerId($store_code);
+        }else{            
+            $store_owner_details=$this->get_store_ownerId();            
+            if($store_owner_details!=""){
+                $store_owner="yes";
+                $data["store_owner_id"] = $store_owner_details;
+            }else{
+                $store_owner="no";
+                $data["store_owner_id"] = "";
+            }
+        }
+        $data["order_manager"]=$order_manager;
+        $data["product_manager"]=$product_manager;
+        $data["store_owner"]=$store_owner;
+        
+        return $data;
+    }
+    
+    function app_footer() {
+        $this->load->view('templates/os_footer');
+    }
+
+  function os_Store_Header() {
+    $data["store_id"] = $this->store_id_return();
+    $store_aid=$this->store_aid_return();
+    $db_obj=$this->load->module('db_api');
+    $ntf_count=$db_obj->custom("select count(rec_aid) as notification_count from os_notification where store_id=".$store_aid." and read_or_not='0'" );
+    $data["notification_count"]=$ntf_count[0]["notification_count"];
+    $data["str_dtl"]=$db_obj->select("store_id,name as store_name,logo_path as store_logo","os_all_store","created_by=".$this->get_store_ownerId());
+    $this->load->view('templates/os_store_header', $data);
+  }
+
+  function mystore_Menu() {
+    
+  $store_uid=$this->store_uid_return();
+  
+  $manager_details=$this->store_manager_return($store_uid);
+  $data["order_manager"]=$manager_details[0]["order_manager_emails"];
+  $data["store_manager"]=$manager_details[0]["store_manager_emails"];
+  $data["store_owner_id"]=$this->get_store_ownerId();
+  
+  $this->load->view('templates/mystore_menu',$data);
+  
+  }
+
+  //25-05-2015 by venkatesh 
+  function ownstore_Exist_Or_Not() {
+    $id = $this->get_UserId();
+    $db_obj = $this->load->module("db_api");
+    $rlt = $db_obj->custom("select store_id from os_all_store where created_by=" . $id);
+    if ($rlt == 0) {
+      return "no";
+    } else {
+      return "yes";
+    }
+  }
+
+  //25-05-2015 by venkatesh 
+    function store_id_return() {
+        $id = $this->get_store_ownerId();
+        $db_obj = $this->load->module("db_api");
+        $rlt = $db_obj->custom("select store_id from os_all_store where created_by=" . $id);
+        return  $rlt[0]["store_id"];
+    }
+    //18-06-2015 by venkatesh : this function return store auto increment id based on current user id
+    function store_uid_return() {
+        $db_obj=$this->load->module("db_api");
+        $where = "created_by=" . $this->get_UserId();
+        $result = $db_obj->select("store_aid,store_code", "oshop_stores", $where);
+        return $result[0]["store_code"];
+    }
+    //18-06-2015 by venkatesh : this function return store manager ids
+    function store_manager_return1($store_aid) {
+        $db_obj=$this->load->module("db_api");
+        $myfields = "order_manager_emails,	store_manager_emails";
+        $where = "store_id_fk=" . $store_aid;
+        $mytable = "os_store_settings";
+        $result = $db_obj->select($myfields, $mytable, $where);
+        return $result;
+    }   
+    function store_manager_return($user_id) {
+        $db_obj=$this->load->module("db_api");        
+        $query="SELECT user_id_fk,store_name,store_aid,role,store_code FROM oshop_stores ostore INNER JOIN oshop_staff ostaff ON ostore.store_aid=ostaff.store_id_fk WHERE user_id_fk=".$user_id;
+        $staff_res=$db_obj->custom($query);        
+        return $staff_res[0];
+    }
+    //28-05-2015 by venkatesh : this function return store auto increment id based on current user id
+    function store_aid_return() {
+        $db_obj=$this->load->module("db_api");
+        $myfields = "store_aid";
+        $where = "created_by=" . $this->get_store_ownerId();
+        $mytable = "os_all_store";
+        $result = $db_obj->select($myfields, $mytable, $where);
+        return $result[0]["store_aid"];
+    }
+    function getFollowList($store_code){        
+        $user_id=$this->get_UserId();
+        $dbapi=$this->load->module("db_api");
+        $store_obj=$this->load->module("stores");
+        $stores_result=$store_obj->getStoreDetailsByStoreCode($store_code);
+        $store_aid=$stores_result[0]["store_aid"];
+        $follow_query="SELECT (select count(*) from oshop_followings ) as follow_cnt,count(*) as cnt FROM `oshop_followings` WHERE user_id_fk=".$user_id." and store_id_fk=".$store_aid;
+        $follow_result=$dbapi->custom($follow_query);
+        return $follow_result;
+    }
+    function insertFollow(){
+        $user_id=$this->get_UserId();
+        $dbapi=$this->load->module("db_api");
+        $store_code=$this->input->post("store_code");
+        $store_obj=$this->load->module("stores");
+        $stores_result=$store_obj->getStoreDetailsByStoreCode($store_code);
+        $store_aid=$stores_result[0]["store_aid"];
+        $a_fields=array("user_id_fk"=>$user_id,"store_id_fk"=>$store_aid);        
+        echo $result=$dbapi->insert($a_fields,"oshop_followings");
+    }
+}

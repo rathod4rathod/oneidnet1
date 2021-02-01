@@ -1,0 +1,7 @@
+$.get(oneshop_url+'stores/friends_Storesdata',function(data){
+  if ($.trim(data)!=0) {
+        $("#friend_storeresult").html(data);
+	} else{
+		$('#oneshop_nomoredata').css("display","block");
+    }
+    });
