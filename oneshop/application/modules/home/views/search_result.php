@@ -25,7 +25,7 @@ if($search_type=="Products") {
  
  ?>
 
-                        <span class="oneshop_setting_icon">
+                        <span class="oneshop_setting_icon RKR">
                             <a href="javascript:additemtocart(<?php echo $rows["product_aid"].",'".$rows["store_code"]."'"?>)">
                                 <img src="<?php echo base_url();?>assets/images/products/setting2.png"></a>
                         </span>

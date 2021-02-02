@@ -7,6 +7,11 @@ $this->load->module('stores');
     </div>
     <ul class="storesugg_wrap product_wrap">
     <?php    
+     $this->load->module("products");
+     $this->load->module("home");
+     $uid=$this->products->get_UserId();
+     $uDetail=$this->home->myuserAlldetails($uid);
+     
     foreach ($products_data as $prows) {
 	$currency = $this->stores->getCurrency($prows["store_code"]);        
         if ($prows["primary_image"] != "" && file_exists("stores/".$prows["store_code"] . "/products/" . $prows["product_aid"] . "/mi/" . $prows["primary_image"])!==false) {

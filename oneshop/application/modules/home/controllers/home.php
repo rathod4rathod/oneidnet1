@@ -970,6 +970,16 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $userdetails = $db_obj->select("*", "os_user_details", $where);
         return $userdetails;
     }
+    function myuserAlldetails($profile_id="") {
+        $db_obj = $this->load->module("db_api");
+        if($profile_id==""){
+            $where = "profile_id=" . $this->get_UserId();
+        }else{
+            $where="profile_id=".$profile_id;
+        }
+        $userdetails = $db_obj->select("first_name,last_name,dob,existing_email_id,mobile_no",'iws_profiles', $where);        
+        return $userdetails;
+    }
 
     function dataenter() {
         $db_obj = $this->load->module("db_api");

@@ -252,7 +252,7 @@ class Login extends CI_Controller {
 //            print_R($result);
         if($result!=0){
                    $s_name = $result[0]['first_name']." ".$result[0]['middle_name']." ".$result[0]['last_name'] ;
-			       $templateBody  =$this-> usernameTemplate($s_name , $result[0]["username"]);
+			             $templateBody  =$this->usernameTemplate($s_name , $result[0]["username"]);
                    $homeobj = $this->load->module("home");
                    $homeobj->sendactivationmail($result[0]["existing_email_id"], "Recover Your ONEIDNET Account User ID! ",$templateBody );
                  echo "ON9";
@@ -849,9 +849,9 @@ background: #ffffff;
                             
                               
                                
-                                <p style='margin-top:0px; color:#000;' >
-                                You forgot your ONEIDNET account password, not a problem, we’ll help you fix that. <br /><br/>                                
- 				Click on the <a href='$alink'> link </a> below to reset your password or Paste the following link in browsers' tab:<br/> $alink <br/>                                                                
+                                <p style='margin-top:0px; color:#000;' >                                                             
+                                You forgot your ONEIDNET account password, not a problem, we will help you fix that. <br /><br/>                                
+ 				Click on the <a href='$alink'> link </a> below to reset your password or copy and paste the following link in your browsers' tab:<br/> $alink <br/>                                                                
                                 </p>                                
                             </div>
                          
