@@ -419,6 +419,31 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         //$this->load->view("home/inventory_posting", $data);
       }
 
+    #Creayed By - Mitesh
+    function store_promo($store_id) 
+    {
+        $dbapi=$this->load->module("db_api");
+        $stores_result = $this->getStoreDetails($store_id);
+        $user_id=$this->get_UserId();
+        $staff_details=$dbapi->select("role","oshop_staff","store_id_fk=".$stores_result[0]["store_aid"]." AND user_id_fk=".$user_id);
+        if($staff_details==0 && $staff_details[0]["role"]!="PRODUCT_MANAGER"){
+            redirect(base_url());
+        }
+        $store_name = $stores_result[0]["store_name"];
+        $data["store_title"] = 'Add products to your stores for sale-' . $store_name . '|oneidnet.com';
+        $data["meta_description"] = 'Create/Add products to your store in oneshop';
+        $data["meta_keywords"] = "Create/Add products to your store in oneshop";
+        $sql="SELECT *  FROM oshop_sales as osale inner join  oshop_stores as oshs  on oshs.store_aid = osale.store_id_fk";
+        $data["promolist"] = $dbapi->custom($sql);
+        // $data["productlist"] = $this->os_product_list();
+        $data["store_code"] = $store_id;
+        $data['store_details'] = $stores_result;
+        $this->load->view("home/promo_sales", $data);
+        //$this->load->view("home/inventory_posting", $data);
+    }
+
+    
+
     function mystore_Profile_Page($store_id = null) {
 
         if ($store_id == null) {

@@ -1,7 +1,7 @@
            
 </div>
 <!--Oneshop Footer starts Here(vinod 19-05-2015)-->
-<div class="oneshop_footer">
+<div class="oneshop_footer" style="margin-top: 0px;">
     <span class="oneshop_footerContent">
         <h6>&copy; Copyright ONEIDNET, <?php echo date("Y") ?>. All rights reserved.</h6>
         <img src="<?php echo base_url() . "/assets/"; ?>images/onenet.png" class="oneshop_footerLogo">

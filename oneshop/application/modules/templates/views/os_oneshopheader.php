@@ -30,6 +30,7 @@
     $staff_url = site_url("staffs")."/".$store_code;
     $orders_url=site_url("orders")."/".$store_code;
 	$inventry_url=site_url("inventory")."/".$store_code;
+	$promo_url=site_url("promo_sales")."/".$store_code;
     $this->load->module("mycart");
     $page=$this->uri->segment(1);
 
@@ -273,7 +274,7 @@
 								</div>
 								<ul>
 									<li class="maildes_bubble"><img src="<?php echo base_url() . "assets/" ?>images/bubble.png"></li>
-									<li class="maildes_settingOption"><a href="javascript:void(0)" id="promo_form">Promotions & Sales</a></li>
+									<li class="maildes_settingOption"><a href="<?php echo $promo_url;?>" id="promo_form">Promotions & Sales</a></li>
 									<li class="maildes_settingOption"><a href="<?php echo $staff_url;?>">STORE STAFF</a></li>
 									<li class="maildes_settingOption"><a href="<?php echo $edit_store_url;?>">EDIT STORE</a></li>
 <li class="maildes_settingOption"><a href="<?php echo $store_theme_url;?>">EDIT STORE THEME</a></li>
@@ -474,17 +475,17 @@ $(document).ready(function(){
 			}
 		}
 			
-			$("#promo_form").click(function(){
-                var store_code='<?php echo $store_code?>';
-                $.ajax({
-                    type:"post",
-                    data:{store_code:store_code},
-                    url: oneshop_url+"/stores/promoPopup/",
-                    success:function(data){
-                        $("#os_popup").css("display","block").html(data);
-                    }
-                });
-            });
+			// $("#promo_form").click(function(){
+   //              var store_code='<?php echo $store_code?>';
+   //              $.ajax({
+   //                  type:"post",
+   //                  data:{store_code:store_code},
+   //                  url: oneshop_url+"/stores/promoPopup/",
+   //                  success:function(data){
+   //                      $("#os_popup").css("display","block").html(data);
+   //                  }
+   //              });
+   //          });
 
 
             $("#call_request").click(function(){

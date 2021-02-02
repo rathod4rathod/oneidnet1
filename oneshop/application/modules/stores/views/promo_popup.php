@@ -55,7 +55,7 @@ $store_name=$store_result[0]["store_name"];
 <script type="text/javascript">
     $(function () {
         $("#fromDate").datepicker();
-        $("#endDate").datepicker();
+        // $("#endDate").datepicker();
     });
 
     // $('#endDate').datepicker();
