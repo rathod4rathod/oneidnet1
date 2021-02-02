@@ -291,12 +291,12 @@ function onLinkedInAuth() {
 </script> -->
 
 <div class="store_mainwrap"> <?php if($store_details[0]['is_active']==1){ ?>
-
-<div class="hd_heading">
-            	<h1 style="margin-top:0px;"> HOME  <span></span></h1>
-            </div>
  <?php } ?>
 <div class="oneshop_left_newcontainer pab10">
+
+          <div class="hd_heading">
+              <h1 style="margin-top:0px;"> HOME  <span></span></h1>
+            </div>
     <?php if($store_details[0]['is_active']==1){ ?>
 
     <div class="wi100pstg fll">

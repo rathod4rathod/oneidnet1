@@ -145,11 +145,10 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $data["catid"] = $catid;
         $data["subcatid"] = $subcatid;
         $data["itemid"] = $itemid;
-        $store_query = "SELECT os.*, op.name as package_name, ore.renewed_on,op.price,ore.period_in_months, ore.expired_on, ore.total_orders, ore.total_products, ore.total_cancellation_products FROM oshop_stores os  " .
-                "LEFT JOIN oshop_packages op ON os.current_package_id_fk = op.package_id " .
-                "LEFT JOIN oshop_store_renewals_info ore ON os.store_aid = ore.store_id_fk " .
-                "WHERE os.store_code = '" . $storeid . "'";
-        $data["store_details"] = $this->db_api->custom($store_query);
+        $store_query = "SELECT os.*, op.name as package_name, ore.renewed_on,op.price,ore.period_in_months, ore.expired_on, ore.total_orders, ore.total_products, ore.total_cancellation_products FROM oshop_stores os LEFT JOIN oshop_packages op ON os.current_package_id_fk = op.package_id LEFT JOIN oshop_store_renewals_info ore ON os.store_aid = ore.store_id_fk WHERE os.store_code = '" . $storeid . "'";
+        $store_res = $this->db_api->custom($store_query);
+        $data["store_details"] = $store_res;
+        $data["group"] = $store_res[0]['store_category'];
         $this->load->view("home/find_product", $data);
     }
 
@@ -418,6 +417,31 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $this->load->view("home/inventory_posting", $data);
         //$this->load->view("home/inventory_posting", $data);
       }
+
+    #Creayed By - Mitesh
+    function store_promo($store_id) 
+    {
+        $dbapi=$this->load->module("db_api");
+        $stores_result = $this->getStoreDetails($store_id);
+        $user_id=$this->get_UserId();
+        $staff_details=$dbapi->select("role","oshop_staff","store_id_fk=".$stores_result[0]["store_aid"]." AND user_id_fk=".$user_id);
+        if($staff_details==0 && $staff_details[0]["role"]!="PRODUCT_MANAGER"){
+            redirect(base_url());
+        }
+        $store_name = $stores_result[0]["store_name"];
+        $data["store_title"] = 'Add products to your stores for sale-' . $store_name . '|oneidnet.com';
+        $data["meta_description"] = 'Create/Add products to your store in oneshop';
+        $data["meta_keywords"] = "Create/Add products to your store in oneshop";
+        $sql="SELECT *  FROM oshop_sales as osale inner join  oshop_stores as oshs  on oshs.store_aid = osale.store_id_fk";
+        $data["promolist"] = $dbapi->custom($sql);
+        // $data["productlist"] = $this->os_product_list();
+        $data["store_code"] = $store_id;
+        $data['store_details'] = $stores_result;
+        $this->load->view("home/promo_sales", $data);
+        //$this->load->view("home/inventory_posting", $data);
+    }
+
+    
 
     function mystore_Profile_Page($store_id = null) {
 
@@ -970,6 +994,7 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $userdetails = $db_obj->select("*", "os_user_details", $where);
         return $userdetails;
     }
+    /* Done By Rajesh Get all user detail  */
     function myuserAlldetails($profile_id="") {
         $db_obj = $this->load->module("db_api");
         if($profile_id==""){

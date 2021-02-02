@@ -57,7 +57,7 @@ body {
 /* Float four columns side by side */
 .column {
   float: left;
-  width: 29%;
+  width: 22.9%;
   padding: 0 10px;
   margin-top: 15px;
 }
@@ -172,9 +172,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   }
 }
   </style>
-<div class="oneshop_container_sectionnew">
-  <div class="oneshop_banner_stip_newbox click_importantNotifications">
-
+<div class="oneshop_container_sectionnew" style="margin: 0 0 100px;">
+  <div class="oneshop_banner_stip_newbox click_importantNotifications" style="padding-bottom: 0px;">
     <div class="oneshop_banner_left_box"  <?php echo "style= 'background-image: url($sideimage)'"; ?> >&nbsp;</div>
     <div class="oneshop_banner_stip_middle_content"  <?php echo "style= 'background-image: url($midimage)'"; ?> >
         <?php $this->templates->os_oneshopheader("store_staff"); ?>
@@ -182,7 +181,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <div class="oneshop_banner_right_box"  <?php echo "style= 'background-image: url($sideimage)'"; ?> >&nbsp;</div>
 </div>
 
-    <div class="clearfix">&nbsp;</div>
+    <!-- <div class="clearfix">&nbsp;</div> -->
     <?php
         if( $userType == 0 )
         {//Normal User
@@ -194,7 +193,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
           $ss_res = $this->db_api->custom($ss_query);
     ?>
     <div class="" style="margin:0 4%;width:92%;display:table;">
-    <div class="oneshop_left_newcontainer pab10 minheight700" id="list_products" style="width: 65%;">
+    <div class="oneshop_left_newcontainer pab10 minheight700" id="list_products" style="width: 65%;margin-top: 0px;padding-top: 0px;">
         <div class="hd_heading">
           <h1>About Us <span></span></h1>
           <table style="width: 100%;">
@@ -270,60 +269,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
               </tr>
           </table>
         </div>
-
-        <div class="hd_heading">
-          <h1>Store Staff List<span></span><a href="<?php echo site_url("storestaff")."/".$store_code;?>"><i class="fa fa-arrow-circle-right" style="float: right;"></i></a></h1>
-
-          <div class="row">
-            <?php
-             if($ss_res){
-              $i = 1;
-              foreach ($ss_res as $ssres) {
-                $srole = explode("_", $ssres['role']);
-              ?>
-
-           <div class="column">
-              <div class="card">
-                <?php if($ssres['img_path'] != ""){
-                  $imgpath = base_url().'data/profile/mi/'.$ssres['img_path'];
-                }
-                else
-                {
-                  $imgpath = "https://bootdey.com/img/Content/avatar/avatar7.png";
-                }
-                ?>
-                <img src="<?php echo $imgpath?>" class="img-radius" alt="John" style="width:50%">
-                <h3><?php echo $ssres['f_name']." ".$ssres['l_name']?></h3>
-                <p class="title"><?php echo $srole[0]?> <?php echo $srole[1]?></p>
-                <hr class="dotted">
-                <br />
-                <span style="text-align: left;"><strong>Working in Store : </strong>From <?php echo $ssres['w_since']?> Month</span>
-                <br />
-                <br />
-                <p style="text-align: left;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;"><?php echo $ssres['bio'] ?></p>
-              </div>
-            </div>
-          <?php if($i++ == 6){break;}} } else { ?>
-              <div class="notfound">
-                <p><i class="fa fa-ban"></i> No data found </p>
-              </div>
-            <?php } ?>
-          </div>
-        </div>
-
-         <!--  <?php if ($i++ == 4) {?>
-              <div class="column">
-                  <div class="card">
-                      <h1>View More</h1>
-                  </div>
-              </div><?php break;}?> -->
-      <div class="titlecontainer acenter">
-        <div class="hd_heading">
-          <h1>Products <span></span></h1>
-        </div>
-        <input type="hidden" id="hstore_products_cnt" value="<?php echo $prods_cnt?>"/>
-      </div>
-      <div id="list_products_div"></div>
     </div>
     <div class="oneshop_right_newcontainer" style="width: 28%;">
       <?php 
@@ -380,6 +325,63 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
     </div>
   </div>
+  <div style="margin: 2px 4% 0 4%;width:92%;">
+        <div class="hd_heading">
+          <h1 style="width: 90%;margin: 9px 44px;">Store Staff List<span></span><a href="<?php echo site_url("storestaff")."/".$store_code;?>"><i class="fa fa-arrow-circle-right" style="float: right;"></i></a></h1>
+
+          <div class="row">
+            <?php
+             if($ss_res){
+              $i = 1;
+              foreach ($ss_res as $ssres) {
+                $srole = explode("_", $ssres['role']);
+              ?>
+
+           <div class="column">
+              <div class="card">
+                <?php if($ssres['img_path'] != ""){
+                  $imgpath = base_url().'data/profile/mi/'.$ssres['img_path'];
+                }
+                else
+                {
+                  $imgpath = "https://bootdey.com/img/Content/avatar/avatar7.png";
+                }
+                ?>
+                <img src="<?php echo $imgpath?>" class="img-radius" alt="John" style="width:50%">
+                <h3><?php echo $ssres['f_name']." ".$ssres['l_name']?></h3>
+                <p class="title"><?php echo $srole[0]?> <?php echo $srole[1]?></p>
+                <hr class="dotted">
+                <br />
+                <span style="text-align: left;"><strong>Working in Store : </strong>From <?php echo $ssres['w_since']?> Month</span>
+                <br />
+                <br />
+                <p style="text-align: left;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;"><?php echo $ssres['bio'] ?></p>
+              </div>
+            </div>
+          <?php if($i++ == 8){break;}} } else { ?>
+              <div class="notfound">
+                <p><i class="fa fa-ban"></i> No data found </p>
+              </div>
+            <?php } ?>
+          </div>
+        </div>
+
+         <!--  <?php if ($i++ == 4) {?>
+              <div class="column">
+                  <div class="card">
+                      <h1>View More</h1>
+                  </div>
+              </div><?php break;}?> -->
+      <div style="margin: 57px 0 0 0;">
+        <div class="titlecontainer acenter">
+          <div class="hd_heading">
+            <h1 style="width: 90%;margin: 9px 44px;">Products <span></span></h1>
+          </div>
+          <input type="hidden" id="hstore_products_cnt" value="<?php echo $prods_cnt?>"/>
+        </div>
+        <div id="list_products_div"></div>
+      </div>
+    </div>
     <?php }else if( $userType == 1 ){//Admin User
       //echo "else of if condtion";
                 $this->load->module("stores");

@@ -7,12 +7,12 @@ if($ss_details!=0) {
 						for($i=0; $i < sizeof($ss_details); $i++){
 							$srole = explode("_",$ss_details[$i]['role']);
 							$container = "'b".$i."'";
-					  echo '<div class="column" onclick="openTab('.$container.');" >'.$ss_details[$i]["f_name"]." ".$ss_details[$i]["l_name"].'<i class="fa fa-arrow-circle-right" style="float: right;"></i> </div><hr class="rounded">';
+					  echo '<div class="column" onclick="openTab('.$container.');" >'.$ss_details[$i]["f_name"]." ".$ss_details[$i]["l_name"].'<br /><span style="font-size: smaller;color: darkgray;margin-left: 17px;">'.$srole[0].' '.$srole[1].'</span><i class="fa fa-arrow-circle-right" style="float: right;"></i> </div><hr class="rounded">';
 
 					} ?>
 					</div>
 				</div>
-				<div style="float: left;width: 68%;padding-top: 20px;">
+				<div style="float: left;width: 68%;margin: -40px 0 0 0;">
 					<?php 
 
 						for($i=0; $i < sizeof($ss_details); $i++){
@@ -33,8 +33,7 @@ if($ss_details!=0) {
 			                }
 
 						echo '<div id="b'.$i.'" class="containerTab" style="display:none;
-		    box-shadow: 0 0 10px 3px rgba(100, 100, 100, 0.7);background:linear-gradient(-180deg, #ffcc00 35%, white 45%);min-height: 420px;">
-						  <span onclick="closeTab('.$container.');" class="closebtn">x</span>
+		    box-shadow: 0 0 10px 3px rgba(100, 100, 100, 0.7);background:linear-gradient(180deg, rgb(255, 204, 0) 15%, white 15%);min-height: 420px;">
 						  	<div class="cd">
 						  		<div style="width: 100%">
 							  		<img src="'.$imgpath.'" class="img-radius" alt="profile">

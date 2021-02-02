@@ -17,6 +17,7 @@ $route['staffs/(:any)'] = "home/store_staff/$1";
 $route['staffs/(:any)/(:any)'] = "home/store_staff/$1/$1";
 $route['orders/(:any)']="home/store_orders/$1";
 $route['inventory/(:any)']="home/store_inventory/$1";
+$route['promo_sales/(:any)']="home/store_promo/$1";
 $route['sendStoremessage/(:any)']="oshop_popup/sendStoremessage/$1";
 $route['wishlist']="orders/addtowishlist";
 $route['store_reviews/(:any)'] = 'stores/storeReviews/$1'; // to display the store reviews
