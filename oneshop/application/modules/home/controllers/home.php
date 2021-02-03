@@ -8,12 +8,15 @@ class Home extends CI_Controller {
         $this->load->module("db_api");
         $this->load->module("products");
         $this->load->module("imageresize");
+        /* session and cookies check */
+
         if ($_REQUEST) {
             $sobj= $this->load->module("session_restart");
             if (isset($_REQUEST["skey"])) {
                 $sobj->key_check($_REQUEST["skey"]);
             }
         }
+        /* session and cookies check */
     }
 
     function get_UserId() {
