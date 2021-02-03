@@ -37,12 +37,23 @@ class Explorepeople extends CI_Controller {
             $starting_index = $_REQUEST['start_id'];
         } else {
             $starting_index = 0;
-        }
+		}
 		$db_obj = $this->load->module("db_api");
-                   $data['userfollowing'] = $db_obj->custom("SELECT distinct(os. profile_id_fk ) ,os.profile_name  ,os.profile_img ,iw.user_id  FROM `oshop_explore` as oe
-              inner join os_user_details as os  on profile_id_fk = user_id_fk 
-              inner join  iws_profiles as iw  on os.profile_id_fk = iw.profile_id
-               where oe.associated_id_fk=".$this->get_UserId() ." AND os.status='ACTIVE' limit  $starting_index ,10 ");
+		if (isset($_REQUEST['serchConnection'])) {
+			$serchConnection = $_REQUEST['serchConnection'];
+			$data['userfollowing'] = $db_obj->custom("SELECT distinct(os. profile_id_fk ) ,os.profile_name  ,os.profile_img ,iw.user_id  FROM `oshop_explore` as oe
+			inner join os_user_details as os  on profile_id_fk = user_id_fk 
+			inner join  iws_profiles as iw  on os.profile_id_fk = iw.profile_id
+			where oe.associated_id_fk=".$this->get_UserId() ." AND os.status='ACTIVE' AND os.profile_name LIKE '%$serchConnection%' limit  $starting_index ,10 ");
+		
+        } else {
+			$data['userfollowing'] = $db_obj->custom("SELECT distinct(os. profile_id_fk ) ,os.profile_name  ,os.profile_img ,iw.user_id  FROM `oshop_explore` as oe
+			inner join os_user_details as os  on profile_id_fk = user_id_fk 
+			inner join  iws_profiles as iw  on os.profile_id_fk = iw.profile_id
+			where oe.associated_id_fk=".$this->get_UserId() ." AND os.status='ACTIVE' limit  $starting_index ,10 ");
+        }
+                  
+			//    print_r($data['userfollowing']);die;
         $this->load->view("explorepeople/following",$data);
 
 	}

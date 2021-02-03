@@ -149,9 +149,9 @@ $this->templates->os_mainmenu("cart_items");
               </div>
           </div>
           <div class="wi100pstg mab10 fll" style="padding-left:12px">
-              <input type="checkbox" name="save_address" id="save_address" checked="true"/>Save the address for the future purpose
+              <input type="checkbox" name="save_address" id="save_address" checked="true"/> Save the address for future use
           </div>
-          <p class="flr clearfix"><input type="button" name="button" class="np_des_addaccess_btn" id="pcheckout_btn" value="Proceed To Check Out"> </p>
+          <p class="flr clearfix"><input type="button" name="button" class="np_des_addaccess_btn" id="pcheckout_btn" value="Proceed To Checkout"> </p>
       </div>
       </div></div>
 

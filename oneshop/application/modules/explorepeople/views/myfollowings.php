@@ -40,6 +40,13 @@ $this->templates->os_mainmenu();
         margin: 0px 5px 5px;
         width: 80%;
     }
+    .box{    
+        margin: 0 auto;
+        width: 250px;
+        height: 0;
+        margin: 7px;
+        float: right;
+    }
 </style>
 <!--Oneshop Content starts Here(vinod 19-05-2015)-->
 <div class="oneshop_container_sectionnew">
@@ -48,9 +55,11 @@ $this->templates->os_mainmenu();
        
          <div class="left_oontainer">
          <div class="hd_heading">
-            	<h1>Connections<span></span></h1>
+             <h1>Connections<span></span></h1>
+             <input type="text" class="box" name="serchConnection" placeholder="Search Connection" id="serchConnection" >
             </div>
-            <div class="wi100pstg" id="user_following">
+            <div style="clear: both;"></div>
+            <div class="wi100pstg " id="user_following">
                 
             </div>
             <div class="osdes_rightbar_headingsbg_wrap mat20"  id="oneshop_nomoredata"  style="display:none">
@@ -73,34 +82,51 @@ $this->templates->os_mainmenu();
 $this->templates->app_footer();
 ?>
 <script type="text/javascript">
-    var starting_index = 10;
-    function dataLoading() {
+    var starting_index = 0;
+    $(function() {
+        $('#serchConnection').keyup(function ()  {            
+                dataLoading($("#serchConnection").val(),'html');            
+        });
+    });
+    function dataLoading(serchConnection,flag) {
+        var mydata = {start_id: starting_index};
+        if(serchConnection !='none'){
+            mydata = {start_id: starting_index,serchConnection: serchConnection};
+        }
+      
+
+        // alert(mydata);
         $.ajax({
             type: "POST",
             url: oneshop_url + "/explorepeople/userFollowings",
-            data: {start_id: starting_index},
-            success: function (data) {
-				
+            data: mydata,
+            success: function (data) {				
                 if ($.trim(data)!=0) {
-					
-                   $('#user_following').append(data);
+                    $('#user_following').css("display","block");
+                    $('#oneshop_nomoredata').css("display","none");
+                    if(flag == 'append'){
+                        $('#user_following').append(data);
+                    }else{
+                        $('#user_following').html(data);                        
+                    }
                   //  $('#netdev_nomoreconnections').css("display","none");
                 }
                 else
                 {
                     next_connection_flag= false;
+                    $('#user_following').css("display","none");
                     $('#oneshop_nomoredata').css("display","block");
 
                 }
             }
         });
-        starting_index = starting_index + 20;
     }
     var next_connection_flag= true;
     $(window).scroll(function () {
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
             if(next_connection_flag){
-            dataLoading();
+            dataLoading('none','html');
+            starting_index = starting_index + 20;
             }
         }
     });
