@@ -72,21 +72,21 @@ $(function() {
             },
             beforeSend: function() {
                 //$(".login_error").html('<span class="loading_bar"><img src="' + oneidnet_url + 'assets/Images/loading_bar.gif" width="100px"></span>');
-				$(".loginbutton").addClass('disabled in-progress');
-				$(".loginbutton").attr('disabled','disabled');
+                $(".loginbutton").addClass('disabled in-progress');
+                $(".loginbutton").attr('disabled', 'disabled');
             },
-            success: function(e) {			
-				
-					if("OIN9" === $.trim(e)){
-						location.reload()
-						}else if($.trim(e)==="BLCK7"){
-							location.href=oneidnet_url+"home/block";
-							}else{
-							$(".login_error").html(e)  ;
-							$(".loginbutton").removeClass('disabled in-progress');
-							$(".loginbutton").removeAttr('disabled',' ');
-							}
-                 
+            success: function(e) {
+
+                if ("OIN9" === $.trim(e)) {
+                    location.reload()
+                } else if ($.trim(e) === "BLCK7") {
+                    location.href = oneidnet_url + "home/block";
+                } else {
+                    $(".login_error").html(e);
+                    $(".loginbutton").removeClass('disabled in-progress');
+                    $(".loginbutton").removeAttr('disabled', ' ');
+                }
+
             },
             complete: function() {
                 $(this).attr("id", "logindev_submit")
@@ -107,14 +107,15 @@ $(function() {
                 existingemail: s
             },
             beforeSend: function() {
-                document.getElementById("forgotdevuser_submit").disabled = !0, 
-				//$(".forgotuser_error").html('<img src="' + oneidnet_url + 'assets/Images/loading_bar.gif" width="100px">');
-				$(".recoveryusername").addClass("diasbled in-progress");
-				$(".recoveryusername").attr("disabled","diasbled");
+                document.getElementById("forgotdevuser_submit").disabled = !0,
+                    //$(".forgotuser_error").html('<img src="' + oneidnet_url + 'assets/Images/loading_bar.gif" width="100px">');
+                    $(".recoveryusername").addClass("diasbled in-progress");
+                $(".recoveryusername").attr("disabled", "diasbled");
             },
             success: function(s) {
-                $(".forgotuser_error").html(""),$(".recoveryusername").removeClass("diasbled in-progress"),
-				$(".recoveryusername").removeAttr("disabled"," "), "ON9" == $.trim(s) ? ($("#forgotdevuser_mobileno").val(""), alert("Your Username for the System is sent to your Alternate Email Address!"), setTimeout(e, 2500)) : (document.getElementById("forgotdevuser_submit").disabled = !1, $(".forgotuser_error").html(s))
+                $(".forgotuser_error").html(""), $(".recoveryusername").removeClass("diasbled in-progress"),
+                    // $(".recoveryusername").removeAttr("disabled"," "), "ON9" == $.trim(s) ? ($("#forgotdevuser_mobileno").val(""), alert("Your Username for the System is sent to your Alternate Email Address!"), setTimeout(e, 2500)) : (document.getElementById("forgotdevuser_submit").disabled = !1, $(".forgotuser_error").html(s))
+                    $(".recoveryusername").removeAttr("disabled", " "), "ON9" == $.trim(s) ? ($("#forgotdevuser_mobileno").val(""), alert("We have sent reset link to your Alternate Existing E-mail address! First this should say, We have sent a reset link to your alternate e-mail address!"), setTimeout(e, 2500)) : (document.getElementById("forgotdevuser_submit").disabled = !1, $(".forgotuser_error").html(s))
             },
             error: function() {
                 alert("Something Went Wrong! Please Try Again!!!"), $(".forgotuser_error").html("")
@@ -131,20 +132,20 @@ $(function() {
                 existingemail: s
             },
             beforeSend: function() {
-              //  $(".forgot_error").html('<img src="' + oneidnet_url + 'assets/Images/loading_bar.gif" width="100px">');
-				$(".recoverypasswordbtn").addClass("diasbled in-progress");
-				$(".recoverypasswordbtn").attr("disabled","diasbled");
+                //  $(".forgot_error").html('<img src="' + oneidnet_url + 'assets/Images/loading_bar.gif" width="100px">');
+                $(".recoverypasswordbtn").addClass("diasbled in-progress");
+                $(".recoverypasswordbtn").attr("disabled", "diasbled");
             },
             success: function(s) {
                 $(".forgot_error").html("");
-				$(".recoverypasswordbtn").removeClass("diasbled in-progress");
-				$(".recoverypasswordbtn").removeAttr("disabled"," ");
+                $(".recoverypasswordbtn").removeClass("diasbled in-progress");
+                $(".recoverypasswordbtn").removeAttr("disabled", " ");
                 var r = $.parseJSON(s);
                 1 == r.status ? ($(".forgotWaiting").html(""), $("#forgotdev_phoneno").val(mobilenumber), alert(r.message)) : (alert(r.message), setTimeout(e, 2500))
             },
             error: function() {
-                $(".forgot_error").html(""),$(".recoverypasswordbtn").removeClass("diasbled in-progress"),
-				$(".recoverypasswordbtn").removeAttr("disabled"," "), alert("Something Went Wrong! Please Try Again!!!")
+                $(".forgot_error").html(""), $(".recoverypasswordbtn").removeClass("diasbled in-progress"),
+                    $(".recoverypasswordbtn").removeAttr("disabled", " "), alert("Something Went Wrong! Please Try Again!!!")
             }
         }), !1
     }), $("#forgotdev_otpsubmit").click(function() {
@@ -178,73 +179,73 @@ $(function() {
         var e, s = $("#regdes_captcha").attr("placeholder").replace("=", "").split("+"),
             r = parseInt(s[0]),
             o = parseInt(s[1]),
-            a =$.trim($("#regdes_firstname").val()),
-            t =$.trim($("#regdes_lastname").val()),
-            l =$.trim($("#regdes_username").val()),
+            a = $.trim($("#regdes_firstname").val()),
+            t = $.trim($("#regdes_lastname").val()),
+            l = $.trim($("#regdes_username").val()),
             n = l.slice(0, 1),
             i = $.trim($("#regdes_password").val()),
             c = $.trim($("#regdes_conpassword").val()),
             country = $.trim($("#regdes_month").val()),
-            h =$.trim($("#regdes_captcha").val()),
+            h = $.trim($("#regdes_captcha").val()),
             b = $.trim($("#regdes_existemail").val());
-    
-     
-    if(is_AplhabeticSeriesOnly(a)==false){
-        e=false;
-        $("#regdes_firstname").addClass("redfoucusclass");
-    }
-    
-    
-    if(is_AplhabeticSeriesOnly(t)==false){
-        e=false;
-        $("#regdes_lastname").addClass("redfoucusclass");
-    }
-    
-    if(country==""){
-        e=false;
-        $("#regdes_month").addClass("redfoucusclass");
-    }
+
+
+        if (is_AplhabeticSeriesOnly(a) == false) {
+            e = false;
+            $("#regdes_firstname").addClass("redfoucusclass");
+        }
+
+
+        if (is_AplhabeticSeriesOnly(t) == false) {
+            e = false;
+            $("#regdes_lastname").addClass("redfoucusclass");
+        }
+
+        if (country == "") {
+            e = false;
+            $("#regdes_month").addClass("redfoucusclass");
+        }
         if (0 == is_Valid_Email(b) && ($("#regdes_existemail").addClass("redfoucusclass"),
-        e = !1), 0 == h.length) e = !1, $("#regdes_captcha").addClass("redfoucusclass");
+                e = !1), 0 == h.length) e = !1, $("#regdes_captcha").addClass("redfoucusclass");
         else {
             var y = r + o;
             h != y && (e = !1, $("#regdes_captcha").addClass("redfoucusclass"))
         }
-        if($("#regdes_termsconditions").is(":checked")==false){
-            e=false;
+        if ($("#regdes_termsconditions").is(":checked") == false) {
+            e = false;
             $("#regdes_termsconditions").addClass("redfoucusclass");
         }
-        
-            
+
+
         if (e == false) {
             return false;
         } else {
             C = "regdev_firstname=" + $("#regdes_firstname").val() +
-                    "&regdev_lastname=" + $("#regdes_lastname").val() +
-                    "&regdev_username=" + $("#regdes_username").val() +
-                    "&regdev_password=" + $("#regdes_password").val() +
-                    "&regdev_conpassword=" + $("#regdes_conpassword").val() + 
-                    "&regdev_country=" +country + 
-                    "&regdev_existemail=" + $("#regdes_existemail").val();
+                "&regdev_lastname=" + $("#regdes_lastname").val() +
+                "&regdev_username=" + $("#regdes_username").val() +
+                "&regdev_password=" + $("#regdes_password").val() +
+                "&regdev_conpassword=" + $("#regdes_conpassword").val() +
+                "&regdev_country=" + country +
+                "&regdev_existemail=" + $("#regdes_existemail").val();
             $.ajax({
                 type: "post",
                 url: oneidnet_url + "index.php/registration/doRegistration/",
                 data: C,
-                success: function (e) {
+                success: function(e) {
                     data1 = e.replace(/1/g, ""), "ONR9" == $.trim(data1) ? location.reload() : alert(data1)
                 },
-                beforeSend: function () {
+                beforeSend: function() {
                     $("body").append('<div class="regprogrees" ><div class="loading_wrapper"><h1> Registration in progress...  </h1>  <p> <img src="' + oneidnet_url + 'assets/Images/oneidlogo.png" width="70" height="71" /> </p>            <h2 class="center"> Please do not refresh or close this page until your registration is finished... </h2></div></div>'), document.getElementById("regdes_cont_btn").disabled = !0
                 },
-                complete: function () {
+                complete: function() {
                     $(".regprogrees").remove(), document.getElementById("regdes_cont_btn").disabled = !1
                 }
             });
-    return false;        
+            return false;
         }
-    return false;
-    
-        
+        return false;
+
+
     })
 }), $(document).on("click", "html", function() {
     $("#showdata").hide()

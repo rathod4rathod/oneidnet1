@@ -5,7 +5,7 @@ if (empty($product)) {
 	exit();
 }
 $db_api=$this->load->module("db_api");
-$pr_array = =explode("-", $product);
+$pr_array = explode("-", $product);
 for($p=0;$p<count($pr_array);$p++){
     $chk_item=$pr_array[$p];
     $pr_array[$p]=explode("-",$chk_item);

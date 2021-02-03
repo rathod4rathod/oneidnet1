@@ -116,7 +116,7 @@ class products extends CI_Controller {
         }
         $s_where = $s_where . " LIMIT $start,$records_per_page";
         
-        $s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,
+        $s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,
         prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image 
         FROM oshop_filtration_electronics osf 
         RIGHT JOIN oshop_products prods on osf.product_aid_fk = prods.product_aid WHERE " . $s_where;
@@ -161,7 +161,7 @@ class products extends CI_Controller {
         }
         $s_where = $s_where . "1";
         $s_where = $s_where . " LIMIT $start,$records_per_page";
-        $s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image FROM oshop_filtration_electronics osf right join oshop_products prods on osf.product_aid_fk = prods.product_aid WHERE store_id_fk = '" . $storeid . "'";
+        $s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image FROM oshop_filtration_electronics osf right join oshop_products prods on osf.product_aid_fk = prods.product_aid WHERE store_id_fk = '" . $storeid . "'";
         // echo $s_query;
         $os_products_res = $dbobj->custom($s_query);
         $store_query = "SELECT COUNT(*) as cnt,(SELECT COUNT(*) AS cnt FROM oshop_staff WHERE store_id_fk=" . $storeid . " AND user_id_fk=" . $user_id . ") AS staff_cnt FROM oshop_stores WHERE created_by=" . $user_id . " AND store_aid=" . $storeid;
@@ -182,9 +182,10 @@ class products extends CI_Controller {
         $user_id=$this->get_UserId();
 		$dbobj = $this->load->module("db_api");
          $s_where = $s_where . "1";
-        //$s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id FROM oshop_products prods where " . $s_where . " ORDER BY RAND() LIMIT 8";
-        $s_query = "select ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods ".
+        //$s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id FROM oshop_products prods where " . $s_where . " ORDER BY RAND() LIMIT 8";
+        $s_query = "select oc.category_name,ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods ".
                     "INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid ".
+                    "left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk".
                     " where created_by!=".$user_id." ORDER BY RAND() LIMIT 20";
 
         $os_products_res = $dbobj->custom($s_query);
@@ -197,7 +198,7 @@ class products extends CI_Controller {
     //june 29 2016 by venkatesh 
     function storeCategoryProducts($prdname,$scode){
         $dbobj = $this->load->module("db_api");
-        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid 
+        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid 
                 left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk
                 where store_code='$scode' and category_name='$prdname'  ORDER BY RAND() LIMIT 20";        
         $data["products_data"] = $dbobj->custom($s_query);
@@ -218,9 +219,9 @@ class products extends CI_Controller {
         $cookies_obj = $this->load->module("cookies");
         $country_id = $cookies_obj->getUserCountryID();
         if($storeid!=""){
-            $s_query = "SELECT prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,os.store_code FROM oshop_products prods inner join oshop_stores os on prods.store_id_fk = os.store_aid where os.store_code = '" . $storeid . "' ORDER BY prods.added_on LIMIT 3";
+            $s_query = "SELECT prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,os.store_code FROM oshop_products prods inner join oshop_stores os on prods.store_id_fk = os.store_aid where os.store_code = '" . $storeid . "' ORDER BY prods.added_on LIMIT 3";
         }else{
-            $s_query = "SELECT prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,os.store_code FROM oshop_products prods inner join oshop_stores os on prods.store_id_fk = os.store_aid ORDER BY prods.added_on DESC LIMIT 9";
+            $s_query = "SELECT prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,os.store_code FROM oshop_products prods inner join oshop_stores os on prods.store_id_fk = os.store_aid ORDER BY prods.added_on DESC LIMIT 9";
         }
         $os_products_res = $dbobj->custom($s_query);
 
@@ -311,7 +312,7 @@ class products extends CI_Controller {
     function similar_Products($category_id, $product_category, $product_aid) {
         $db_obj = $this->load->module("db_api");
         //echo "select op.product_code,stores.store_code,stores.store_name,stores.store_aid,op.primary_image as prod_img,product_aid,product_name,sale_price from oshop_products op left join oshop_categories osc on op.product_category_id_fk=osc.category_id_fk left join oshop_stores stores ON op.store_id_fk=stores.store_aid where product='" . $product_category . "' and product_category_id_fk=" . $category_id . " and product_aid!=" . $product_aid;
-        $data["similar_products"] = $db_obj->custom("select stores.currency,op.product_code,stores.store_code,stores.store_name,stores.store_aid,op.primary_image as prod_img,product_aid,product_name,sale_price,cost_price from oshop_products op left join oshop_categories osc on op.product_category_id_fk=osc.category_id_fk left join oshop_stores stores ON op.store_id_fk=stores.store_aid where osc.product ='" . $product_category . "' and product_category_id_fk='" . $category_id . "' and product_aid != '" . $product_aid."'");
+        $data["similar_products"] = $db_obj->custom("select osc.category_name,stores.currency,op.product_code,stores.store_code,stores.store_name,stores.store_aid,op.primary_image as prod_img,product_aid,product_name,sale_price,cost_price from oshop_products op left join oshop_categories osc on op.product_category_id_fk=osc.category_id_fk left join oshop_stores stores ON op.store_id_fk=stores.store_aid where osc.product ='" . $product_category . "' and product_category_id_fk='" . $category_id . "' and product_aid != '" . $product_aid."'");
         $this->load->view('products/similar_products', $data);
     }
 
@@ -1720,7 +1721,7 @@ class products extends CI_Controller {
             //$current_page           =   $page - 1;      
             $start = $page * $records_per_page;
         }
-        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid WHERE ost.store_code='".$store_code."'";
+        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid WHERE ost.store_code='".$store_code."'";
         if($search_keyword!=""){
             $s_query.=" AND prods.product_name LIKE '%".$search_keyword."%' LIMIT 8";
         }else{
@@ -1744,7 +1745,7 @@ function getStoreProducts($store_code){
         if ($page != "") {
             $start = $page * $records_per_page;
         }
-        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid WHERE ost.store_code='".$store_code."'";
+        $s_query = "SELECT ost.store_code,prods.product_code,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image,prods.store_id_fk as store_id,(SELECT COUNT(*) FROM oshop_cart_items WHERE product_id_fk=prods.product_aid AND profile_id=".$user_id.") AS cart_cnt FROM oshop_products prods INNER JOIN oshop_stores ost ON prods.store_id_fk = ost.store_aid WHERE ost.store_code='".$store_code."'";
         if($search_keyword!=""){
             $s_query.=" AND prods.product_name LIKE '%".$search_keyword."%' LIMIT $start,".$records_per_page;
         }else{

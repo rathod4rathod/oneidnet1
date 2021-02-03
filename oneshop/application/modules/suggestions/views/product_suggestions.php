@@ -7,6 +7,12 @@ $this->load->module('stores');
     </div>
     <ul class="storesugg_wrap product_wrap">
     <?php    
+       $db_obj = $this->load->module("db_api");
+       $this->load->module("products");
+       $uid=$this->products->get_UserId();
+       $where="profile_id=".$uid;
+       $uDetail = $db_obj->select("first_name,last_name,dob,existing_email_id,mobile_no",'iws_profiles', $where);     
+     
     foreach ($products_data as $prows) {
 	$currency = $this->stores->getCurrency($prows["store_code"]);        
         if ($prows["primary_image"] != "" && file_exists("stores/".$prows["store_code"] . "/products/" . $prows["product_aid"] . "/mi/" . $prows["primary_image"])!==false) {

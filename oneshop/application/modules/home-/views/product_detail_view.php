@@ -206,7 +206,7 @@ if($product_details_info["discount"]!=0){
            
 
 <div class="mat10 fll">
-<p class="fll mat10"><input type="button" name="button" class="np_des_buy" id="addcart" value="ADD TO CART"> </p>
+<p class="fll mat10"><input type="button" name="button" class="np_des_buy RKR" id="addcart" value="ADD TO CART"> </p>
 <p class="fll mat10 mal10"><input type="button" name="button" class="np_des_addtocart" value="BUY" id="buy_btn"> </p>
 </div>
 

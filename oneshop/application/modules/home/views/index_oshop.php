@@ -14,7 +14,17 @@ $('.slider').cycle({
     pause:       1
 });
 </script>
+<style>
+  
+.myprofilepopup {
+    text-align: center;
+    color: grey;
+    margin-top: 52px;
+    cursor: pointer;
+    padding-left: 127px;
+}
 
+</style>
 <!--Oneshop Content starts Here(vinod 19-05-2015)-->
 <div class="oneshop_container_sectionnew ">
 <div class="maincontianer_wrap">
@@ -49,9 +59,16 @@ $('.slider').cycle({
                             <div class="fll mab10">
 
                                 <div class="featured_product_product_mainwrap">
-                               <?php
-                         $this->load->module("stores");
-                              $stores_list=$this->stores->getStoresList();
+                        <?php
+                            $this->load->module("stores");    
+                            $db_obj = $this->load->module("db_api");
+                            $this->load->module("products");
+                            $uid=$this->products->get_UserId();
+                            $where="profile_id=".$uid;
+                            $uDetail = $db_obj->select("first_name,last_name,dob,existing_email_id,mobile_no",'iws_profiles', $where);
+                          
+                            
+                            $stores_list=$this->stores->getStoresList();
                           foreach($stores_list as $stlist){
                             // print_r($stlist["store_name"]);
                             $store_name=ucfirst($stlist["store_name"]);
@@ -73,16 +90,40 @@ $('.slider').cycle({
                             }
                          ?>
                       <div class="oneshop_products_storebox">
-                    <div class="oneshop_products_storeboxtop_div" id="product_div<?php echo $rows['product_aid']?>">
+                    <div class="oneshop_products_storeboxtop_div 1111" id="product_div<?php echo $rows['product_aid']?>">
 
                             <p class="acenter mat20">
+                            <?php
+                        if($uDetail[0]['first_name'] !='' && $uDetail[0]['last_name'] !='' && $uDetail[0]['mobile_no'] !='' && $uDetail[0]['existing_email_id'] !='' && $uDetail[0]['dob'] !='0000-00-00'){
+                          ?>
                                 <a href="<?php echo $store_url;?>">
                                     <img src="<?php echo $store_img_url; ?>" class="pro_img_one" title="<?php echo $store_name?>">
                                 </a>
+                                <?php
+                        }else{
+                          ?>   
+                                 <a href="javascript:void(0);" onclick="goProfile()">
+                                    <img src="<?php echo $store_img_url; ?>" class="pro_img_one" title="<?php echo $store_name?>">
+                                </a> 
+                               <?php
+                        }
+                      ?>
                             </p>
                     </div>
                     <div class="oneshop_products_storebox_bottomdiv">
-                        <a href="<?php echo $store_url;?>" title="<?php echo $store_name?>"><?php echo $store_name_label; ?></a>
+                      <?php
+                        if($uDetail[0]['first_name'] !='' && $uDetail[0]['last_name'] !='' && $uDetail[0]['mobile_no'] !='' && $uDetail[0]['existing_email_id'] !='' && $uDetail[0]['dob'] !='0000-00-00'){
+                          ?>
+                            <a href="<?php echo $store_url;?>" title="<?php echo $store_name?>"><?php echo $store_name_label; ?></a>
+                          <?php
+                        }else{
+                          ?>
+                           <a href="javascript:void(0);" onclick="goProfile()" title="<?php echo $store_name?>"><?php echo $store_name_label; ?></a>
+                            
+                          <?php
+                        }
+                      ?>
+                     
                     </div>
                 </div>
                           <?php
@@ -129,3 +170,22 @@ $('.slider').cycle({
 <?php
 $this->templates->app_footer();
 ?>
+<script>
+ function goProfile(){
+  var myhtml =''
+myhtml += '<div class="np_newpopuup_bgcontainer">';
+myhtml += '<div class="np_popupcontainer_middlebox">';
+myhtml += '<div class="login-expired-wrap">';
+myhtml += '<div class="login-message">';
+myhtml += '<h1 style="text-align: center;">Please fill profile data first</h1>';
+myhtml += '<h4 id="demo" class="myText myprofilepopup">Click Here to Update Profile</h4>';
+myhtml += '</div>';
+myhtml += '</div>';
+myhtml += '</div>';        
+  $("#os_popup").css("display","block").html(myhtml);
+  document.getElementById("demo").addEventListener("click", myFunction);
+    function myFunction() {
+       window.top.location.href = "https://www.oneidnet.com/basic_info";
+    }
+ }
+</script>

@@ -19,6 +19,14 @@ a {
     text-decoration: none
 }
 
+.myprofilepopup {
+    text-align: center;
+    color: grey;
+    margin-top: 52px;
+    cursor: pointer;
+    padding-left: 127px;
+}
+
 .bgWall {
     float: left;
     display: block;
@@ -1156,6 +1164,7 @@ a {
     align-items: center;
     border-radius: 4px;
     font-family: 'Raleway-SemiBold';
+    z-index: 1;
 }
 
 .myfullscreen .btns:after {
