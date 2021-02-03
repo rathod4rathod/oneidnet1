@@ -1163,6 +1163,7 @@ a {
     align-items: center;
     border-radius: 4px;
     font-family: 'Raleway-SemiBold';
+    z-index: 1;
 }
 
 .myfullscreen .btns:after {

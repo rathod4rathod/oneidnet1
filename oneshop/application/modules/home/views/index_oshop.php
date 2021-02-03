@@ -61,10 +61,12 @@ $('.slider').cycle({
                                 <div class="featured_product_product_mainwrap">
                         <?php
                             $this->load->module("stores");    
+                            $db_obj = $this->load->module("db_api");
                             $this->load->module("products");
-                            $this->load->module("home");
                             $uid=$this->products->get_UserId();
-                            $uDetail=$this->home->myuserAlldetails($uid);
+                            $where="profile_id=".$uid;
+                            $uDetail = $db_obj->select("first_name,last_name,dob,existing_email_id,mobile_no",'iws_profiles', $where);
+                          
                             
                             $stores_list=$this->stores->getStoresList();
                           foreach($stores_list as $stlist){
@@ -91,9 +93,21 @@ $('.slider').cycle({
                     <div class="oneshop_products_storeboxtop_div 1111" id="product_div<?php echo $rows['product_aid']?>">
 
                             <p class="acenter mat20">
+                            <?php
+                        if($uDetail[0]['first_name'] !='' && $uDetail[0]['last_name'] !='' && $uDetail[0]['mobile_no'] !='' && $uDetail[0]['existing_email_id'] !='' && $uDetail[0]['dob'] !='0000-00-00'){
+                          ?>
                                 <a href="<?php echo $store_url;?>">
                                     <img src="<?php echo $store_img_url; ?>" class="pro_img_one" title="<?php echo $store_name?>">
                                 </a>
+                                <?php
+                        }else{
+                          ?>   
+                                 <a href="javascript:void(0);" onclick="goProfile()">
+                                    <img src="<?php echo $store_img_url; ?>" class="pro_img_one" title="<?php echo $store_name?>">
+                                </a> 
+                               <?php
+                        }
+                      ?>
                             </p>
                     </div>
                     <div class="oneshop_products_storebox_bottomdiv">
