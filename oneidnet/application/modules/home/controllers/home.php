@@ -402,6 +402,85 @@ class home extends CI_Controller {
          $data["tittle"] = "Customer Support - ONEIDNET";
         $this->load->view('customer_support', $data);
     }
+
+    function customersupport_form() {
+        $data["uid"] = $this->getUserId();
+        $data["userdetails"]=$this->getUser_details();
+         $data["tittle"] = "Customer Support - ONEIDNET";
+         $data["type"] = $_REQUEST["type"];
+         $data["mode"] = $_REQUEST["mod"];
+        $this->load->view('customer_support', $data);
+    }
+
+    function valid_support_checking(){
+        $dbapi = $this->load->module("db_api");
+        // $resultArr = array();
+        $supp_mail = $_REQUEST['emails'];
+        if ($supp_mail != "") {
+
+            $exp_emails = explode(",", $supp_mail);
+            foreach ($exp_emails as $s_email) {
+                $mailQry = "SELECT email FROM iws_profiles WHERE email = '" . $s_email . "'";
+                $support_res = $dbapi->custom($mailQry);
+                if($support_res)
+                {
+                    $supportQry = "SELECT * FROM oneid_support WHERE one_email = '" . $s_email . "'";
+                    $supp_mail_res = $dbapi->custom($supportQry);
+                    // echo var_dump($supp_mail_res);
+                    if($supp_mail_res[0]['one_email'] == $support_res[0]['email']){
+                        echo "VALID_UPDATE";
+                    }
+                    else
+                    {
+                        echo "VALID";
+                    }
+                }
+                else
+                {
+                    echo "INVALID_USER";
+                }
+            }
+        }
+    }
+
+    function valid_support_insertion(){
+        $dbobj=$this->load->module("db_api");
+        $emails = $_POST["email"];
+        $module = $_POST["module"];
+        $type = $_POST["type"];
+        $username = $_POST["username"];
+        $pass = $_POST["pass"];
+        if($type){
+                $supp_arr = array(
+                    "one_email" => $emails,
+                    "one_module" => $module,
+                    "one_type" => $type,
+                    "one_username" => $username,
+                    "one_password" => $pass
+                );
+                foreach ($supp_arr as $key => $val) {
+                    $supp_arr[$key] = $this->test_input($supp_arr[$key]);
+                }
+                $staffRec = $dbobj->insert($supp_arr, "oneid_support");
+
+                echo "SUPPORT_INSERTED";
+        }
+        else
+        {
+                $supp_arr = array(
+                    "one_email" => $emails,
+                    "one_module" => $module,
+                    "one_username" => $username,
+                    "one_password" => $pass
+                );
+                foreach ($supp_arr as $key => $val) {
+                    $supp_arr[$key] = $this->test_input($supp_arr[$key]);
+                }
+                $staffRec = $dbobj->insert($supp_arr, "oneid_support");
+
+                echo "SUPPORT_INSERTED";
+        }
+    }
 // contactus page
     function contactus(){
       $data["uid"] = $this->getUserId();

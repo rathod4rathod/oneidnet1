@@ -1093,7 +1093,7 @@ a {
 .myfullscreen {
     min-width: 97px;
     position: absolute;
-    background: #e6e6e6;
+    /*background: #e6e6e6;*/
     min-height: 30px;
     top: 66px;
     display: flex;
@@ -1106,7 +1106,7 @@ a {
 
 .MyLogout {
     width: 97px;
-    background: #e6e6e6;
+    background: rgba(255, 255, 255, .2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1117,8 +1117,8 @@ a {
 
 .mylogoutBtn {
     text-shadow: none;
-    color: #000;
-    margin: 20px 0 0 -50px;
+    /*color: #000;*/
+    margin: 0px 0 0 -50px;
     opacity: 1;
 }
 
@@ -1137,8 +1137,9 @@ a {
 
 .myfullscreen {
     position: absolute;
-    left: 162px;
-    top: 66px;
+    left: 165px;
+    top: 50px;
+    z-index: 0;
 }
 
 .myfullscreen .btns {
@@ -1148,7 +1149,7 @@ a {
     text-shadow: none;
     opacity: 1;
     min-width: 97px;
-    background: #e6e6e6;
+    background: rgba(255, 255, 255, .2);
     min-height: 30px;
     display: flex;
     justify-content: center;
@@ -1159,9 +1160,10 @@ a {
 
 .myfullscreen .btns:after {
     content: "Full Screen";
-    color: #000;
-    margin-left: 6px;
-    font-size: 13px;
+    color: #fff;
+    margin-left: 12px;
+    font-size: 12px;
+    font-family: sans-serif;
 }
 
 .myfullscreen .btns:before {

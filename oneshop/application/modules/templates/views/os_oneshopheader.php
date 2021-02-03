@@ -274,7 +274,7 @@
 								</div>
 								<ul>
 									<li class="maildes_bubble"><img src="<?php echo base_url() . "assets/" ?>images/bubble.png"></li>
-									<li class="maildes_settingOption"><a href="<?php echo $promo_url;?>" id="promo_form">Promotions & Sales</a></li>
+									<li class="maildes_settingOption"><a href="<?php echo $promo_url;?>" id="promo_form">SALES</a></li>
 									<li class="maildes_settingOption"><a href="<?php echo $staff_url;?>">STORE STAFF</a></li>
 									<li class="maildes_settingOption"><a href="<?php echo $edit_store_url;?>">EDIT STORE</a></li>
 <li class="maildes_settingOption"><a href="<?php echo $store_theme_url;?>">EDIT STORE THEME</a></li>

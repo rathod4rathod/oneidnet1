@@ -83,7 +83,7 @@
 
 
 
-        <div class="overlay-wrapper">
+        <div class="overlay-wrapper" style="height: 130%;">
 
             <div class="systemTopWrapper">
                 <div class="topLeftWrapper">

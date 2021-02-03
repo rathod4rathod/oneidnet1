@@ -145,11 +145,10 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $data["catid"] = $catid;
         $data["subcatid"] = $subcatid;
         $data["itemid"] = $itemid;
-        $store_query = "SELECT os.*, op.name as package_name, ore.renewed_on,op.price,ore.period_in_months, ore.expired_on, ore.total_orders, ore.total_products, ore.total_cancellation_products FROM oshop_stores os  " .
-                "LEFT JOIN oshop_packages op ON os.current_package_id_fk = op.package_id " .
-                "LEFT JOIN oshop_store_renewals_info ore ON os.store_aid = ore.store_id_fk " .
-                "WHERE os.store_code = '" . $storeid . "'";
-        $data["store_details"] = $this->db_api->custom($store_query);
+        $store_query = "SELECT os.*, op.name as package_name, ore.renewed_on,op.price,ore.period_in_months, ore.expired_on, ore.total_orders, ore.total_products, ore.total_cancellation_products FROM oshop_stores os LEFT JOIN oshop_packages op ON os.current_package_id_fk = op.package_id LEFT JOIN oshop_store_renewals_info ore ON os.store_aid = ore.store_id_fk WHERE os.store_code = '" . $storeid . "'";
+        $store_res = $this->db_api->custom($store_query);
+        $data["store_details"] = $store_res;
+        $data["group"] = $store_res[0]['store_category'];
         $this->load->view("home/find_product", $data);
     }
 

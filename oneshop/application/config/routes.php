@@ -23,6 +23,7 @@ $route['wishlist']="orders/addtowishlist";
 $route['store_reviews/(:any)'] = 'stores/storeReviews/$1'; // to display the store reviews
 $route['product_reviews'] = 'products/product_review'; // to display the product reviews
 $route['store_activities/(:any)']='stores/storeActivityLog/$1'; // to display the store activity log
+$route['product_search/(:any)'] = "home/find_product/$1"; 
 $route['product_search/(:any)/(:any)'] = "home/find_product/$1/$2";
 $route['category_search/(:any)/(:any)/(:any)'] = "home/find_categories/$1/$2/$3";
 $route['product_search/(:any)/(:any)/(:any)/(:any)'] = "home/find_product/$1/$2/$3/$4";

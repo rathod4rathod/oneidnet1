@@ -109,7 +109,7 @@ if ($gender == "MALE") {
 
                             <div class="logoutBtn mylogoutBtn " title="Logout">
                                 <a  href="<?php echo base_url() . 'index.php/login/doLogout'?>" class="MyLogout"> 
-                                <i class="sprite sprite-OD075_logout"></i><span>Logout</span>                                    
+                                <i class="sprite sprite-OD075_logout"></i><span style="font-family: sans-serif;">Logout</span>                                    
                                 </a>
                                 <!--<a href="<?php echo base_url() . 'index.php/login/doLogout' ?>" style="color: white;" class="oneidnetlogout" ></a>-->
                                  <!-- <span class="mybutton"></span></a> -->

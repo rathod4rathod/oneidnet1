@@ -109,56 +109,6 @@ class Registration extends CI_Controller {
       {
         echo "exist";
       }
-      // if($nreg_email){
-      //   $emailerror = $this->db_api->custom("select profile_id,existing_email_id  from iws_profiles where existing_email_id='".$nreg_email."'");
-
-      //   if($emailerror!=0){
-      //       echo "Existing Mail Already Exist";
-      //       die();
-      //   }
-
-      //   $rlt_nuser = $this->db_api->custom("SELECT * FROM iws_profiles WHERE Refer='".$nreg_refer."' and is_verified=0");
-      //   // echo var_dump($rlt_nuser);
-      //   if($rlt_nuser){
-
-      //       $a_fields = array("user_id_fk" => $rlt_nuser[0]['profile_id'], "store_id_fk" => $nreg_storeid);
-      //       foreach ($a_fields as $key => $val) {
-      //           $a_fields[$key] = $this->test_input($a_fields[$key]);
-      //       }
-      //       $result = $this->db_api->insert($a_fields, "oshop_followings");
-      //       // $a_fields = array("store_id_fk" => $nreg_storeid, "user_id_fk" => $this->getUserId());
-      //       // $ins_result = $this->db_api->insert($a_fields, "oshop_followings");
-
-      //     $nemail_update = $this->db_api->custom("UPDATE iws_profiles SET existing_email_id='$nreg_email' WHERE Refer='".$nreg_refer."' and is_verified=0");
-         
-      //     $imvscode = $this->db_api->custom("SELECT * FROM iws_profiles WHERE Refer='".$nreg_refer."' and is_verified=0");
-      //      $s_user_id  = $imvscode[0]['profile_id']; 
-      //      $s_user_full_name  = $imvscode[0]['first_name']." ".$imvscode[0]['middle_name']." ".$imvscode[0]['last_name']; 
-      //     $log_obj=$this->load->module("login");
-      //     $s_security_code = $log_obj->generateSecurity_Code( $imvscode[0]['profile_id'], $imvscode[0]['password_hash'], "", $imvscode[0]['role'], $imvscode[0]['user_id'], $imvscode[0]['language'], "" );  
-      //     $this->sessions->createSession( $s_user_full_name, $s_user_id ); // User id to be removed later from session.
-      //     $this->cookies->setCookie('oud', $s_security_code );
-      //     $this->cookies->theme_setCookie("Clouds");
-      //     $log_obj->updateLogin_History($s_user_id);
-      //     $_SESSION['user_full_name']=$s_user_full_name;
-      //     $fields = array('email'=>$imvscode[0]["username"]."@oneidnet.com",'security_code'=>$s_security_code);
-      //     $this->db_api->update( $fields , "iws_profiles" ,"username='".$nreg_username."'" ) ; 
-      //     $hobj=$this->load->module("home");
-      //     $body =  $hobj->activationnregTemplate(base_url() . "registration/activation?aid=" . bin2hex($imvscode[0]["profile_id"] . "###" . $imvscode[0]["mvs_code"]),$nreg_username,$nreg_password);
-      //     $hobj->sendactivationmail($nreg_email, "ONEIDNET Activation Link", $body);
-
-      //     echo "success";
-      //    }
-      //    else
-      //    {
-      //     echo "expired";          
-      //    }
-      //     // return redirect()->to(base_url());
-      // }
-      // else
-      // {
-      //   echo "no input found";
-      // }
 
     }
     
@@ -185,7 +135,7 @@ class Registration extends CI_Controller {
 
                 /* Welcome email to user after registration */
                 $home_obj=$this->load->module("home");                
-                $body=$this->welcomeEmailTpl($result[0]["username"],$this->decrypt($result[0]["360mail_key"]));
+                $body=$this->welcomeEmailTpl($result[0]["first_name"],$result[0]["last_name"] ,$result[0]["username"],$this->decrypt($result[0]["360mail_key"]),$result[0]["email"]);
                 $home_obj->sendactivationmail($result[0]["email"],"Welcome to ONEIDNET",$body);
                 $email_body=$this->instructionsEmailTpl();
                 $home_obj->sendactivationmail($result[0]["email"],"ONEIDNET quick instructions",$email_body);
@@ -297,7 +247,7 @@ class Registration extends CI_Controller {
                      "360mail_key"=>$mail360_pass_hash
           );
       
-     $a_data=$this->test_input($a_data);
+                  $a_data=$this->test_input($a_data);
                         $s_tbl ="iws_profiles";
                         $insert_result = $this->db_api->insert($a_data, $s_tbl); 
                         if($insert_result==1){
@@ -327,9 +277,9 @@ class Registration extends CI_Controller {
                         //sending activation mail
                         $hobj=$this->load->module("home");
                         $body =  $hobj->activationTemplate(base_url() . "registration/activation?aid=" . bin2hex($result[0]["profile_id"] . "###" . $i_mvs_code));
+                        // echo var_dump($s_existing_email);
                         $hobj->sendactivationmail($s_existing_email, "ONEIDNET Activation Link", $body);
-                        
-                        }
+                      }
           
       if (!file_exists("../tunnel/includes/" . $result[0]["profile_id"])) {
       $dir_path = "../tunnel/includes/" . $result[0]["profile_id"];
@@ -507,14 +457,14 @@ function rrmdir($dir) {
     function introductionPage(){
         $this->load->view("introductionPage");
     }
-    function welcomeEmailTpl($user,$pass){
+    function welcomeEmailTpl($fname,$lname,$user,$pass,$email){
       $html='<html><head><title>Welcome to ONEIDNET</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         </head>
         <body bgcolor="grey" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
         <table id="Table_01" width="800" height="2376" border="0" cellpadding="0" cellspacing="0" align="center">
   <tr>
-         <td colspan="3"><p style="color:#000;""><b style="color:#0f4666; font-weight:bold; font-size:18px;">Dear,</b> <br> <br> Welcome to ONEIDNET! <br> <br> Your Oneidnet Credetials, <br> Username : "'. $user.'" <br> Passwor : "'. $pass.'" <br> Activating your account gives you complete and free access to the ONEIDNET System.ONEIDNET is an integrated System, unlike any other. Its like having sixteen websites in one; having your own personalized Internet with everything in it!.</p></td>
+         <td colspan="3"><p style="color:#000;""><b style="color:#eeeeee; font-weight:bold; font-size:18px;">Dear ("'.$fname.' '.$lname.'"),</b> <br> <br> Welcome to ONEIDNET! <br> <br> Your Oneidnet Credetials, <br> Username : "'. $user.'" <br> E-mail : "'. $email.'" <br> Activating your account gives you complete and free access to the ONEIDNET System. ONEIDNET is an integrated System, unlike any other. It\'s like having sixteen websites in one; having your own personalized internet with everything in it!.</p></td>
   </tr>
 	<tr>
             <td colspan="3"><img src="'.base_url().'assets/Images/mail/final-welcome-email-content_01.png" width="800" height="86" alt=""></td>

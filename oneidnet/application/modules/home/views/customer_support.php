@@ -21,13 +21,65 @@ $this->templates->content_header();
     <!-- End Left -->
     <!-- Start Right -->
     <div class="main_content_right">
+        <?php if($type){?>
+            <div class="form_area">
+                <div class="fll">
+                        <div class="ble-fg ble-fg-dantion" style="padding-bottom: 20px;">
+                            <label>  EMAIL ID </label>
+                            <input type="text" placeholder="Please enter email address here" id="support_email" name="support_email">
+                            <p id="support_err_0" class='fs11 red clearfix'></p>
+                        </div>
+                        <div class="ble-fg ble-fg-dantion" style="padding-bottom: 20px;">
+                            <label>  MODULE  </label>
+                            <input type="text" placeholder="Module" id="support_module" name="support_module" value="<?php echo $mode?>">
+                            <p id="support_err_1" class='fs11 red clearfix'></p>
+                        </div>
+                        <div class="ble-fg ble-fg-dantion" style="padding-bottom: 20px;">
+                            <label>  TYPE  </label>
+                            <select id="support_type" name="support_type">
+                                <?php 
+                                    if($type){
+                                        echo '<option value="'.$type.'" selected>'.$type.'</option>'; 
+                                    }   
+                                    $onesup_query = "SELECT * FROM `oneid_support` WHERE one_module='".$mode."'";
+                                    $result = $this->db_api->custom($onesup_query);
+                                    foreach ($result as $support) {
+                                    echo '<option value="'.$result[0]['one_type'].'">'.$result[0]['one_type'].'</option>';
+                                    }
+                                    echo '<option value="all" selected>ALL</option>';
+                                ?>
+                            </select>
+                            <input type="text" placeholder="Support Type" id="support_type1" name="support_type1" value="">
+                            <p id="contact_subject_error" class='fs11 red clearfix'></p>
+                        </div>
+                        <div class="ble-fg ble-fg-dantion" style="padding-bottom: 20px;">
+                            <label>Mail Address (SUPPORT EMPLOYEE)</label>
+                            <input type="text" placeholder="Enter E-mail address (SUPPORT EMPLOYEE)" id="support_usename" name="support_usename" value="">
+                            <p id="support_err_2" class='fs11 red clearfix'></p>
+                        </div>
+                        <div class="ble-fg ble-fg-dantion" style="padding-bottom: 20px;">
+                            <label>PASSWORD (SUPPORT EMPLOYEE)</label>
+                            <input type="text" placeholder="Enter password (SUPPORT EMPLOYEE)" id="support_pass" name="support_pass" value="">
+                            <p id="support_err_3" class='fs11 red clearfix'></p>
+                        </div>
+                        <div class="arrows_box" style="color:#fff;display:none">
+                            
+                        </div>
+                        <div class="ble-submit">
+                            <input type="submit" class="btn btn-primary btn-large" id="support_submit" value="Submit">
+                        </div>
+                </div>
+            </div>
+
+<script type="text/javascript" src="<?php echo base_url().'assets/microjs/support.js'?>"></script>
+        <?php }else{?>
         <div class="heading_content">CUSTOMER SUPPORT</div>
         <div STYLE="font-size: 16px;color:#ffb700;margin-bottom:15px;" >THIS FUNCTIONALITY HAS BEEN DISCONTINUED, WILL RESUME SHORTLY</div>
         <div class="main_content_right_scroll">
 
           
 
-            <div class="icons_names">
+            <div class="icons_names showhidedropdown">
 
                 <ul>
 
@@ -79,6 +131,17 @@ $this->templates->content_header();
                             <img src="<?php echo base_url() . 'assets/Images/oneshop.png' ?>"  width="40" height="40px" class="image_place"/>
                             <div class="images_text">ONESHOP</div>
                         </a>
+
+                        <ul class="dropdown">
+                            <?php 
+                                $onesup_query = "SELECT * FROM `oneid_support`";
+                                $result = $this->db_api->custom($onesup_query);
+                                foreach ($result as $support) {
+                                echo '<li class="text_style"><a href="'.base_url().'home/customersupport_form?type='.$result[0]["one_type"].'&mod=ONESHOP">'.$result[0]['one_type'].'</a></li>';
+                                }
+                                echo '<li class="text_style"><a href="'.base_url().'home/customersupport_form?type=All&mod=ONESHOP">All</a></li>';
+                            ?>
+                        </ul>
                     </li>
 
                     <li >
@@ -588,11 +651,9 @@ $this->templates->content_header();
                             <div class="images_text">REGISTER FOR SERVICES</div>
                         </a>
                     </li>
-
-
                 </ul>
             </div>
-
+        <?php } ?>
         </div>
         <!-- End Right -->
     </div>

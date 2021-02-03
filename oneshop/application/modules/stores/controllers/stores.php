@@ -295,6 +295,16 @@ class stores extends CI_Controller {
         }
     }
 
+    function sale_remove() {
+        $dbapi = $this->load->module("db_api");
+        $staff_id= $_REQUEST["id"];
+        $deleteStaffQry = "DELETE FROM oshop_sales WHERE rec_aid = '" . $staff_id . "'";
+        $del_res = $dbapi->custom($deleteStaffQry);
+        if($del_res==0){
+            echo  "DELETED";
+        }
+    }
+
     //Staff Admin Role Check(Anil added on 18th FEb 2016)
     function staffRoleCheck($userID, $store_code, $role_check) {
         $dbapi = $this->load->module("db_api");
@@ -790,18 +800,41 @@ class stores extends CI_Controller {
         $scode = $_SESSION['storecode'];
         // echo var_dump($scode);
         echo "Ref".$this->get_UserId()."&store=".$scode;
-        //  $a_data = array(
-        //         "user_id" => $this->uuid->v4(),"username"=>$_REQUEST["username"],
-        //         "password_hash" => "{SSHA512}".base64_encode(hash('sha512', $pass.$this->salt(), true).$this->salt()), "aams_code" => rand(10000,99999), "mvs_code" => rand(10000,99999), "arms_code" => rand(10000,99999), "Refer" => "Ref".$this->get_UserId()
-        //     );
+    }
 
-        // $nreg = $this->db_api->insert($a_data, "iws_profiles");
-        // if($nreg == 1){
-        //     // return $newuser_data;
-        //     // $_SESSION["user_full_name"] = $username;
-        //     // $_SESSION["pass"] = $pass;
-          
-        // }
+    function sale_posting(){
+        $db_obj = $this->load->module("db_api");
+        $userId = $this->get_UserId();
+
+        $stype = $_POST["type"];
+        $stitle = $_POST["title"];
+        $smsg = $_POST["msg"];
+        $sfdate = $_POST["fdate"];
+        $sedate = $_POST["edate"];
+        $storeSql = "SELECT store_aid FROM oshop_stores WHERE store_code = '" . $_POST["store_code"] . "'";
+        $store_det = $db_obj->custom($storeSql);
+        $store_aid = $store_det[0]["store_aid"];
+
+        $sale_arr = array(
+            "os_type" => $stype,
+            "os_title" => $stitle,
+            "os_msg" => $smsg,
+            "store_id_fk" => $store_aid,
+            "os_ft_date" => $sfdate,
+            "os_ed_date" => $sedate,
+            "os_added_by" => $userId
+        );
+        foreach ($sale_arr as $key => $val) {
+            $sale_arr[$key] = $this->test_input($sale_arr[$key]);
+        }
+        $saleRec = $db_obj->insert($sale_arr, "oshop_sales");
+
+        $this->load->module('notification');
+        $this->notification->all_notification("SALE","","",$_POST["store_code"],"");
+        if($saleRec){
+            echo 'done';
+        }
+
     }
 
     function salt(){
@@ -932,6 +965,52 @@ class stores extends CI_Controller {
 
     }
 
+    function promosale_list(){
+        $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
+            // $db_obj = $this->load->module("db_api");
+            $sqlQuery = "SELECT * FROM oshop_sales WHERE os_added_by = '". $this->get_UserId() ."'";
+            if(!empty($_POST["search"]["value"])){
+                $sqlQuery .= ' AND (rec_aid LIKE "%'.$_POST["search"]["value"].'%" OR os_type LIKE "%'.$_POST["search"]["value"].'%" OR os_title LIKE "%'.$_POST["search"]["value"].'%")';     
+            }
+            if(!empty($_POST["order"]))
+            {
+                $sqlQuery .= ' ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+            } 
+            else {
+                 $sqlQuery .= ' ORDER BY rec_aid DESC';
+            }
+                
+            if($_POST["length"] != -1){
+                $sqlQuery .= ' LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+            }
+           
+            $result = mysqli_query($connect, $sqlQuery);
+
+            $displayRecords = mysqli_num_rows($result);
+                
+            $allRecords = mysqli_num_rows(mysqli_query($connect,"SELECT * FROM oshop_sales WHERE os_added_by='". $this->get_UserId() ."'"));
+
+            $data = array();     
+            while($record = mysqli_fetch_array($result))
+            {              
+                $rows = array();            
+                $rows[] = $record['rec_aid'];
+                $rows[] = $record['os_type'];
+                $rows[] = $record['os_title'];
+                $rows[] = $record['os_ed_date'];                        
+                $rows[] = '<button type="button" name="delete" id="'.$record['rec_aid'].'"
+             class="btn delete" style="background-color: red;color: white;padding: 3px 20px;">Delete</button>';
+                $data[] = $rows;
+            }
+            $output = array(
+                "draw"  =>  intval($_POST["draw"]),         
+                "recordsTotal" =>  $allRecords,
+                "recordsFiltered"  =>  $displayRecords,
+                "data"  =>  $data
+            );
+            echo json_encode($output);
+    }
+
     function staff_list(){
             $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
             // $db_obj = $this->load->module("db_api");
@@ -963,7 +1042,7 @@ class stores extends CI_Controller {
                 $rows = array();            
                 $rows[] = $record['rec_aid'];
                 $rows[] = $record['f_name']." ".$record['l_name'];
-                $rows[] = $record['role'];                        
+                $rows[] = $record['role']; 
                 $rows[] = '<button type="button" name="update" id="'.$record['rec_aid'].'"
              class="btn update" style="background-color: #ffcc00;padding: 3px 20px;">Update</button>';
                 $rows[] = '<button type="button" name="delete" id="'.$record['rec_aid'].'"

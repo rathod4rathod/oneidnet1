@@ -375,7 +375,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <div style="margin: 57px 0 0 0;">
         <div class="titlecontainer acenter">
           <div class="hd_heading">
-            <h1 style="width: 90%;margin: 9px 44px;">Products <span></span></h1>
+            <h1 style="width: 90%;margin: 9px 44px;">Products <span></span><a href="<?php echo site_url("product_search")."/".$store_code;?>"><i class="fa fa-arrow-circle-right" style="float: right;"></i></a></h1>
           </div>
           <input type="hidden" id="hstore_products_cnt" value="<?php echo $prods_cnt?>"/>
         </div>

@@ -75,6 +75,24 @@ foreach($user_notifications as $user_notifications_info){
         </li>
     </div>
   <?php  }
+  if($user_notifications_info['type']=='SALE'){ 
+            
+       if($user_notifications_info['profile_image_path']!=''){
+          $notif_img_url=base_url().'stores/'.$user_notifications_info["store_code"].'/SDT/si/'.$user_notifications_info['profile_image_path'];
+               
+        }else{
+          $notif_img_url=base_url().'assets/images/default_store.png';
+        }
+      
+       $notif_url=$user_notifications_info["url"];
+      ?>
+          <div class="redirect_php" id="<?php echo $user_notifications_info["rec_aid"]?>" url="<?php echo $user_notifications_info["url"]?>">
+        <li class="click_friendRequest" style="<?php if($user_notifications_info["status"]==1){ echo "background-color: #fff;";}else{ echo "background-color: #eee;";}?>">
+            <span class="np_messages_leftimagediv"><img src="<?php echo $notif_img_url?>" height="20" width="20"/></span>
+            <span class="np_messages_rightcontentmaindiv"><a href="<?php echo base_url().$notif_url?>"><?php echo $msg ;?></a> </span>
+        </li>
+    </div>
+    <?php  }
   if($user_notifications_info['type']=='ADMIN_PRODUCT_ADDED'){ 
             
        if($user_notifications_info['profile_image_path']!=''){
