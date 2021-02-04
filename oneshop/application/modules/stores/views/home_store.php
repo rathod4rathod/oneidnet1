@@ -325,42 +325,42 @@ function onLinkedInAuth() {
     </div>
 
     <div class="packagedat_admin_store fll">
-    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/order.png";?>"> </p>
     <p class="oneshop_leftimg_box_content fll"> Total Orders </p>
     <div class="flr">
     <p class="fll oneshop_overview_countbox"> <?php echo $order_count;?> </p>
     </div>
     </div>
     <div class="packagedat_admin_store fll">
-    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/Cancel.png";?>"> </p>
     <p class="oneshop_leftimg_box_content fll"> Total Cancellations </p>
     <div class="flr">
     <p class="fll oneshop_overview_countbox"> <?php echo $cancels_count;?> </p>
     </div>
     </div>
     <div class="packagedat_admin_store fll">
-    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/mufollowers.png";?>"> </p>
     <p class="oneshop_leftimg_box_content fll"> Total Followers </p>
     <div class="flr">
     <p class="fll oneshop_overview_countbox"> <?php echo $followers_cnt;?> </p>
     </div>
     </div>
 <!--    <div class="packagedat_admin_store fll">
-    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+    <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.png";?>"> </p>
     <p class="oneshop_leftimg_box_content fll"> VCOM Requests </p>
     <div class="flr">
     <p class="fll oneshop_overview_countbox"> 50 </p>
     </div>
     </div>-->
       <div class="packagedat_admin_store fll">
-        <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+        <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/totalsale.png";?>"> </p>
         <p class="oneshop_leftimg_box_content fll"> Total Products </p>
         <div class="flr">
         <p class="fll oneshop_overview_countbox"> <?php echo $products_count?> </p>
         </div>
       </div>
       <div class="packagedat_admin_store fll">
-        <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/13.jpg";?>"> </p>
+        <p class="oneshop_leftimg_box fll"> <img src="<?php echo base_url()."assets/images/staff.png";?>"> </p>
         <p class="oneshop_leftimg_box_content fll"> Total Staff </p>
         <div class="flr">
         <p class="fll oneshop_overview_countbox"> <?php echo $staff_count?> </p>
