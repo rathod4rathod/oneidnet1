@@ -43,8 +43,7 @@ $this->templates->os_mainmenu();
 </style>
 <!--Oneshop Content starts Here(vinod 19-05-2015)-->
 <div class="oneshop_container_sectionnew">
-    <div class="oneshop_container_middle_section mat10">
-      
+    <div class="oneshop_container_middle_section mat10">     
        
          <div class="left_oontainer">
             <div class="fll borderbottom wi100pstg">

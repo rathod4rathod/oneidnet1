@@ -23,6 +23,14 @@ if($similar_products!=0){
   }
   $product_url=base_url().'product_detail_view/'.$prodslist["store_code"].'/'.$prodslist["product_code"]; // bug fixing on 30-03-2016
   $product_review_url=base_url().'product_reviews?product_id='.base64_encode(base64_encode($prodslist["product_aid"]));
+  $s_len=strlen($prodslist["product_name"]);
+  //echo $s_len;
+  $product_name=$prodslist["product_name"];
+  if($s_len>24){    
+    $prod_name=substr($product_name,0,24)."..";
+  }else{
+    $prod_name=$product_name;
+  } 
 ?>
 
 <div class="mysimiler oneshop_pro_total_wrapper_div sm_products mat10">
@@ -33,7 +41,7 @@ if($similar_products!=0){
     </div>
     <div class="oneshop_product_ratebg_box">
         <p class="cagetory-name"><?=($prodslist["category_name"] !='')?$prodslist["category_name"]:'No Category'?></p> 
-        <p><a class="product-name" href="<?php echo $product_url;?>"><?php echo ucfirst($prodslist["product_name"]);?></a></p>
+        <p><a class="product-name" href="<?php echo $product_url;?>"><?php echo ucfirst($product_name);?></a></p>
                    
                         <!-- <a href="javascript:void(0);" onclick="goProfile()" title="<?php echo $product_name?>"class="view-btn">View Details</a> -->
                         <p>    <?php

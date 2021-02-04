@@ -186,7 +186,7 @@ else{?>
 							<?php } ?>
 							 </a>
                     </div>
-                    <div class="pName">      
+                    <div class="pName rkr2">      
                         <span class="name">
                             <h3> <a href="<?php echo base_url().'pprofile/profilepage/'.$data['user_id'] ?>"> <?php echo ucfirst($data['profile_name']); ?> </a>
                             </h3>

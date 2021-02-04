@@ -315,8 +315,8 @@ function onLinkedInAuth() {
       <a href="#" onclick="nregisteryahoo();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/yh-invite.png"></a>
       <a href="#" onclick="nregisteraol();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/ao-invite.png"></a>
       <!-- <script type="IN/Login"></script> -->
-    <div class="packagedat_admin">
-    <p class="bold fll"> OVERVIEW STORE </p>
+    <div class="packagedat_admin store-view">
+    <p class="bold fll"> STORE OVERVIEW </p>
 <!--    <p class="flr mat5"><span class="fll mar10 lh20"> Filter: </span> <select class="oneshop_adminfilter" name="privacy">
     <option value="">Select Privacy</option>
     <option value="Public">Public</option>
@@ -371,7 +371,7 @@ function onLinkedInAuth() {
     <div class="wi100pstg mat20 fll">
 
     <div class="packagedat_admin">
-    <p class="bold fll"> TODAY ACTIVITIES </p>
+    <p class="bold fll"> TODAY'S ACTIVITIES </p>
 <!--    <p class="flr mat5"><span class="fll mar10 lh20"> Filter: </span> <select class="oneshop_adminfilter" name="privacy">
     <option value="">Select Privacy</option>
     <option value="Public">Public</option>
