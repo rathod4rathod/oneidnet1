@@ -11,7 +11,7 @@
 <div class="video_list" id="gmaadvertise" promotetype="ONESHOP"></div>
 
 <div class="quicklinkwrap"> 
-    <div class="right_container_head">
+    <div class="right_container_head" class="homepage-one-store">
         <h3> Store Suggestions </h3>
     </div>
     <div class="clearfix"></div>

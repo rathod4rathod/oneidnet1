@@ -47,7 +47,7 @@ $('.slider').cycle({
 			</div>
 
 
-			<div class="fll wi100pstg">
+			<div class="fll wi100pstg ">
 <!--                            <h3 class="mab10"> Store Suggestions  </h3>-->
 <div class="hd_heading"><h2>Store Suggestions  <span></span> </h2></div>
 <!--<div class="titlecontainer acenter">
@@ -58,7 +58,7 @@ $('.slider').cycle({
 
                             <div class="fll mab10">
 
-                                <div class="featured_product_product_mainwrap">
+                                <div class="featured_product_product_mainwrap homepage-store">
                         <?php
                             $this->load->module("stores");    
                             $db_obj = $this->load->module("db_api");
