@@ -1,0 +1,38 @@
+
+			$(document).ready(function(){
+				var s = $(".click_importantNotifications");
+				var pos = s.position();
+				//alert(pos.top);
+				//alert($(window).scrollTop());                    
+				$(window).scroll(function() {
+					var windowpos = $(window).scrollTop();
+					if (windowpos > pos.top) {
+						s.addClass("stick");
+					} else {
+						s.removeClass("stick"); 
+					}
+				});
+			});
+		
+			function auto_grow(element) {
+				element.style.height = "5px";
+				element.style.height = (element.scrollHeight)+"px";
+			}
+			$('.slider').cycle({
+				
+				fx:			'scrollHorz',
+				next:		'.isdes_nextbtn',
+				prev:		'.isdes_prevbtn',
+				timeout:     3000,
+				pause:		1
+			});
+			$(function(){
+				$('#demo').textRotator({
+						random : true,
+						fadeIn : 1000,
+						fadeOut : 500,
+						duration : 5000,
+						debug : false
+
+				});
+			});

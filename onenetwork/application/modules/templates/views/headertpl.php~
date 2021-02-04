@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to One Network!</title>
+<link href="<?php echo base_url().'assets/css/style.css';?>" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?php echo base_url().'assets/css/clickmenu.css';?>" type="text/css">
+
+<script src="<?php echo base_url().'assets/js/jquery-latest.min.js';?>" type="text/javascript"></script>
+<script src="<?php echo base_url().'assets/js/script.js';?>" type="text/javascript"></script>
+<script src="<?php echo base_url().'assets/js/iconChange.js';?>" type="text/javascript"></script>
+
+<script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-1.11.2.js';?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/js/query-1.11.2.min.js';?>"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var tn_array = $(".ondes_images img").map(function() {
+			return $(this).attr("src");
+		}).get();
+	$('.ondes_main').attr('src', tn_array[0]); // set first image of the list as the MainImage src
+	
+	var numberOfImages = tn_array.length;
+	var currentImage = 0;
+	var imageWidth = 200;
+	
+	$('.ondes_nextBtn').click(function(){
+		currentImage++;
+		$('.ondes_main').attr('src', tn_array[currentImage]);
+		if(currentImage == numberOfImages-1){
+			$('.ondes_nextBtn').css({visibility: 'hidden'});}
+		if ($('.ondes_prevBtn').css("visibility") == "hidden") { // if Previous button is hidden 
+               $('.ondes_prevBtn').css("visibility", "visible"); //then set it to visible
+            }
+	});	
+	
+	$('.ondes_prevBtn').click(function(){
+		currentImage--;
+		$('.ondes_main').attr('src', tn_array[currentImage]);
+		if(currentImage == 0){
+			$('.ondes_prevBtn').css({visibility: 'hidden'});}
+		if ($('.ondes_nextBtn').css("visibility") == "hidden") { // if Next button is hidden 
+               $('.ondes_nextBtn').css("visibility", "visible"); //then set it to visible
+            }
+	});		
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#ondes_settingsIcon').hover(
+	function(){
+		$('.ondes_settingOptions').css({display: 'block'});
+		}, 
+	function(){
+		$('.ondes_settingOptions').css({display: 'none'});
+		});
+	});
+</script>
+
+
+</head>
+<body>
+
+
+<div class="ondes_module_bgmain_wrapper">
+
+<div class="ondes_wrapper_main"><!--wrapper main start here-->
+<div class="ondes_header_main"><!--header main start here-->
+<div class="ondes_headermain_sub"><!--headermain-sub start here-->
+
+<!--logocv start here-->
+    <div class="ondes_logocv">
+        <a href="index.html"><img src="<?php echo base_url().'assets/'?>images/one_network_logo.png" alt="logo" width="110" height="35"></a>
+        </div>
+<!--logocv closed here-->
+
+<!--profileedit start here-->
+<div class="ondes_profileEdit">
+    <ul>
+        <li><a href="#"><img src="<?php echo base_url().'assets/'?>images/profilepic.jpg" alt="profilepicture"></a></li>
+        <li><a href="#"></a><p class="pname"> Brayden Jacob </p></li>
+    </ul>
+</div>
+<!--profileedit closed here-->
+
+<div class="ondes_generalIcons"><!--generalicons start here-->
+<div class="ondes_leftGeneralIcons"><!--leftgeneralicons start here-->
+<ul>
+<li id="ondes_settingsIcon"><a href="#"><img src="<?php echo base_url().'assets/'?>images/settings.png" alt="settings" title="settings" ></a>
+	<div class="ondes_settingOptions">
+    	<ul>
+        	<li><img src="<?php echo base_url().'assets/'?>images/dropDownBubble.png"></li>
+        	<li class="ondes_settings"><h2>Report a Problem</h2></li>
+            <li class="ondes_settings"><h2>Help</h2></li>
+        </ul>
+    </div>
+</li>
+</ul>
+</div>
+<!--leftgeneralicons closed here-->
+
+		
+
+
+
+
+<!--rightgeneralicons closed here-->
+<a href="#" class="ondes_max"><img src="<?php echo base_url().'assets/'?>images/restore.png" alt="maximize"></a></div>
+</div><!--generalicons closed here-->
+</div><!--headermain-sub closed here-->
+<!--headermain closed here-->
+<div class="ondes_topMenu"><!--topmenu start here-->
+
+<div class="ondes_topmenu_middle"><!--topmenu middle start here-->
+    <ul>
+        <li><h3>Home</h3></li>
+        <li><h3>My Campaigns</h3></li>
+        <li><a href="<?php echo base_url().'savedcampaigns/savedCampaigns_Info';?>"><h3>Saved Campaigns</h3></a></li>
+        
+    </ul>
+</div><!--topmenu middle closed here-->
+
+</div><!--topmenu closed here-->

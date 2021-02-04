@@ -94,14 +94,29 @@ if($theme_selected!=''){
 						</div>
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_DiscountError"> Please Enter Valid Discount </p>
 					</div>
-                    <div class="oneshop_fieldsbox">
-						<label> Warranty (in months)  </label>
-						<div class="wi100pstg">
-							<input type="text" placeholder="1 month" name="Warranty" id="osdev_warrenty" class="input" value="<?php echo $product_detail[0]["warranty"];?>">
+					<div class="oneshop_fieldsbox">
+					<div class="" style="width: 45%;">
+							<label> Warranty Type </label>
+							<div class="wi100pstg select" id="warranty_type1">
+								<select class="oneshop_selectbox_field" name="warranty_type" id="warranty_type">
+									<option value="1" <?php echo ($product_detail[0]["warranty_type"] == 1)?'selected':'';?>Days</option>								
+									<option  value="2"<?php echo ($product_detail[0]["warranty_type"] == 2)?'selected':'';?> >Months</option>								
+									<option value="3" <?php echo ($product_detail[0]["warranty_type"] == 3)?'selected':'';?>>Years</option>								
+								</select>
+							</div>                      
+							<p class="wi100pstg fs11 red clearfix jsError" id="warranty_typeError"> Please Select Warranty Type</p>
+						</div>
+						<div class="" style="width: 45%; float: right; margin-top: -23px;">
+							<label> Warranty (in Months,Days and Years)  </label>
+							<div class="wi100pstg">
+							<input type="text" placeholder="1 Months or 1 Days or 1 Years any one)" name="Warranty" id="osdev_warrenty" class="input" value="<?php echo $product_detail[0]["warranty"];?>">
 						</div>
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_warrentyError"> Please Enter Warranty Period </p>
+
+							
+						</div>
 					</div>
-                      <div class="oneshop_fieldsbox">
+				      <div class="oneshop_fieldsbox">
 						<label> Product Group </label>
 						<div class="wi100pstg">
 							<input type="text" name="Group" id="osdev_Group" class="input" value="<?php echo $store_details[0]["store_category"];?>" readonly>
@@ -298,11 +313,25 @@ if($theme_selected!=''){
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_DiscountError"> Please Enter Valid Discount </p>
 					</div>
                     <div class="oneshop_fieldsbox">
-						<label> Warranty (in months)  </label>
-						<div class="wi100pstg">
-							<input type="text" placeholder="1 month" name="Warranty" id="osdev_warrenty" class="input">
+					<div class="" style="width: 45%;">
+							<label> Warranty Type </label>
+							<div class="wi100pstg select" id="warranty_type1">
+								<select class="oneshop_selectbox_field" name="warranty_type" id="warranty_type">
+									<option value="" disabled selected>--Warrnaty Type--</option>								
+									<option value="1">Days</option>								
+									<option value="2">Months</option>								
+									<option value="3">Years</option>								
+								</select>
+							</div>                      
+							<p class="wi100pstg fs11 red clearfix jsError" id="warranty_typeError"> Please Select Warranty Type</p>
 						</div>
-						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_warrentyError"> Please Enter Warranty Period </p>
+						<div class="" style="width: 45%; float: right; margin-top: -23px;">
+							<label> Warranty (in Months,Days and Years)  </label>
+							<div class="wi100pstg">
+								<input type="text" placeholder="1  Months or 1 Days or 1 Years any one) " name="Warranty" id="osdev_warrenty" class="input">
+							</div>
+							<p class="wi100pstg fs11 red clearfix jsError" id="osdev_warrentyError"> Please Enter Warranty Period </p>
+						</div>
 					</div>
 <!--					<div class="oneshop_fieldsbox">
 						<label> Specifications  </div>

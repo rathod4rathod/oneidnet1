@@ -1,0 +1,37 @@
+<?php
+if (!defined('BASEPATH'))    exit('No direct script access allowed');
+
+class os_package extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+        $this->load->module('cookies');
+    }
+
+    function get_userId() {
+        $obj = $this->load->module('cookies');
+        return $obj->getUserID();
+    }
+    function index(){
+        $this->load->view('os_promo/os_promotions_view');
+    }
+     function os_package_packages(){
+        $db_obj = $this->load->module('db_api');
+        $myfields = "*";
+        $mytable = "oshop_packages";
+        $data['stores_info'] = $db_obj->select($myfields, $mytable, '');
+        $this->load->view('os_promo/os_promotions_view',$data);
+    }
+    function store_packages() {
+         $this->load->view('os_promo/store_promotions_cr');
+    }
+    
+    function products_packages() {
+         $this->load->view('os_promo/products_promotions_cr');
+    }
+    function malls_packages() {
+         $this->load->view('os_promo/malls_promotions_cr');
+    }
+    
+    
+}

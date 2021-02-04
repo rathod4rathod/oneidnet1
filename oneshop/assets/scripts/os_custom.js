@@ -107,6 +107,7 @@ $(function() {
             p = $("#osdev_Shipping").val(),
             g = $("#osdev_Handling").val(),
             d = $("#osdev_warrenty").val(),
+            wt = $("#warranty_type").val(),
             i = $("#osdev_Discount").val(),
             l = $("#osdev_CostPrice").val(),
             n = $("#osdev_Quantity").val(),
@@ -204,6 +205,13 @@ $(function() {
                 var v = parseInt(d);
                 0 > v && ($("#osdev_warrenty").addClass("redfoucusclass"), $("#osdev_warrentyError").removeClass("jsError").text("Please enter non-negative value"), s = 10)
             } else $("#osdev_warrenty").addClass("redfoucusclass"), $("#osdev_warrentyError").removeClass("jsError"), s = 10;
+            
+            if ($.isNumeric(wt)) {
+                $("#warranty_type").removeClass("redfoucusclass"), $("#warranty_typeError").addClass("jsError");
+                var vwt = parseInt(wt);
+                0 > vwt && ($("#warranty_type").addClass("redfoucusclass"), $("#warranty_typeError").removeClass("jsError").text("Please Select proper value"), s = 10)
+            } else $("#warranty_type").addClass("redfoucusclass"), $("#warranty_typeError").removeClass("jsError"), s = 10;
+
         if ("" == i || $.isNumeric(i)) {
             if ($("#osdev_Discount").removeClass("redfoucusclass"), $("#osdev_DiscountError").addClass("jsError"), $.isNumeric(i)) {
                 var f = parseInt(i);
@@ -241,6 +249,7 @@ $(function() {
             p = $("#osdev_Shipping").val(),
             g = $("#osdev_Handling").val(),
             d = $("#osdev_warrenty").val(),
+            wt = $("#warranty_type").val(),
             i = $("#osdev_Discount").val(),
             l = $("#osdev_CostPrice").val(),
             n = $("#osdev_Quantity").val(),
@@ -344,6 +353,11 @@ $(function() {
                 var v = parseInt(d);
                 0 > v && ($("#osdev_warrenty").addClass("redfoucusclass"), $("#osdev_warrentyError").removeClass("jsError").text("Please enter non-negative value"), s = 10)
             } else $("#osdev_warrenty").addClass("redfoucusclass"), $("#osdev_warrentyError").removeClass("jsError"), s = 10;
+            if ($.isNumeric(wt)) {
+                $("#warranty_type").removeClass("redfoucusclass"), $("#warranty_typeError").addClass("jsError");
+                var vwt = parseInt(wt);
+                0 > vwt && ($("#warranty_type").addClass("redfoucusclass"), $("#warranty_typeError").removeClass("jsError").text("Please Select proper value"), s = 10)
+            } else $("#warranty_type").addClass("redfoucusclass"), $("#warranty_typeError").removeClass("jsError"), s = 10;
         if ("" == i || $.isNumeric(i)) {
             if ($("#osdev_Discount").removeClass("redfoucusclass"), $("#osdev_DiscountError").addClass("jsError"), $.isNumeric(i)) {
                 var f = parseInt(i);

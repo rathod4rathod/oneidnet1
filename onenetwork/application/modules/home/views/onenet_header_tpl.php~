@@ -1,0 +1,119 @@
+<div class="ondes_module_bgmain_wrapper">
+
+<div class="ondes_wrapper_main"><!--wrapper main start here-->
+
+    <div class="moduleHeaderWrapper onenetwork">
+    	<div class="moduleLogo">
+        	<a href="<?php echo base_url(); ?>">
+                    <img src="<?php echo base_url();?>assets/images/onenetworkLogo.png" class="moduleLogoImg">
+                </a>
+            <span class="moduleName">One <br> Network</span>
+        </div>
+        <div class="moduleProfileInfoWrap">
+            <span class="moduleProfileInfoPicWrap">
+                <a href="<?php echo base_url();?>">
+                    <img src="<?php echo ($userdata[0]['img_path'] != "") ? base_url().'data/udata/images/'.$userdata[0]['img_path'] : base_url().'data/udata/images/profile.jpeg';?>"></a></span>
+                <span class="moduleProfileInfoNameWrap">
+            <a href="<?php echo base_url();?>"><h4><?PHP echo $userdata[0]['username'];?></h4></a></span>
+        </div>
+        <div class="moduleOptionsWrapper">
+        	<span class="moduleOption">
+            	<img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="moduleHeaderIcon" id="settings">
+                <div class="notificationWrapper settingsWrapper">
+                	<img src="<?php echo base_url();?>assets/images/notifyBubble.png" class="notifyBubble">
+                    <div class="notificationContent settingsContent">
+                    	<ul>
+                            <li><img src="<?php echo base_url();?>assets/images/innerSettings.png"><p>Settings</p></li>
+                            <li><img src="<?php echo base_url();?>assets/images/reportProblem.png"><a style="color: #000;" href="<?php echo base_url();?>home/getReportproblem_info"><p>Report Problem</p></a></li>
+                            <li><img src="<?php echo base_url();?>assets/images/help.png"><p>Help</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+            <span class="moduleOption" style="opacity: 0.3;">
+            	<img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="moduleHeaderIcon" id="notifications">
+                <!--<div class="notificationWrapper">
+                	<img src="<?php echo base_url();?>assets/images/notifyBubble.png" class="notifyBubble">
+                     <div class="notificationContent"></div> 
+                </div>-->
+            </span>
+            <span class="moduleOption" style="opacity: 0.3;">
+            	<img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="moduleHeaderIcon" id="messages">
+                <!-- <div class="notificationWrapper">
+                	<img src="<?php echo base_url();?>assets/images/notifyBubble.png" class="notifyBubble">
+                   <div class="notificationContent"></div>
+                </div>-->
+            </span>
+            <span class="moduleOption" style="opacity: 0.3;">
+            	<img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="moduleHeaderIcon" id="requests">
+                <!-- <div class="notificationWrapper">
+                	<img src="<?php echo base_url();?>assets/images/notifyBubble.png" class="notifyBubble">
+                    <div class="notificationContent"></div>
+                </div>-->
+            </span>
+        </div>
+        
+        <div class="moduleSearchWrapper withOutCategory" style="opacity: 0.3;">
+        	<img src="<?php echo base_url();?>assets/images/searchIcon.png" class="moduleSearchIcon">
+        	<span class="moduleSearchBarField">
+            	<input type="text" disable class="moduleSearchField" placeholder="Find here withOutCategory...">
+<!--                <div class="searchSuggessions">
+                	<ul>
+                    	<li><span><img src="#"></span><h5>Vinod Kumar</h5></li>
+                        <li><span><img src="#"></span><h5>Vinod Kumar</h5></li>
+                        <li><span><img src="#"></span><h5>Vinod Kumar</h5></li>
+                        <li><span><img src="#"></span><h5>Vinod Kumar</h5></li>
+                        <li><span><img src="#"></span><h5>Vinod Kumar</h5></li>
+                    </ul>
+                </div>-->
+            </span>
+        </div>
+        
+        
+    </div>
+    
+    <div class="subHeader">
+    	<div class="dropMenuWrapper">
+            
+
+<!--<div class="cssmenu">
+    <ul>
+        <li class='active has-sub'>
+            <a href='#'><span class="dropMenuHead">
+            	<img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="dropMenuIcon">
+                <h4 class="menuTitle">One Network Menu</h4>
+                </span></a>
+        <ul>
+        <li><a href="#"><img src="<?php echo base_url();?>assets/images/30-30Trans.png" id="inbox"><span>Inbox</span></a></li>
+        <li><a href='#'><img src="<?php echo base_url();?>assets/images/30-30Trans.png" id="sent"><span>Sent</span></a></li>
+        <li><a href='#'><img src="<?php echo base_url();?>assets/images/30-30Trans.png" id="outbox"><span>Outbox</span></a></li>
+        <li class="has-sub">
+            <a href='#'><img src="<?php echo base_url();?>assets/images/30-30Trans.png" id="span"><span>Span</span></a>
+                <ul>
+                    <li><a href="#"><span>My Friend channel 01</span></a></li>
+                    <li><a href="#"><span>My Friend channel 02</span></a></li>
+                </ul>
+        </li>
+        <li class="has-sub">
+            <a href='#'><img src="<?php echo base_url();?>assets/images/30-30Trans.png" id="trash"><span>Trash</span></a>
+                <ul>
+                    <li><a href="#"><span>Playlist 01</span></a></li>
+                    <li><a href="#"><span>Playlist 02</span></a></li>
+                </ul>
+        </li>
+        </ul>
+        </li>
+    </ul>
+</div>-->
+            
+            
+        </div>
+        <div class="subHeaderMenu">
+            <ul>
+                <li><img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="onenetworkHome"><a href="<?php echo base_url();?>"><h4>Home</h4></a></li>
+                <li><img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="onoptions1"><a href="<?php echo base_url();?>mycampaigns/myCampaignsList"><h4>My Campaigns</h4></a></li>
+                <li><img src="<?php echo base_url();?>assets/images/30-30Trans.png" class="onoptions2"><a href="<?php echo base_url();?>savedcampaigns/savedCampaigns_Info"><h4>Saved Campaigns</h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="disp_messages"></div>

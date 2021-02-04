@@ -116,8 +116,9 @@ class products extends CI_Controller {
         }
         $s_where = $s_where . " LIMIT $start,$records_per_page";
         
-        $s_query = "SELECT prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,
+        $s_query = "SELECT  oc.category_name,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,
         prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image 
+        left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk
         FROM oshop_filtration_electronics osf 
         RIGHT JOIN oshop_products prods on osf.product_aid_fk = prods.product_aid WHERE " . $s_where;
         $os_products_res = $dbobj->custom($s_query);
@@ -547,10 +548,10 @@ class products extends CI_Controller {
 
           $hex_code = Uuid::v4();
           if($_REQUEST["Group"]==="others"){
-            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"shipping" => $ship,"handling" => $handle);
+            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"warranty_type"=>$_REQUEST["warranty_type"],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"shipping" => $ship,"handling" => $handle);
           }
           else{
-            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"product_tags"=>$_REQUEST["product_tags"],"shipping" => $ship,"handling" => $handle);
+            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"warranty_type"=>$_REQUEST["warranty_type"],"product_tags"=>$_REQUEST["product_tags"],"shipping" => $ship,"handling" => $handle);
           }
         $ins_result=$dbapi->update($a_data,"oshop_products","product_aid=".$productid);
         $last_inserted_id=$productid;
@@ -677,10 +678,10 @@ class products extends CI_Controller {
 
           $hex_code = Uuid::v4();
           if($_REQUEST["Group"]==="others"){
-            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"shipping" => $ship,"handling" => $handle);
+            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"warranty_type"=>$_REQUEST["warranty_type"],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"shipping" => $ship,"handling" => $handle);
           }
           else{
-            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"product_tags"=>$_REQUEST["product_tags"],"shipping" => $ship,"handling" => $handle);
+            $a_data = array("cost_price" => $_REQUEST["Cost_Price"],"sale_price" => $selp,"product_name" =>$_REQUEST['Product_Name'],"hex_code" => $hex_code, "bulk_quantity" => $_REQUEST["bulk_quantity"], "bulk_price" => $_REQUEST["bulk_price"], "quantity" => $_REQUEST["Quantity"],"discount" => $disc,"store_id_fk" => $i_store_id,"product_category_id_fk" => $selectcatid[0]['category_id_fk'],"others_cateogry_name"=>$_REQUEST["Category"],"others_subcategory_name"=>$_REQUEST["Sub_Category"],"description" => $_REQUEST['Description'],"added_by"=>$this->get_UserId(),"warranty"=>$_REQUEST["Warranty"],"warranty_type"=>$_REQUEST["warranty_type"],"product_tags"=>$_REQUEST["product_tags"],"shipping" => $ship,"handling" => $handle);
           }
           $ins_result=$dbapi->insert($a_data,"oshop_products");
           $last_inserted_id=mysql_insert_id();
@@ -873,6 +874,9 @@ class products extends CI_Controller {
 			 }
 			 if(($this->validations->is_number($_REQUEST["Warranty"])==0)||($_REQUEST["Warranty"]<0)){
 				 $result_arry['osdev_warrenty']="error";
+			 }
+			 if(($this->validations->is_number($_REQUEST["warranty_type"])==0)||($_REQUEST["warranty_type"]<0)){
+				 $result_arry['osdev_warranty_type']="error";
 			 }
 			 if(($this->validations->is_number($_REQUEST["Discount"])==0)||($_REQUEST["Discount"]<0)){
 				 $result_arry['osdev_Discount']="error";

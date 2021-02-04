@@ -50,7 +50,7 @@ if($products_data!=0) {
                             </p>
                     </div>
                     <div class="oneshop_products_storebox_bottomdiv">
-                        <a href="<?php echo $product_url;?>"><?php echo charlimit(ucfirst($product_name),20); ?></a>
+                        <a href="<?php echo $product_url;?>"><?php echo charlimit(ucfirst($product_name),20); ?>RRRKKK</a>
                     </div>
                 </div>
 		<?php

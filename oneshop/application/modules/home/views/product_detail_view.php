@@ -206,6 +206,75 @@ else
            <p class="fll wi100pstg bold">  Sub category  </p>
            <p class="gray">  <?php echo $product_details_info["subcategory_name"];?>  </p>
            </div>
+           <?php if($product_details_info["warranty"] > 0) { ?>
+           <div class="wi100pstg mab10"> 
+           <p class="fll wi100pstg bold">  Warranty  </p>
+           <p class="gray">  
+           <?php echo ($product_details_info["warranty"] > 0)?$product_details_info["warranty"]:0;?>
+            <?php echo ($product_details_info["warranty_type"] == 1)?'Day':'';?>
+            <?php echo ($product_details_info["warranty_type"] == 2)?'Month':'';?>
+            <?php echo ($product_details_info["warranty_type"] == 3)?'Year':'';?>
+             </p>
+           </div>
+            <?php 
+             }
+             ?>
+          <?php if($product_details_info["bulk_quantity"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Bulk Quantity</p>
+             <p class="gray">  <?php echo $product_details_info["bulk_quantity"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
+             <?php if($product_details_info["bulk_price"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Bulk Price</p>
+             <p class="gray">  <?php echo $product_details_info["bulk_price"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
+             <?php if($product_details_info["quantity"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Total Quantity</p>
+             <p class="gray">  <?php echo $product_details_info["quantity"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
+             <!-- <?php if($product_details_info["Discount"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Total Discount</p>
+             <p class="gray">  <?php echo $product_details_info["Discount"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?> -->
+             <?php if($product_details_info["shipping"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Shipping Charge</p>
+             <p class="gray">  <?php echo $product_details_info["shipping"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
+             <?php if($product_details_info["handling"] > 0) { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Handling  Charge</p>
+             <p class="gray">  <?php echo $product_details_info["handling"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
+             <?php if($product_details_info["product_tags"] != '') { ?>
+             <div class="wi100pstg mab10"> 
+             <p class="fll wi100pstg bold">Product Tags</p>
+             <p class="gray">  <?php echo $product_details_info["product_tags"];?>  </p>
+             </div>
+            <?php 
+             }
+            ?>
 
 <!--           <div class="wi100pstg mab10">
            <p class="fll wi100pstg bold">  Color  </p>

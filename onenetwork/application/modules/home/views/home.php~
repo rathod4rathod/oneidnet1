@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to One Network!</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/clickmenu.css" type="text/css">
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".menu").hover(
+                function () {
+                    $(".sub").slideToggle(300);
+                },
+                function () {
+                    $(".sub").hide();
+                }
+            );
+        });
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var s = $(".click_importantNotifications");
+            var pos = s.position();
+            //alert(pos.top);
+            //alert($(window).scrollTop());                    
+            $(window).scroll(function () {
+                var windowpos = $(window).scrollTop();
+                if (windowpos > pos.top) {
+                    s.addClass("stick");
+                } else {
+                    s.removeClass("stick");
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <script src="scripts/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="scripts/script.js" type="text/javascript"></script>
+    <script src="scripts/iconChange.js" type="text/javascript"></script>
+
+
+    <script>
+        function auto_grow(element) {
+            element.style.height = "5px";
+            element.style.height = (element.scrollHeight) + "px";
+        }
+    </script>
+
+
+
+    <script src="scripts/jquerymin.js" type="text/javascript"></script>
+    <script src="scripts/jquery.cycle.all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.slider').cycle({
+
+            fx: 'scrollHorz',
+            next: '.isdes_nextbtn',
+            prev: '.isdes_prevbtn',
+            timeout: 3000,
+            pause: 1
+        });
+    </script>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.textrotator.js"></script>
+    <script>
+        $(function () {
+            $('#demo').textRotator({
+                random: true,
+                fadeIn: 1000,
+                fadeOut: 500,
+                duration: 5000,
+                debug: false
+
+            })
+        })
+    </script>
+
+
+
+
+
+
+
+</head>
+
+
+
+<style>
+
+
+
+ul {
+	list-style-type: none;
+}
+a {
+	color: #e95846;
+	text-decoration: none;
+}
+.pricing-table-title {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 2.6em;
+	color: #FFF;
+	margin-top: 15px;
+	text-align: left;
+	margin-bottom: 25px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+.pricing-table-title a {
+	font-size: 0.6em;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	height: 0;
+	width: 0;
+	clear: both;
+}
+/** ========================
+ * Contenedor
+ ============================*/
+.pricing-wrapper {
+	width: 960px;
+	margin: 10px auto 0;
+}
+.pricing-table {
+	margin: 10px 20px;
+	text-align: center;
+	width: 380px;
+	height:320px;
+	float: left;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	box-shadow: 0 0 15px rgba(0,0,0,0.4);
+	-webkit-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.pricing-table:hover {
+	-webkit-transform: scale(1.06);
+	-ms-transform: scale(1.06);
+	-o-transform: scale(1.06);
+	transform: scale(1.06);
+}
+.pricing-title {
+	color: #FFF;
+	background: #e95846;
+	padding: 20px 0;
+	font-size: 1em;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+.pricing-table.recommended .pricing-title {
+	background: #2db3cb;
+}
+.pricing-table.recommended .pricing-action {
+	background: #2db3cb;
+}
+.pricing-table .price {
+	background: #403e3d;
+	font-size: 2em;
+	color: #fff;
+	padding: 10px 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+
+.pricing-table .pricetwo {
+	background: #e95846;
+	font-size: 1.5em;
+	color: #fff;
+	padding: 10px 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+
+.pricing-table .des {
+	font-size: 1em;
+	color: #000;
+	line-height:18px;
+	padding: 10px 10px 0 40px;
+}
+
+
+
+.pricing-table .price sup {
+	font-size: 0.4em;
+	position: relative;
+	left: 5px;
+}
+.table-list {
+	background: #FFF;
+	color: #403d3a;
+}
+.table-list li {
+	font-size: 1em;
+	padding: 5px 5px;
+}
+.table-list li:before {
+	font-family: 'FontAwesome';
+	color: #3fab91;
+	display: inline-block;
+	position: relative;
+	right: 5px;
+	font-size: 12px;
+}
+.table-list li span {
+	font-weight: 400;
+}
+.table-list li span.unlimited {
+	color: #FFF;
+	background: #e95846;
+	font-size: 0.9em;
+	padding: 5px 7px;
+	display: inline-block;
+	-webkit-border-radius: 38px;
+	-moz-border-radius: 38px;
+	border-radius: 38px;
+}
+.table-list li:nth-child(2n) {
+	background: #F0F0F0;
+}
+.table-buy {
+	background: #FFF;
+	padding: 15px;
+	text-align: left;
+	overflow: hidden;
+}
+.table-buy p {
+	float: left;
+	color: #37353a;
+	font-weight: 700;
+	font-size: 2.4em;
+}
+.table-buy p sup {
+	font-size: 0.5em;
+	position: relative;
+	left: 5px;
+}
+.table-buy .pricing-action {
+	margin-left: 120px;
+	margin-top:12px;
+	float: left;
+	color: #FFF;
+	background: #e95846;
+	padding: 10px 16px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-weight: 700;
+	font-size: 1.4em;
+	-webkit-transition: all 0.25s ease;
+	-o-transition: all 0.25s ease;
+	transition: all 0.25s ease;
+}
+.table-buy .pricing-action:hover {
+	background: #cf4f3e;
+}
+.recommended .table-buy .pricing-action:hover {
+	background: #228799;
+}
+.vericaltext {
+	width: 1px;
+	word-wrap: break-word;
+	font-family: monospace /* this is just for good looks */
+}
+.vertical-text {
+	-ms-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-ms-transform-origin: left top 0;
+	-moz-transform-origin: left top 0;
+	-webkit-transform-origin: left top 0;
+	transform-origin: left top 0;
+	background: #E23737;
+	color: #fff;
+	margin-left: 26px;
+	padding: 6px;
+	border: 1px solid #ccc;
+	text-transform: uppercase;
+	border: 1px solid #B52C2C;
+	text-transform: 1px 1px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 2px -2px 0px rgba(0, 0, 0, 0.1);
+	float: left;
+	width: 305px;
+}
+
+
+.row-two{margin-top:20px;}
+</style>
+
+<body>
+
+
+
+
+    <div class="ondes_module_bgmain_wrapper">
+
+
+
+        <div class="ondes_header_main">
+            <!--header main start here-->
+            <div class="ondes_headermain_sub">
+                <!--headermain-sub start here-->
+
+                <!--logocv start here-->
+                <div class="ondes_logocv">
+                    <a href="index.html"><img src="images/one_network_logo.png" alt="logo" width="110" height="35"></a>
+                </div>
+                <!--logocv closed here-->
+
+                <!--profileedit start here-->
+                <div class="ondes_profileEdit">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="images/profilepic.jpg" alt="profilepicture"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                            <p class="pname"> Brayden Jacob </p>
+                        </li>
+                    </ul>
+                </div>
+                <!--profileedit closed here-->
+                <div class="ondes_generalIcons">
+                    <!--generalicons start here-->
+                    <div class="ondes_leftGeneralIcons">
+                        <!--leftgeneralicons start here-->
+                        <ul>
+                            <li id="ondes_settingsIcon">
+                                <a href="#"><img src="images/settings.png" alt="settings" title="settings"></a>
+                                <div class="ondes_settingOptions">
+                                    <ul>
+                                        <li><img src="images/dropDownBubble.png"></li>
+                                        <li class="ondes_settings">
+                                            <h2>Report a Problem</h2></li>
+                                        <li class="ondes_settings">
+                                            <h2>Help</h2></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--leftgeneralicons closed here-->
+
+
+                    <!--rightgeneralicons closed here-->
+                    <a href="#" class="ondes_max"><img src="images/restore.png" alt="maximize"></a>
+                </div>
+                <!--generalicons closed here-->
+            </div>
+            <!--headermain-sub closed here-->
+        </div>
+
+
+        <div class="click_importantNotifications">
+
+
+            <div class='menu'>
+                <a class='hover-link'><span class="fll"><img src="images/menu.png" width="29" height="29"> </span> <span class="lh30 pal5 fll"> ONE NETWORK </span> </a>
+                <div class='sub'>
+                    <ul class='sub-options'>
+
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> My Profile  </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> My Dashboard </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> My Compaigns </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> My Activities </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Saved Compaigns </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Reports Analysis </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> ONEIDNET & You </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Credibilities </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Contributions Insights </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Donations </a></li>
+                        <li class="wi100pstg"><span class="fll mar5 mal5"><img src="images/next.png" class="fll mat6" width="22" height="22"></span><a href='#'> Investment </a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="oneshop_services_store_menu_wrap">
+                <ul>
+                    <li><a href="#"> HOME </a> </li>
+                    <li><a href="#"> GET STARTED </a> </li>
+                    <li><a href="packages.html"> PACKAGES </a> </li>
+                    <li><a href="#"> PROMOTIONS </a> </li>
+                    <li><a href="#"> CUSTOMER SUPPORT </a> </li>
+                    <li><a href="#"> BUSINESS LEAD / ENQUIRY </a> </li>
+                    <li>
+                        <B><a href="#"> ADMINISTRATION </a></B>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="clr">&nbsp;</div>
+
+
+        <div class="new_wrapper">
+
+            <div class="ondes_wrapper_main">
+
+
+
+
+
+
+
+                <div class="ondes_module_container_wrap">
+                    <!--module_container start here-->
+                    <div class="ondes_wrapper_inner minheight600">
+                        <!--wrapper inner start here-->
+
+                        <div class="oneshop_getstarted mat30">
+
+
+
+
+
+
+                            <div class="oneshop_getstarted_bgwrap mat40 mab30" style="position:relative; margin-top:-5%;">
+                                <h1 class="acenter normal fs24" style="width:700px; border-bottom:1px #ccc solid; padding:0 0 10px 0; margin:0 auto; line-height:32px;"> Oneshop Promotions Category </h1>
+
+
+
+                                <div class="boxesnewleft_wrap">
+ <div class="bold borderbottom" style="width:780px; padding:0 0 5px 0; margin:0 auto; line-height:24px;"> 
+ <span> <a href="#"> SAMPLE ONE </a> &nbsp;&nbsp;>&nbsp;&nbsp; </span> <span> <a href="#"> SAMPLE TWO </a> &nbsp;&nbsp;>&nbsp;&nbsp; </span> 
+ <span> <a href="#"> SAMPLE THREE </a> &nbsp;&nbsp;>&nbsp;&nbsp;</span> <span> <a href="#"> SAMPLE THREE </a></span>
+ 
+ </div>
+
+                                    <div style="margin-top:40px;" class="pricing-wrapper clearfix">
+
+
+
+
+<div class="pricing-table">
+  <h3 style="background-color:#C00;" class="pricing-title vertical-text"> 
+    For Large Business</h3>
+  <div class="price"> Stores </div>
+  <div class="pricetwo"> <strong>$1200/- mo</strong>  </div>
+  <!-- Lista de Caracteristicas / Propiedades -->
+  <ul class="table-list">
+    <li>  Busy unavailable or too busy.</li>
+    <li>  Try again in a few moments. </li>
+    <li>  Moment ilable few moments. </li>
+    <li>  Comoments. </li>
+  </ul>
+  
+  <p class="des"> If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web. </p>
+  <!-- Contratar / Comprar -->
+  <div class="table-buy"> <a class="pricing-action" href="#">Readmore </a> </div>
+</div>
+
+<div class="pricing-table">
+  <h3 style="background-color:#C00;" class="pricing-title vertical-text"> 
+    For Large Business</h3>
+  <div class="price"> Malls </div>
+  <div class="pricetwo"> <strong>$1200/- mo</strong>  </div>
+  <!-- Lista de Caracteristicas / Propiedades -->
+  <ul class="table-list">
+    <li>  Busy unavailable or too busy.</li>
+    <li>  Try again in a few moments. </li>
+    <li>  Moment ilable few moments. </li>
+    <li>  Comoments. </li>
+  </ul>
+  
+  <p class="des"> If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web. </p>
+  <!-- Contratar / Comprar -->
+  <div class="table-buy"> <a class="pricing-action" href="#">Readmore </a> </div>
+</div>
+
+<div class="pricing-table">
+  <h3 style="background-color:#C00;" class="pricing-title vertical-text"> 
+    For Large Business</h3>
+  <div class="price"> Products </div>
+  <div class="pricetwo"> <strong>$1200/- mo</strong>  </div>
+  <!-- Lista de Caracteristicas / Propiedades -->
+  <ul class="table-list">
+    <li>  Busy unavailable or too busy.</li>
+    <li>  Try again in a few moments. </li>
+    <li>  Moment ilable few moments. </li>
+    <li>  Comoments. </li>
+  </ul>
+  
+  <p class="des"> If your computer or network is protected by a firewall or proxy, make sure that Firefox is permitted to access the Web. </p>
+  <!-- Contratar / Comprar -->
+  <div class="table-buy"> <a class="pricing-action" href="#">Readmore </a> </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+                                </div>
+
+
+                                <div class="mat30">
+
+
+
+                                    <div class="fll leftbox">
+
+                                        <ul id="demo">
+
+
+
+
+
+
+                                            <li>
+                                                <p> “If your heart sets out to do good things, things will only get better.”
+
+
+                                                    <p style="margin:0 auto; text-align:center; padding:20px 0 0 0;">
+                                                        <img src="images/avatar-1.jpg" class="testi_img">
+                                                        <p class=""> Jaime Martinez </p>
+                                                    </p>
+
+
+
+                                                </p>
+
+
+
+                                            </li>
+
+                                            <li>
+                                                <p> TWO ipsum dolor sit amet, consectetur adipisicing elit. Quam totam nulla est, illo molestiae maxime officiis, quae ad, ipsum vitae deserunt molestias eius alias.
+
+                                                    <p style="margin:0 auto; text-align:center; padding:20px 0 0 0;" ">
+<img src="images/avatar-2.jpg " class="testi_img ">
+<p class=" "> Rickey Ponting </p>
+</p>
+
+ </p> </li>
+      
+      
+      <li> <p> Three ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ea, perferendis error fuga temporibus. Unde omnis, consequuntur.
+
+<p style="margin:0 auto; text-align:center; padding:20px 0 0 0; "">
+                                                        <img src="images/avatar-3.jpg" class="testi_img">
+                                                        <p class=""> Yuvraj Singh </p>
+
+
+                                                    </p>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+
+
+
+
+
+                                    <div class="scrolltext_box flr">
+                                        <div class="fll">
+                                            <h3 class="pab10 wi100pstg borderbottom mab10"> Heading Goes Here </h3>
+                                            <marquee behavior="scroll" direction="up" scrollamount="3" height="220">
+                                                <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, </p>
+                                                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. <span class="bold"> It has roots in a piece of classical Latin </span> literature. </p>
+                                                <p> Contrary to popular belief, Lorem Ipsum is not simply random text. <span class="bold"> It has roots in a piece of classical Latin is not simply random text. </span> It has roots in a piece of classical Latin literature. </p>
+                                            </marquee>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--wrapper inner closed here-->
+
+                </div>
+                <!--module container end here-->
+            </div>
+            <!--wrapper main closed here-->
+
+
+
+            <div class="rightContainer">
+
+                <div class="right1">
+                    <!--<div class='update_broadcaster'>Hello Dear Guest</div>-->
+                    <div class="right_div">
+
+
+
+
+                        <div class="right_inner">
+                            <div class="square-ad">
+                                <!--<img class="square-img" src="images/000.jpg"/>-->
+                                <h2>World Cup <br>T20 2016</h2>
+                                <div class="event-btn">JOIN EVENT</div>
+                            </div>
+                        </div>
+
+                        <div class="right_inner">
+                            <div class="square-ad">
+                                <marquee onmouseout="this.start()" onmouseover="this.stop()" class="marquee-updates" direction="up">
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> Praveen Manne updated his status </p>
+                                            <p class="fs12 gray"> Just Now </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Just Now </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> 2 Minutes Ago </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> 5 Minutes Ago </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> 3 Hours Ago </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Yesterday </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Fri, 11 Dec </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Fri, 11 Dec </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Fri, 11 Dec </p>
+                                        </div>
+                                    </div>
+                                    <div class="fll wi100pstg pab5">
+                                        <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                        <div class="fll">
+                                            <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                            <p class="fs12 gray"> Fri, 11 Dec </p>
+                                        </div>
+                                    </div>
+                                </marquee>
+                            </div>
+                        </div>
+                        <div class="right_inner">
+                            <div class="tall-ad">
+                                <!--<div class="event-btn">Play</div> -->
+                                <img class="animated-gif" src="images/gif.gif">
+
+                            </div>
+                        </div>
+
+                        <div class="right_inner">
+                            <div class="square-ad">
+                                <h3 class="acenter mat5 white">Fund Raises - Nepal Earth Quake Support</h3>
+                                <div class="event-btn flr">Donate</div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="right2">
+                    <div class="right_div">
+                        <div class="right_inner">
+                            <div class="tall-ad-b">
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> Praveen Manne updated his status </p>
+                                        <p class="fs12 gray"> Just Now </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Just Now </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> 2 Minutes Ago </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> 5 Minutes Ago </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> 3 Hours Ago </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Yesterday </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Fri, 11 Dec </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Fri, 11 Dec </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Fri, 11 Dec </p>
+                                    </div>
+                                </div>
+                                <div class="fll wi100pstg pab5">
+                                    <div class="updates-logo fll"> <img src="images/onenet.png" alt="logo"> </div>
+                                    <div class="fll">
+                                        <p class="fs14 white"> MD Danish changed his profile picture </p>
+                                        <p class="fs12 gray"> Fri, 11 Dec </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="right_inner"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="clr"></div>
+
+        <!--footer start here-->
+        <div class="ondes_footer">
+            <div class="ondes_footerleft"><span> copyright &copy; oneidnet 2015 </span></div>
+            <div class="ondes_footerright mat10 aright mar10"><span><a href="#"><img src="images/onenet.png" alt="logo"></a></span></div>
+        </div>
+        <!--footer closed here-->
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
