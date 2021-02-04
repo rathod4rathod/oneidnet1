@@ -53,16 +53,6 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $cookies_obj = $this->load->module("cookies");
         $user_timezone = $cookies_obj->getUserTimezone();
         return $user_timezone;
-
-//$date = date_create('2000-01-01', timezone_open('Pacific/Nauru'));
-//echo date_format($date);
-//echo date_format($date, 'Y-m-d g:i A') . "\n";
-//
-//date_timezone_set($date, timezone_open('Pacific/Chatham'));
-//echo date_format($date, 'Y-m-d H:i:sP') . "\n";
-//
-////      $date = new DateTime('2016-01-28', new DateTimeZone('Asia/Kolkata'));
-////        echo $date->format('Y-m-d H:i:sP') . "\n";
     }
 
     function get_store_ownerId() {
