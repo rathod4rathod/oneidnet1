@@ -1,9 +1,3 @@
-<div style="display: none;" id="sendmessage" class="click_popUp">
-  <?php
-            $this->load->modules("templates");
-            $this->templates->composeMsgPopup();
-            ?>
-</div>
 <div class="click_popUp" id="reportproblemPopUp">
 	<div class="click_createGroupPopUpWrapper">
     <a href="javascript: void(0)" onClick="reportProblem_popUpVisibility('reportproblemPopUp');">
@@ -140,13 +134,12 @@ $encoded_profile=base64_encode(base64_encode($profile_id));
                         <div class="notificationContent">
                             <div class="np_messages_imageandtext_wrapper">
                                 <div class="wi100pstg os_des_borderbottom overflow np_des_mab10 np_des_mat10">
-                                <span class="fll os_des_mal10 np_des_mat5"><a href="<?php echo VCOMURL;?>corporate/?co=4f4e454e4554574f524b#vclk" class="blue"> See All </a> </span>
                                     <p onclick="message_popUpVisibility('sendmessage')">
                                         <input type="button" name="button" class="np_des_newbutton_csshere  np_des_mab5 flr" value="Compose Message">
                                     </p>
                                 </div>
-                                <ul id="onenetworkMsg">
-                                    <!-- <li>
+                                <ul>
+                                    <li>
                                         <div class="np_messages_leftimagediv"> 
                                             <img src="<?php echo base_url() . 'assets/images/profilepic.jpg' ?>"> 
                                         </div>
@@ -156,7 +149,7 @@ $encoded_profile=base64_encode(base64_encode($profile_id));
                                                 <p class="wi100pstg mat3"> Message on : </p>
                                             </div>
                                         </div>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </div>
                         </div>

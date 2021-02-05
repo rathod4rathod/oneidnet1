@@ -13,8 +13,8 @@ class Templates extends CI_Controller {
         $user_id=$homeObj->get_userId();        
         $sql="select first_name,last_name,profile_id,middle_name,img_path,profile_id from iws_profiles where profile_id=".$user_id;
         $data['userdata']=$db_obj->custom($sql);
-        $cbobj=$this->load->module("cookies");
-        $data["cid"]=$cbobj->getUserID();
+                        $cbobj=$this->load->module("cookies");
+         $data["cid"]=$cbobj->getUserID();
         $data["user_id"]=$cbobj->getUserIDHash();
         $this->load->view('templates/headertpl',$data);
     }
@@ -287,20 +287,6 @@ class Templates extends CI_Controller {
       $data["search_term"]=$search_term;
       $this->load->view("templates/searchResult",$data);
     }
-
-    function composeMsgPopup()
-    {
-      $data["friends_list"]=$this->usersList();
-      $this->load->view("templates/headertpl",$data);
-    }
-
-    function usersList()
-    {
-      $obj = $this->load->module('db_api');
-       $sql="SELECT profile_id,user_id,replace(concat(first_name,' ',middle_name,' ',last_name),'  ',' ') as fullname FROM `blog_users_connections` buc left join iws_profiles ip on buc.my_id_fk=ip.profile_id WHERE `friend_id_fk`='".$this->getUserId()."' and followed_via_module='ONENETWORK' and buc.`status`='ACPT' order by `connected_time` desc";
-      return $obj->custom($sql);
-    }
-
     function pprofile(){
       $profile_id=$_REQUEST["user_id"];
       $this->load->module("db_api");

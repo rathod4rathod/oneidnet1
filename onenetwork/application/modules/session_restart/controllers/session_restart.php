@@ -32,13 +32,12 @@ class session_restart extends CI_Controller {
         $db_obj = $this->load->module("db_api");
         if (!$ck_obj->getUserID()) {
             
-             echo "CLOGOUT";
-            // die();
+            echo "CLOGOUT";
+            die();
         } else {
             $login_result = $db_obj->select("login_id", "iws_login_history", 'ip_address="' . $_SERVER['REMOTE_ADDR'] . '" and profile_id=' . $ck_obj->getUserID());
             if ($login_result == 0) {
-                 echo "CLOGOUT"; 
-                 //           die();
+                echo "CLOGOUT";                die();
             } else {
                 $log_result=$db_obj->select("profile_id,username,first_name,middle_name,last_name,img_path,time_zone,role", "iws_profiles", 'profile_id=' . $ck_obj->getUserID());
                         $_SESSION['user_full_name']=$log_result[0]['first_name']." ".$log_result[0]['middle_name']." ".$log_result[0]['last_name'];

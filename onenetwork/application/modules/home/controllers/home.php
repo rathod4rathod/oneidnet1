@@ -14,7 +14,7 @@ class Home extends CI_Controller {
             if (isset($_REQUEST["skey"])) {
                 $this->session_restart->key_check($_REQUEST["skey"]);
             }
-    }
+        }
     }
 
     function get_userId() {
@@ -213,34 +213,30 @@ function downloadfile($file) { // $file = include path
         //november 23 2016 by venkatesh
     function friendrequest(){
 
-        $db_obj=$this->load->module("db_api");
-            $uid=$this->get_userid();
-
-        if($_REQUEST["requestforupdate"]=="YES"){
-            $db_obj->update(["read_or_not"=>'1'],'blog_users_connections',"`friend_id_fk`=$uid and followed_via_module='ONENETWORK' and `read_or_not`='0' and `status`='PND'");
-        }
-
-        $qur="SELECT `connected_time`,profile_id,user_id,replace(concat(first_name,' ',middle_name,' ',last_name),'  ',' ') as fullname,img_path FROM `blog_users_connections` buc left join iws_profiles ip on buc.my_id_fk=ip.profile_id WHERE `friend_id_fk`=$uid and followed_via_module='ONENETWORK' and buc.`status`='PND' order by `connected_time` desc";
-
+    $db_obj=$this->load->module("db_api");
+        $uid=$this->get_userid();
+if($_REQUEST["requestforupdate"]=="YES"){
+    $db_obj->update(["read_or_not"=>'1'],'blog_users_connections',"`friend_id_fk`=$uid and followed_via_module='ONENETWORK' and `read_or_not`='0' and `status`='PND'");
+}
+        $qur="SELECT `connected_time`,profile_id,user_id,replace(concat(first_name,' ',middle_name,' ',last_name),'  ',' ') as fullname,img_path "
+                . "FROM `blog_users_connections` buc left join iws_profiles ip on buc.my_id_fk=ip.profile_id WHERE `friend_id_fk`=$uid and "
+                . "followed_via_module='ONENETWORK' and buc.`status`='PND' order by `connected_time` desc";
        $data["cofriend_request"]= $db_obj->custom($qur);
-
        $this->load->view("home/friendrequest",$data);
-
     }
     //november 23 2016 by venkatesh
-
     function friendrequestcount(){
         $uid=$this->get_userid();
         $db_obj=$this->load->module("db_api");
-        $qur="SELECT count(`friend_id_fk`) as cnt FROM `blog_users_connections` WHERE `friend_id_fk`=$uid and followed_via_module='ONENETWORK' and `read_or_not`='0' and `status`='PND'";
+        $qur="SELECT count(`friend_id_fk`)as cnt FROM `blog_users_connections` WHERE `friend_id_fk`=$uid and followed_via_module='ONENETWORK' and `read_or_not`='0' and `status`='PND'";
         $uid=$this->get_userid();
         $rlt= $db_obj->custom($qur);
         echo $rlt[0]['cnt'];
     }
     //november 23 2016 by venkatesh
     function userAccept(){
-        $uid=$this->get_userId();
-        $fid= hex2bin($_REQUEST["profileid"]);
+                $uid=$this->get_userId();
+                $fid= hex2bin($_REQUEST["profileid"]);
         $db_obj=$this->load->module("db_api");
         echo $db_obj->update(["status"=>"ACPT"],"blog_users_connections","friend_id_fk=$uid and my_id_fk=$fid and followed_via_module='ONENETWORK'");
     }

@@ -12,8 +12,9 @@ class os_package extends CI_Controller {
         $obj = $this->load->module('cookies');
         return $obj->getUserID();
     }
-    function index(){        
+    function index(){     
         $db_obj = $this->load->module('db_api');
+        
         if (isset($_REQUEST["type"]) && isset($_REQUEST["str"])) {
             if ($_REQUEST["type"] == "ug") {
                 $data["type"] = $_REQUEST["type"];
@@ -21,15 +22,18 @@ class os_package extends CI_Controller {
             }
         }
         $data['stores_info'] = $db_obj->select("*", "oshop_packages", '');
+        // print_r($stores_info);
         $this->load->view('os_package/os_packages_view',$data);
     }
-     function os_package_packages(){
+
+    function os_package_packages(){
         $db_obj = $this->load->module('db_api');
         $myfields = "*";
         $mytable = "oshop_packages";
         $data['stores_info'] = $db_obj->select($myfields, $mytable, '');
         $this->load->view('os_package/os_packages_view',$data);
     }
+
     function store_packages() {
          $this->load->view('os_package/store_packages_cr');
     }

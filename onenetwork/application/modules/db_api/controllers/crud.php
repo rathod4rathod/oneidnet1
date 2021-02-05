@@ -82,7 +82,6 @@ class CRUD {
     while( $row = mysql_fetch_array( $result ) ){
       $mydata[] = $row;
     }
-
     if( $i_total_result === 0 ){
       return 0;
     } else {

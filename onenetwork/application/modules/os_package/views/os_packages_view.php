@@ -24,19 +24,20 @@ line-height:32px;"> ONESHOP PACKAGES </h1>
                         <div class="boxesnewleft_wrap">
                             <div style="margin-top:40px;" class="pricing-wrapper clearfix">
                                 <div class="pricing-table">
-                                    <h3 class="pricing-title vertical-text"  style="background-color:#09F;"> <br>
-                                        <?PHP echo $stores_info[0]['remark']; ?> </h3>
+                                   <!--  <h3 class="pricing-title vertical-text"  style="background-color:#09F;"> <br>
+                                        <?PHP echo $stores_info[0]['remark']; ?> </h3> -->
                                     <div class="price">
 
-                                        <p> <?PHP echo $stores_info[0]['name']; ?> <br><sup><?PHP
-                                                $price = number_format($stores_info[0]['price']/100,2,',','.');
+                                        <p> <?PHP echo $stores_info[0]['name']; ?> <br>
+                                            <sup>Free for the first 6 months, <?PHP
+                                                $price = number_format($stores_info[0]['price']/100,2,'.','');
                                                 echo  "$".$price."&nbsp";
-                                                ?>/ Month</sup></p></div>
+                                                ?>/ Month thereafter</sup></p></div>
 
 
                                     <!-- Lista de Caracteristicas / Propiedades -->
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[0]['total_products']; ?></b>  products </li>                         
+                                        <li>Add 1 to <b><?PHP echo $stores_info[0]['total_products']; ?></b>  products </li>                         
 
                
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
@@ -48,9 +49,9 @@ line-height:32px;"> ONESHOP PACKAGES </h1>
 ['store_maintainance']/100,2,'.',''); 
 
 ?> </li>
-                                        <li> <span>Sales Percentage Charge &nbsp;</span><?PHP echo $stores_info[0]['initial_percentage_on_sale'] * 
+                                        <li><span>Sales Percentage Charge &nbsp;</span><?PHP echo number_format($stores_info[0]['initial_percentage_on_sale'] * 
 
-100; ?> %</li>
+100,0); ?> %</li>
                                         <li> <span>Store Data Storage &nbsp;</span><?PHP echo "$".number_format($stores_info[0]
 
 ['store_data_storage']/100,2,'.',''); ?></li>
@@ -62,14 +63,14 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[0]['package_i
                                 </div>
 
                                 <div class="pricing-table">
-                                    <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> <br>
-                                            <?PHP echo $stores_info[1]['remark']; ?></h3>
-                                    <div class="price"  > <?PHP echo $stores_info[1]['name']; ?> <br><sup><?PHP
+                                   <!--  <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> <br>
+                                            <?PHP echo $stores_info[1]['remark']; ?></h3> -->
+                                    <div class="price"  > <?PHP echo $stores_info[1]['name']; ?> <br><sup>Free for the first 6 months, <?PHP
                                             $price = number_format($stores_info[1]['price']/100,2,'.','');
                                              echo  "$".$price."&nbsp";
-                                                ?>/ Month</sup></div>
+                                                ?>/ Month thereafter</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[1]['total_products']; ?></b>  products </li>                         
+                                        <li>Add 101 to  <b><?PHP echo $stores_info[1]['total_products']; ?></b>  products </li>                         
 
                
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
@@ -81,9 +82,9 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[0]['package_i
 ['store_maintainance']/100,2,'.',''); 
 
 ?> </li>
-                                        <li><span>Sales Percentage Charge &nbsp;</span><?PHP echo number_format($stores_info[1]['initial_percentage_on_sale'] * 
+                                        <li><span>Sales Percentage Charge &nbsp;</span><?PHP echo $stores_info[1]['initial_percentage_on_sale'] * 
 
-100); ?> %</li>
+100; ?> %</li>
                                         <li><span>Store Data Storage &nbsp;</span><?PHP echo "$".number_format($stores_info[1]
 
 ['store_data_storage']/100,2,'.',''); 
@@ -95,17 +96,15 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[0]['package_i
 
 class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[1]['package_id']; ?>" >Select Plan </a> </div>
                                 </div>
-
-
-                                <div class="pricing-table">
-                                    <h3 class="pricing-title vertical-text" style="background-color:#C00;"> <br>
-                                            <?PHP echo $stores_info[2]['remark']; ?></h3>
-                                    <div class="price"  > <?PHP echo $stores_info[2]['name']; ?> <br><sup><?PHP
+                                <div class="pricing-table" style="margin-top: 30px;">
+                                   <!--  <h3 class="pricing-title vertical-text" style="background-color:#C00;"> <br>
+                                            <?PHP echo $stores_info[2]['remark']; ?></h3> -->
+                                    <div class="price"  > <?PHP echo $stores_info[2]['name']; ?> <br><sup>Free for the first 4 months, <?PHP
                                             $price = number_format($stores_info[2]['price']/100,2,'.','');
                                             echo  "$".$price."&nbsp";
-                                                ?>/ Month</sup></div>
+                                                ?>/ Month thereafter</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[2]['total_products']; ?></b>  products </li>  
+                                        <li>Add 501 to  <b><?PHP echo $stores_info[2]['total_products']; ?></b>  products </li>  
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
                                         <li> <span>Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[2]
 
@@ -128,15 +127,16 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[1]['package_i
 
 class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[2]['package_id']; ?>">Select Plan </a> </div>
                                 </div>
-                                <div class="pricing-table" style="    margin-top: 30px;">
-                                    <h3 class="pricing-title vertical-text"  style="background-color:#03F;"> <br>
-                                            <?PHP echo $stores_info[3]['remark']; ?></h3>
-                                    <div class="price"  > <?PHP echo $stores_info[3]['name']; ?> <br><sup><?PHP
+
+                                <div class="pricing-table" style="margin-top: 30px;">
+                                  <!--   <h3 class="pricing-title vertical-text"  style="background-color:#03F;"> <br>
+                                            <?PHP echo $stores_info[3]['remark']; ?></h3> -->
+                                    <div class="price"  > <?PHP echo $stores_info[3]['name']; ?> <br><sup>Free for the first 3 months, <?PHP
                                             $price = number_format($stores_info[3]['price']/100,2,'.','');
                                             echo  "$".$price."&nbsp";
-                                                ?>/ Month</sup></div>
+                                                ?>/ Month thereafter</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[3]['total_products']; ?></b>  products </li>   
+                                        <li>Add 1001 to  <b><?PHP echo $stores_info[3]['total_products']; ?></b>  products </li>   
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
                                         <li> <span>Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[3]
 
@@ -160,14 +160,14 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[2]['package_i
 class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[3]['package_id']; ?>">Select Plan </a> </div>
                                 </div>
                                 <div class="pricing-table" style="margin-top:30px;">
-                                    <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> 
-                                        <br><?PHP echo $stores_info[4]['remark']; ?></h3>
-                                    <div class="price"  > <?PHP echo $stores_info[4]['name']; ?> <br><sup><?PHP
+                                   <!--  <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> 
+                                        <br><?PHP echo $stores_info[4]['remark']; ?></h3> -->
+                                    <div class="price"  > <?PHP echo $stores_info[4]['name']; ?> <br><sup>Free for the first 3 months, <?PHP
                                             $price = number_format($stores_info[4]['price']/100,2,'.','');
                                             echo  "$".$price."&nbsp";
-                                                ?>/ Month</sup></div>
+                                                ?>/ Month thereafter</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[4]['total_products']; ?></b>  products </li>    
+                                        <li>Add 1501 to  <b><?PHP echo $stores_info[4]['total_products']; ?></b>  products </li>    
                                         <li><span class="blue"><b>Price Breadown</b></span></li>
                                         <li> <span>Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[4]
 
@@ -194,14 +194,14 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[4]['package_i
 
 
                                 <div class="pricing-table" style="margin-top:30px;">
-                                    <h3 class="pricing-title vertical-text" style="background-color:#C00;"> <br>
-<?PHP echo $stores_info[5]['remark']; ?></h3>
+                                   <!--  <h3 class="pricing-title vertical-text" style="background-color:#C00;"> <br>
+<?PHP echo $stores_info[5]['remark']; ?></h3> -->
                                     <div class="price"  > <?PHP echo $stores_info[5]['name']; ?> <br><sup><?PHP
 $price =number_format($stores_info[5]['price']/100,2,'.','');
 echo  "$".$price."&nbsp";
                                                 ?>/ Month</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[5]['total_products']; ?></b>  products  </li>    
+                                        <li>Add 2001 to  <b><?PHP echo $stores_info[5]['total_products']; ?></b>  products  </li>    
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
                                         <li><span>Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[5]
 
@@ -223,15 +223,15 @@ echo  "$".$price."&nbsp";
 class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[5]['package_id']; ?>">Select Plan </a> </div>
                                 </div>
 
-                                <div class="pricing-table" style="    margin-top: 30px;">
-                                    <h3 class="pricing-title vertical-text"  style="background-color:#03F;"> <br>
-<?PHP echo $stores_info[6]['remark']; ?></h3>
+                                <div class="pricing-table" style="margin-top: 30px;">
+                                  <!--   <h3 class="pricing-title vertical-text"  style="background-color:#03F;"> <br>
+<?PHP echo $stores_info[6]['remark']; ?></h3> -->
                                     <div class="price"  > <?PHP echo $stores_info[6]['name']; ?> <br><sup><?PHP
 $price = number_format($stores_info[6]['price']/100,2,'.','');
 echo  "$".$price."&nbsp";
                                                 ?>/ Month</sup></div>
                                     <ul class="table-list">
-                                        <li>Add upto <b><?PHP echo $stores_info[6]['total_products']; ?></b>  products </li>    
+                                        <li>Add 5001 to <b><?PHP echo $stores_info[6]['total_products']; ?></b>  products </li>    
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
                                         <li><span> Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[6]
 
@@ -256,15 +256,15 @@ class="pricing-action oneshopdev_plan" id="<?PHP echo $stores_info[6]['package_i
                                 </div>
 
                                 <div class="pricing-table" style="margin-top:30px;">
-                                    <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> <br>
-<?PHP echo $stores_info[7]['remark']; ?></h3>
+                                  <!--   <h3 class="pricing-title vertical-text" style="background-color:#F0F;"> <br>
+<?PHP echo $stores_info[7]['remark']; ?></h3> -->
                                     <div class="price"  > <?PHP echo $stores_info[7]['name']; ?> <br><sup><?PHP
 $price = number_format($stores_info[7]['price']/100,2,'.','');
 echo  "$".$price."&nbsp";
                                                 ?>/ Month</sup></div>
                                     <ul class="table-list">
                                         <li>Receive <b>Unlimited</b> orders   </li>
-                                        <li>Add <b>Unlimited</b> products </li>          
+                                        <li>Add <b>7000 PLUS</b> products </li>          
                                         <li><span class="blue"><b>Price Breakdown</b></span></li>
                                         <li><span> Store Site Operation &nbsp;</span><?PHP echo "$".number_format($stores_info[7]
 

@@ -18,9 +18,7 @@ if ($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1"
     define('ONEIDNETURL', $protocol . $_SERVER['HTTP_HOST'] . '/oneidnet/');
     define('ONESHOPURL', $protocol . $_SERVER['HTTP_HOST'] . '/oneshop/');
     define('COFFICEURL', $protocol . $_SERVER['HTTP_HOST'] . '/coffice/');
-    define('VCOMURL', $protocol . $_SERVER['HTTP_HOST'] . '/vcom/');
 } else {    
-    define('VCOMURL', 'https://vcom.oneidnet.com/');
     define('ONEIDNETURL', 'https://www.oneidnet.com/');    
     define('ONESHOPURL', 'https://oneshop.oneidnet.com/');    
     define('COFFICEURL', 'https://coffice.oneidnet.com/');    

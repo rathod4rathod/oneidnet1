@@ -1,5 +1,3 @@
-function message_popUpVisibility(o){var e = document.getElementById(o); "block" == e.style.display?e.style.display = "none":e.style.display = "block"}
-
 $(document).ready(function() {
     $(".moduleSearchField").focus(function() {
         $(this).next(".searchSuggessions").fadeIn(50)
@@ -96,17 +94,6 @@ this.disabled = true;
 
 this.disabled = false;
 });
-});
-
-$(document).on("click", "#messages", function () {
-if ($(this).hasClass("msgyes") == false) {
-$("#onenetworkMsg").html("<div id='prgrs'>.<div class='spinner-sm' style='margin-left:45%'></div></div>");
-        $.get(baseUrl + "profile/getAllRecievedMessages", {msgntf: $.trim($("#msgnotification").html())}, function (data) {
-        $("#msgnotification").hide().html("");
-                $("#cofficemsglist").html($.trim(data));
-        });
-        $(this).addClass("msgyes");
-}
 });
 
 function friendcnt(){

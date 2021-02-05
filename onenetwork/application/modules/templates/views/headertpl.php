@@ -32,7 +32,7 @@
         </script>
 
 
-<!--         <script>
+        <script>
             function message_popUpVisibility(id) {
                 var e = document.getElementById(id);
                 if (e.style.display == 'block') {
@@ -42,7 +42,7 @@
                     e.style.display = 'block';
                 }
             }
-        </script>   -->        
+        </script>          
 
 
 
@@ -63,11 +63,7 @@
                             <p class="fs14"> To </p>
 
                             <select class="tokenize-sample block_user_id oneshop_compose_selectbox" multiple="multiple" id="connectids">
-                                <?php
-                                foreach ($friends_list as $flist) {
-                                  echo "<option value='" . $flist["user_id_fk"] . "'>" . $flist["profile_name"] . "</option>";
-                                }
-                                ?>
+                                <option value="1">Craig   Ferguson</option>
                             </select>
                             <div id="to_field">
                                 <ul id="removeConfirmationTags">
