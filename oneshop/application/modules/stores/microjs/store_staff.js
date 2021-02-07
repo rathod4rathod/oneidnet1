@@ -248,8 +248,6 @@
                      }
                 }
                 
-               
-                //For Valid Emails need to insert in staff
                 if(invalidArr.length == 0 && existArr.length == 0 && validArr.length > 0 && validupdateArr == 0){ 
                     $.ajax({
                         type: 'POST',

@@ -408,6 +408,18 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         //$this->load->view("home/inventory_posting", $data);
       }
 
+    function productlist(){
+        $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
+        $sql="SELECT product_name FROM oshop_products as op inner join  oshop_stores as oshs  on oshs.store_aid = op.store_id_fk WHERE product_name LIKE '%".$_GET['query']."%'
+            LIMIT 10";
+        $result = mysqli_query($connect,$sql);
+        // echo var_dump($result);
+        while($row = mysqli_fetch_array($result)){
+            $json[] = $row['product_name'];
+        }
+        echo json_encode($json);
+    }
+
     #Creayed By - Mitesh
     function store_promo($store_id) 
     {

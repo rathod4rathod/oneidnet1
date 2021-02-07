@@ -12,7 +12,16 @@ if($theme_selected!=''){
      $sideimage = base_url().'/assets/images/store_banners/1.png';
       $midimage = base_url().'/assets/images/store_banners/mid1.png'; 
      }
-?>    
+?>  
+<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+ <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
+
 <style type="text/css">
     
 th, td{
@@ -62,7 +71,16 @@ th, td{
                                         </div>
                                     </td>
                                 </tr>
-                                
+                                <tr>
+                                    <td colspan="2">
+                                        <div id="order_no_div">
+                                            <div> Product list  </div>
+                                            <div> 
+                                                <input type="text" class="input" placeholder="Enter Title" id="promo_product" name="promo_product"> </div>
+                                            <p id='staff_err_1' class='wi100pstg fs11 red clearfix'></p>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="2">
                                     <div>
@@ -130,7 +148,7 @@ th, td{
 $this->templates->app_footer();
 ?>
 <script type="text/javascript" src="<?php echo base_url().'assets/microjs/pprofile.js'?>"></script>
-<link rel="stylesheet" href="<?php echo base_url() . "assets/" ?>css/jquery-ui.css">
+<!-- <link rel="stylesheet" href="<?php echo base_url() . "assets/" ?>css/jquery-ui.css"> -->
 <script src="<?php echo base_url() . "assets/" ?>scripts/jquery-ui.js"></script> 
 <script type="text/javascript" src="<?php echo base_url() . "/application/modules/stores/microjs/"; ?>store_sales.js"></script>
 <script type="text/javascript">
@@ -138,6 +156,31 @@ $(function () {
     $("#fromDate").datepicker();
     $("#endDate").datepicker();
 });
+ $('#promo_product').tokenfield({
+  autocomplete:{
+   source: ['PHP','Codeigniter','HTML','JQuery','Javascript','CSS','Laravel','CakePHP','Symfony','Yii 2','Phalcon','Zend','Slim','FuelPHP','PHPixie','Mysql'],
+   delay:100
+  },
+  showAutocompleteOnFocus: true
+ });
+// $(document).ready(function() {
+//     var tagApi = $(".tm-input").tagsManager();
+
+
+//     jQuery(".typeahead").typeahead({
+//       name: 'oshop_products',
+//       displayKey: 'product_name',
+//       source: function (query, process) {
+//         return $.get(oneshop_url+'/home/productlist', { query: query }, function (data) {
+//           data = $.parseJSON(data);
+//           return process(data);
+//         });
+//       },
+//       afterSelect :function (item){
+//         tagApi.tagsManager("pushTag", item);
+//       }
+//     });
+//   });
 var dataRecords = $('#recordListing').DataTable({
         "processing":true,
         "serverSide":true,              

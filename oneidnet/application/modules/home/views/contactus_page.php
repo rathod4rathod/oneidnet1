@@ -16,9 +16,37 @@ $this->templates->content_header();
                 <li class="foundation_img"><a href="<?php echo base_url() . 'home/foundation' ?>"></a></li>
                 <li class="privacy_img"><a href="<?php echo base_url() . 'home/privacy' ?>"></a></li>
                 <li class="tc_img"><a href="<?php echo base_url() . 'home/termsconditions' ?>"></a></li>
-                <li class="cs_img"><a href="<?php echo base_url() . 'home/customersupport' ?>"></a></li>
-                <li class="cu_img_active"><a href="<?php echo base_url() . 'home/contactus' ?>"></a></li>
+                <?php if($type == 'module' && $type != 'representative' && $type != 'add'){?>
+                    <li class="cs_img_active"><a href="<?php echo base_url() . 'home/customersupport' ?>"></a></li>
+                <?php }else{?>
+                    <li class="cs_img"><a href="<?php echo base_url() . 'home/customersupport' ?>"></a></li>
+                <?php } ?>
+                <li class="cu_img"><a href="<?php echo base_url() . 'home/contactus' ?>"></a></li>
                 <li class="all_img"><a href="<?php echo base_url() . 'home/allinone' ?>"></a></li>
+                    <?php 
+                    $obj = $this->load->module('cookies');
+                    $db_api = $this->load->module('db_api');
+                    $sup_query = "SELECT * FROM iws_profiles iws INNER JOIN oneid_support os ON os.one_email = iws.email WHERE profile_id='".$obj->getUserID()."'";
+                    $emp_rest = $db_api->custom($sup_query);
+                    if($emp_rest){?>
+                        <li class="sacc_img"><a href="<?php echo base_url() . 'home/emp_support_access'?>"></a></li>
+                    <?php } ?>
+                <?php 
+                    if($add_repre_support != "" || $repre != ""){
+                        if($type != 'module' && $type != 'representative' && $type == 'add'){?>
+                        <li class="asupp_img_active"><a href="<?php echo base_url() . 'home/createsupport_emp' ?>"></a></li>
+                <?php }else{?>
+                        <li class="asupp_img"><a href="<?php echo base_url() . 'home/createsupport_emp' ?>"></a></li>
+                    <?php }
+                    } ?>
+                    <?php
+                    if($add_repre_support != ""){
+                        if($type != 'module' && $type != 'add' && $type == 'representative'){?>
+                            <li class="arepre_img_active"><a href="<?php echo base_url() . 'home/add_representative' ?>"></a></li>
+                    <?php }else{?>
+                            <li class="arepre_img"><a href="<?php echo base_url() . 'home/add_representative' ?>"></a></li>
+                    <?php }
+                    } ?>
             </ul>
 
         </div>

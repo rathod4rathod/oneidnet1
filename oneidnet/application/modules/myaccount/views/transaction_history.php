@@ -19,33 +19,7 @@ $this->templates->paybook_subheader()
             <div class="ttdes_flight_duration_box"> Amount </div>
           </div>
            <div id="transaction_history"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
-          
-          
-            
-          
-         
-          
-          
-          
-          
-          
-          
         </div>
       </div>
       <div class="oneshop_right_newcontainer np_des_mat25"> <img src="images/ad1.jpg" class="hotel_news_imgbox"> </div>

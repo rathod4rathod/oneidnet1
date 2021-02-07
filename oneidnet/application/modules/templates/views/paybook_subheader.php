@@ -11,6 +11,8 @@
         } else{} ?>">Pending Transactions  </a></li>
             <li id="oneidnet_transactionhistory"><a  class="<?php if(isset($is_oneidnet_transhistory_active)) {   echo 'current';
         } else{} ?>"> Transaction History </a></li>
+            <li id="oneidnet_paymenthistory"><a class="<?php if(isset($is_oneidnet_payment_active)) {   echo 'current';
+        } else{} ?>"> Payment History </a></li>
             </ul>
         </div>
       </div>

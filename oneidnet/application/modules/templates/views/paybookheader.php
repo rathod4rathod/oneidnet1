@@ -486,7 +486,8 @@ label {
             <li><a href="<?php echo base_url().'myaccount'?>" class="current"> MY Account </a></li>
             <li><a href="<?php echo base_url().'myaccount/mycarddetails'?>"> Cards used</a></li>
             <li><a href="<?php echo base_url().'myaccount/pendingtransactions'?>">Pending Transaction  </a></li>
-            <li><a href="<?php echo base_url().'myaccount/transactionhistory'?>"> Transaction History </a></li>
+            <!-- <li><a href="<?php echo base_url().'myaccount/transactionhistory'?>"> Transaction History </a></li> -->
+            <li><a href="<?php echo base_url().'myaccount/paymenthistory'?>"> Payment History </a></li>
             </ul>
         </div>
       </div>
