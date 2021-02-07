@@ -1,0 +1,186 @@
+<?php
+    $this->load->module('templates');
+    $this->templates->app_header(  );  
+?>
+<script type="text/javascript">
+	
+    function toggle_addCommentVisibility(id){
+    
+		var addComment = document.getElementById(id);
+		if(addComment.style.display == 'block'){
+			addComment.style.display = 'none'}
+		else{
+      
+			addComment.style.display = 'block'}
+		}
+    
+	function toggle_uploadPicVisibility(id){
+		var addPic = document.getElementById(id);
+		if(addPic.style.display == 'block'){
+			addPic.style.display = 'none'}
+		else{
+			addPic.style.display = 'block'}
+		}				
+</script>
+<div class="clearfix"></div>
+<?php
+//this is to load the menu below of the header
+  $this->templates->app_menu();
+?>
+
+
+<div class="buzdes_module_container_wrap"> <!--module_container start here-->
+
+
+
+
+<div class="buzdes_wrapper_inner"><!--wrapper inner start here-->
+
+<div class="buzdes_product_form"><!--product form start here-->
+<form class="buzdes_product_form_data_fields" id="form_data" name="form_data" enctype="multipart/form-data" method="post"><!--product form data fields start here-->
+ 
+ <div class="buzdes_main_product_reviewbox"><!--parent filed start here-->
+<div class="buzdes_left_main_product_form_filed">
+<label> Title of The problem </label>            
+</div>
+<div class="buzdes_right_main_product_form_filed_box">
+<textarea name="rv_title" cols="" rows="" id="rv_title" class="buzdes_review_textarea"></textarea>
+</div>  
+</div><!--parent filed closed here-->
+
+<div class="buzdes_main_product_reviewbox"><!--parent filed start here-->
+<div class="buzdes_left_main_product_form_filed">
+<label> Description </label>            
+</div>
+<div class="buzdes_right_main_product_form_filed_box">
+<textarea name="rw_desc" cols="" rows="" id="rw_desc" class="buzdes_review_textarea"></textarea>
+</div>  
+</div><!--parent filed closed here-->
+
+<div class="buzdes_main_product_reviewbox"><!--parent filed start here-->
+<div class="buzdes_left_main_product_form_filed">
+<label> Snapshot</label>            
+</div>
+<div class="buzdes_right_main_product_form_filed_box">
+    <input type="file" class="buzdes_review_snap" id="snap" name="snap">
+</div>  
+</div><!--parent filed closed here-->
+<div class="buzdes_reviewbottom_box"><!--parent filed start here-->
+<div class="flr"><input type="submit" name="submit" value="SUBMIT" class="buzdes_btn_common"></div>     
+</div>
+
+<p id="response" style="color: #FFFFF; font-size: 15pt"></p>
+
+<div class="buzdes_main_product_reviewbox"><!--parent filed start here-->
+<div class="buzdes_left_main_product_form_filed">
+           
+</div>
+</div>
+
+<!--parent filed closed here-->
+</form><!--product form data fields closed here-->
+</div><!--product form  closed here-->
+</div> <!--wrapper inner closed here-->
+
+
+</div> <!--module container end here-->
+
+
+
+<div class="clearfix"></div>
+
+<?php
+    $this->load->module('templates');
+    $this->templates->app_footer();     
+?>
+<script type="text/javascript">
+  $(document).ready(function (){
+  $('#rv_title').blur(function(){
+    var rv_tle=$('#rv_title').val();
+      if (rv_tle.length == ""){ 
+          $('#rv_title').addClass('redfoucusclass');
+           return false;
+       }
+       else{
+           $('#rv_title').removeClass('redfoucusclass');
+        }
+    });
+  $('#rw_desc').blur(function(){
+    var rw_desc=$('#rw_desc').val();
+      if ( rw_desc.length == ''){
+          $('#rw_desc').addClass('redfoucusclass');
+           return false;
+        }
+        else{
+        $('#rw_desc').removeClass('redfoucusclass');
+        }
+  });
+  $('#snap').blur(function(){
+     var snap=$('#snap').val();
+      if(snap.length == ''){
+          $('#snap').addClass('redfoucusclass');
+          return false;
+      }else{
+        $('#snap').removeClass('redfoucusclass');
+      }
+   });
+    
+  $('#form_data').submit(function (e){
+alert("werwerwer");
+      e.preventDefault();
+      var rv_tle=$('#rv_title').val();
+       var rw_desc=$('#rw_desc').val();
+       var snap=$('#snap').val();
+       
+       if(rv_tle==""){
+         $('#rv_title').addClass('redfoucusclass');
+       }
+       if(rw_desc==""){
+         $('#rw_desc').addClass('redfoucusclass');
+       }
+       if(snap==""){
+         $('#snap').addClass('redfoucusclass');
+       }
+        $.ajax({
+            type: 'POST',
+            url: "home/reportProblem",
+            data:  new FormData(this),
+            processData: false,
+            contentType: false,
+            success: function(data) {             
+            if(data.trim()== 1){ 
+alert("if block");             
+               $("#response").html("Your report is submitted sucessfully... Thank You");
+               document.getElementById("form_data").reset();        
+               }else{
+               }          
+   
+              },
+              error : function(){
+                alert("error");
+              }
+        });
+     return false;
+   });
+ 
+      $('input[type="file"]#snap').bind('change', function (e) {
+        e.preventDefault();
+        var files = e.originalEvent.target.files;
+
+        var file_name = files[0].name;
+        var file_size = files[0].size;
+        var file_type = files[0].type;
+        if (file_size <= '204800' && (file_type == 'image/jpg' || file_type == 'image/png' || file_type == 'image/gif' || file_type == 'image/jpeg')) { 
+        } else {
+            $('#snap').val('');
+           
+            if (file_size > 512000) {
+                alert("Allow file size should be below 200kb");
+            } else {
+                alert("Allow file type should be jpg|png|gif|pdf");
+            }
+        }
+    });
+});
+</script>
+

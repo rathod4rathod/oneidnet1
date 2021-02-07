@@ -321,6 +321,25 @@
     float: left
 }
 
+.subHeaderMenu.navbar {
+    float: right;
+}
+.dropMenuWrapper.clicknav {
+    width: 100px;
+    padding-left: 0;
+    margin: 5px 0 0px 0;
+    position: relative;
+    cursor: default;
+}
+.dropMenuWrapper.clicknav:after {
+    content: "Menu";
+    position: absolute;
+    vertical-align: middle;
+    right: 0;
+    top: 8px;
+    font-size: 18px;
+}
+
 .dropMenuWrapper {
     min-width: 20px;
     margin: 5px

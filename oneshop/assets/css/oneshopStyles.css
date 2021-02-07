@@ -149,6 +149,8 @@
         margin: 0 auto;
         padding: 0;
         line-height: 30px;
+        font-weight: 700;
+        font-size: 16px;
     }
     .oneshop_product_images {
         border: 1px solid #ccc;
@@ -197,6 +199,8 @@
     }
     .oneshop_left_newcontainer .oneshop_products_storeboxtop_div {
         border: none;
+        height: 135px;
+        margin-bottom: 15px;
     }
     body .oneshop_banner_stip_middle_content {
         width: 100%;
@@ -236,6 +240,150 @@
     .oneshop_right_newcontainer form {
         color: #212121;
         font-weight: bold;
+    }
+    div.product_rightbox_pricebox {
+        width: 47%;
+    }
+    .oneshop_product_images > h5.heading {
+        padding-bottom: 10px;
+    }
+    .oneshop_product_images > .mab10 {
+        padding: 0 10px;
+    }
+    body .oneshop_container_sectionnew .price_box_datadiv {
+        border: none;
+        border-top: 1px solid #ccc;
+        border-radius: 0;
+        padding-bottom: 0;
+    }
+    
+    body .oneshop_services_adminstore_menu ul li span,
+    body .oneshop_services_adminstore_menu ul li a {
+        color: #000;
+    }
+    
+    body .oneshop_services_adminstore_menu ul li img {
+        filter: invert(1);
+    }
+    
+    body .oneshop_services_adminstore_menu ul li a:hover {
+        color: #333;
+    }
+    
+    body .oneshop_services_adminstore_menu ul li {
+        padding: 5px 20px 20px;
+    }
+    body .maildes_headerOptions ul li ul {
+        border: 1px solid #ccc;
+        background: #fff !important;
+    }
+    body .maildes_headerOptions ul li:hover ul {
+        margin: 0;
+    }
+    
+    body .maildes_headerOptions ul li:hover ul li.maildes_bubble {
+        display: none;
+    }
+    
+    body .maildes_headerOptions ul li ul li.maildes_settingOption {
+        background: transparent;
+        border: none;
+    }
+    
+    body .maildes_headerOptions ul li ul li.maildes_settingOption a {
+        padding: 5px;
+        color: #666 !important;
+        font-size: 12px;
+        text-transform: capitalize;
+        width: 100%;
+        display: block;
+        font-weight: 500 !important;
+    }
+    body .oneshop_services_adminstore_menu ul li span.active_menu {
+        font-weight: 700;
+        color: #000;
+    }
+
+    body .maildes_headerOptions ul li ul {
+        background: #fff !important;
+    }
+    
+    body .maildes_headerOptions ul li ul li.maildes_settingOption:hover {
+        background: transparent !important;
+    }
+
+    body .maildes_headerOptions ul li ul li.maildes_settingOption {
+        padding: 0;
+    }
+
+    body .oneshop_services_adminstore_menu ul li span + img {
+        transition: all 0.3s linear;
+    }
+
+    body .oneshop_services_adminstore_menu ul li:hover span + img {
+        transform: rotate(180deg);
+    }
+
+    .action-wrap {
+        position: absolute;
+        bottom: 0;
+        right: 8px;
+    }
+
+    body .oneshop_services_adminstore_menu {
+        background: #fff;
+        box-shadow: 0 1px 1px 0 rgb(0 0 0 / 16%);
+        border: none;
+    }
+
+    body .oneshop_left_newcontainer .oneshop_products_storeboxtop_div > a + a {
+        margin-right: 40px;
+    }
+    body .cartlogos img {
+        margin-left: 5px;
+    }
+    body .oneshop_left_newcontainer .oneshop_products_storebox {
+        height: 230px;
+        padding: 1%;
+        width: 29%;
+    }
+    .action-wrap a {
+        padding: 5px 10px;
+        color: #fff;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .action-wrap a.delelte-icon {
+        background: #ff0000;
+    }
+    .action-wrap a.edit-icon {
+        background: #87ceeb;
+    }
+    .action-wrap a:hover {
+        box-shadow: 0 0 5px #ccc;
+    }
+    .oneshop_left_newcontainer .homepage-store .oneshop_products_storebox_bottomdiv {
+        text-align: center;
+        background: #fc0;
+        padding: 10px;
+    }
+    .oneshop_left_newcontainer .homepage-store .oneshop_products_storeboxtop_div {
+        border: 1px solid #fc0;
+    }
+    body .oneshop_left_newcontainer .homepage-store .oneshop_products_storebox {
+        height: 220px;
+        box-shadow: none;
+        padding: 0;
+        width: 31%;
+    }
+    .oneshop_left_newcontainer .homepage-store .oneshop_products_storeboxtop_div img {
+        height: 110px;
+        width: 110px;
+        object-fit: contain;
+        object-position: bottom;
+    }
+    body .oneshop_banner1_data_box {
+        padding-left: 10px;
     }
     /* Happy Css */
     

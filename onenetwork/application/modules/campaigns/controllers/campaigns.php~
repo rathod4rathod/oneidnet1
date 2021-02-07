@@ -1,0 +1,34 @@
+<?php
+
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+class campaigns extends CI_Controller {
+
+    function __construct() {
+        parent::__construct();
+        $this->load->module('cookies');
+    }
+
+    function get_userId() {
+        $obj = $this->load->module('cookies');
+        return $obj->getUserID();
+    }
+
+    function index() {
+        $this->load->view('campaigns/campaign_page_view.php');
+    }
+
+    function create_campaign() {
+        $this->load->view('campaigns/campaign_basic_view.php');
+    }
+
+    function getcampaignsScondpage_Info() {
+        $this->load->view('campaigns/campaign_second_view.php');
+    }
+
+    function getcampaignstrd_Info() {
+        $this->load->view('campaigns/campaign_third_view.php');
+    }
+
+}

@@ -1,0 +1,7 @@
+var onenetwork_url = document.location.origin + "/onenetwork";
+/*
+$.get(onenetwork_url + "/promotions/getchannels_info", function (data) {
+
+   $("#onenetwork_channels").html(data);
+});
+* */

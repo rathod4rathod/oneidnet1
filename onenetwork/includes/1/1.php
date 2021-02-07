@@ -1,0 +1,1 @@
+<?php  $promotions = '[{"banners":[],"tunnel_video":["70"],"tunnel_stations":[],"company_page_promotions":["71"],"buzzin_account_promotions":[],"flash":[],"episode_promotions":[],"news_promotions":[],"article_promotions":[],"oneshop_promotions":[],"click_page_promotions":[],"ov_channel_promotions":[]}]';?>

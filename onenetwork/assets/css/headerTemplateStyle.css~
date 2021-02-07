@@ -1,0 +1,490 @@
+/* CSS Document */
+*{
+	margin: 0px;
+	padding: 0px;}
+body{
+	background-color: #FC6;}
+.mainWrapper{
+	float: left;
+	margin: 0px auto;
+	width: 900px;}
+	
+	
+/*---Module Header Starts Here (29-07-2015)---*/
+.moduleHeaderWrapper{
+	float: left;
+	width: 900px;
+	height: 65px;}
+	
+	
+.moduleLogo{
+	float: left;
+	width: 190px;
+	height: 55px;
+	margin: 5px;}
+.moduleLogoImg{
+	float: left;
+	width: 50px;
+	height: 50px;
+	margin: 2px;}
+.moduleName{
+	float: left;
+	width: 100px;
+	height: 50px;
+	margin: 15px 0 0 0px;
+	text-align: left;
+	font: 14px Swatch it;
+	color: #FFF;}	
+	
+	
+.moduleProfileInfoWrap{
+	float: left;
+	width: 240px;
+	height: 45px;
+	margin: 10px 0 0 5px;
+	/*background-color: rgba(250, 250, 250, 0.5);*/}
+.moduleProfileInfoPicWrap{
+	float: left;
+	width: 45px;
+	height: 45px;
+	border-radius: 30px;
+	overflow: hidden;}
+.moduleProfileInfoPicWrap img{
+	float: left;
+	width: 45px;}
+.moduleProfileInfoNameWrap{
+	float: right;
+	overflow: hidden;
+	width: 190px;
+	line-height: 40px;
+	height: 45px;}
+.moduleProfileInfoNameWrap h4{
+	float: left;
+	font: bold 14px Arial;
+	color: #fff;
+	margin: 5px 0 0 0;
+	line-height: 35px;}
+	
+	
+.moduleOptionsWrapper{
+	float: left;
+	width: 130px;
+	height: 30px;
+	margin: 17px 0 0 0;}
+.moduleOption{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin: 0 0 0 2px;
+	border-radius: 15px;}
+.moduleOption:hover{
+	background-color: rgba(0, 0, 0, 0.5);}
+.moduleOptionHighlite{background-color: rgba(0, 0, 0, 0.5);}	
+.moduleHeaderIcon{
+	cursor: pointer;
+	float: left;
+	width: 30px;
+	height: 30px;}
+#settings{
+	width: 30px;
+	height: 30px;
+	background: url(../images/moduleHeaderIcons.png) 0 0;}
+#notifications{
+	width: 30px;
+	height: 30px;
+	background: url(../images/moduleHeaderIcons.png) -30px 0;}
+#messages{
+	width: 30px;
+	height: 30px;
+	background: url(../images/moduleHeaderIcons.png) -60px 0;}
+#requests{
+	width: 30px;
+	height: 30px;
+	background: url(../images/moduleHeaderIcons.png) -90px 0;}
+	
+	
+.notificationWrapper{
+	display: none;
+	float: left;
+	position: relative;
+	width: 400px;
+	margin: 0px 0 0 -50px;
+	z-index: 1;}
+.settingsWrapper{
+	width: 250px;}	
+.notifyBubble{
+	float: left;
+	width: 25px;
+	height: 18px;
+	margin: 0 0 0 50px;}
+.showNotification{display: block;}
+.settingsOptionsWrapper{
+	display: none;
+	float: left;
+	width: 150px;
+	height: 100px;
+	background-color: #f9f9f9;
+	margin: 18px 0 0 -10px;
+	box-shadow: 0 2px 2px #555;}
+.notificationContent{
+	float: left;
+	width: 400px;
+	height: 230px;
+	background-color: #f5f5f5;
+	box-shadow: 0 3px 2px #555;}
+.settingsContent{
+	width: 200px;
+	height: 100px;}				
+.settingsContent ul{
+	float: left;
+	list-style: none;}
+.settingsContent ul li{
+	cursor: pointer;
+	float: left;
+	width: 200px;
+	font: 14px Arial;
+	color: #555;
+	border-bottom: dotted 1px #e5e5e5;}
+.settingsContent ul li:hover{
+	background-color: #e5e5e5;
+	border-bottom: solid 1px #ddd;}
+.settingsContent ul li img{
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin: 2px;}
+.settingsContent ul li p{
+	float: left;
+	margin: 7px;}
+	
+	
+.moduleSearchWrapper{
+	float: left;
+	width: 300px;
+	height: 25px;
+	margin: 20px 0 0 5px;
+	background-color: #fff;}
+.withOutCategory{display: block;}
+.moduleSearchField{
+	float: left;
+	margin: 0 0 0 5px;
+	width: 200px;
+	height: 25px;
+	border: none;
+	font: 12px Arial;
+	color: #777;
+	background-color: #fff;
+	padding: 0 10px 0 0px;}
+.moduleSearchField:focus{
+	outline: none;}	
+.moduleSearchIcon{
+	cursor: pointer;
+	float: left;
+	margin: 3px 0 0 0;
+	width: 20px;
+	height: 20px;}
+.categorySelection{
+	float:left;
+	background-color: #fff;
+	width: 65px;
+	height: 25px;
+	border: none;
+	font: 12px Arial;
+	color: #777;}		
+.searchSuggessions{
+	display: none;
+	float: left;
+	box-shadow: 0 1px 2px #555;
+	position: relative;
+	margin: 1px 0 0 0;
+	width: 300px;
+	height: 140px;
+	background-color: #f5f5f5;}
+.searchSuggessions ul{
+	padding: 10px 0 5px 0;
+	float: left;
+	width: 300px;
+	list-style: none;}
+.searchSuggessions ul li{
+	cursor: pointer;
+	float: left;
+	width: 300px;
+	height: 25px;
+	border-bottom: solid 1px #ddd;}
+.searchSuggessions ul li:hover{
+	background-color: #eee;}	
+.searchSuggessions ul li span{
+	width: 23px;
+	height: 20px;
+	margin: 3px;
+	float: left;
+	overflow: hidden;
+	background-color: #ccc;}
+.searchSuggessions ul li img{
+	float: left;
+	width: 23px;}
+.searchSuggessions ul li h5{
+	float: left;
+	margin: 5px 0 0 5px;
+	font: bold 12px Arial;
+	color: #999;}	
+/*---Module Header Ends Here (29-07-2015)---*/	
+
+	
+	
+/*---Sub Header Starts Here (29-07-2015)---*/	
+.subHeader{
+	float: left;
+	width:900px;
+	height: 45px;
+	background-color: #eee;}
+.dropMenuWrapper{
+	cursor: pointer;
+	float: left;
+	width: 200px;
+	height: 35px;
+	margin: 5px;}
+.dropMenuHead{
+	margin: 0px;
+	cursor: pointer;
+	float: left;
+	width: 200px;
+	height: 35px;
+	background-color: #e5e5e5;}
+.dropMenuHead:hover{
+	background-color: #777;}
+.dropMenuHeadHighlite{background-color: #777;}		
+.dropMenuIcon{
+	float: left;
+	margin: 3px 0 0 2px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/menuIcon.png) 0px 0;}
+.dropMenuWrapper:hover .dropMenuIcon{
+	background-position: -30px 0;}
+.dropMenuIconHighlite{
+	background-position: -30px 0;}
+.menuTitle{
+	float: left;
+	font: 16px Arial;
+	color: #777;
+	margin: 7px;}
+.dropMenuWrapper:hover .menuTitle{
+	color: white;}
+.dropMenuTitleHighlite{color: white;}
+	
+	
+	
+	
+.subHeaderMenu{
+	float: left;
+	width: 650px;
+	height: 45px;
+	margin: 0px 0 0 25px;}
+.subHeaderMenu ul{
+	float: left;
+	height: 45px;
+	list-style: none;}
+.subHeaderMenu ul li{
+	cursor: pointer;
+	float: left;
+	color: #555;
+	padding: 2px 5px 0 0;
+	height: 33px;
+	margin: 5px 10px 0 0;}
+.subHeaderMenu ul li:hover{
+	border-bottom: solid 5px #bbb;}	
+.subHeaderMenuHighlite{
+	color: white;
+	background-color: #d5d5d5;}	
+.subHeaderMenu ul li img{
+	float: left;
+	width: 30px;
+	height: 30px;}
+	
+.tunnelHome, .toptions1, .toptions2, .toptions3, .toptions4, .toptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/tunnelSubheaderIcons.png) 0 0;}
+.toptions1{background-position: -30px 0;}
+.toptions2{background-position: -60px 0;}
+.toptions3{background-position: -90px 0;}
+.toptions4{background-position: -120px 0;}
+.toptions5{background-position: -150px 0;}
+
+.netproHome, .npoptions1, .npoptions2, .npoptions3, .npoptions4, .npoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.npoptions1{background-position: -30px 0;}
+.npoptions2{background-position: -60px 0;}
+.npoptions3{background-position: -90px 0;}
+.npoptions4{background-position: -120px 0;}
+.npoptions5{background-position: -150px 0;}	
+
+.mailHome, .moptions1, .moptions2, .moptions3, .moptions4, .moptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/360mailIcons.png) 0 0;}
+.moptions1{background-position: -30px 0;}
+.moptions2{background-position: -60px 0;}
+.moptions3{background-position: -90px 0;}
+.moptions4{background-position: -120px 0;}
+.moptions5{background-position: -150px 0;}
+
+.cvbankHome, .cvoptions1, .cvoptions2, .cvoptions3, .cvoptions4, .cvoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/360mailIcons.png) 0 0;}
+.cvoptions1{background-position: -30px 0;}
+.cvoptions2{background-position: -60px 0;}
+.cvoptions3{background-position: -90px 0;}
+.cvoptions4{background-position: -120px 0;}
+.cvoptions5{background-position: -150px 0;}
+
+.coofficeHome, .cooptions1, .cooptions2, .cooptions3, .cooptions4, .cooptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/360mailIcons.png) 0 0;}
+.cooptions1{background-position: -30px 0;}
+.cooptions2{background-position: -60px 0;}
+.cooptions3{background-position: -90px 0;}
+.cooptions4{background-position: -120px 0;}
+.cooptions5{background-position: -150px 0;}
+
+.oneshopHome, .osoptions1, .osoptions2, .osoptions3, .osoptions4, .osoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.osoptions1{background-position: -30px 0;}
+.osoptions2{background-position: -60px 0;}
+.osoptions3{background-position: -90px 0;}
+.osoptions4{background-position: -120px 0;}
+.osoptions5{background-position: -150px 0;}
+
+.findItHome, .foptions1, .foptions2, .foptions3, .foptions4, .foptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.foptions1{background-position: -30px 0;}
+.foptions2{background-position: -60px 0;}
+.foptions3{background-position: -90px 0;}
+.foptions4{background-position: -120px 0;}
+.foptions5{background-position: -150px 0;}
+
+.clickHome, .cloptions1, .cloptions2, .cloptions3, .cloptions4, .cloptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.cloptions1{background-position: -30px 0;}
+.cloptions2{background-position: -60px 0;}
+.cloptions3{background-position: -90px 0;}
+.cloptions4{background-position: -120px 0;}
+.cloptions5{background-position: -150px 0;}
+
+.buzzinHome, .buzoptions1, .buzoptions2, .buzoptions3, .buzoptions4, .buzoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.buzoptions1{background-position: -30px 0;}
+.buzoptions2{background-position: -60px 0;}
+.buzoptions3{background-position: -90px 0;}
+.buzoptions4{background-position: -120px 0;}
+.buzoptions5{background-position: -150px 0;}
+
+.dealerxHome, .dxoptions1, .dxoptions2, .dxoptions3, .dxoptions4, .dxoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.dxoptions1{background-position: -30px 0;}
+.dxoptions2{background-position: -60px 0;}
+.dxoptions3{background-position: -90px 0;}
+.dxoptions4{background-position: -120px 0;}
+.dxoptions5{background-position: -150px 0;}
+
+.onenetworkHome, .onoptions1, .onoptions2, .onoptions3, .onoptions4, .onoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/onenetworkSubheaderIcons.png) 0 0;}
+.onoptions1{background-position: -30px 0;}
+.onoptions2{background-position: -60px 0;}
+.onoptions3{background-position: -90px 0;}
+.onoptions4{background-position: -120px 0;}
+.onoptions5{background-position: -150px 0;}
+
+.isnewsHome, .isnoptions1, .isnoptions2, .isnoptions3, .isnoptions4, .isnoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.isnoptions1{background-position: -30px 0;}
+.isnoptions2{background-position: -60px 0;}
+.isnoptions3{background-position: -90px 0;}
+.isnoptions4{background-position: -120px 0;}
+.isnoptions5{background-position: -150px 0;}
+
+.vcomHome, .vcoptions1, .vcoptions2, .vcoptions3, .vcoptions4, .vcoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.vcoptions1{background-position: -30px 0;}
+.vcoptions2{background-position: -60px 0;}
+.vcoptions3{background-position: -90px 0;}
+.vcoptions4{background-position: -120px 0;}
+.vcoptions5{background-position: -150px 0;}
+
+.traveltimeHome, .ttoptions1, .ttoptions2, .ttoptions3, .ttoptions4, .ttoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.ttoptions1{background-position: -30px 0;}
+.ttoptions2{background-position: -60px 0;}
+.ttoptions3{background-position: -90px 0;}
+.ttoptions4{background-position: -120px 0;}
+.ttoptions5{background-position: -150px 0;}
+
+.onevisionHome, .ovoptions1, .ovoptions2, .ovoptions3, .ovoptions4, .ovoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.ovoptions1{background-position: -30px 0;}
+.ovoptions2{background-position: -60px 0;}
+.ovoptions3{background-position: -90px 0;}
+.ovoptions4{background-position: -120px 0;}
+.ovoptions5{background-position: -150px 0;}
+
+.oneidshipHome, .oisoptions1, .oisoptions2, .oisoptions3, .oisoptions4, .oisoptions5{
+	width: 30px;
+	height: 30px;
+	background: url(../images/oneshopSubheaderIcons.png) 0 0;}
+.oisoptions1{background-position: -30px 0;}
+.oisoptions2{background-position: -60px 0;}
+.oisoptions3{background-position: -90px 0;}
+.oisoptions4{background-position: -120px 0;}
+.oisoptions5{background-position: -150px 0;}
+
+.subHeaderMenu ul li h4{
+	float: left;
+	font: 12px Arial;
+	margin: 7px 0 5px 0;}	
+/*---Sub Header Ends Here (29-07-2015)---*/		
+
+
+.netpro{background-color: #006665;}
+.mail{background-color: #009759;}
+.cvbank{background-color: #848484;}
+.cooffice{background-color: #565656;}
+.oneshop{background-color: #c5b000;}
+.findit{background-color: #818bbc;}
+
+.tunnel{background-color: #d20000;}
+.click{background-color: #202578;}
+.buzzin{background-color: #1d93d3;}
+.dealerx{background-color: #000000;}
+.onenetwork{background-color: #96290c;}
+
+.isnews{background-color: #4e0607;}
+.vcom{background-color: #cf6c00;}
+.traveltime{background-color: #0c6504;}
+.onevision{background-color: #460d38;}
+.oneidship{background-color: #6105b5;}
+

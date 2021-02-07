@@ -1,0 +1,87 @@
+<?php
+  
+$this->load->module('templates');
+
+$this->templates->header();
+?>
+
+<div class="ondes_module_container_wrap"> <!--module_container start here-->
+    <div class="ondes_product_head">
+        <a href="<?PHP echo base_url(); ?>">Home</a>
+        </div>
+
+    <div class="ondes_wrapper_inner"><!--wrapper inner start here-->
+    	<div class="ondes_bannerMarketingHeader">
+        	<h2>Promote Your Business With Us</h2>
+        </div>
+        <div class="ondes_bannerMarketingContent ondes_bgTrans">
+        	<div class="ondes_bannerMarketingInnerContent">
+                <div class="ondes_imageSlidingSection">
+                	<div class="ondes_imageSlider">
+                    <img src="<?php echo base_url().'assets/'?>images/nextBtn.png" class="ondes_btn ondes_nextBtn">
+                            <div class="ondes_images">
+                            	<img src="<?php echo base_url().'assets/'?>images/slideImage.png" class="ondes_slide ondes_slide06">
+                                <img src="<?php echo base_url().'assets/'?>images/oneshopBG.jpg" class="ondes_slide ondes_slide05">
+                                <img src="<?php echo base_url().'assets/'?>images/dealerxBG.jpg" class="ondes_slide ondes_slide04">
+                                <img src="<?php echo base_url().'assets/'?>images/buzzinBG.jpg" class="ondes_slide ondes_slide03">
+                                <img src="<?php echo base_url().'assets/'?>images/clickBG.jpg" class="ondes_slide ondes_slide02">
+                                <img src="<?php echo base_url().'assets/'?>images/coofficeBG.jpg" class="ondes_slide ondes_slide01">
+                                <img src="<?php echo base_url().'assets/'?>images/BG01.jpg" class="ondes_slide ondes_main">
+                            </div>
+                    <img src="<?php echo base_url().'assets/'?>images/prevBtn.png" class="ondes_btn ondes_prevBtn">
+                    </div> 
+                    
+                  <!--  <ul>
+                    	<li><h3>Tab 01</h3></li>
+                        <li><h3>Promotions</h3></li>
+                        <li><h3>Tab 03</h3></li>
+                    </ul>   -->            
+                </div>
+                <div class="ondes_empty">                  
+                </div>
+                 <a class="ondes_ChampaignBtn ondes_goto_make" href="<?php echo base_url().'makecampaigns/makeCampaigns_Info';?>">Make Campaign</a>  
+                 <a class="ondes_ChampaignBtn ondes_goto" href="<?php echo base_url().'mycampaigns/myCampaignsList';?>">Go to Campaign Consol ></a>
+            	<button class="ondes_ChampaignBtn ondes_make"><a class="ondes_ChampaignBtn ondes_goto" href="<?php //echo base_url().'makecampaigns/makeCampaigns_Info';?>">Make Campaign</a></button>       
+                <button class="ondes_ChampaignBtn ondes_goto"><a href="<?php //echo base_url().'mycampaigns/myCampaignsList';?>">Go to Campaign Consol ></a></button>
+            </div>
+        </div>        
+    </div> <!--wrapper inner closed here-->
+    
+     
+            <div class="ondes_siteDesc">
+            	<div class="ondes_siteDescSection">
+                	<span class="ondes_siteDescHeader"><h3>Heading 1</h3></span>
+                    <div class="ondes_siteDescBody">
+                    	<img src="#" class="ondes_SDBpic">
+                        <span class="ondes_SDBtxt">
+                        	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Something Something lkasdf aks falsdkfjie a  alksdie akd afoei aslkd alkdfie askldfj iejfa;d adkfoe sldfkjeo asdlkfjoejad lakjdsfoead asdkfj <br>asdoiej asdlfkjoe adkfjoe djf akd f iel asdlkf aie falie adlkfe fj alk ie alkjsdf adkfjie.</p>
+                        </span>
+                        <span class="ondes_SDBView"><h4><a href="#">View More...</a></h4></span>
+                    </div>
+                </div>
+                <div class="ondes_siteDescSection">
+                	<span class="ondes_siteDescHeader"><h3>Heading 2</h3></span>
+					<div class="ondes_siteDescBody">
+                    	<img src="#" class="ondes_SDBpic">
+                        <span class="ondes_SDBtxt">
+                        	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Something Something lkasdf aks falsdkfjie a  alksdie akd afoei aslkd alkdfie askldfj iejfa;d adkfoe sldfkjeo asdlkfjoejad lakjdsfoead asdkfj asdoiej asdlfkjoe adkfjoe djf akd f iel asdlkf aie falie adlkfe fj alk ie alkjsdf adkfjie.</p>
+                        </span>
+                        <span class="ondes_SDBView"><h4><a href="#">View More...</a></h4></span>
+                    </div>                    
+                </div>
+                <div class="ondes_siteDescSection">
+                	<span class="ondes_siteDescHeader"><h3>Heading 3</h3></span>
+					<div class="ondes_siteDescBody">
+                    	<img src="#" class="ondes_SDBpic">
+                        <span class="ondes_SDBtxt">
+                        	<p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Something Something lkasdf aks falsdkfjie a  alksdie akd afoei aslkd alkdfie askldfj iejfa;d adkfoe sldfkjeo asdlkfjoejad lakjdsfoead asdkfj asdoiej asdlfkjoe adkfjoe djf akd f iel asdlkf aie falie adlkfe fj alk ie alkjsdf adkfjie.</p>
+                        </span>
+                        <span class="ondes_SDBView"><h4><a href="#">View More...</a></h4></span>
+                    </div>                    
+                </div>
+            </div>  
+              
+</div> <!--module container end here-->
+<?php 
+$this->templates->footer();
+?>

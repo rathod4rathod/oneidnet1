@@ -94,13 +94,35 @@ if($theme_selected!=''){
 						</div>
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_DiscountError"> Please Enter Valid Discount </p>
 					</div>
-                    <div class="oneshop_fieldsbox">
+					<div class="oneshop_fieldsbox">
+					<div class="" style="width: 45%;">
+							<label> Warranty Type </label>
+							<div class="wi100pstg select" id="warranty_type1">
+								<select class="oneshop_selectbox_field" name="warranty_type" id="warranty_type">
+									<option value="1" <?php echo ($product_detail[0]["warranty_type"] == 1)?'selected':'';?>>Days</option>								
+									<option  value="2"<?php echo ($product_detail[0]["warranty_type"] == 2)?'selected':'';?> >Months</option>								
+									<option value="3" <?php echo ($product_detail[0]["warranty_type"] == 3)?'selected':'';?>>Years</option>								
+								</select>
+							</div>                      
+							<p class="wi100pstg fs11 red clearfix jsError" id="warranty_typeError"> Please Select Warranty Type</p>
+						</div>
+						<div class="" style="width: 45%; float: right; margin-top: -23px;">
+							<label> Warranty (in Months,Days and Years)  </label>
+							<div class="wi100pstg">
+							<input type="text" placeholder="1 Months or 1 Days or 1 Years any one)" name="Warranty" id="osdev_warrenty" class="input" value="<?php echo $product_detail[0]["warranty"];?>">
+						</div>
+						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_warrentyError"> Please Enter Warranty Period </p>
+
+							
+						</div>
+					</div>
+                    <!-- <div class="oneshop_fieldsbox">
 						<label> Warranty (in months)  </label>
 						<div class="wi100pstg">
 							<input type="text" placeholder="1 month" name="Warranty" id="osdev_warrenty" class="input" value="<?php echo $product_detail[0]["warranty"];?>">
 						</div>
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_warrentyError"> Please Enter Warranty Period </p>
-					</div>
+					</div> -->
                       <div class="oneshop_fieldsbox">
 						<label> Product Group </label>
 						<div class="wi100pstg">
@@ -113,7 +135,7 @@ if($theme_selected!=''){
 						<div class="wi100pstg select" id="category_div">
 							<select class="oneshop_selectbox_field" name="Category" id="osdev_Category">
 
-								<option value='<?php echo $product_detail[0]["others_cateogry_name"];?>'><?php echo $product_detail[0]["others_cateogry_name"];?></option>
+								<option value='<?php echo $product_detail[0]["others_cateogry_name"];?>'><?php echo $product_detail[0]["others_cateogry_name"];?>1112</option>
 								<option value="">--Select Category--</option>
 								<option value='others'>Others</option>
 
@@ -215,6 +237,17 @@ if($theme_selected!=''){
 $this->templates->app_footer();
 ?>
     <script language=Javascript>
+	$( document ).ready(function() {
+		setTimeout
+		
+		setTimeout(function(){
+			$("#osdev_Category").val("<?= $product_detail[0]["others_cateogry_name"]?>");
+			setTimeout(function(){
+				$("#osdev_SubCategory").val("<?= $product_detail[0]["others_subcategory_name"]?>");				
+			}, 800);
+		}, 800);
+
+	});
        <!--
        function isNumberKey(evt)
        {

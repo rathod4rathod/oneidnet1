@@ -1,0 +1,12 @@
+{"Tunnel":{"channel":{"table":"tunnel_all_channels","level":"0"},"video":{"table":"tunnel_all_channels","level":"1"}},
+"Netpro":{"group":{"table":"netpro_groups"}},
+"Traveltime":{"tourpackage":{"table":""}},
+"Isnews":{"sponsored":{"table":""}},
+"Dealerx":{"auction":{"table":""},"profile":{"table":""}},
+"Isnews":{"sponsored":{"table":""}},
+"Oneshop":{"store":{"table":""},"malls":{"table":""},"products":{"table":""}},
+"Click":{"page":{"table":"click_pages"},"group":{"table":"click_groups"},"event":{"table":"click_events"}},
+"Buzzin":{"snapper":{"table":"buzzin_quick_pics"},"shortfilm":{"table":""}}
+
+}
+

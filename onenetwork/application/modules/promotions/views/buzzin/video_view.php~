@@ -1,0 +1,163 @@
+<?php
+$this->load->module('templates');
+$this->templates->header();
+$this->templates->onenet_header();
+?>
+<div id="buzdes_snapbuz"><?PHP
+    $this->load->module('home');
+    $this->home->buzzin_qucikansp();
+    ?>
+</div>
+<div class="new_wrapper">
+
+    <div class="ondes_wrapper_main">
+        <div class="ondes_module_container_wrap">
+            <!--module_container start here-->
+            <div class="ondes_wrapper_inner minheight600">
+                <!--wrapper inner start here-->
+
+                <div class="oneshop_getstarted mat30">
+                    <div class="oneshop_getstarted_bgwrap mat40 mab30" style="position:relative; margin-top:-5%;">
+                        <h1 class="acenter normal fs24" style="width:700px; border-bottom:1px #ccc solid; padding:0 0 10px 0; margin:0 auto; line-height:32px;"> Buzzin Promotions Category </h1>
+
+
+
+                        <div class="boxesnewleft_wrap">
+                            <div class="bold borderbottom" style="width:780px; padding:0 0 5px 0; margin:0 auto; line-height:24px;"> 
+                                <span> <a href="#"> SAMPLE ONE </a> &nbsp;&nbsp;>&nbsp;&nbsp; </span> <span> <a href="#"> SAMPLE TWO </a> &nbsp;&nbsp;>&nbsp;&nbsp; </span> 
+                                <span> <a href="#"> SAMPLE THREE </a> &nbsp;&nbsp;>&nbsp;&nbsp;</span> <span> <a href="#"> SAMPLE THREE </a></span>
+
+                            </div>
+
+                            <div style="margin-top:40px;" class="pricing-wrapper clearfix">
+                                <div class="ondes_leftSection">
+
+                                    <div class="border_bottom widthpstg100 pab5 mat20"> 
+                                        <p class="fll fs25">
+                                            Popularity: Help us to know your  famous things! 
+                                        </p>
+                                        <p class="flr" id="snap_now" style="display: none;"><a href="javascript: void(0)" onclick="toggle_addCommentVisibility('buzdes_snapbuz')">  <input type="submit" value="Snap Now" class="button_new" name="formpost"></a></p>
+                                    </div>
+                                    <div style="margin-top:50px; width:100%;" id="SearchContainer">
+                                        <input type="text" id="buzz_oneidev" name="buzz_oneidev" value="">                                         
+                                            <div class=" mab10 mat10 form_width">
+                                                <p class="label_name mat20 fll"> Promotion Name </p>
+                                                <p> <input type="text" class="oneshop_productfield_textbox" id="buzz_pr_name" name="buzz_pr_name"> </p>
+                                            </div>
+                                            <div class="widthpstg100 mat20">
+
+                                                <p class="mab10 fs14">Competition Type:</p>
+                                                <div class="group fs14">
+                                                    <div class="group fs14"> 
+                                                        <input type="text" placeholder="QUICK_VIDS"class="buzdes_caption_box" name="oneBuzz_compt"  id="oneBuzz_compt" onclick="removeerror(this.id)">
+                                                    </div>                                                  
+
+                                                </div>
+                                                <div  id="buzz_dev_vids" class="widthpstg100 mat20 ">
+                                                    <p class="mab10 fs14">Choose Competition Theme :</p>
+
+                                                    <div  class="group fs14"> 
+                                                        <select onchange="removeerror(this.id)" name="oneBuzz_comppic" class="oneshop_selectbox_field" id="oneBuzz_compvids">
+                                                            <option value="">Select Quick video</option>
+                                                            <option value="FUNNIEST">Funniest</option>
+                                                            <option value="EMOTIONAL">Emotional</option>
+                                                            <option value="Documentary">Documentary</option>
+                                                            <option value="SCIENCE FRICTION">Science Friction</option>
+                                                            <option value="STRATEGY">Strategy</option>
+                                                            <option value="CULTURAL">Cultural</option>
+                                                            <option value="DANCE">Dance</option>
+                                                            <option value="SHOWS">Shows</option>
+                                                            <option value="GAMES">Games</option>
+                                                            <option value="NATURE">Nature</option>
+                                                            <option value="AWARENESS">Awareness</option>
+                                                            <option value="INSPIRATION">Inspiration</option>
+                                                            <option value="INVENTIONS">Inventions</option>
+                                                            <option value="IDEAS">Ideas</option>
+                                                            <option value="POLITICS">Politics</option>
+                                                            <option value="FASHION">Fashion</option>
+                                                            <option value="PROMO">Promo</option>
+                                                            <option value="BEAUTY">Beauty</option>
+                                                            <option value="LANDSCAPE">Landscape</option>
+                                                            <option value="COMPILATIONS">Compilations</option>
+                                                            <option value="WILDLIFE">Wildlife</option>
+                                                            <option value="WEDDING">Wedding</option>
+                                                            <option value="PLACES">Places</option>
+
+                                                        </select>                           
+                                                    </div>
+                                                </div>                                            
+                                                <div class="widthpstg100 mat20">
+                                                    <p class="mab10 fs14">Promotion Abstract:</p>
+                                                    <div class="group fs14"> 
+                                                        <textarea class="buzdes_caption_box" id="desc_imag" name="caption"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div id="quick_flims" >
+                                                    <?php
+                                                    if ($bqvids != 0) {
+                                                        foreach ($bqvids as $bqvidsinfo) {
+                                                            ?>
+                                                            <div class="over_photo">
+                                                                <input type="radio" onclick="videoidFun(this.value)" name="imgid" id="imagid"<?php if (isset($vidid) && $imgid==$bqvidsinfo['rec_aid']) echo "checked";?>value="<?PHP echo $bqvidsinfo['rec_aid']; ?>">
+                                                                <span class="overphoto_Wrapper"><img bquid="<?php echo $bqvidsinfo["rec_aid"]; ?>" class="bquid" src="<?php echo"http://localhost/buzzin/buzzin_quick_vids/vidsthumbnail/" . $bqvidsinfo["pics_url"]; ?>" class="oneshop_curencyConvertor"></span>
+                                                                <div class="click_photoOptionsbooks" style="display: none;">
+                                                                    <h5 class="fll fs14 bold qvidl"  qvidl="<?php echo $bqvidsinfo["rec_aid"]; ?>"> Like </h5> 
+                                                                    <h5 class="flr normal"> <?php echo $bqvidsinfo["likes_count"]; ?> </h5></div>
+                                                            </div>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <script>
+                                                            $('.over_photo').hover(
+                                                                    function () {
+                                                                        $(this).find('.click_photoOptionsbooks').fadeIn(300);
+                                                                    },
+                                                                    function () {
+                                                                        $(this).find('.click_photoOptionsbooks').fadeOut(20);
+                                                                    }
+                                                            );
+
+
+                                                        </script>
+                                                        <?php
+                                                    } else {
+                                                        echo '<h2>NO Video Found</h2>';
+                                                    }
+                                                    ?>
+                                                </div>
+                                                <div id="sucess_vip" class="fs14"></div>
+                                                <button onclick="vip_sumbit_popl()" id="Send" class="os_comp_sumbmit" type="submit">Request for account</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!--wrapper inner closed here-->
+
+        </div>
+        <!--module container end here-->
+    </div>
+    <!--wrapper main closed here-->
+
+
+
+    <?php
+    $this->templates->right_container();
+    ?>
+</div>
+<?php
+$this->templates->footer();
+?>
+<script>
+function videoidFun(val){
+    alert(val);
+    $("#buzz_oneidev").val(val);
+}
+</script>

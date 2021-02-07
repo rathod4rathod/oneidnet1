@@ -1,0 +1,753 @@
+
+
+
+/*
+************************   Events Module Css Starts Here  ********************
+Written By Roja For Calls & Meetings Management Pages On 25/05/2015-28/05/2015
+*/
+.blocksch{
+    width: 100%;
+    float: left;
+}
+
+.codes_call_box {
+    height: 92px;
+}
+.datashown{
+    width: 100%;
+    float: left;
+}
+
+
+.blockheld{
+    width: 100%;
+    float: left;
+}
+/*label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+    font-size: 13px;
+}*/
+/*input[type=radio] {
+    display: none;
+}*/
+/*label:before {
+    content: "";
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: #aaa;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}*/
+/*.radio label:before {
+    border-radius: 8px;
+}*/
+/* input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #f3f3f3;
+    font-size: 30px;
+    text-align: center;
+    line-height: 18px;
+}*/
+/*
+************************   Events Module Css Ends Here  ********************
+*/
+/*
+************************  Job Module Css Ends Here  ********************
+Written By Roja For Job Posting Pages On 29/05/2015
+*/
+#head_confirm_report{color:white;}
+.codes_confirm {
+    z-index: 10000;
+}
+.codes_leftcol {
+    width: 140px;
+}
+
+.codes_left_meeting_subjectbox {
+    width: 160px;
+	margin:0 10px 0 0;
+}
+.meeting_subjectbox__rightcol {
+    width: 540px;
+}
+
+
+.codes_rightcol {
+    width: 600px;
+}
+.dev_description{
+    margin: 5px 15px;
+}
+#leftdata_codev{
+    width: 70%;
+    float: left;
+}
+/*** 1-6-2015 by sravya : notifications block at top */
+.notifs_li{
+    font-size:12px;
+}
+/*
+************************  Candidate Zone Module Css Ends Here  ********************
+Written By Roja For Candidates Zone Pages On 01/06/2015
+*/
+.codes_img_text {
+
+    height: auto;
+}
+.codes_footer_thumb {
+
+    width: 100%;
+    float: left;
+
+}
+.filemanager .thmb {
+
+    margin: 0px 3px;
+}
+.codes_thumbbox {
+
+    margin: 10px auto;
+}
+.col-sm-4{
+    padding-left: 0; 
+    padding-right: 0; 
+}
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.codes_selected_popup {
+
+    z-index: 5001;
+    height: 210px;
+
+
+}
+.codes_errorMessage{color:red;}
+.codes_calls_menu ul li.activetab{
+    border-top-left-radius: 30px;
+    background: rgb(114, 187, 83);
+}
+.mustgive:after{ float:right;content:"*";font-size:20px;color:red; }
+
+.activetab{
+    border-top-left-radius: 30px;
+    background: rgb(114, 187, 83);
+}
+/***** FOR HOME PAGE***/
+.closeLoginPopup{
+    flaot:right;
+}
+.codes_alreadyegister_boxMessage
+{
+    width:275px;
+    height:70px;
+    background:rgba(255,255,255,0.8);
+    position:absolute;
+    margin:25px 0 0 50px;
+    border-radius:4px;
+    border:1px solid #ccc;
+    overflow:hidden;
+    display:none;
+
+}
+.closeProfileEditPopup,.closeProfileEditBranchPopup,.closeProfileEditBranchPopup1{float:right;cursor:pointer;display:block;}
+
+.codes_candidate_menu ul li.codes_active{
+    background:#ccc;   
+}
+.topmenuactive {
+    background: #6c7a89;
+    color: #fff;
+    border-radius: 2px;
+}
+.dev_branchedit{
+    background: #e1e1e1;
+    width: 400px;
+    padding: 10px 0 10px 0;
+    margin: -400px 0 0 200px;
+    border-radius: 4px;
+    position: fixed;
+    z-index: 7000
+}
+.codes_user_leftmenu ul li.profileactive {
+    background: #6c7a89;
+}
+.iconic_text{  width: 75%;}
+.iconic_img{  width: 20%;}
+
+/**************upgrade package*******************************/
+.codes_upgradepackage_wrap
+{
+    width:880px;
+    overflow:hidden;
+    display:block;
+    background:rgba(225,225,225,0.1);
+}
+.codes_upgradeleft
+{
+    width:625px;
+    float:left;
+
+}
+.codes_upgraderight
+{
+    width:250px;
+    float:right;
+
+}
+.codes_upgraderight img
+{
+    width:250px;
+    overflow:hidden;
+}
+.codes_upgradethumb
+{
+    width:185px;
+    float:left;
+    padding:0 0 5px 0;
+    background:#f8f8f8;
+    margin:20px 0 0 20px;
+    border-radius:4px;
+
+}
+#home_upgrade_package{width: 30.3%;}
+.codes_upgradethumb_top
+{
+    height:135px;
+    background:#434a54;
+    overflow:hidden;	
+}
+.codes_btn_up, .codes_btn_up_hy
+{
+    padding:5px 15px 5px 15px;
+    background:#8cc152;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    border-radius:2px;
+
+}
+.codes_btn_up:hover
+{
+    background:#98dd4d;
+}
+.codes_btn_up_hy
+{
+    background:#e9573f;
+}
+.codes_btn_up_hy:hover
+{
+    background:#f33718;
+}
+.codes_upgradethumb_bottom
+{
+}
+#checkbox_s_upgrd{  margin-top: 5px;  float: left;  width: 85%;}
+#agree_upgrad_btn{float: left;margin-top: 15px;}
+.codes_btns{  margin: 0 0 0 220px;}
+.codes_jobpost_btnnew{  margin: 0 0 0 150px;}
+
+.codes_createcomp_popup{width:auto;height:auto;}
+.nodataformat:after{font-size:15px;text-align:center;margin:5px;content:"No Data Found."}
+/*====slider styles here==========*/
+
+.isdes_nextbtn_h
+{
+    position:absolute;
+    right:0;
+    margin: 85px  15px 0 0;
+    padding:20px 10px 25px 10px;
+    background:#000;
+    color:#e1e1e1;
+    font-size:50px;
+    text-align:center;
+    cursor:pointer;
+    z-index:99;
+
+}
+.isdes_prevbtn_h
+{
+    position:absolute;
+    left:0;
+    margin: 85px  0 0 15px;
+    background:#000;
+    padding:20px 10px 25px 10px;
+    color:#e1e1e1;
+    font-size:50px;
+    text-align:center;
+    cursor:pointer;
+    z-index:99;
+}
+
+.codes_head_home 
+{
+    padding:10px 0 10px 0;
+    margin:0 auto;
+    font-size:24px;
+    color:#fff;
+    font-weight:bold;
+
+
+}
+.codes_txtbox_set1, .codes_txtbox_set2, .codes_txtbox_set3, .codes_txtbox_set_hr
+{
+    border: 1px solid #dadada;
+    border-radius:2px;
+    box-shadow: 0 1px 4px #ececec inset;
+    color: #000;
+    font-size: 12px;
+    width:250px;	
+    height: 25px;
+    line-height: 15px;
+    font-family:Arial;
+    padding: 0px 0px 0px 8px;
+    background:#e8ebef;
+    display:none;
+}
+
+.codes_formgroup_set
+{
+    width:850px;
+    height: auto;
+    margin:10px  auto 0 auto;
+
+}
+.codes_formrow_set
+{
+    width:850px;
+    margin:10px 0 0 0;
+
+}
+.codes_leftcol_set
+{
+    width:250px;
+    height:30px;
+    float:left;
+
+}
+.codes_rightcol_set
+{
+    width:590px;
+    float:right;
+
+}
+.codes_btn_set
+{
+    background:#f8f8f8;
+    color:#000;
+    font-size:14px;
+    font-weight:bold;
+    padding:5px 15px 5px 15px;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+}
+/*===================Slider changes start here===============*/
+.codes_home_slider
+{
+    width:880px;
+    margin:5px 0 5px 0;
+    background:url(../images/bg_3.jpg);
+    display:block;
+    overflow:hidden;
+
+}
+.slider_home
+{
+    width:700px;
+    height:275px;
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+    margin: 10px auto 10px auto;
+
+}
+.slider_home img
+{
+    width:700px;
+    height:250px;
+    background:none;
+}
+
+.isdes_wrap_slider:hover .isdes_prevbtn
+{
+    opacity:1;
+    transition:all .5 ease-out;
+    -webkit-transition: all .5 ease-out;
+}
+.isdes_wrap_slider:hover .isdes_nextbtn
+{
+    opacity:1;
+    transition:all .5 ease-out;
+    -webkit-transition: all .5 ease-out;
+}
+.codes_slider_box_thumb
+{
+    width:750px;
+    height:250px;
+}
+
+.codes_slider_box_thumb ul
+{
+    list-style:none;
+}
+.codes_slider_box_thumb ul li
+
+{
+    float:left;
+    width:150px; height:125px;
+    margin:5px 5px 0 16px;
+}
+.codes_slider_box_thumb ul li img
+{
+    width:150px; height:125px;
+    opacity:0.8;
+}
+.codes_slider_box_thumb ul li img:hover
+{
+    opacity:1;
+}
+.meeting_expire_msg{margin:12px;font-size:16px;}
+#expire .codes_find_row {width:auto;}
+.feedback_btns{text-align: center;}
+.skillset{
+     margin-left: 10px;
+    position: absolute;
+    /* height: auto; */
+    z-index: 99999999;
+}
+.postjobslet{width: 21.2%;}
+#company_openings{width:580px;
+                  padding-bottom:2px;
+                  border-bottom: 0px;
+                  margin:0px;
+                  overflow:hidden;
+                  word-wrap:break-word;
+                  padding:20px 0 0 0;}
+#codes_discussion_rightboxdivnewcontent{width:560px;}
+#codes_connections_leftandright_box img, #codes_connections_leftandright_box{ width: 50px;}
+#codes_whitebginsrightbox{width:300px;}
+#codes_whitebginsidediv{width: 480px;}
+.employeecode{
+    float: right;
+    padding-right: 10px;
+    width: auto;
+    color:white;
+}
+
+.nodata{
+    margin: 0 auto;
+    /* width: 500px; */
+    text-align: center;
+    font-size: 14px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+//18-6-2015 by sravya : for my packages page
+#package_table_div{ 
+    overflow: hidden;float:left;
+    word-wrap: break-word;
+    border: solid 1px #999;border-bottom:none;}
+span.package_table_row_cell_span1 {
+    width: 60%;
+    float: left; 
+}span.package_table_row_cell_span2, span.package_table_row_cell_span3 {
+    width: 20%;  text-align: center;
+    float: left;
+}
+.SlectBox {
+    width: 242px;
+
+}
+.jobHome{
+    padding-left: 54px;
+    width: 67px;
+    float: left;
+}
+.myjobs{
+    margin: 0px 10px;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: bold;
+}
+/*===18-06-2015 Changes here====*/
+.keyskills_row{
+
+    overflow: hidden;
+
+}
+
+.btn_keyskills {
+    padding: 3px;
+    background: #069;
+    font-size: 12px;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    float: left;
+    margin: 0px 2px;
+}
+
+/* CSS Document */
+
+*
+{
+    margin:0;
+    padding:0;
+}
+
+.wwp
+{
+    word-wrap:break-word;
+}
+/*----------| flots |----------*/
+.fll { float:left !important; }
+.flr { float:right !important; }
+
+
+/*----------| A Hover |----------*/
+a img { border:none; }
+a {text-decoration:none; }
+a:hover { text-decoration:none;}
+
+/*----------| Font Weight |----------*/
+.bold { font-weight:bold !important; }
+
+/*----------| Font Style |----------*/
+.italic { font-style:italic; }
+
+/*----------| Font Size |----------*/
+.fs40 { font-size:40px !important; }
+.fs10 { font-size:10px !important; }
+.fs11 { font-size:11px !important; }
+.fs14 { font-size:14px !important; }
+.fs16 { font-size:16px !important; }
+
+.fs25 { font-size:18px !important; }
+.fs12 { font-size:12px !important; }
+
+/*----------| Text Alignments |----------*/
+.aleft { text-align:left !important; }
+.acenter { text-align:center !important; }
+.aright { text-align:right !important; }
+.ajustify { text-align:justify !important; }
+
+/*----------| Line Height |----------*/
+.lh20 { line-height:20px; }
+.lh30 { line-height:30px; }
+.lh25 { line-height:25px; }
+
+.uline
+{
+    text-decoration:underline;
+}
+
+
+
+/*----------| Colors |----------*/
+.gray { color:#787979 !important; }
+.red { color:#d20000 !important; }
+.black { color:#000 !important; }
+.yellow { color:#ffd800 !important; }
+.blue { color:#446cb3 !important; }
+.white { color:#fff !important; }
+
+/*----------| Width |----------*/
+.wi900 { width:900px; margin:0 auto !important; }
+.wi458 { width:458px !important; }
+
+/*----------| Margin Top |----------*/
+.mat8 { margin-top:8px !important;}
+.mat10 { margin-top:10px !important;}
+.mat15 { margin-top:15px !important}
+.mat20 { margin-top:20px !important;}
+.mat30 { margin-top:30px !important;}
+
+
+/*----------| Margin Right |----------*/
+.mar10 { margin-right:10px !important; }
+.mar5 { margin-right:5px !important; }
+.mar3 { margin-right:3px !important; }
+
+.mar20 { margin-right:20px !important; }
+.mar30 { margin-right:30px !important; }
+.mar40 { margin-right:40px !important; }
+
+
+/*----------| Margin Bottom |----------*/
+.mab10 { margin-bottom:10px !important; }
+.mab5 { margin-bottom:5px !important; }
+
+
+/*----------| Margin Left |----------*/
+.mal10 { margin-left:10px !important; }
+.mal5 { margin-left:5px !important; }
+.mal3 { margin-left:3px !important; }
+.mal15 { margin-left:15px !important; }
+.mal20 { margin-left:20px !important; }
+.mal25 { margin-left:25px !important; }
+.mal30 { margin-left:30px !important; }
+.mal40 { margin-left:40px !important; }
+.mal50 { margin-left:50px !important; }
+.mal100 { margin-left:100px !important; }
+
+
+
+
+/*----------| Padding Top |----------*/
+.pat10 { padding-top:10px !important; }
+.pat5 { padding-top:5px !important; }
+.paall { padding:5px !important; }
+
+
+/*----------| Padding Right |----------*/
+.par10 { padding-right:10px !important; }
+
+
+/*----------| Padding Bottom |----------*/
+.pab5 { padding-bottom:5px !important; }
+.pab10 { padding-bottom:10px !important; }
+
+
+/*----------| Padding Left |----------*/
+.pal10 { padding-left:10px !important; }
+.pal5 { padding-left:5px !important; }
+
+
+/*----------| Margin Top |----------*/
+.mat10 { margin-top:10px !important; }
+.mat5 { margin-top:5px !important; }
+.mat3 { margin-top:3px !important; }
+
+body
+{
+    font-family:Arial;
+    font-size:12px;
+    line-height:18px;
+
+
+}
+.codes_module_bgmain_wrapper
+
+{
+    /*background:url(../images/bg2.jpg) no-repeat;*/
+    background-color:#91ab4a;
+    background-position:top center;
+}
+
+/*============job alerts styles here===============*/
+.codes_wrapper_main_alerts
+{
+float: left;
+    width:900px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.5);
+}
+.codes_wrapper_inner_alerts
+{
+    width:880px;	
+    margin:0 auto;
+    background:rgba(255,255,255,0.8);
+    min-height:650px;
+}
+.codes_alerts_logo_head
+{
+    width:880px;
+    height:120px;
+    background:#000;
+    overflow:hidden;
+}
+.codes_alert_logo_left, .codes_alert_logo_right
+{
+    width:440px;
+    height:120px;
+    float:left;
+    background:#f8f8f8;
+    overflow:hidden;
+}
+
+.codes_alert_logo_right img 
+{
+    float:right;
+    margin:5px 10px 0 0;
+
+}
+.codes_alert_message_box
+{
+    width:880px;
+    height:50px;
+    background:rgba(255,255,255,0.9);
+    border-top:1px dotted #ccc;
+    border-bottom:1px dotted #ccc;
+}
+.codes_alerts_joblist_thumb
+{
+    border-bottom:1px dotted #ccc;
+    width:860px;
+    margin:0 auto;
+    overflow:hidden;
+    padding:10px 0 10px 0px;
+}
+.alert_btn
+{
+    padding:7px 10px 7px 10px;
+    background:#C30;
+    color:#f8f8f8;
+    border:none;
+    border-radius:3px;
+    margin:10px 100px 5px 0;
+    float:right;
+    cursor:pointer;
+}
+.alert_btn:hover
+{
+    background:#F00;
+}
+.alert_desc
+{
+    width:650px;
+    margin:0 auto;
+    line-height:22px;
+    text-align:justify;
+    font-size:13px;
+}
+.closepack{
+    width:100%;
+    text-align:right;
+}
+.pckbut{
+    margin-top: 5px;
+    color: white;
+    border: none;
+    padding: 1px 7px;
+    background: #446cb3;
+}	
+.dletebutton{
+  margin-top: 5px;
+  border-radius: 3px;
+  padding: 2px;
+  border: none;
+}
+.checkboxall{
+    margin-right: 3px;
+  vertical-align: sub;
+}
+.buttonHome{
+      text-align: center;
+}
+.homeExp{
+      margin-left: 10px;
+}

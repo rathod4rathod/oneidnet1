@@ -1,0 +1,182 @@
+/*.cssmenu,.cssmenu ul,.cssmenu ul li,.cssmenu ul li a{margin:0;padding:0;border:0;list-style:none;line-height:1;display:block;position:relative;background:#066;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.cssmenu{width:200px;font-family:Helvetica,Arial,sans-serif;color:#fff;height:auto}.cssmenu ul ul{display:none}.align-right{float:right}.cssmenu>ul>li>a{cursor:default;z-index:2;font-size:12px;font-weight:700;text-decoration:none;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35);background:#333;box-shadow:inset 0 1px 0 rgba(255,255,255,.15)}.cssmenu>ul>li.active>a,.cssmenu>ul>li.open>a,.cssmenu>ul>li>a:hover{background:#e1e1e1;color:#000;font-family:Arial,Helvetica,sans-serif;font-weight:700}.holder{width:0;height:0;position:absolute;top:0;right:0}.cssmenu ul ul li.has-sub>a::after,.holder::after,.holder::before{display:block;position:absolute;content:"";right:20px}.holder::after,.holder::before{width:6px;height:6px;z-index:10;-webkit-transform:rotate(-135deg);-moz-transform:rotate(-135deg);-ms-transform:rotate(-135deg);-o-transform:rotate(-135deg);transform:rotate(-135deg)}.holder::after{top:11px;border-top:2px solid #fff;border-left:2px solid #fff}.holder::before{top:18px}.cssmenu ul ul li a{border:1px solid #ccc;padding:10px 20px;z-index:1;text-decoration:none;font-size:12px;color:#000;background:#e1e1e1;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.cssmenu ul ul li.active>a,.cssmenu ul ul li.open>a,.cssmenu ul ul li:hover>a{background:#fff;color:#d20000;font-family:Arial,Helvetica,sans-serif;font-weight:700}.cssmenu ul ul li:first-child>a{box-shadow:none}.cssmenu ul ul ul li:first-child>a{box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}.cssmenu ul ul ul li a{padding-left:30px}.cssmenu>ul>li>ul>li.last>a,.cssmenu>ul>li>ul>li:last-child>a{border-bottom:0}.cssmenu>ul>li>ul>li.last.open>a,.cssmenu>ul>li>ul>li.open:last-child>a{border-bottom:1px solid #ccc}.cssmenu>ul>li>ul>li.open:last-child>ul>li:last-child>a{border-bottom:0}.cssmenu ul ul li.has-sub>a::after{width:5px;height:5px;z-index:10;top:11.5px;border-top:2px solid #d20000;border-left:2px solid #d20000;-webkit-transform:rotate(-135deg);-moz-transform:rotate(-135deg);-ms-transform:rotate(-135deg);-o-transform:rotate(-135deg);transform:rotate(-135deg)}.cssmenu ul ul li.active>a::after,.cssmenu ul ul li.open>a::after,.cssmenu ul ul li>a:hover::after{border-color:#d20000}*/
+
+
+.cssmenu, .cssmenu ul, .cssmenu ul li, .cssmenu ul li a {
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+	line-height:1;
+	display:block;
+	position:relative;
+	background:transparent;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box
+}
+/*.cssmenu, .holder {
+	position:absolute
+}*/
+.cssmenu {
+	display:block;
+	float:right;
+	height:35px;
+	z-index:9999;
+	font-family:Helvetica, Arial, sans-serif;
+	color:#fff;
+	width:38px;
+	margin-top:5px;
+	margin-right:5px;
+}
+.cssmenu ul ul {
+	display:none;
+	opacity:0;
+	float:right;
+	width:200px;
+	box-shadow:2px 3px 2px #555;
+	border:1px solid #e0e0e0;
+}
+.cssmenu .dropMenuHead i{font-size:18px; color:#888;}
+.cssmenu .dropMenuHead{transition:all 0.5s;background:transparent;}
+.cssmenu .dropMenuHead:hover, .cssmenu .dropMenuHeadHighlite{background-color:#e6e6e6 !important;}
+.cssmenu ul:hover ul{opacity:1;display:block;}
+.align-right {
+	float:right
+}
+.cssmenu>ul>li>a {
+	cursor:default;
+	z-index:2;
+	font-size:12px;
+	font-weight:700;
+	text-decoration:none;
+	color:#fff;
+	background:#333;
+	box-shadow:inset 0 1px 0 rgba(255, 255, 255, .15);
+	outline:none;
+	padding:8px;
+	text-align:center;
+}
+.cssmenu>ul>li.active>a, .cssmenu>ul>li.open>a{
+	background:transparent;
+	color:#000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:700
+}
+.cssmenu>ul>li>a:hover {
+	background:#e4e4e4;
+	color:#000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:700;
+	border-radius:4px;
+}
+.holder {
+	width:0;
+	height:0;
+	top:0;
+	right:0
+}
+.cssmenu ul ul li.has-sub>a::after, .holder::after, .holder::before {
+display:block;
+position:absolute;
+content:"";
+right:20px;
+z-index:10
+}
+.holder::after, .holder::before {
+width:6px;
+height:6px;
+-webkit-transform:rotate(-135deg);
+-moz-transform:rotate(-135deg);
+-ms-transform:rotate(-135deg);
+-o-transform:rotate(-135deg);
+transform:rotate(-135deg)
+}
+.holder::after {
+top:11px;
+border-top:2px solid #fff;
+border-left:2px solid #fff
+}
+.holder::before {
+top:18px
+}
+.cssmenu ul ul li a {
+	border-bottom:1px solid #eaeaea;
+	float:left;
+	width:200px;
+	height:35px;
+	text-decoration:none;
+	font-size:12px;
+	color:#666;
+	background:#ffffff;
+	box-shadow:inset 0 1px 0 rgba(255, 255, 255, .1);
+	transition:all 0.5s;
+}
+.cssmenu ul ul li.active>a, .cssmenu ul ul li.open>a, .cssmenu ul ul li:hover>a {
+	background:#f1f1f1;
+	color:#333;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.cssmenu ul ul li:first-child>a {
+	box-shadow:none
+}
+.cssmenu ul ul ul li:first-child>a {
+	box-shadow:inset 0 1px 0 rgba(255, 255, 255, .1)
+}
+.cssmenu ul ul ul li a {
+	padding-left:30px
+}
+.cssmenu>ul>li>ul>li.last>a, .cssmenu>ul>li>ul>li:last-child>a {
+	border-bottom:0
+}
+.cssmenu>ul>li>ul>li.last.open>a, .cssmenu>ul>li>ul>li.open:last-child>a {
+	border-bottom:1px solid #ccc
+}
+.cssmenu>ul>li>ul>li.open:last-child>ul>li:last-child>a {
+	border-bottom:0
+}
+.cssmenu ul ul li.has-sub>a::after {
+width:5px;
+height:5px;
+top:11.5px;
+border-top:2px solid #00b386;
+border-left:2px solid #00b386;
+-webkit-transform:rotate(-135deg);
+-moz-transform:rotate(-135deg);
+-ms-transform:rotate(-135deg);
+-o-transform:rotate(-135deg);
+transform:rotate(-135deg)
+}
+.cssmenu ul ul li.active>a::after, .cssmenu ul ul li.open>a::after, .cssmenu ul ul li>a:hover::after {
+border-color:#00b386
+}
+.maildes_DropMenuHead {
+	color:#555;
+	width:200px;
+	height:35px;
+	float:left;
+	background-color:#ccc
+}
+.maildes_DropMenuHead img {
+	float:left;
+	width:30px;
+	height:30px;
+	margin:2px 0 0 5px
+}
+.maildes_DropMenuHead h3 {
+	float:left;
+	margin:5px 0 0 10px;
+	font:16px Arial
+}
+.cssmenu ul ul li a img {
+	width:25px;
+	height:25px;
+	float:left;
+	margin:2px
+}
+.cssmenu ul ul li a span {
+	float:left;
+	margin:12px 0 0 15px
+}
+
+.oneshop_services_store_menu_wrap ul li.subrightmenu:hover{border-bottom:0px;}
+.oneshop_services_store_menu_wrap ul li.subrightmenu li:hover{border-bottom:0px;}
