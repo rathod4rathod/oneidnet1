@@ -62,6 +62,32 @@ $(function() {
                 $("#osdev_City").html(e)
             }
         })
+    }), $("#osdev_Country_of_issue").change(function() {
+        var e = "country_id=" + $("#osdev_Country_of_issue").val();
+        $.ajax({
+            type: "POST",
+            url: oneshop_url + "/home/state_info",
+            data: e,
+            beforesend: function() {
+                $("#osdev_State_of_issue").prop("disabled", "disabled"), $("#osdev_City_of_issue").prop("disabled", "disabled")
+            },
+            success: function(e) {
+                $("#osdev_State_of_issue").html(e)
+            }
+        })
+    }), $("#osdev_State_of_issue").change(function() {
+        var e = "state_id=" + $("#osdev_State_of_issue").val();
+        $.ajax({
+            type: "POST",
+            url: oneshop_url + "/home/city_info",
+            data: e,
+            beforesend: function() {
+                $("#osdev_City_of_issue").prop("disabled", "disabled")
+            },
+            success: function(e) {
+                $("#osdev_City_of_issue").html(e)
+            }
+        })
     }), $("#dev_billing_os_country").change(function() {
         var e = $(this).val();
         $.ajax({

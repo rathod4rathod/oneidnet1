@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="oneshop_fieldsbox">
-                    <div class="wi100pstg mab5"> Country  </div>
+                    <div class="wi100pstg mab5"> Country </div>
                     <div class="wi100pstg">
                         <select class="oneshop_selectbox_field selectType" name="Country" id="osdev_Country">
                             <option value="">--Select Country--</option>
@@ -128,7 +128,60 @@
                     </div>
                     <p class="wi100pstg fs11 red clearfix" id="Curency_error"> Please select currency </p>
                 </div>
+                                <!-- Liceance Regiration -->
+                <h2 class="mat10 borderbottom wi100pstg mab10 fll"> License Registration   </h2>
+                    <div class="oneshop_leftwrapper_box mat15">
+                        <div class="oneshop_fieldsbox" id="register_number_div">
+                            <div class="wi100pstg mab5"> Registration Number </div>
+                            <div class="wi100pstg"> <input type="text" placeholder="Enter Registration Number Here" name="register_number" id="osdev_register_number" class="oneshop_productfield_textbox"> </div>
+                            <div class="wi100pstg fs11 red clearfix" id="osdev_register_number_error"> Please write registration number name </div>
+                        </div>
+                    </div>
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Country of Issue  </div>
+                    <div class="wi100pstg">
+                        <select class="oneshop_selectbox_field selectType" name="Country_of_issue" id="osdev_Country_of_issue">
+                            <option value="">--Select Country--</option>
+                            <?php
+                            //foreach ($country_info as $country_inf) {
+                            foreach ($country_info as $country_inf) {
+                              ?>
+                              <option value="<?php echo $country_inf['country_id']; ?>"><?php echo $country_inf['country_name']; ?></option>
+                              <?php }
+                            ?>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_Country_of_issue_error"> Please select Country of issue</p>
+                    </div>
+                </div>
 
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> State of Issue  </div>
+                    <div class="wi100pstg">
+                        <select class="oneshop_selectbox_field selectType" name="State_of_issue" id="osdev_State_of_issue" >
+                            <!--<option value="Telangana">Telangana</option>-->
+                            <option value="">--Select State--</option>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_State_of_issue_error"> Please select state of issue </p>
+                    </div>
+                </div>
+
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> City of Issue  </div>
+                    <div class="wi100pstg">
+                        <select class="oneshop_selectbox_field selectType" name="City_of_issue" id="osdev_City_of_issue" >
+                            <option value="">--Select city--</option>
+                        </select>
+                        <p class="wi100pstg fs11 red clearfix" id="osdev_City_of_issue_error"> Please select city of issue </p>
+                    </div>
+                </div>
+
+                <div class="oneshop_fieldsbox">
+                    <div class="wi100pstg mab5"> Registration Expiration Date  </div>
+                    <div class="wi100pstg"> <input type="date"  name="registration_expiration_date" id="osdev_registration_expiration_date" class="oneshop_productfield_textbox"> </div>
+                    <p class="wi100pstg fs11 red clearfix" id="osdev_registration_expiration_date_error"> Please enter the registration Expiration date </p>
+                </div>
+                    
+                <!-- Liceance Regiration -->
                 <div class="oneshop_fieldsbox">
                     <!-- <div class="wi100pstg mab5"> Delivery Type </div> -->
                     <div class="wi100pstg">
@@ -166,8 +219,27 @@
     </div>
 <script type="text/javascript" src="<?php echo base_url() . "assets/microjs/"; ?>validation.js"></script>
 <script type="text/javascript" src="<?php echo base_url() . "assets/microjs/"; ?>add_store.js"></script>
+
 <style type="text/css">
-    #osdev_Delivery_Mode_error,#osdev_store_address_error,#osdev_PackagePeriod_error,#osdev_store_name_error,#osdev_Category_error,#osdev_term_error,#osdev_Country_error,#osdev_State_error,#osdev_City_error,#osdev_Zipcode_error,#osdev_Enquirymobilenumber_error,#osdev_ServiceEmail_error,#Curency_error,#osdev_PackageType_error{
+   #osdev_Delivery_Mode_error,
+    #osdev_store_address_error,
+    #osdev_PackagePeriod_error,
+    #osdev_store_name_error,
+    #osdev_Category_error,
+    #osdev_term_error,
+    #osdev_Country_error,
+    #osdev_Country_of_issue_error,
+    #osdev_State_error,
+    #osdev_State_of_issue_error,
+    #osdev_City_error,
+    #osdev_City_of_issue_error,
+    #osdev_registration_expiration_date_error,
+    #osdev_register_number_error,
+    #osdev_Zipcode_error,
+    #osdev_Enquirymobilenumber_error,
+    #osdev_ServiceEmail_error,
+    #Curency_error,
+    #osdev_PackageType_error{
         display:none;
     }
     .displayError{display:block;}

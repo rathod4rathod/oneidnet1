@@ -338,7 +338,10 @@
 			</ul>
                 <?php }  ?>
 		</div>
-                <div class="oneshop_menuicon_div" id="flip"> <img src="<?php echo base_url() . "assets/" ?>images/menu02.png"> </div><?php } ?>
+                <div class="oneshop_menuicon_div browser-icon" id="flip"> 
+					browse <i class="fa fa-angle-down"></i>
+				</div>
+				<?php } ?>
 			<div id="panel" class="fll">
 				<div id="tabContainer">
 					<div id="tabs">
