@@ -10,6 +10,7 @@ $route['myaccount'] = "myaccount/myaccountdetails";
 $route['mycards'] = "myaccount/mycarddetails";
 $route['pendingtransactions'] = "myaccount/pendingtransactions";
 $route['transactionhistory'] = "myaccount/transactionhistory";
+$route['paymenthistory'] = "myaccount/paymenthistory";
 $route['contacts'] = "basicinfo/contacts";
 
 

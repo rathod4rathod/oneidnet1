@@ -64,4 +64,42 @@ class My_PHPMailer {
     return $msg;
   }
 
+  function send_support_mail($from,$fpass,$to, $subject, $mailmsg,$is_reply='',$attach_files_path='') {
+    $mail = new PHPMailer();
+    $mail->isSMTP(); 
+    $mail->SMTPAuth = true; 
+    $mail->Password = "Ylper-ton-od@786";
+    $mail->SMTPSecure = 'starttls';
+    $mail->Host = "mail.oneidnet.com";server
+    $mail->Port = 587;
+    $mail->Username = $from;
+    $mail->Password = $fpass;
+    $mail->IsHTML(true);
+    $mail->SetFrom($from, 'ONEIDNET');
+    if($is_reply!=""){
+      $mail->AddReplyTo($from,"Support");
+    }
+    if($attach_files_path!=""){
+      $mail->AddAttachment($attach_files_path);
+    }
+    $mail->Subject = $subject;
+    $mail->Body = $mailmsg;
+    if(strpos($to,",")!=false){
+      $to_address=explode(",",$to);
+      for($i=0;$i<count($to_address);$i++){
+        $to_email=$to_address[$i];
+        $mail->addAddress($to_email);
+      }
+    }else{
+      $mail->AddAddress($to);
+    }
+    $msg="";
+    if (!$mail->send()) {      
+      $msg="ERROR".$mail->ErrorInfo;
+    } else {      
+      $msg="SUCCESS";
+    }
+    return $msg;
+  }
+
 }

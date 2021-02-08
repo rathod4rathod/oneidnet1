@@ -23,6 +23,52 @@ class myaccount  extends CI_Controller {
         }
     }
 
+    function payment_list(){
+    	$connect = mysqli_connect("localhost","root","","db_oneidnet");
+            // $db_obj = $this->load->module("db_api");
+            $sqlQuery = "SELECT * FROM stripe_payout";
+            if(!empty($_POST["search"]["value"])){
+                $sqlQuery .= ' WHERE (id LIKE "%'.$_POST["search"]["value"].'%" OR pay_name LIKE "%'.$_POST["search"]["value"].'%" OR pay_fees LIKE "%'.$_POST["search"]["value"].'%" OR pay_netamt LIKE "%'.$_POST["search"]["value"].'%")';     
+            }
+            if(!empty($_POST["order"]))
+            {
+                $sqlQuery .= ' ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+            } 
+            else {
+                 $sqlQuery .= ' ORDER BY id DESC';
+            }
+                
+            if($_POST["length"] != -1){
+                $sqlQuery .= ' LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+            }
+           
+            $result = mysqli_query($connect, $sqlQuery);
+
+            $displayRecords = mysqli_num_rows($result);
+                
+            $allRecords = mysqli_num_rows(mysqli_query($connect,"SELECT * FROM stripe_payout"));
+
+            $data = array();     
+            while($record = mysqli_fetch_array($result))
+            {              
+                $rows = array();            
+                $rows[] = $record['id'];
+                $rows[] = $record['pay_name'];  
+                $rows[] = $record['pay_curr'].' '.$record['pay_fees'];
+                $rows[] = $record['pay_curr'].' '.$record['pay_netamt'];
+                $rows[] = $record['pay_created'];
+                $rows[] = $record['pay_available'];             
+                $data[] = $rows;
+            }
+            $output = array(
+                "draw"  =>  intval($_POST["draw"]),         
+                "recordsTotal" =>  $allRecords,
+                "recordsFiltered"  =>  $displayRecords,
+                "data"  =>  $data
+            );
+            echo json_encode($output);
+    }
+
    
     function test_input($data) {
         $data = trim($data);
@@ -277,12 +323,44 @@ function newcardsadd(){
 	 $this->load->view("pending_transaction",$data);
 
 	}
+
+	function paymenthistory(){
+		$data['is_oneidnet_payment_active']="Yes";
+		$user_acc = "SELECT * FROM `iws_profiles` WHERE profile_id=".$this->user_id();
+		$uacc_res= $this->db_api->custom( $user_acc);
+		$today = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE DATE(`pay_added_on`) = CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['today']= $this->db_api->custom( $today);
+
+		$yesterday = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE DATE(`pay_added_on`) = DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['yesterday']= $this->db_api->custom( $yesterday);
+
+		$week = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE WEEKOFYEAR(`pay_added_on`) = WEEKOFYEAR(CURDATE()) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['week']= $this->db_api->custom( $week);
+
+		$lastweek = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE WEEKOFYEAR(`pay_added_on`) = WEEKOFYEAR(CURDATE())-1 AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['lastweek']= $this->db_api->custom( $lastweek);
+
+		$month = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE pay_added_on between DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['month']= $this->db_api->custom( $month);
+
+		$lastmonth = "SELECT SUM(pay_netamt) AS value_sum, pay_curr FROM  `stripe_payout` WHERE MONTH(pay_added_on) = MONTH( DATE_SUB(CURDATE(),INTERVAL 1 MONTH )) AND YEAR(pay_added_on) = YEAR( DATE_SUB(CURDATE( ),INTERVAL 1 MONTH )) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['lastmonth']= $this->db_api->custom( $lastmonth);
+
+		$year = "SELECT sum(pay_netamt) AS value_sum, pay_curr FROM `stripe_payout` WHERE pay_added_on between  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['year']= $this->db_api->custom( $year);
+
+		$lastyear = "SELECT sum(pay_netamt) val_sum, pay_curr FROM stripe_payout WHERE YEAR(pay_added_on) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR)) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$data['lastyear']= $this->db_api->custom( $lastyear);
+		$this->load->view("payment_history", $data);
+	}
+
 	function transactionhistory(){
 	 $data['is_oneidnet_transhistory_active']="Yes";
 		
 	 $this->load->view("transaction_history", $data);
 
 	}
+
 	function transactionhistory_v(){
 		 $sql = "SELECT  pt.transaction_aid ,pt.amount ,pt.transaction_time,pc.card_name ,iw.first_name,iw.middle_name,iw.last_name  FROM `pb_transactions` as pt 
 		left join `pb_cards` as pc  on pc.card_id=pt.from_account  

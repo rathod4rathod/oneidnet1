@@ -28,8 +28,6 @@ class home extends CI_Controller {
             // Generate the Memcahe Object key for the User.
             $keyName = "USRDTA_" . $this->cookies->getUserID();
         }
-
-
         $result = $this->memcaching->getKey($keyName);
 
         if ($result) {
@@ -167,6 +165,10 @@ class home extends CI_Controller {
                     $data['last_name']=$is_varified[0]["last_name"];
                     $data['gender']=$is_varified[0]["gender"];
                     //$data['weather_report']=$this->getWeatherReport();
+                    if($_SESSION['support'] && $_SESSION['pass']){
+                        unset($_SESSION['support']);
+                        unset($_SESSION['pass']);
+                    }
                     $this->load->view('home/index', $data);
                     
                 } else {
@@ -195,6 +197,14 @@ class home extends CI_Controller {
 		echo 'Your IP is blocked.Please contact oneidnet administrator.';
 		exit();
 	}
+    }
+
+
+    
+    function sendsupportmail($from,$fpass,$tomail, $subject, $text) {
+        $path = APPPATH . 'libraries/My_PHPMailer.php';
+        $mailobj = new My_PHPMailer();
+       return $mresult = $mailobj->send_support_mail($from,$fpass,$tomail, $subject, $text);
     }
 
     
@@ -367,6 +377,17 @@ class home extends CI_Controller {
         $data["uid"] = $this->getUserId();
         $data["userdetails"]=$this->getUser_details();
         $data["tittle"] = "Policies - ONEIDNET";
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
         $this->load->view('policies_page', $data);
     }
 
@@ -374,6 +395,17 @@ class home extends CI_Controller {
         $data["uid"] = $this->getUserId();
         $data["userdetails"]=$this->getUser_details();
         $data["tittle"] = "Foundation - ONEIDNET";
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
         $this->load->view('foundation_page', $data);
     }
 
@@ -381,6 +413,17 @@ class home extends CI_Controller {
         $data["uid"] = $this->getUserId();
         $data["userdetails"]=$this->getUser_details();
         $data["tittle"] = "Privacy - ONEIDNET";
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
         $this->load->view('privacy_page', $data);
     }
 
@@ -388,7 +431,17 @@ class home extends CI_Controller {
         $data["uid"] = $this->getUserId();
          $data["userdetails"]=$this->getUser_details();
          $data["tittle"] = "Terms & Conditions - ONEIDNET";
-        
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
         $this->load->view('termsconditions_page', $data);
     }
    function terms_conditions()
@@ -396,20 +449,238 @@ class home extends CI_Controller {
 		$data["tittle"] = "Terms & Conditions - ONEIDNET";
         $this->load->view("home/terms_conditions");
     }
+
+    function emp_support_access(){
+        $data["uid"] = $this->getUserId();
+        $data["userdetails"]=$this->getUser_details();
+        $data["tittle"] = "Support Access - ONEIDNET";
+        if($_REQUEST['suser']){
+            $db_api = $this->load->module('db_api');
+            $support_user = "SELECT * FROM oneid_support WHERE one_username='".$_REQUEST['suser']."'";
+            $support_res = $db_api->custom($support_user);
+            // echo var_dump($support_user);
+            $_SESSION['support'] = $_REQUEST['suser'].'@oneidnet.com';
+            $_SESSION['pass'] = $support_res[0]['one_password'];
+        }
+        $this->load->view("support_access", $data);
+    }
+
     function customersupport() {
         $data["uid"] = $this->getUserId();
         $data["userdetails"]=$this->getUser_details();
-         $data["tittle"] = "Customer Support - ONEIDNET";
+        $data["tittle"] = "Customer Support - ONEIDNET";
+        $data["type"] = 'module';
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'raj@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
+        $this->load->view('customer_support', $data);
+    }
+
+    function supportemployee() {
+        $data["uid"] = $this->getUserId();
+        $data["userdetails"]=$this->getUser_details();
+         $data["tittle"] = "Customer Support Team - ONEIDNET";
+        $this->load->view('customer_support', $data);
+    }
+
+    function support_list(){
+        $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
+            // $db_obj = $this->load->module("db_api");
+            $sqlQuery = "SELECT * FROM oneid_support";
+            if(!empty($_POST["search"]["value"])){
+                $sqlQuery .= ' WHERE (id LIKE "%'.$_POST["search"]["value"].'%" OR one_email LIKE "%'.$_POST["search"]["value"].'%" OR one_module LIKE "%'.$_POST["search"]["value"].'%" OR one_type LIKE "%'.$_POST["search"]["value"].'%")';     
+            }
+            if(!empty($_POST["order"]))
+            {
+                $sqlQuery .= ' ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+            } 
+            else {
+                 $sqlQuery .= ' ORDER BY id DESC';
+            }
+                
+            if($_POST["length"] != -1){
+                $sqlQuery .= ' LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+            }
+           
+            $result = mysqli_query($connect, $sqlQuery);
+
+            $displayRecords = mysqli_num_rows($result);
+                
+            $allRecords = mysqli_num_rows(mysqli_query($connect,"SELECT * FROM oneid_support"));
+
+            $data = array();     
+            while($record = mysqli_fetch_array($result))
+            {              
+                $rows = array();            
+                $rows[] = $record['id'];
+                $rows[] = $record['one_email'];
+                $rows[] = $record['one_module'];
+                $rows[] = $record['one_type'];                   
+                $rows[] = '<button type="button" name="update" id="'.$record['id'].'"
+             class="btn update" style="background-color: yellow;color: black;padding: 3px 8px;width: 100%;font-size:smaller;">Update</button>';                        
+                $rows[] = '<button type="button" name="delete" id="'.$record['id'].'"
+             class="btn delete" style="background-color: red;color: white;padding: 3px 8px;width: 100%;font-size: smaller;">Delete</button>';
+                $data[] = $rows;
+            }
+            $output = array(
+                "draw"  =>  intval($_POST["draw"]),         
+                "recordsTotal" =>  $allRecords,
+                "recordsFiltered"  =>  $displayRecords,
+                "data"  =>  $data
+            );
+            echo json_encode($output);
+    }
+
+    function repre_list(){
+        $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
+            // $db_obj = $this->load->module("db_api");
+            $sqlQuery = "SELECT * FROM oneid_representative";
+            if(!empty($_POST["search"]["value"])){
+                $sqlQuery .= ' WHERE (id LIKE "%'.$_POST["search"]["value"].'%" OR repre_email LIKE "%'.$_POST["search"]["value"].'%")';     
+            }
+            if(!empty($_POST["order"]))
+            {
+                $sqlQuery .= ' ORDER BY '.$_POST['order']['0']['column'].' '.$_POST['order']['0']['dir'].' ';
+            } 
+            else {
+                 $sqlQuery .= ' ORDER BY id DESC';
+            }
+                
+            if($_POST["length"] != -1){
+                $sqlQuery .= ' LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+            }
+           
+            $result = mysqli_query($connect, $sqlQuery);
+
+            $displayRecords = mysqli_num_rows($result);
+                
+            $allRecords = mysqli_num_rows(mysqli_query($connect,"SELECT * FROM oneid_representative"));
+
+            $data = array();     
+            while($record = mysqli_fetch_array($result))
+            {              
+                $rows = array();            
+                $rows[] = $record['id'];
+                $rows[] = $record['repre_email'];                                    
+                $rows[] = '<button type="button" name="delete" id="'.$record['id'].'"
+             class="btn delete" style="background-color: red;color: white;padding: 3px 8px;width: 100%;font-size: smaller;">Delete</button>';
+                $data[] = $rows;
+            }
+            $output = array(
+                "draw"  =>  intval($_POST["draw"]),         
+                "recordsTotal" =>  $allRecords,
+                "recordsFiltered"  =>  $displayRecords,
+                "data"  =>  $data
+            );
+            echo json_encode($output);
+    }
+
+    function decrypt($string, $key = "abc#oneidnet!@#$%123456789!@#$%")
+    {
+        $IV_SIZE = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
+        $combo = base64_decode($string);
+        $iv = substr($combo, 0, $IV_SIZE);
+        $crypt = substr($combo, $IV_SIZE, strlen($combo));
+        $payload = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, hash('sha256', $key, true), $crypt, MCRYPT_MODE_CBC, $iv);
+        
+        return rtrim($payload,"\0");
+    }
+
+    function add_representative(){
+        $data["uid"] = $this->getUserId();
+        $data["userdetails"]=$this->getUser_details();
+        $data["tittle"] = "Add Representative - ONEIDNET";
+        $data["type"] = 'representative';
         $this->load->view('customer_support', $data);
     }
 
     function customersupport_form() {
         $data["uid"] = $this->getUserId();
         $data["userdetails"]=$this->getUser_details();
-         $data["tittle"] = "Customer Support - ONEIDNET";
-         $data["type"] = $_REQUEST["type"];
-         $data["mode"] = $_REQUEST["mod"];
+        $data["tittle"] = "Customer Support - ONEIDNET";
+        $data["type"] = $_REQUEST["type"];
+        $data["mode"] = $_REQUEST["mod"];
+        // $obj = $this->load->module('cookies');
+        // $db_api = $this->load->module('db_api');
+        // $user_query = "SELECT email,360mail_key FROM iws_profiles WHERE profile_id='".$obj->getUserID()."'";
+        // $user_rest = $db_api->custom($user_query);
+        // // echo var_dump($user_rest);
+        // $data["u_mail"] = $user_rest[0]['email'];
+        // $data['u_pass'] = $this->decrypt($user_rest[0]['360mail_key']);
         $this->load->view('customer_support', $data);
+    }
+
+    function createsupport_emp() {
+        $data["uid"] = $this->getUserId();
+        $data["userdetails"]=$this->getUser_details();
+         $data["tittle"] = "Add Support - ONEIDNET";
+         $data["type"] = 'add';
+        $this->load->view('customer_support', $data);
+    }
+
+    function user_support_insertion(){
+        $obj = $this->load->module('cookies');
+        $dbobj=$this->load->module("db_api");
+        $type = $_POST["type"];
+        $module = $_POST["module"];
+        $sub = $_POST["sub"];
+        $msg = $_POST["msg"];
+        $user_query = "SELECT email,360mail_key FROM iws_profiles WHERE profile_id='".$obj->getUserID()."'";
+        $user_rest = $db_api->custom($user_query);
+        $support_query = "SELECT * FROM oneid_support WHERE one_module='".$module."' AND one_type='".$type."'";
+        $support_rest = $db_api->custom($support_query);
+        $body=$this->supportTpl($support_rest[0]["one_type"],$support_rest[0]["one_module"],$sub,$msg);
+        $this->sendsupportmail($user_rest[0]["email"],$this->decrypt($user_rest[0]['360mail_key']),$support_rest[0]["one_email"],"NEED SUPPORT - QUERIES",$body);
+    }
+
+    function valid_repre_checking(){
+        $dbapi = $this->load->module("db_api");
+        // $resultArr = array();
+        $repre_mail = $_REQUEST['emails'];
+        if ($repre_mail != "") {
+            $exp_emails = explode(",", $repre_mail);
+            foreach ($exp_emails as $s_email) {
+                $mailQry = "SELECT email FROM iws_profiles WHERE email = '" . $s_email . "'";
+                $support_res = $dbapi->custom($mailQry);
+                if($support_res)
+                {
+                    $repreQry = "SELECT * FROM oneid_representative WHERE repre_email = '" . $s_email . "'";
+                    $repre_mail_res = $dbapi->custom($repreQry);
+                    if($repre_mail_res){
+                        echo "EXISTING_USER";
+                    }
+                    else
+                    {
+                        echo "VALID";
+                    }
+                }
+                else
+                {
+                    echo "INVALID_USER";
+                }
+            }
+        }
+    }
+
+    function add_repre_insertion(){
+        $dbobj=$this->load->module("db_api");
+        $emails = $_POST["email"];
+        $repre_arr = array(
+            "repre_email" => $emails
+        );
+        foreach ($repre_arr as $key => $val) {
+            $repre_arr[$key] = $this->test_input($repre_arr[$key]);
+        }
+        $repreRec = $dbobj->insert($repre_arr, "oneid_representative");
+        echo "REPRESENTATVE_INSERTED";
     }
 
     function valid_support_checking(){
@@ -443,6 +714,10 @@ class home extends CI_Controller {
         }
     }
 
+    function salt(){
+        return "#@$786ABoneidnet";
+    }
+
     function valid_support_insertion(){
         $dbobj=$this->load->module("db_api");
         $emails = $_POST["email"];
@@ -450,18 +725,23 @@ class home extends CI_Controller {
         $type = $_POST["type"];
         $username = $_POST["username"];
         $pass = $_POST["pass"];
+        // echo var_dump($pass);
         if($type){
                 $supp_arr = array(
                     "one_email" => $emails,
                     "one_module" => $module,
                     "one_type" => $type,
                     "one_username" => $username,
-                    "one_password" => $pass
+                    "one_password" => $this->encrypt($pass)
                 );
                 foreach ($supp_arr as $key => $val) {
                     $supp_arr[$key] = $this->test_input($supp_arr[$key]);
                 }
                 $staffRec = $dbobj->insert($supp_arr, "oneid_support");
+                $fname = explode('@', $emails);
+                $hpass = "{SSHA512}".base64_encode(hash('sha512', $pass.$this->salt(), true).$this->salt());
+                $this->load->library('oneidnet_rc');
+                $this->oneidnet_rc->addMailbox($username,  $fname[0], $hpass, $quota_in_mb=100 );
 
                 echo "SUPPORT_INSERTED";
         }
@@ -471,27 +751,74 @@ class home extends CI_Controller {
                     "one_email" => $emails,
                     "one_module" => $module,
                     "one_username" => $username,
-                    "one_password" => $pass
+                    "one_password" => $this->encrypt($pass)
                 );
                 foreach ($supp_arr as $key => $val) {
                     $supp_arr[$key] = $this->test_input($supp_arr[$key]);
                 }
                 $staffRec = $dbobj->insert($supp_arr, "oneid_support");
-
+                $fname = explode('@', $emails);
+                $hpass = "{SSHA512}".base64_encode(hash('sha512', $pass.$this->salt(), true).$this->salt());
+                $this->load->library('oneidnet_rc');
+                $this->oneidnet_rc->addMailbox($username,  $fname[0],$hpass, $quota_in_mb=100 );
                 echo "SUPPORT_INSERTED";
         }
+    }
+
+function encrypt($string, $key = "abc#oneidnet!@#$%123456789!@#$%")
+    {
+    //return trim(base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $salt, $text, MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND))));
+    $iv = mcrypt_create_iv(
+    mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC),
+    MCRYPT_DEV_URANDOM
+    );
+
+$encrypted = base64_encode(
+    $iv .
+    mcrypt_encrypt(
+        MCRYPT_RIJNDAEL_128,
+        hash('sha256', $key, true),
+        $string,
+        MCRYPT_MODE_CBC,
+        $iv
+    )
+ 
+);
+return $encrypted;
     }
 // contactus page
     function contactus(){
       $data["uid"] = $this->getUserId();
       $data["userdetails"]=$this->getUser_details();
       $data["tittle"] = "Contact Us - ONEIDNET";
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
       $this->load->view("home/contactus_page",$data);
     }
     function allinone() {
         $data["uid"] = $this->getUserId();
          $data["userdetails"]=$this->getUser_details();
          $data["tittle"] = "All In One - ONEIDNET";
+        $db_api = $this->load->module('db_api');
+        $admin_user = "SELECT * FROM iws_profiles WHERE profile_id=".$this->getUserId();
+        $admin_res = $db_api->custom($admin_user);
+        $repre = "SELECT * FROM iws_profiles iws INNER JOIN oneid_representative onere ON onere.repre_email = iws.email WHERE profile_id=".$this->getUserId();
+        $repre_res = $db_api->custom($repre);
+        if($admin_res[0]['email'] == 'jaime.martinez@oneidnet.com'){
+            $data['add_repre_support'] = $admin_res[0]['profile_id'];
+        }
+        if($repre_res){
+            $data['repre'] = $repre_res[0]['profile_id'];
+        }
         $this->load->view('allinone_page', $data);
     }
 //12-april-2016 by venkatesh
@@ -518,6 +845,21 @@ class home extends CI_Controller {
      redirect(base_url());
         }
         
+    }
+
+    function supportTpl($type,$module,$sub,$msg){
+        $html='<html><head><title>Welcome to ONEIDNET</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        </head>
+        <body bgcolor="grey" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+        <table id="Table_01" width="800" height="2376" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <td colspan="3"><p style="color:#000;""><b style="color:#eeeeee; font-weight:bold; font-size:18px;">NEED SUPPORT, "'.$type.'" FOR "'.$module.'",</b> <br> <br> SUBJECT : "'. $sub.'" <br> MESSAGE : "'. $msg.'" <br> 
+                </td>
+            </tr>
+        </table>
+        </body>
+        </html>';
     }
     
     function activationTemplate($alink){
@@ -1316,6 +1658,7 @@ background: #ffffff;
       $contact_ins=$dbapi->insert($ins_arry,"iws_contact_us");
       echo $contact_ins;
     }
+    
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
