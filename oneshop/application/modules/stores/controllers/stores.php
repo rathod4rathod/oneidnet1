@@ -805,7 +805,10 @@ class stores extends CI_Controller {
     function sale_posting(){
         $db_obj = $this->load->module("db_api");
         $userId = $this->get_UserId();
-
+        // $sempty = preg_split('/,/', $_POST['product'], -1, PREG_SPLIT_NO_EMPTY);
+        // echo var_dump($sempty);
+        //explode(',', $sempty)
+        $sproducts = $_POST['product'];
         $stype = $_POST["type"];
         $stitle = $_POST["title"];
         $smsg = $_POST["msg"];
@@ -818,6 +821,7 @@ class stores extends CI_Controller {
         $sale_arr = array(
             "os_type" => $stype,
             "os_title" => $stitle,
+            "os_products" => $sproducts,
             "os_msg" => $smsg,
             "store_id_fk" => $store_aid,
             "os_ft_date" => $sfdate,
@@ -828,9 +832,9 @@ class stores extends CI_Controller {
             $sale_arr[$key] = $this->test_input($sale_arr[$key]);
         }
         $saleRec = $db_obj->insert($sale_arr, "oshop_sales");
-
+        $salerec_aid = mysql_insert_id();
         $this->load->module('notification');
-        $this->notification->all_notification("SALE","","",$_POST["store_code"],"");
+        $this->notification->all_notification("SALE","",$salerec_aid,$_POST["store_code"],"");
         if($saleRec){
             echo 'done';
         }

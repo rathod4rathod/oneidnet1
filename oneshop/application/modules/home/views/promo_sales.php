@@ -13,14 +13,12 @@ if($theme_selected!=''){
       $midimage = base_url().'/assets/images/store_banners/mid1.png'; 
      }
 ?>  
-<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 
 <style type="text/css">
     
@@ -76,8 +74,8 @@ th, td{
                                         <div id="order_no_div">
                                             <div> Product list  </div>
                                             <div> 
-                                                <input type="text" class="input" placeholder="Enter Title" id="promo_product" name="promo_product"> </div>
-                                            <p id='staff_err_1' class='wi100pstg fs11 red clearfix'></p>
+                                                <input type="text" class="input" placeholder="Enter Products" id="promo_product" name="promo_product" size="50"> </div>
+                                            <p id='staff_err_5' class='wi100pstg fs11 red clearfix'></p>
                                         </div>
                                     </td>
                                 </tr>
@@ -156,31 +154,44 @@ $(function () {
     $("#fromDate").datepicker();
     $("#endDate").datepicker();
 });
- $('#promo_product').tokenfield({
-  autocomplete:{
-   source: ['PHP','Codeigniter','HTML','JQuery','Javascript','CSS','Laravel','CakePHP','Symfony','Yii 2','Phalcon','Zend','Slim','FuelPHP','PHPixie','Mysql'],
-   delay:100
-  },
-  showAutocompleteOnFocus: true
- });
-// $(document).ready(function() {
-//     var tagApi = $(".tm-input").tagsManager();
-
-
-//     jQuery(".typeahead").typeahead({
-//       name: 'oshop_products',
-//       displayKey: 'product_name',
-//       source: function (query, process) {
-//         return $.get(oneshop_url+'/home/productlist', { query: query }, function (data) {
-//           data = $.parseJSON(data);
-//           return process(data);
-//         });
-//       },
-//       afterSelect :function (item){
-//         tagApi.tagsManager("pushTag", item);
-//       }
-//     });
-//   });
+$(function() {
+    function split( val ) {
+        return val.split( /,\s*/ );
+    }
+    function extractLast( term ) {
+        return split( term ).pop();
+    }
+    
+    $( "#promo_product" ).bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).autocomplete( "instance" ).menu.active ) {
+            event.preventDefault();
+        }
+    })
+    .autocomplete({
+        minLength: 1,
+        source: function( request, response ) {
+            var storecode = $('#store_code').val();
+            // delegate back to autocomplete, but extract the last term
+            $.getJSON(oneshop_url+"/home/productlist", { term : extractLast( request.term ), store : storecode},response);
+        },
+        focus: function() {
+            // prevent value inserted on focus
+            return false;
+        },
+        select: function( event, ui ) {
+            var terms = split( this.value );
+            // remove the current input
+            terms.pop();
+            // add the selected item
+            terms.push( ui.item.value );
+            // add placeholder to get the comma-and-space at the end
+            terms.push( "" );
+            this.value = terms.join( ", " );
+            return false;
+        }
+    });
+});
 var dataRecords = $('#recordListing').DataTable({
         "processing":true,
         "serverSide":true,              

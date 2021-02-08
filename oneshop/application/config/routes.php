@@ -28,6 +28,7 @@ $route['product_search/(:any)/(:any)'] = "home/find_product/$1/$2";
 $route['category_search/(:any)/(:any)/(:any)'] = "home/find_categories/$1/$2/$3";
 $route['product_search/(:any)/(:any)/(:any)/(:any)'] = "home/find_product/$1/$2/$3/$4";
 $route['store_products/(:any)'] = "home/store_products/$1";
+$route['sale_products/(:any)/(:any)'] = "home/store_sale_products/$1/$2";
 $route['product_posting/(:any)'] = "home/product_Posting/$1";
 $route['mystore_reports/(:any)'] = "home/mystore_Reports/$1";
 $route['themes/(:any)'] = 'stores/storeThemes/$1';

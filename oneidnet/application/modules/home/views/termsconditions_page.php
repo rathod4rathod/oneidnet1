@@ -39,7 +39,7 @@ $this->templates->content_header();
                     <?php }
                     } ?>
                     <?php
-                    if($add_repre_support != ""){
+                    if($add_repre_support != "" || $repre != "" ){
                         if($type != 'module' && $type != 'add' && $type == 'representative'){?>
                             <li class="arepre_img_active"><a href="<?php echo base_url() . 'home/add_representative' ?>"></a></li>
                     <?php }else{?>

@@ -5,6 +5,16 @@ $this->templates->content_header();
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+        <style type="text/css">
+            .dataTables_wrapper .dataTables_filter,
+            .dataTables_wrapper .dataTables_length,
+            .dataTables_wrapper .dataTables_info,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+            .dataTables_wrapper .ui-button {
+              color: #fff !important;
+              /*font-family: 'courier'*/
+            }
+        </style>
 <div class="middle_content">
     <!-- Start Left -->
     <div class="main_content_left">
@@ -39,7 +49,7 @@ $this->templates->content_header();
                     <?php }
                     } ?>
                     <?php
-                    if($add_repre_support != ""){
+                    if($add_repre_support != "" || $repre != "" ){
                         if($type != 'module' && $type != 'add' && $type == 'representative'){?>
                             <li class="arepre_img_active"><a href="<?php echo base_url() . 'home/add_representative' ?>"></a></li>
                     <?php }else{?>
@@ -102,7 +112,7 @@ $this->templates->content_header();
             <div style="width: 50%;float: right;">
                 <h1 style="margin-bottom: 50px;text-align: center;color: aliceblue;">SUPPORT TEAM RECORDS</h1>
             <table id="recordListing" width="30%">
-                <thead>
+                <thead style="color: white;">
                     <tr>
                         <th>#</th>
                         <th style="width: 30%">E-MAIL</th>    
@@ -162,7 +172,7 @@ $this->templates->content_header();
             <div style="width: 50%;float: right;">
                 <h1 style="margin-bottom: 50px;text-align: center;color: aliceblue;">REPRESENTATIVE RECORDS</h1>
             <table id="recordListing_repre">
-                <thead>
+                <thead style="color: white;">
                     <tr>
                         <th>#</th>
                         <th>E-MAIL</th>

@@ -34,7 +34,7 @@ if(is_array($products_data)) {
 			<?php
                 if($store_owner=="yes"){
             ?>
-			<div class="action-wrap">
+			<div class="action-wrap" style="bottom: -83px;">
 				<a class="edit-icon" href="<?php echo  $product_edit_url ?>" >Edit</a>
 				<a class="delelte-icon" href="<?php echo  $product_delete_url ?>" >Delete</a>
 			</div>	
@@ -66,7 +66,7 @@ if(is_array($products_data)) {
 							?>			
 			</div>
 			<p class="mycat_name cagetory-name"><?=($rows["category_name"] != '')?$rows["category_name"]:'No Category'?></p>               
-				<div class="oneshop_products_storebox_bottomdiv"><a href="<?php echo $product_url;?>" title="<?php echo ucfirst($product_name)?>"><?php echo ucfirst($prod_name) ?>000</a>
+				<div class="oneshop_products_storebox_bottomdiv"><a href="<?php echo $product_url;?>" title="<?php echo ucfirst($product_name)?>"><?php echo ucfirst($prod_name) ?></a>
 					<div class="mycat_name price-wrap">
 						<p class="actual-price"><?php echo $currency.''.$rows["price"]; ?></p>
 						<p class="off-price"><?php echo $currency.''.$rows["sale_price"]; ?></p>

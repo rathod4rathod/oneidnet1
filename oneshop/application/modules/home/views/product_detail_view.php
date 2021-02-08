@@ -467,7 +467,7 @@ $this->products->similar_Products($category_id,$product_category,$product_aid);
     var from_currency='<?php echo $currencyname?>';
     // alert(round(price));
     callAJAX(oneshop_url+"/home/getCurrencyData",{current_price:price,from:from_currency,to:to_currency},function(data){
-      alert(data.trim());
+      // alert(data.trim());
       $("#curr_sym").text(to_currency);
       $("#conv_price").text(data);
     });

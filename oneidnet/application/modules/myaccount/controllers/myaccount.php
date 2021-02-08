@@ -24,11 +24,13 @@ class myaccount  extends CI_Controller {
     }
 
     function payment_list(){
-    	$connect = mysqli_connect("localhost","root","","db_oneidnet");
-            // $db_obj = $this->load->module("db_api");
-            $sqlQuery = "SELECT * FROM stripe_payout";
+    	$connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
+            $db_obj = $this->load->module("db_api");
+			$user_acc = "SELECT * FROM `iws_profiles` WHERE profile_id=".$this->user_id();
+			$uacc_res= $db_obj->custom( $user_acc);
+            $sqlQuery = "SELECT * FROM stripe_payout WHERE pay_on_acc='".$uacc_res[0]['s_account']."'";
             if(!empty($_POST["search"]["value"])){
-                $sqlQuery .= ' WHERE (id LIKE "%'.$_POST["search"]["value"].'%" OR pay_name LIKE "%'.$_POST["search"]["value"].'%" OR pay_fees LIKE "%'.$_POST["search"]["value"].'%" OR pay_netamt LIKE "%'.$_POST["search"]["value"].'%")';     
+                $sqlQuery .= ' AND (id LIKE "%'.$_POST["search"]["value"].'%" OR pay_name LIKE "%'.$_POST["search"]["value"].'%" OR pay_fees LIKE "%'.$_POST["search"]["value"].'%" OR pay_netamt LIKE "%'.$_POST["search"]["value"].'%")';     
             }
             if(!empty($_POST["order"]))
             {
@@ -318,9 +320,8 @@ function newcardsadd(){
 
 		}
 	function pendingtransactions(){
-			$data['is_oneidnet_pentranstab_active']="Yes";
-	
-	 $this->load->view("pending_transaction",$data);
+		$data['is_oneidnet_pentranstab_active']="Yes";
+		$this->load->view("pending_transaction",$data);
 
 	}
 
@@ -328,7 +329,9 @@ function newcardsadd(){
 		$data['is_oneidnet_payment_active']="Yes";
 		$user_acc = "SELECT * FROM `iws_profiles` WHERE profile_id=".$this->user_id();
 		$uacc_res= $this->db_api->custom( $user_acc);
+		$data['user_stripe'] = $uacc_res[0]['s_account'];
 		$today = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE DATE(`pay_added_on`) = CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+
 		$data['today']= $this->db_api->custom( $today);
 
 		$yesterday = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE DATE(`pay_added_on`) = DATE_SUB(CURDATE(), INTERVAL 1 DAY) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
@@ -340,16 +343,17 @@ function newcardsadd(){
 		$lastweek = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE WEEKOFYEAR(`pay_added_on`) = WEEKOFYEAR(CURDATE())-1 AND pay_on_acc='".$uacc_res[0]['s_account']."'";
 		$data['lastweek']= $this->db_api->custom( $lastweek);
 
-		$month = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE pay_added_on between DATE_FORMAT(CURDATE() ,'%Y-%m-01') AND CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$month = "SELECT SUM(`pay_netamt`) AS value_sum, pay_curr FROM `stripe_payout` WHERE MONTH(pay_added_on) = MONTH(CURRENT_DATE()) AND YEAR(pay_added_on) = YEAR(CURRENT_DATE()) AND pay_on_acc ='".$uacc_res[0]['s_account']."'";
+		// echo var_dump($month);
 		$data['month']= $this->db_api->custom( $month);
 
 		$lastmonth = "SELECT SUM(pay_netamt) AS value_sum, pay_curr FROM  `stripe_payout` WHERE MONTH(pay_added_on) = MONTH( DATE_SUB(CURDATE(),INTERVAL 1 MONTH )) AND YEAR(pay_added_on) = YEAR( DATE_SUB(CURDATE( ),INTERVAL 1 MONTH )) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
 		$data['lastmonth']= $this->db_api->custom( $lastmonth);
 
-		$year = "SELECT sum(pay_netamt) AS value_sum, pay_curr FROM `stripe_payout` WHERE pay_added_on between  DATE_FORMAT(CURDATE() ,'%Y-01-01') AND CURDATE() AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$year = "SELECT sum(pay_netamt) AS value_sum, pay_curr FROM `stripe_payout` WHERE YEAR(pay_added_on) = YEAR(CURDATE()) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
 		$data['year']= $this->db_api->custom( $year);
 
-		$lastyear = "SELECT sum(pay_netamt) val_sum, pay_curr FROM stripe_payout WHERE YEAR(pay_added_on) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR)) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
+		$lastyear = "SELECT sum(pay_netamt) AS value_sum, pay_curr FROM `stripe_payout` WHERE YEAR(pay_added_on) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR)) AND pay_on_acc='".$uacc_res[0]['s_account']."'";
 		$data['lastyear']= $this->db_api->custom( $lastyear);
 		$this->load->view("payment_history", $data);
 	}

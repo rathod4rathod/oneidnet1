@@ -51,6 +51,52 @@ class products extends CI_Controller {
         $this->load->view('products/myproduct_list', $dev_product_result);
     }
 
+    function products_sale_search_result($searchparam = NULL, $product_name = NULL, $store_id='') {
+        $start = 0;
+        $dbobj = $this->load->module("db_api");
+        $records_per_page = 12; // records to show per page    
+        $page = $this->input->post("p");
+
+        if ($page != "") {
+            //$current_page           =   $page - 1;      
+            $start = $page * $records_per_page;
+        }
+
+        $s_where = "";
+
+        if ($searchparam) {
+            $s_where = $s_where . " prods.product_name like '%" . $searchparam . "%'";
+        }
+        if(!$s_where) {
+            $s_where =" 1 ";
+        }
+        if($store_id!=""){
+            if($product_name != 'NULL'){
+                $s_where.=" AND prods.product_name = '".$product_name."' AND os.store_id_fk=".$store_id;
+            }
+            else
+            {
+                $s_where.=" AND os.store_id_fk=".$store_id;
+            }
+        }
+        $s_where = $s_where . " Group By prods.product_name LIMIT $start,$records_per_page";
+        
+        $s_query = "SELECT oc.category_name,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price, prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image FROM oshop_sales os RIGHT JOIN oshop_products prods on os.store_id_fk = prods.store_id_fk left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk WHERE ".$s_where;
+        // echo var_dump($s_query);
+        $os_products_res = $dbobj->custom($s_query);
+        $store_details=$dbobj->select("*","oshop_stores","store_aid=".$store_id);
+        $store_owner="no";
+        if($store_details[0]["created_by"]===$this->get_UserId()){
+          $store_owner="yes";
+        }
+        $data["products_count"] = $stores_cnt;
+        $data["products_data"] = $os_products_res;
+        $data["store_owner"]=$store_owner;
+        $data["store_code"]=$store_details[0]["store_code"];
+        //echo "<pre>";print_R($os_products_res);echo "</pre>";
+        $this->load->view('products/products_search_result', $data);
+    }
+
     // to get the list of products by Pavani on 01-06-2015
     function products_search_result($catid = NULL, $subcatid = NULL, $itemid = NULL, $searchparam = NULL,$store_id='') {
         $start = 0;
@@ -116,11 +162,8 @@ class products extends CI_Controller {
         }
         $s_where = $s_where . " LIMIT $start,$records_per_page";
         
-        $s_query = "SELECT  oc.category_name,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price,
-        prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image 
-        left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk
-        FROM oshop_filtration_electronics osf 
-        RIGHT JOIN oshop_products prods on osf.product_aid_fk = prods.product_aid WHERE " . $s_where;
+        $s_query = "SELECT oc.category_name,prods.product_name,prods.product_aid,prods.cost_price as price,prods.sale_price, prods.primary_image,prods.secondary_image,prods.tertiary_image,prods.quaternary_image FROM oshop_filtration_electronics osf RIGHT JOIN oshop_products prods on osf.product_aid_fk = prods.product_aid left join oshop_categories oc on oc.category_id_fk=prods.product_category_id_fk WHERE " . $s_where;
+        // echo var_dump($s_query);
         $os_products_res = $dbobj->custom($s_query);
         $store_details=$dbobj->select("*","oshop_stores","store_aid=".$store_id);
         $store_owner="no";
@@ -134,6 +177,8 @@ class products extends CI_Controller {
         //echo "<pre>";print_R($os_products_res);echo "</pre>";
         $this->load->view('products/products_search_result', $data);
     }
+
+
 	function getCategoryId($catid, $subcatid, $itemid) {
 		$dbobj = $this->load->module("db_api");
 		$cQuery = $dbobj->custom("select category_id_fk from oshop_categories WHERE groups like '%".$catid."%' and category_name LIKE '%".$subcatid."%' AND product LIKE '%".$itemid."%'");

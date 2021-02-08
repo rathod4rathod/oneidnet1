@@ -319,7 +319,7 @@
 						  background-color: white;
 						  background-position: 10px 10px; 
 						  background-repeat: no-repeat;
-						  padding: 4px 20px 4px 20px;
+						  padding: 7px 20px 7px 20px;
 						  -webkit-transition: width 0.4s ease-in-out;
 						  transition: width 0.4s ease-in-out;
 					}

@@ -331,14 +331,16 @@
     position: relative;
     cursor: default;
 }
-.dropMenuWrapper.clicknav:after {
+/*.dropMenuWrapper.clicknav:after {
     content: "Menu";
     position: absolute;
     vertical-align: middle;
-    right: 0;
+    right: -7px;
     top: 8px;
     font-size: 18px;
-}
+    z-index: 9;
+    color: white;
+}*/
 
 .dropMenuWrapper {
     min-width: 20px;
@@ -348,15 +350,28 @@
 .dropMenuHead {
     margin: 0;
     min-width: 35px;
-    background-color: #FC0
+    background-color: #FC0;
+    width: 106px;
 }
 
 .dropMenuHead:hover {
     background-color: #777
 }
 
+.dropMenuHead:after {
+    content: "Menu";
+    position: absolute;
+    vertical-align: middle;
+    right: 8px;
+    top: 8px;
+    font-size: 18px;
+    z-index: 9;
+    color: white;
+}
+
 .dropMenuHeadHighlite {
-    background-color: #FC0
+    background-color: #FC0;
+    width: 110px;
 }
 
 .dropMenuIcon {

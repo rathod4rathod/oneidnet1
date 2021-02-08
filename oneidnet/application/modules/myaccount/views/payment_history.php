@@ -1,37 +1,38 @@
 <?php 
 require_once('vendor/autoload.php');
+if($user_stripe){
+  $stripe = new \Stripe\StripeClient('sk_test_51HqXE5IIelCwrUfqj2KqeSuXLlS3qYxU4vdcvN075v37Dl80gjmz0xloua7dMHt09VphfQzaVc0x84MkitxDHNQ000ZbUOc044');
+  $get_transfer = $stripe->transfers->all([
+          'destination' => $user_stripe,
+  ]);
 
-$stripe = new \Stripe\StripeClient('sk_test_51HqXE5IIelCwrUfqj2KqeSuXLlS3qYxU4vdcvN075v37Dl80gjmz0xloua7dMHt09VphfQzaVc0x84MkitxDHNQ000ZbUOc044');
-$get_transfer = $stripe->transfers->all([
-        'destination' => 'acct_1I2E8QRGzZCe2cMZ',
-]);
-
-foreach ($get_transfer as $chargeids) {
-    $ch_data = $stripe->charges->retrieve(
-        $chargeids['source_transaction'],
-        []
-    );
-    $tr_data =$stripe->balanceTransactions->all([
-        'source' => $ch_data['transfer'],
-    ]);
-    if($ch_data && $tr_data){
-        $dbapi=$this->load->module("db_api");
-        $payment_curr = "SELECT * FROM iws_currencies WHERE sc='".$ch_data['currency']."'";
-        $curr_result=$dbapi->custom($payment_curr);
-        $payment_exist = "SELECT * FROM stripe_payout WHERE pay_chid='".$ch_data['id']."'";
-        $exist_result=$dbapi->custom($payment_exist);
-        if($exist_result == 0){
-            $fees = $ch_data['application_fee_amount'] / 100;
-            $netamt = ($ch_data['amount'] / 100) - $fees;
-            $payment_items_fields=array("pay_chid"=>$ch_data['id'],"pay_name"=>$ch_data['billing_details']['name'],"pay_on_acc"=>$ch_data['destination'],"pay_created"=>date('Y-m-d H:i:s', $tr_data['data'][0]['created']),"pay_available"=>date('Y-m-d H:i:s', $tr_data['data'][0]['available_on']),"pay_curr"=>$curr_result[0]['symbol'],"pay_fees"=>$fees,"pay_netamt"=>$netamt);
-            $myacc = $this->load->module('myaccount');
-            foreach ($payment_items_fields as $key => $val) {
-                $payment_items_fields[$key] = $myacc->test_input($payment_items_fields[$key]);
-            }
-            $pay_result=$dbapi->insert($payment_items_fields,"stripe_payout");
-            echo 'inserted';
-        }
-    }
+  foreach ($get_transfer as $chargeids) {
+      $ch_data = $stripe->charges->retrieve(
+          $chargeids['source_transaction'],
+          []
+      );
+      $tr_data =$stripe->balanceTransactions->all([
+          'source' => $ch_data['transfer'],
+      ]);
+      if($ch_data && $tr_data){
+          $dbapi=$this->load->module("db_api");
+          $payment_curr = "SELECT * FROM iws_currencies WHERE sc='".$ch_data['currency']."'";
+          $curr_result=$dbapi->custom($payment_curr);
+          $payment_exist = "SELECT * FROM stripe_payout WHERE pay_chid='".$ch_data['id']."'";
+          $exist_result=$dbapi->custom($payment_exist);
+          if($exist_result == 0){
+              $fees = $ch_data['application_fee_amount'] / 100;
+              $netamt = ($ch_data['amount'] / 100) - $fees;
+              $payment_items_fields=array("pay_chid"=>$ch_data['id'],"pay_name"=>$ch_data['billing_details']['name'],"pay_on_acc"=>$ch_data['destination'],"pay_created"=>date('Y-m-d H:i:s', $tr_data['data'][0]['created']),"pay_available"=>date('Y-m-d H:i:s', $tr_data['data'][0]['available_on']),"pay_curr"=>$curr_result[0]['symbol'],"pay_fees"=>$fees,"pay_netamt"=>$netamt);
+              $myacc = $this->load->module('myaccount');
+              foreach ($payment_items_fields as $key => $val) {
+                  $payment_items_fields[$key] = $myacc->test_input($payment_items_fields[$key]);
+              }
+              $pay_result=$dbapi->insert($payment_items_fields,"stripe_payout");
+              echo 'inserted';
+          }
+      }
+  }
 }
 ?>
 <?php
@@ -59,7 +60,8 @@ $this->templates->paybook_subheader()
             <header class="w3-container" style="background-color: khaki;">
               <h3 style="font-weight: bolder;">Today</h3>
             </header>
-            <?php if($today != null){
+            <?php 
+            if($today[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
                 <p style="color: green;font-weight: bolder;font-size: x-large;">'.$today[0]['pay_curr'].' '.$today[0]['value_sum'].'</p>
               </div>';
@@ -73,14 +75,14 @@ $this->templates->paybook_subheader()
             <header class="w3-container" style="background-color: coral;color: white;">
               <h3 style="font-weight: bolder;">Yesterday</h3>
             </header>
-            <?php if($yesterday != null){
+            <?php if($yesterday[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$yesterday[0]['pay_curr'].' '.$yesterday[0]['value_sum'].'</p>
             </div>';
             }else
             {
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }
             ?>
@@ -89,28 +91,28 @@ $this->templates->paybook_subheader()
             <header class="w3-container" style="background-color: khaki;">
               <h3 style="font-weight: bolder;">This Week</h3>
             </header>
-            <?php if($week != null){
+            <?php if($week[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$week[0]['pay_curr'].' '.$week[0]['value_sum'].'</p>
             </div>';
             }else
             {
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
 
             }?>
             <header class="w3-container" style="background-color: coral;color: white;">
               <h3 style="font-weight: bolder;">Last Week</h3>
             </header>
-            <?php if($lastweek != null){
+            <?php if($lastweek[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$lastweek[0]['pay_curr'].' '.$lastweek[0]['value_sum'].'</p>
             </div>';
             }else
             { 
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }?>
           </div>
@@ -118,27 +120,27 @@ $this->templates->paybook_subheader()
             <header class="w3-container" style="background-color: khaki;">
               <h3 style="font-weight: bolder;">This Month</h3>
             </header>
-            <?php if($month != null){
+            <?php if($month[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$month[0]['pay_curr'].' '.$month[0]['value_sum'].'</p>
             </div>';
             }else
             { 
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }?>
             <header class="w3-container" style="background-color: coral;color: white;">
               <h3 style="font-weight: bolder;">last Month</h3>
             </header>
-            <?php if($lastmonth != null){
+            <?php if($lastmonth[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$lastmonth[0]['pay_curr'].' '.$lastmonth[0]['value_sum'].'</p>
             </div>';
             }else
             { 
                echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }?>
           </div>
@@ -146,27 +148,27 @@ $this->templates->paybook_subheader()
             <header class="w3-container" style="background-color: khaki;">
               <h3 style="font-weight: bolder;">This Year<span style="font-size: 15px"> so far</span></h3>
             </header>
-            <?php if($year != null){
+            <?php if($year[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$year[0]['pay_curr'].' '.$year[0]['value_sum'].'</p>
             </div>';
             }else
             { 
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }?>
             <header class="w3-container" style="background-color: coral;color: white;">
               <h3 style="font-weight: bolder;">Last Year</h3>
             </header>
-            <?php if($lastyear != null){
+            <?php if($lastyear[0]['value_sum'] != null){
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
               <p style="color: green;font-weight: bolder;font-size: x-large;">'.$lastyear[0]['pay_curr'].' '.$lastyear[0]['value_sum'].'</p>
             </div>';
             }else
             {
               echo '<div class="w3-container" style="padding: 1.01em 16px;">
-              <p style="color: green;font-weight: bolder;font-size: x-large;">$ 0.00</p>
+              <p style="color: green;font-weight: bolder;font-size: x-large;">0.00</p>
             </div>';
             }?>
           </div>

@@ -64,22 +64,22 @@ class notification extends CI_Controller {
         }else if($type=="STORE_MESSAGES"){
             $this->store_messages($order_id,$store_id,$status);
         }else if($type=="SALE"){
-            $this->sale_messages($store_id);
+            $this->sale_messages($order_id,$store_id);
         }
     }
 
-    function sale_messages($store_id){
+    function sale_messages($order_id,$store_id){
 
         $dbapi=$this->load->module("db_api");
         $user_id = $this->get_UserId();
         $store_query="SELECT store_name,store_code,store_aid,created_by,sale.os_msg FROM oshop_stores stores INNER JOIN oshop_sales sale ON stores.store_aid=sale.store_id_fk WHERE store_code='".$store_id."'";
         $store_details=$dbapi->custom($store_query); 
-        $su_url="store_home/".$store_id;
+        $su_url="sale_products/".$order_id."/".$store_id;
         $msg = $store_details[0]["os_msg"].' At <b>'.$store_details[0]["store_name"].'</b>.'; 
         
         $frnds_result=$dbapi->select("user_id_fk","oshop_followings","store_id_fk=".$store_details[0]["store_aid"]);
         $frnds_str="";
-        echo var_dump($frnds_result);
+        // echo var_dump($frnds_result);
             if($frnds_result!==0)
             {
                 foreach($frnds_result as $flist){
@@ -88,7 +88,7 @@ class notification extends CI_Controller {
                             "type"=>"SALE",
                             "to_userid"=>$flist["user_id_fk"],
                             "from_userid"=>$user_id,
-                            "entity_id"=>$store_details[0]["store_aid"],
+                            "entity_id"=>$order_id,
                             "store_code"=>$store_details[0]["store_code"],
                             "url"=>$su_url,
                             "msg"=>$msg

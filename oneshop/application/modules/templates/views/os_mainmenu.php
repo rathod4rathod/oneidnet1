@@ -8,7 +8,8 @@
         <div class="cssmenu">
             <ul>
                 <li class='active has-sub'>
-                    <a href='#'><span class="dropMenuHead">
+                    <a href='#'>
+                        <span class="dropMenuHead">
                            <!-- <span class="dropMenuIcon"></span>-->
                             <i class="fa fa-navicon"></i>
                             <h4 class="menuTitle"></h4>
@@ -34,7 +35,7 @@
         </div>
     </div>
 
-    <div class="subHeaderMenu navbar">
+    <div class="subHeaderMenu navbar" style="float: left;">
         <ul>
 
 

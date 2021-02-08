@@ -34,9 +34,6 @@ if (!isset($_SESSION)) {
         <script src="<?php echo base_url() . 'assets/scripts/danish_pbar.js' ?>" type="text/javascript" charset="utf-8"></script>
         <link href="<?php echo base_url() . 'assets/css/jquery.tokenize.css' ?>" rel="stylesheet" type="text/css">
         <script src="<?php echo base_url() . 'assets/scripts/jquery.tokenize.js'; ?>" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
 <!--  -->
 
         <script type="text/javascript">

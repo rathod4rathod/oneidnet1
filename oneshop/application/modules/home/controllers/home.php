@@ -136,6 +136,7 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $data["subcatid"] = $subcatid;
         $data["itemid"] = $itemid;
         $store_query = "SELECT os.*, op.name as package_name, ore.renewed_on,op.price,ore.period_in_months, ore.expired_on, ore.total_orders, ore.total_products, ore.total_cancellation_products FROM oshop_stores os LEFT JOIN oshop_packages op ON os.current_package_id_fk = op.package_id LEFT JOIN oshop_store_renewals_info ore ON os.store_aid = ore.store_id_fk WHERE os.store_code = '" . $storeid . "'";
+        // echo var_dump($store_query);
         $store_res = $this->db_api->custom($store_query);
         $data["store_details"] = $store_res;
         $data["group"] = $store_res[0]['store_category'];
@@ -176,6 +177,28 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $data['store_details'] = $stores_result;
 
         $this->load->view("home/store_products", $data);
+    }
+
+    function store_sale_products($rec_id = null,$store_id = NULL) {
+        // echo var_dump($store_id);
+        $stores_result = $this->getStoreDetails($store_id);
+        $store_name = $stores_result[0]["store_name"];
+        $data["title"] = 'Store products to buy products online|oneidnet.com';
+        $data["meta_description"] = 'Store Sale products in oneshop';
+        $data["meta_keywords"] = 'Store Sale products in oneshop';
+        $data["store_id"] = $store_id;
+        $data["catagories"] = $this->os_category_list();
+        $data["store_code"] = $store_id;
+        $data['store_details'] = $stores_result;
+        $dbobj = $this->load->module("db_api");
+        $pname = "SELECT * FROM oshop_sales WHERE rec_aid = ".$rec_id." AND store_id_fk=".$stores_result[0]["store_aid"];
+        // echo var_dump($pname);
+        $pname_res = $dbobj->custom($pname);
+        $parray = explode(', ',trim($pname_res[0]['os_products'],","));
+        // echo var_dump($parray);
+        $data['product'] = $parray;
+
+        $this->load->view("home/store_sale_product", $data);
     }
 
     function product_view($product_name) {
@@ -410,8 +433,9 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
 
     function productlist(){
         $connect = mysqli_connect("localhost","root","Admin@2020","db_oneidnet");
-        $sql="SELECT product_name FROM oshop_products as op inner join  oshop_stores as oshs  on oshs.store_aid = op.store_id_fk WHERE product_name LIKE '%".$_GET['query']."%'
-            LIMIT 10";
+        $searchTerm = $_GET['term'];
+        $scode = $_GET['store'];
+        $sql="SELECT product_name FROM oshop_products as op inner join  oshop_stores as oshs  on oshs.store_aid = op.store_id_fk WHERE store_code='".$scode."' AND product_name LIKE '%".$searchTerm."%' ORDER BY product_name ASC LIMIT 10";
         $result = mysqli_query($connect,$sql);
         // echo var_dump($result);
         while($row = mysqli_fetch_array($result)){
