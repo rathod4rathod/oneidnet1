@@ -22,7 +22,7 @@ if($products_data!=0) {
 		  $store_url = base_url() . "home/mystore_profile_page/" . $rows['store_id'];
 		  $product_url=  base_url()."product_detail_view/".$rows['store_code']."/".$rows["product_code"];
 		?>
-                <div class="oneshop_products_storebox" style="width: 25%">
+                <div class="oneshop_products_storebox mystoreProduct" style="width: 25%">
                     <div class="oneshop_products_storeboxtop_div" id="product_div<?php echo $rows['product_aid']?>"> 
                         <?php
                             if($cart_cnt==0){

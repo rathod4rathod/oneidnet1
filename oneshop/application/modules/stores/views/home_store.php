@@ -299,21 +299,39 @@ function onLinkedInAuth() {
             </div>
     <?php if($store_details[0]['is_active']==1){ ?>
 
-    <div class="wi100pstg fll">
+    <div class="wi100pstg fll social-icons">
       <div id="fb-root"></div>
-      <a href="#" onclick="nregister();">
-        <img width="9%" src="https://oneshop.oneidnet.com/assets/images/fb-invite.png">
+      <a href="#" onclick="nregister();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/facebook-icon.png">
       </a>
       <!-- <iframe  id="invite-iframe" width="100%" height="100%" frameborder="0" allowfullscreen></iframe> -->
-      <a href="#" onclick="nregisterwhatsapp();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/wa-invite.png"></a>
-      <a href="#" onclick="nregistertwitter();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/tw-invite.png"></a>
-      <a href="#" onclick="nregisterviber();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/vb-invite.png"></a>
-      <a href="#" onclick="nregisterlinkedin();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/li-invite.png"></a>
-      <a href="#" onclick="nregisterskype();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/sk-invite.png"></a>
-      <a href="#" onclick="nregistergmail();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/gm-invite.png"></a>
-      <a href="#" onclick="nregisteroutlook();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/ol-invite.png"></a>
-      <a href="#" onclick="nregisteryahoo();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/yh-invite.png"></a>
-      <a href="#" onclick="nregisteraol();"><img width="9%" src="https://oneshop.oneidnet.com/assets/images/ao-invite.png"></a>
+      <a href="#" onclick="nregisterwhatsapp();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/whatsapp-icon.png">
+      </a>
+      <a href="#" onclick="nregistertwitter();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/twitter-icon.png">
+      </a>
+      <a href="#" onclick="nregisterviber();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/viber-icon.png">
+      </a>
+      <a href="#" onclick="nregisterlinkedin();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/linkedin-icon.png">
+      </a>
+      <a href="#" onclick="nregisterskype();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/skype-icon.png">
+      </a>
+      <a href="#" onclick="nregistergmail();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/mail-icon.png">
+      </a>
+      <a href="#" onclick="nregisteroutlook();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/outlook-icon.png">
+      </a>
+      <a href="#" onclick="nregisteryahoo();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/yaho-icon.png">
+      </a>
+      <a href="#" onclick="nregisteraol();" class="icon">
+        <img src="<?php echo base_url() . "assets/"; ?>images/icons/aol-icon.png">
+      </a>
       <!-- <script type="IN/Login"></script> -->
     <div class="packagedat_admin store-view">
     <p class="bold fll"> STORE OVERVIEW </p>
@@ -488,6 +506,79 @@ function onLinkedInAuth() {
     }
     ?>
     </div>
+
+    <div class="wi100pstg mat20 fll">
+
+<div class="packagedat_admin">
+<p class="bold fll"> License Registration  </p>
+</div>
+<table>
+        <?php if($store_details[0]["register_number"] != ""){ ?>
+         <tr>
+              <td>Registration Number</td>
+              <td><span id="register_number_name_disp_span" style="display: inline;">
+                    <p class="fs14 fll bold"> <?php echo ($store_details[0]["register_number"] !='')?$store_details[0]["register_number"]:'No Data';?> </p>
+                </span>
+           </td>
+           <td>Registration Expiration Date</td>
+           <td> <?php if($store_details[0]["registration_expiration_date"] != ""){ ?>
+                <span id="registration_expiration_date_name_disp_span" style="display: inline;">
+                    <p class="fs14 fll bold"> <?php echo ($store_details[0]["registration_expiration_date"] != '0000-00-00')?date('d-m-Y',strtotime($store_details[0]["registration_expiration_date"])):'No Data';?> </p>
+                </span>            
+            <?php
+            }
+            ?>
+            </td>
+           
+        </tr>           
+        <?php } ?>
+        
+        <?php
+                if($store_details[0]["Country_of_issue"] != ""){
+        ?>
+            <tr>
+                <td>Country of Issue</td>
+                <td>
+                   
+                    <p class="fs14 fll bold"> 
+                <?php echo $this->home->getCountryStateCityName($store_details[0]["Country_of_issue"],'iws_countries_info')[0]['country_name']; ?> </p>
+                </td>
+                <?php
+                if($store_details[0]["State_of_issue"] != ""){
+        ?>
+                <td>State of Issue</td>
+                <td>
+                <p class="fs14 fll bold">
+                    <?php echo $this->home->getCountryStateCityName($store_details[0]["State_of_issue"],'global_states_info')[0]['state_name']; ?> </p>
+                </p>
+                </td>
+          
+            <?php
+            }
+            ?>
+            </tr>
+            <?php
+                }
+                ?>
+                
+                   <?php
+                if($store_details[0]["City_of_issue"] != ""){
+        ?>
+            <tr>
+                <td>City of Issue</td>
+                <td>    
+                <p class="fs14 fll bold"> 
+                    <?php echo $this->home->getCountryStateCityName($store_details[0]["City_of_issue"],'global_cities_info')[0]['city_name']; ?> </p>              
+                </p>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <?php
+            }
+            ?>
+        </table>
+</div>
 
 
     <div class="wi100pstg fll mat30">

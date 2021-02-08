@@ -343,7 +343,7 @@
         margin-left: 5px;
     }
     body .oneshop_left_newcontainer .oneshop_products_storebox {
-        height: 230px;
+        height: 240px;
         padding: 1%;
         width: 29%;
     }
@@ -371,7 +371,7 @@
         border: 1px solid #fc0;
     }
     body .oneshop_left_newcontainer .homepage-store .oneshop_products_storebox {
-        height: 220px;
+        height: 230px;
         box-shadow: none;
         padding: 0;
         width: 31%;
@@ -380,10 +380,313 @@
         height: 110px;
         width: 110px;
         object-fit: contain;
-        object-position: bottom;
+        object-position: center;
+    }
+    div.oneshop_myFindStoreItem {
+        background: transparent;
+        border-radius: 4px;
+        width: 20%;
     }
     body .oneshop_banner1_data_box {
         padding-left: 10px;
+    }
+    body #searchparam {
+        float: right;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        margin: 12px 10px 0 0 !important;
+        width: 150px;
+        height: 30px;
+    }
+    body .oneshop_products_storebox_bottomdiv {
+        text-align: left;
+        background: #fc0;
+    }
+    body .oneshop_products_storebox_bottomdiv a {
+        white-space: nowrap;
+        width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: top;
+        text-align: left;
+    }
+    body .oneshop_products_storebox.mystoreProduct .oneshop_setting_icon {
+        border-radius: 0;
+        right: 0;
+    }
+    body #searchparam:focus {
+        outline: none;
+    }
+    body #store_follow_p input {
+        background: #fc0;
+        color: #fff;
+    }
+    body #store_follow_p {
+        display: block;
+        border-radius: 4px;
+    }
+    /* body .oneshop_banner1_data_box.header_logo {
+        background: #2f28b4;
+    } */
+    body .banner_rightside_box {
+        margin-right: 10px;
+    }
+    body .oneshop_left_newcontainer table td {
+        font-size: 15px;
+    }
+    .oneshop_products_storeboxtop_div img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+    div.oneshop_menuicon_div {
+        width: 100px;
+        height: auto;
+        text-align: center;
+        overflow: visible;
+        background: #fc0;
+        padding: 1px 10px 2px !important;
+        position: relative;
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        line-height: 100%;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25px;
+    }
+    div.oneshop_menuicon_div:before, 
+    div.oneshop_menuicon_div:after {
+        content: "";
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: #fc0 #fc0 transparent transparent;
+        border-width: 14px 15px;
+    }
+    div.oneshop_menuicon_div:hover:before {
+        border-color: #00002d #00002d transparent transparent;
+    }
+    div.oneshop_menuicon_div:hover {
+        background: #00002d;
+        color: #fff;
+    }
+    div.oneshop_menuicon_div:hover:after {
+        border-color: transparent transparent #00002d #00002d;
+    }
+    div.oneshop_menuicon_div i {
+        margin-left: 4px;
+    }
+    div.oneshop_menuicon_div:after {
+        transform: rotate(90deg);
+        left: auto;
+        right: -28px;
+        border-color: transparent transparent #fc0 #fc0;
+        top: 0;
+        border-width: 14px 14px;
+    }
+    .oneshop_container_middle_section select,.store_mainwrap .hasDatepicker {
+        border: 1px solid #ccc;
+        width: 140px;
+        padding: 5px 10px;
+        text-transform: capitalize;
+        color: #000;
+        outline: none;
+    }
+    .store_mainwrap .hasDatepicker {
+        width: 90px;
+        height: 25px;
+        padding: 0 10px;
+    }
+    .oneshop_container_middle_section span {
+        font-size: 14px;
+    }
+    .ttdes_flight_edit_box input {
+        border: 1px solid #ccc;
+        outline: none;
+        padding: 4px 10px;
+        cursor: pointer;
+    }
+    .oneshop_container_middle_section select.oneshop_cartquantity {
+        padding: 0;
+    }
+    .store_mainwrap .ttdes_flight_edit_box {
+        display: flex;
+        justify-content: center;
+    }
+    .ttdes_flight_edit_box input[value="Edit"] {
+        background-color: skyblue;
+        color: #000;
+    }
+    .ttdes_flight_edit_box input[value="Save"] {
+        background-color: #07af07;
+    }
+    .ttdes_flight_edit_box input[value="Edit"] {
+        background-color: skyblue;
+        color: #000;
+    }
+    /*oneshop, net pro, cv bank,find it, is news, one network*/
+    .subHeaderMenu.navbar {
+        float: left;
+    }
+    .dropMenuWrapper {
+        width: 100px;
+        padding-left: 0;
+        margin: 5px 0 0px 0;
+        position: relative;
+        cursor: default;
+    }
+    .dropMenuWrapper:after {
+        content: "Menu";
+        position: absolute;
+        vertical-align: middle;
+        right: 0;
+        top: 8px;
+        font-size: 18px;
+    }
+
+    .click_importantNotifications .menu:after {
+        position: absolute;
+        content: "Menu";
+        top: 11px;
+        right: -55px;
+        font-size: 18px;
+    }
+    .oneshop_services_store_menu_wrap {
+        margin-left: 60px;
+    }
+    .dropMenuWrapper .dropMenuHead {
+        margin-left: 5px;
+    }
+    .subHeader .subHeaderMenu {
+        margin-left: 70px;
+        margin-top: -3px;
+    }
+    .click_importantNotifications .menu:after {
+        top: 10px;
+        right: -45px;
+    }
+
+    /*co-office*/
+    .click_importantNotifications .menu:after {
+        position: absolute;
+        content: "Menu";
+        top: 15px;
+        right: -60px;
+        font-size: 18px;
+    }
+
+
+    .store_mainwrap .oneshop_left_paybook select {
+        width: 100%;
+        display: block;
+        height: 40px;
+        outline: none;
+    }
+    .store_mainwrap .oneshop_left_paybook p {
+        float: none !important;
+    }
+    .paybook-details {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .store_mainwrap .oneshop_right_stripe .oneshop_specifiedselect_new {
+        height: 40px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+    .store_mainwrap .oneshop_left_paybook span {
+        margin-bottom: 6px;
+        display: block;
+        font-size: 14px;
+    }
+    div.oneshop_container_middle_section p {
+        font-size: 14px;
+    }
+    .store_mainwrap .oneshop_left_paybook input {
+        font-family: Arial;
+        outline: none;
+    }
+    .oneshop_container_middle_section .ttdes_flightsearch_topheadings_box {
+        background: #ccc;
+    }
+    div.oneshop_container_middle_section {
+        margin-bottom: 20px;
+    }
+    .oneshop_container_sectionnew .store_mainwrap {
+        margin: 30px 3% 0 3%;
+    }
+    .notificationContent .click_friendRequest .np_messages_leftimagediv {
+        margin-right: 10px;
+    }
+    .notificationContent .click_friendRequest {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        margin: 0;
+    }
+    .settingsWrapper .settingsContent ul li img {
+        height: 16px;
+        width: 16px;
+        margin: 8px 4px 5px 8px;
+    }
+    .settingsWrapper .settingsContent ul li p {
+        font-size: 15px;
+        margin: 7px 0 0 5px;
+    }
+    .oneshop_myFindStoreDetailSection .oneshop_storeViewBtn {
+        cursor: pointer;
+        outline: none;
+        border-radius: 4px;
+    }
+    .oneshop_myFindStoreDetailSection .oneshop_storeViewBtn:hover {
+        background: #0070bb;
+        color: #fff;
+        border-radius: 4px;
+    }
+    .searchSuggessions ul li img {
+        margin: 4px 10px 10px 0;
+    }
+    .oneshop_myFindStoreDetailSection a h3 {
+        color: #000;
+        font-weight: bold;
+    }
+    div.np_messages_rightcontentmaindiv p span {
+        margin-right: 5px;
+    }
+    div.np_messages_imageandtext_wrapper ul li {
+        margin-left: 5px;
+        display: flex;
+    }
+    div.np_messages_imageandtext_wrapper .os_des_borderbottom .np_des_mat5 a {
+        margin-left: 5px;
+    }
+    .social-icons .icon img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .social-icons .icon {
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 10px;
+        transform: scale(0.90);
+        filter: grayscale(100);
+        transition: all 0.5s linear;
+    }
+    .social-icons .icon:hover {
+        transform: scale(1);
+        filter: grayscale(0);
     }
     /* Happy Css */
     
@@ -6967,11 +7270,13 @@ height: 50px*/
         }
         body .myproduct .oneshop_products_storebox_bottomdiv .view-btn {
             border: 1px solid #878787;
-            font-size: 11px;
-            padding: 4px 8px;
+            font-size: 10px;
+            padding: 4px 2px;
             float: right;
             border-radius: 4px;
             line-height: 1.5;
+            width: 65px;
+            text-align: center;
         }
         a.view-btn {
             display: none;

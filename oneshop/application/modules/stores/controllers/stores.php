@@ -554,6 +554,7 @@ class stores extends CI_Controller {
 
     //Edit store form update action function
     function stores_updation() {
+        // print_r($_REQUEST);  die;
 //edited by mitesh - store updation for currency & store_name;
         //All POST fields applied strip tags
         //$_REQUEST = array_map('strip_tags', $_REQUEST);
@@ -580,6 +581,8 @@ class stores extends CI_Controller {
         $enquiry_number = $_REQUEST["enquiry_number"];
         $timezone=$_REQUEST["store_timezone"];
         $service_email=$_REQUEST["service_email"];
+        $register_number=$_REQUEST["register_number"];
+        $registration_expiration_date=$_REQUEST["registration_expiration_date"];
         $store_services = array();
         foreach ($_REQUEST as $key => $val) {
           if($key!="right_services"){
@@ -620,16 +623,19 @@ class stores extends CI_Controller {
                 "store_privacy_policy = '" . addslashes($store_privacy_policy) . "', " .
                 "store_cancellation_policy = '" . addslashes($store_cancellation_policy) . "', " .
                 "store_security_policy = '" . addslashes($store_security_policy) . "', " .
-                "store_damage_policy = '" . addslashes($store_damage_policy) . "', " .
+                // "store_damage_policy = '" . addslashes($store_damage_policy) . "', " .
                 "store_return_policy = '" . addslashes($store_return_policy) . "', " .
                 "store_agreement = '" . addslashes($store_agreement) . "', " .
-                "store_del_policy = '" . addslashes($store_del_policy) . "', " .
-                "crd_policy = '" . addslashes($crd_policy) . "', " .
+                // "store_del_policy = '" . addslashes($store_del_policy) . "', " .
+                // "crd_policy = '" . addslashes($crd_policy) . "', " .
                 "currency = '" . addslashes($currency) . "', " .
                 "enquiry_number = '" . addslashes($enquiry_number) . "', " .
                 "delivery_mode = '" . addslashes($delivery_mode) . "', ".
+                "register_number = '" . addslashes($register_number) . "', ".
+                "registration_expiration_date = '" . addslashes($registration_expiration_date) . "', ".
                 " services='" . $servicesStr . "',timezone='".$timezone."',enquiry_email='".$service_email."' WHERE store_aid = '" . $store_id . "'";
-              $result=$this->db_api->custom($updStoreSql);
+            //  echo $updStoreSql; die;
+                $result=$this->db_api->custom($updStoreSql);
               if($result==0) echo "Updated Successfully";
     }
 
@@ -655,17 +661,33 @@ class stores extends CI_Controller {
                 "enquiry_email" => $_REQUEST["Service_Email"], "timezone" => $_REQUEST["Time_Zone"], "delivery_mode" => $_REQUEST["Sdelivery_mode"],
                 "created_by" => $id, "current_package_id_fk" => $_REQUEST["package_type_selected"], "currency" => $_REQUEST["Currency"]
             );*/
+            // $a_data = array(
+            //     "store_name" => addslashes($_REQUEST["store_name"]),"address"=>$_REQUEST["store_address"],
+            //     "city" => $_REQUEST['City'], "state" => $_REQUEST['State'], "country" => $_REQUEST["Country"], "store_category" => $_REQUEST["Category"],
+            //     "zip_code" => $_REQUEST["Zip_code"], "created_by" => $id, "current_package_id_fk" => $_REQUEST["package_type_selected"], "currency" => $_REQUEST["Currency"]
+            // );
             $a_data = array(
-                "store_name" => addslashes($_REQUEST["store_name"]),"address"=>$_REQUEST["store_address"],
-                "city" => $_REQUEST['City'], "state" => $_REQUEST['State'], "country" => $_REQUEST["Country"], "store_category" => $_REQUEST["Category"],
-                "zip_code" => $_REQUEST["Zip_code"], "created_by" => $id, "current_package_id_fk" => $_REQUEST["package_type_selected"], "currency" => $_REQUEST["Currency"]
+                "store_name" => addslashes($_REQUEST["store_name"]),
+                "address"=>$_REQUEST["store_address"],
+                "city" => $_REQUEST['City'], 
+                "state" => $_REQUEST['State'], 
+                "country" => $_REQUEST["Country"], 
+                "store_category" => $_REQUEST["Category"],
+                "zip_code" => $_REQUEST["Zip_code"], 
+                "created_by" => $id,
+                "current_package_id_fk" => $_REQUEST["package_type_selected"], 
+                "register_number" => $_REQUEST["register_number"],
+                "Country_of_issue" => $_REQUEST["Country_of_issue"],
+                "State_of_issue" => $_REQUEST["State_of_issue"],
+                "City_of_issue" => $_REQUEST["City_of_issue"],
+                "registration_expiration_date" => $_REQUEST["registration_expiration_date"]
             );
             foreach ($a_data as $key => $val) {
                 $a_data[$key] = $this->test_input($a_data[$key]);
             }
 
             $result_arry = array();
-            $status;
+            // $status;
             if (strlen($store_name) == 0) {
                 $result_arry['osdev_store_name'] = "error";
             }
@@ -685,6 +707,22 @@ class stores extends CI_Controller {
             if ((strlen($_REQUEST["Zip_code"]) == 0) || (strlen($_REQUEST["Zip_code"]) < 3)) {
                 $result_arry['osdev_Zipcode'] = "error";
             }
+            if (strlen($_REQUEST["register_number"]) == 0) {
+                $result_arry['osdev_register_number'] = "error";
+            }
+            if (strlen($_REQUEST["registration_expiration_date"]) == 0) {
+                $result_arry['osdev_registration_expiration_date'] = "error";
+            }
+            if (strlen($_REQUEST["Country_of_issue"]) == 0) {
+                $result_arry['osdev_Country_of_issue'] = "error";
+            }
+            if (strlen($_REQUEST["State_of_issue"]) == 0) {
+                $result_arry['osdev_State_of_issue'] = "error";
+            }
+            if (strlen($_REQUEST["City_of_issue"]) == 0) {
+                $result_arry['osdev_City_of_issue_error'] = "error";
+            }
+            
 //            if ((strlen($_REQUEST["Enquiry_mobile_number"]) == 0) || strlen($_REQUEST["Enquiry_mobile_number"]) < 8) {
 //                $result_arry['osdev_Enquirymobilenumber'] = "error";
 //            }

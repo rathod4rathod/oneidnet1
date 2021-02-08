@@ -66,19 +66,16 @@ $this->templates->os_mainmenu("find_stores");
             <input class="input" type="text" name="name_on_card" id="name_on_card" placeholder="Name on card"/>
         </div>
         <div class="fll wi100pstg pab5 mab10">
-            <p class="overflow fll" style="margin-right: 40px;"><span class="fll mar10 lh20"> Expiration Date: </span> 
-                    <br />
-            <input class="input" type="text" onfocus="removeerror(this.id)" name="expiry_month" id="expiry_month" placeholder="mm" style="width:40px;text-align: center;" maxlength = "2"/> / <input type="text" class="input" name="expiry_year" id="expiry_year" onfocus="removeerror(this.id)" placeholder="yy" style="width:50px;text-align: center;" maxlength = "2"/>
-
-            <p class="overflow fll"><span class="fll mar10 lh20"> CVV: </span> 
-                    <br />
-            <input type="text" class="input" name="cvv" id="cvv" placeholder="CVV" style="width:60px" onfocus="removeerror(this.id)"/>
+            <div class="paybook-details">
+                <p class="overflow" ><span class="fll mar10 lh20"> Expiration Date: </span> </p>
+                <input class="input" type="text" onfocus="removeerror(this.id)" name="expiry_month" id="expiry_month" placeholder="mm" style="width:40px;text-align: center;" maxlength = "2"/> / <input type="text" class="input" name="expiry_year" id="expiry_year" onfocus="removeerror(this.id)" placeholder="yy" style="width:50px;text-align: center;" maxlength = "2"/>
+            </div>    
+            <div class="paybook-details">
+                <p class="overflow"><span class="fll mar10 lh20"> CVV: </span> </p>
+                <input type="text" class="input" name="cvv" id="cvv" placeholder="CVV" style="width:60px" onfocus="removeerror(this.id)"/>
+            </div>
         </div>
-        <div class="fll wi100pstg pab5 mab10">
-
-        </div>
-        
-            <div class="oneshop_paybook_yesorno_buttons mat20 clearfix">
+        <div class="oneshop_paybook_yesorno_buttons clearfix">
                <input type="button" value="Save" class="np_des_checkout_btn" name="button" id="save_card"> 
                <!-- <input type="button" value="Cancel" class="np_des_checkout_btn" name="button" id="cancel_card"> -->
             </div>

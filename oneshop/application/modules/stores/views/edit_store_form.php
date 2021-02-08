@@ -6,7 +6,7 @@ if(count($store_categories) > 0){
         $primaryStoreCategory[] = $catKey;
     }
 }
-
+$this->load->module("home");
 //All services Array
 $servicesArr = $store_all_services;
 ksort($servicesArr);
@@ -254,7 +254,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                 <span id="secure_policy_disp_span" style="display: inline;">
                     <?php if($store_details[0]["store_security_policy"] != "") {?>
                     <div style="overflow-y: scroll;height: 100px; "><p class="fs14 fll bold"> <?php echo $store_details[0]["store_security_policy"];?></p></div>
-                    <?php}else{?>
+                    <?php }else{?>
                         <p class="fs14 fll bold"> <?php echo $store_details[0]["store_security_policy"];?></p>
                     <?php } ?>
                 </span>
@@ -270,7 +270,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                 <span id="rtn_policy_disp_span" style="display: inline;">
                     <?php if($store_details[0]["store_return_policy"] != "") {?>
                     <div style="overflow-y: scroll;height: 100px; "><p class="fs14 fll bold"> <?php echo $store_details[0]["store_return_policy"];?></p></div>
-                    <?php}else{?>
+                    <?php }else{?>
                         <p class="fs14 fll bold"> <?php echo $store_details[0]["store_return_policy"];?></p>
                     <?php }?>
                 </span>
@@ -367,6 +367,83 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <br />
         <br />
 
+        <div id="grad"><strong><u>License Registration </u></strong></div>
+        <br />
+        <table>
+        <?php if($store_details[0]["register_number"] != ""){ ?>
+         <tr>
+              <td>Registration Number</td>
+              <td><span id="register_number_name_disp_span" style="display: inline;">
+                    <p class="fs14 fll bold"> <?php echo $store_details[0]["register_number"];?> </p>
+                </span>
+            <span id="register_number_name_ta_span" style="display: none;">
+                    <p><input type="text" name="register_number" id="register_number" value="<?php echo $store_details[0]["register_number"];?>"></p>
+                </span></td>
+              <td><a href="javascript:edit_element_details('register_number');"> Edit </a></td>
+        </tr>           
+            <?php } ?>
+            <?php if($store_details[0]["registration_expiration_date"] != ""){ ?>
+                <tr>
+              <td>Registration Expiration Date</td>
+              <td><span id="registration_expiration_date_name_disp_span" style="display: inline;">
+                    <p class="fs14 fll bold"> <?php echo date('d-m-Y',strtotime($store_details[0]["registration_expiration_date"]));?> </p>
+                </span>
+            <span id="registration_expiration_date_name_ta_span" style="display: none;">
+                    <p><input type="date" name="registration_expiration_date" id="registration_expiration_date" value="<?php echo $store_details[0]["registration_expiration_date"];?>"></p>
+                </span></td>
+              <td><a href="javascript:edit_element_details('registration_expiration_date');"> Edit </a></td>
+      
+            <?php
+            }
+            ?>
+                   <?php
+                if($store_details[0]["Country_of_issue"] != ""){
+        ?>
+            <tr>
+                <td>Country of Issue</td>
+                <td>
+                   
+                    <p class="fs14 fll bold"> 
+                <?php echo $this->home->getCountryStateCityName($store_details[0]["Country_of_issue"],'iws_countries_info')[0]['country_name']; ?> </p>
+                </td>
+                <td></td>
+            </tr>
+            <?php
+                }
+                ?>
+                   <?php
+                if($store_details[0]["State_of_issue"] != ""){
+        ?>
+            <tr>
+                <td>State of Issue</td>
+                <td>
+                <p class="fs14 fll bold">
+                    <?php echo $this->home->getCountryStateCityName($store_details[0]["State_of_issue"],'global_states_info')[0]['state_name']; ?> </p>
+                </p>
+                </td>
+                <td></td>
+            </tr>
+            <?php
+            }
+            ?>
+                   <?php
+                if($store_details[0]["City_of_issue"] != ""){
+        ?>
+            <tr>
+                <td>City of Issue</td>
+                <td>    
+                <p class="fs14 fll bold"> 
+                    <?php echo $this->home->getCountryStateCityName($store_details[0]["City_of_issue"],'global_cities_info')[0]['city_name']; ?> </p>              
+                </p>
+                </td>
+                <td></td>
+            </tr>
+            <?php
+            }
+            ?>
+        </table>
+        <br />
+        <br />
         <div id="grad"><strong><u>OTHER STORE DETAILS</u></strong></div>
         <br />
         <table>

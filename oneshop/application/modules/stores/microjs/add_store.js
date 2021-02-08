@@ -235,7 +235,7 @@ function cancel_edit(){
 
 function edit_element_details(obj){
 //<!--Edited by mitesh - edit element for currency & store_name editable -->
-      //alert(obj);
+    //   alert(obj);
      $("#save_span_top").css("display", "inline");
      $("#save_span").css("display", "inline");
      if(obj == "store_logo"){
@@ -263,9 +263,15 @@ function edit_element_details(obj){
        $("#tzone_ta_span").css("display", "inline");
        $("#tzone_disp_span").css("display", "none");
      }else if(obj=="store_name"){
-       $("#name_ta_span").css("display", "inline");
-       $("#name_disp_span").css("display", "none");
-     }else if(obj=="currency"){
+        $("#name_ta_span").css("display", "inline");
+        $("#name_disp_span").css("display", "none");
+      }else if(obj=="register_number"){
+       $("#register_number_name_ta_span").css("display", "inline");
+       $("#register_number_name_disp_span").css("display", "none");
+     }else if(obj=="registration_expiration_date"){
+        $("#registration_expiration_date_name_ta_span").css("display", "inline");
+        $("#registration_expiration_date_name_disp_span").css("display", "none");
+      }else  if(obj=="currency"){
        $("#curr_ta_span").css("display", "inline");
        $("#curr_disp_span").css("display", "none");
      }else if(obj=="store_security_policy"){

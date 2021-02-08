@@ -313,7 +313,7 @@ if($theme_selected!=''){
 						<p class="wi100pstg fs11 red clearfix jsError" id="osdev_DiscountError"> Please Enter Valid Discount </p>
 					</div>
                     <div class="oneshop_fieldsbox">
-					<div class="" style="width: 45%;">
+					<div class="" style="width: 45%; float: left;">
 							<label> Warranty Type </label>
 							<div class="wi100pstg select" id="warranty_type1">
 								<select class="oneshop_selectbox_field" name="warranty_type" id="warranty_type">
@@ -325,7 +325,7 @@ if($theme_selected!=''){
 							</div>                      
 							<p class="wi100pstg fs11 red clearfix jsError" id="warranty_typeError"> Please Select Warranty Type</p>
 						</div>
-						<div class="" style="width: 45%; float: right; margin-top: -23px;">
+						<div class="" style="width: 45%; float: right;">
 							<label> Warranty (in Months,Days and Years)  </label>
 							<div class="wi100pstg">
 								<input type="text" placeholder="1  Months or 1 Days or 1 Years any one) " name="Warranty" id="osdev_warrenty" class="input">

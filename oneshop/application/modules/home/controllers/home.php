@@ -343,7 +343,25 @@ where  store_id_fk in(SELECT  store_id_fk  FROM `oshop_followings` where user_id
         $country_result = $db_obj->select($myfields, $mytable, $where);
         return $country_result;
     }
-
+     //05-02-2021 by Rajesh Rathod: this function return the state name
+     function getCountryStateCityName($id,$tablename) {
+        $db_obj = $this->load->module("db_api");
+        if($tablename == 'iws_countries_info'){
+            $myfields = "country_name";
+            $where = "country_id='$id'";
+        }
+        if($tablename == 'global_states_info'){
+            $myfields = "state_name";
+            $where = "state_id='$id'";
+        }
+        if($tablename == 'global_cities_info'){
+            $myfields = "city_name";
+            $where = "city_id='$id'";
+        }
+        
+        $state_result = $db_obj->select($myfields, $tablename, $where);
+        return $state_result;
+    }
     //05-06-2015 by venkstesh: this function return the state information based on country id
     function state_info_basedon_countryid($country_id) {
         $db_obj = $this->load->module("db_api");
